@@ -5,9 +5,9 @@ export default function Layout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="flex w-full h-full">
-      <div>
-        <nav className="flex flex-col gap-4 p-4 bg-gray-800 text-white h-screen">
-          <h1 className="text-2xl font-bold">Tagged PDF School Atributes</h1>
+      <div className="h-screen overflow-y-auto bg-gray-800 text-white">
+      <nav className="flex flex-col gap-4 p-4">
+          <h1 className="text-2xl font-bold text-[hsl(22,100%,70%)]">Tagged PDF School Atributes</h1>
           {
             data.attributes.map((attr) => (
               <a
