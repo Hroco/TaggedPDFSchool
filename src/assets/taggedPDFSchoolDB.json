@@ -1,4 +1,150 @@
 {
+    "attributes": [
+      {
+        "name": "Placement",
+        "description": "Specifies how the element is placed relative to surrounding content (e.g., block-level or inline flow)."
+      },
+      {
+        "name": "WritingMode",
+        "description": "Defines the direction of text flow (e.g., left-to-right, right-to-left, or vertical)."
+      },
+      {
+        "name": "BackgroundColor",
+        "description": "Sets the background color for the element’s content area."
+      },
+      {
+        "name": "BorderColor",
+        "description": "Specifies the color of the border around the element."
+      },
+      {
+        "name": "BorderStyle",
+        "description": "Indicates the style of the border (e.g., solid, dashed, dotted)."
+      },
+      {
+        "name": "BorderThickness",
+        "description": "Defines the thickness of the border line in user space units (such as points)."
+      },
+      {
+        "name": "Color",
+        "description": "Applies the primary color (fill or stroke) for the text or graphic content."
+      },
+      {
+        "name": "Padding",
+        "description": "Determines the space between the element’s border (or boundary) and its inner content."
+      },
+      {
+        "name": "SpaceBefore",
+        "description": "Specifies the additional spacing before the element."
+      },
+      {
+        "name": "SpaceAfter",
+        "description": "Specifies the additional spacing after the element."
+      },
+      {
+        "name": "StartIndent",
+        "description": "Defines the indentation at the start edge (left edge in LTR) of the element."
+      },
+      {
+        "name": "EndIndent",
+        "description": "Defines the indentation at the end edge (right edge in LTR) of the element."
+      },
+      {
+        "name": "TextIndent",
+        "description": "Specifies the indentation of the first line of text in a paragraph."
+      },
+      {
+        "name": "TextAlign",
+        "description": "Controls how text is aligned within the element (left, right, center, justify)."
+      },
+      {
+        "name": "BBox",
+        "description": "Indicates the bounding box of the element, specifying its position and size on the page."
+      },
+      {
+        "name": "Width",
+        "description": "Declares an explicit width for the element in user space units."
+      },
+      {
+        "name": "Height",
+        "description": "Declares an explicit height for the element in user space units."
+      },
+      {
+        "name": "BlockAlign",
+        "description": "Specifies vertical alignment of a block-level element (e.g., top, middle, bottom) within its container."
+      },
+      {
+        "name": "InlineAlign",
+        "description": "Specifies how inline content is aligned within the line box (e.g., baseline, center)."
+      },
+      {
+        "name": "TBorderStyle",
+        "description": "Indicates the border style for table cells or similar tabular structures."
+      },
+      {
+        "name": "TPadding",
+        "description": "Specifies the padding inside table cells or table-like elements."
+      },
+      {
+        "name": "LineHeight",
+        "description": "Controls the spacing between lines of text (line spacing)."
+      },
+      {
+        "name": "BaselineShift",
+        "description": "Shifts the text baseline up or down (used for subscripts, superscripts, etc.)."
+      },
+      {
+        "name": "TextDecorationColor",
+        "description": "Specifies the color used for text decorations (like underline or strike-through)."
+      },
+      {
+        "name": "TextDecorationThickness",
+        "description": "Defines the thickness of any text decoration line."
+      },
+      {
+        "name": "TextDecorationType",
+        "description": "Indicates the type of text decoration (underline, overline, line-through)."
+      },
+      {
+        "name": "RubyAlign",
+        "description": "Controls how ruby text (primarily in East Asian typography) is aligned relative to its base text."
+      },
+      {
+        "name": "RubyPosition",
+        "description": "Specifies the placement of ruby text (above or below the base text)."
+      },
+      {
+        "name": "GlyphOrientationVertical",
+        "description": "Determines the orientation of glyphs when text is written in a vertical writing mode."
+      },
+      {
+        "name": "ColumnCount",
+        "description": "Specifies the number of columns for multi-column layouts."
+      },
+      {
+        "name": "ColumnGap",
+        "description": "Indicates the spacing (gap) between columns in multi-column layouts."
+      },
+      {
+        "name": "ColumnWidths",
+        "description": "Specifies the width of each column in multi-column layouts."
+      },
+      {
+        "name": "ListNumbering",
+        "description": "Controls the numbering style used in lists (e.g., decimal, Roman, bullet)."
+      },
+      {
+        "name": "Role",
+        "description": "Assigns a semantic role to the element for accessibility or structure mapping."
+      },
+      {
+        "name": "Checked, checked",
+        "description": "Indicates whether a form field (like a checkbox) is in a checked state."
+      },
+      {
+        "name": "Desc",
+        "description": "Provides a descriptive text for the element, often used for accessibility or annotations."
+      }
+    ],
     "pdfTags": [
       {
         "tag": "Figure",
