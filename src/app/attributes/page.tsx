@@ -38,7 +38,7 @@ export default function Tags() {
           </Link>
         </div>
         {currentAtrData && <div>
-          <h1 className="text-2xl">{currentAtrData.name}</h1>
+          <h1 className="text-2xl">Name: {currentAtrData.name}</h1>
           <h2>Description: {currentAtrData.description}</h2>
           <br />
         </div>}

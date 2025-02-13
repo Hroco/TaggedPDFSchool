@@ -2,149 +2,297 @@
     "attributes": [
       {
         "name": "Placement",
-        "description": "Specifies how the element is placed relative to surrounding content (e.g., block-level or inline flow)."
+        "description": "Specifies how the element is placed relative to surrounding content (e.g., block-level or inline flow).",
+        "source": "ISO 32000 Section 14.8.5.4.2"
       },
       {
         "name": "WritingMode",
-        "description": "Defines the direction of text flow (e.g., left-to-right, right-to-left, or vertical)."
+        "description": "Defines the direction of text flow (e.g., left-to-right, right-to-left, or vertical).",
+        "source": "ISO 32000 Section 14.8.5.4.2"
       },
       {
         "name": "BackgroundColor",
-        "description": "Sets the background color for the element’s content area."
+        "description": "Sets the background color for the element’s content area.",
+        "source": "ISO 32000 Section 14.8.5.4.2"
       },
       {
         "name": "BorderColor",
-        "description": "Specifies the color of the border around the element."
+        "description": "Specifies the color of the border around the element.",
+        "source": "ISO 32000 Section 14.8.5.4.2"
       },
       {
         "name": "BorderStyle",
-        "description": "Indicates the style of the border (e.g., solid, dashed, dotted)."
+        "description": "Indicates the style of the border (e.g., solid, dashed, dotted).",
+        "source": "ISO 32000 Section 14.8.5.4.2"
       },
       {
         "name": "BorderThickness",
-        "description": "Defines the thickness of the border line in user space units (such as points)."
-      },
-      {
-        "name": "Color",
-        "description": "Applies the primary color (fill or stroke) for the text or graphic content."
+        "description": "Defines the thickness of the border line in user space units (such as points).",
+        "source": "ISO 32000 Section 14.8.5.4.2"
       },
       {
         "name": "Padding",
-        "description": "Determines the space between the element’s border (or boundary) and its inner content."
+        "description": "Determines the space between the element’s border (or boundary) and its inner content.",
+        "source": "ISO 32000 Section 14.8.5.4.2"
+      },
+      {
+        "name": "Color",
+        "description": "Applies the primary color (fill or stroke) for the text or graphic content.",
+        "source": "ISO 32000 Section 14.8.5.4.2"
       },
       {
         "name": "SpaceBefore",
-        "description": "Specifies the additional spacing before the element."
+        "description": "Specifies the additional spacing before the element.",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "SpaceAfter",
-        "description": "Specifies the additional spacing after the element."
+        "description": "Specifies the additional spacing after the element.",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "StartIndent",
-        "description": "Defines the indentation at the start edge (left edge in LTR) of the element."
+        "description": "Defines the indentation at the start edge (left edge in LTR) of the element.",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "EndIndent",
-        "description": "Defines the indentation at the end edge (right edge in LTR) of the element."
+        "description": "Defines the indentation at the end edge (right edge in LTR) of the element.",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "TextIndent",
-        "description": "Specifies the indentation of the first line of text in a paragraph."
+        "description": "Specifies the indentation of the first line of text in a paragraph.",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "TextAlign",
-        "description": "Controls how text is aligned within the element (left, right, center, justify)."
+        "description": "Controls how text is aligned within the element (left, right, center, justify).",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "BBox",
-        "description": "Indicates the bounding box of the element, specifying its position and size on the page."
+        "description": "Indicates the bounding box of the element, specifying its position and size on the page.",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "Width",
-        "description": "Declares an explicit width for the element in user space units."
+        "description": "Declares an explicit width for the element in user space units.",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "Height",
-        "description": "Declares an explicit height for the element in user space units."
+        "description": "Declares an explicit height for the element in user space units.",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "BlockAlign",
-        "description": "Specifies vertical alignment of a block-level element (e.g., top, middle, bottom) within its container."
+        "description": "Specifies vertical alignment of a block-level element (e.g., top, middle, bottom) within its container.",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "InlineAlign",
-        "description": "Specifies how inline content is aligned within the line box (e.g., baseline, center)."
+        "description": "Specifies how inline content is aligned within the line box (e.g., baseline, center).",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "TBorderStyle",
-        "description": "Indicates the border style for table cells or similar tabular structures."
+        "description": "Indicates the border style for table cells or similar tabular structures.",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "TPadding",
-        "description": "Specifies the padding inside table cells or table-like elements."
-      },
-      {
-        "name": "LineHeight",
-        "description": "Controls the spacing between lines of text (line spacing)."
+        "description": "Specifies the padding inside table cells or table-like elements.",
+        "source": "ISO 32000 Section 14.8.5.4.3"
       },
       {
         "name": "BaselineShift",
-        "description": "Shifts the text baseline up or down (used for subscripts, superscripts, etc.)."
+        "description": "Shifts the text baseline up or down (used for subscripts, superscripts, etc.).",
+        "source": "ISO 32000 Section 14.8.5.4.4"
+      },
+      {
+        "name": "LineHeight",
+        "description": "Controls the spacing between lines of text (line spacing).",
+        "source": "ISO 32000 Section 14.8.5.4.4"
+      },
+      {
+        "name": "TextPosition",
+        "description": "",
+        "source": "ISO 32000 Section 14.8.5.4.4"
       },
       {
         "name": "TextDecorationColor",
-        "description": "Specifies the color used for text decorations (like underline or strike-through)."
+        "description": "Specifies the color used for text decorations (like underline or strike-through).",
+        "source": "ISO 32000 Section 14.8.5.4.4"
       },
       {
         "name": "TextDecorationThickness",
-        "description": "Defines the thickness of any text decoration line."
+        "description": "Defines the thickness of any text decoration line.",
+        "source": "ISO 32000 Section 14.8.5.4.4"
       },
       {
         "name": "TextDecorationType",
-        "description": "Indicates the type of text decoration (underline, overline, line-through)."
+        "description": "Indicates the type of text decoration (underline, overline, line-through).",
+        "source": "ISO 32000 Section 14.8.5.4.4"
       },
       {
         "name": "RubyAlign",
-        "description": "Controls how ruby text (primarily in East Asian typography) is aligned relative to its base text."
+        "description": "Controls how ruby text (primarily in East Asian typography) is aligned relative to its base text.",
+        "source": "ISO 32000 Section 14.8.5.4.4"
       },
       {
         "name": "RubyPosition",
-        "description": "Specifies the placement of ruby text (above or below the base text)."
+        "description": "Specifies the placement of ruby text (above or below the base text).",
+        "source": "ISO 32000 Section 14.8.5.4.4"
       },
       {
         "name": "GlyphOrientationVertical",
-        "description": "Determines the orientation of glyphs when text is written in a vertical writing mode."
+        "description": "Determines the orientation of glyphs when text is written in a vertical writing mode.",
+        "source": "ISO 32000 Section 14.8.5.4.4"
       },
       {
         "name": "ColumnCount",
-        "description": "Specifies the number of columns for multi-column layouts."
+        "description": "Specifies the number of columns for multi-column layouts.",
+        "source": "ISO 32000 Section 14.8.5.4.5"
       },
       {
         "name": "ColumnGap",
-        "description": "Indicates the spacing (gap) between columns in multi-column layouts."
+        "description": "Indicates the spacing (gap) between columns in multi-column layouts.",
+        "source": "ISO 32000 Section 14.8.5.4.5"
       },
       {
         "name": "ColumnWidths",
-        "description": "Specifies the width of each column in multi-column layouts."
+        "description": "Specifies the width of each column in multi-column layouts.",
+        "source": "ISO 32000 Section 14.8.5.4.5"
       },
       {
         "name": "ListNumbering",
-        "description": "Controls the numbering style used in lists (e.g., decimal, Roman, bullet)."
+        "description": "Controls the numbering style used in lists (e.g., decimal, Roman, bullet).",
+        "source": "ISO 32000 Section 14.8.5.5"
+      },
+      {
+        "name": "ContinuedList",
+        "description": "",
+        "source": "ISO 32000 Section 14.8.5.5"
+      },
+      {
+        "name": "ContinuedFrom",
+        "description": "",
+        "source": "ISO 32000 Section 14.8.5.5"
       },
       {
         "name": "Role",
-        "description": "Assigns a semantic role to the element for accessibility or structure mapping."
+        "description": "Assigns a semantic role to the element for accessibility or structure mapping.",
+        "source": "ISO 32000 Section 14.8.5.6"
       },
       {
         "name": "Checked, checked",
-        "description": "Indicates whether a form field (like a checkbox) is in a checked state."
+        "description": "Indicates whether a form field (like a checkbox) is in a checked state.",
+        "source": "ISO 32000 Section 14.8.5.6"
       },
       {
         "name": "Desc",
-        "description": "Provides a descriptive text for the element, often used for accessibility or annotations."
+        "description": "Provides a descriptive text for the element, often used for accessibility or annotations.",
+        "source": "ISO 32000 Section 14.8.5.6"
       }
     ],
+      "properties": [
+        {
+          "name": "Type",
+          "description": "(Optional) The type of PDF object that this dictionary describes; if present, shall be StructElem for a structure element.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "S",
+          "description": "Specifies the structure type of the element (e.g., /P, /H, /Figure). This identifies the semantic role in the structure tree.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "P",
+          "description": "An indirect reference to the element’s parent in the structure hierarchy, linking this element to its place in the tree.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "ID",
+          "description": "A unique identifier for this structure element, used for referencing it from other elements or external sources.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "Ref",
+          "description": "Defines or references the lower-level PDF objects (content items) that represent the actual text or graphic content of this element.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "Pg",
+          "description": "An indirect reference to the page object on which the content for this structure element appears.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "K",
+          "description": "The 'Kids' entry—can be a single object or an array referencing the element’s child elements or content items.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "A",
+          "description": "An attribute dictionary providing additional layout or semantic attributes for this element. May reference a class map.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "C",
+          "description": "An array of class names associated with this element, which can link to further style or attribute definitions in a class map.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "R",
+          "description": "An optional entry that may reference resource information for the structure element (for example, a resource dictionary).",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "T",
+          "description": "An optional text label or title for this structure element—can serve as a short descriptor (e.g., for a heading).",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "Lang",
+          "description": "Identifies the primary language for the text in this element (e.g., 'en-US'), aiding in proper text processing and accessibility.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "Alt",
+          "description": "Provides alternative text describing the element’s content, primarily for accessibility (screen readers).",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "E",
+          "description": "Contains expansion text used to clarify abbreviations, acronyms, or symbolic content within the element.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "ActualText",
+          "description": "Gives an exact text equivalent for non-textual or symbolic content, allowing screen readers to read it as plain text.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "AF",
+          "description": "An array of associated files or file specifications that relate to this structure element (e.g., attachments).",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "NS",
+          "description": "Specifies a namespace identifier for custom attributes, enabling extensibility without conflicting with standard keys.",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "PhoneticAlphabet",
+          "description": "Indicates the phonetic alphabet used for any phonetic text within the element (e.g., IPA).",
+          "source": "ISO 32000 Section 14.7.2"
+        },
+        {
+          "name": "Phoneme",
+          "description": "Contains the phonemic representation of text for pronunciation guidance or linguistic analysis.",
+          "source": "ISO 32000 Section 14.7.2"
+        }
+      ],
     "pdfTags": [
       {
         "tag": "Figure",
