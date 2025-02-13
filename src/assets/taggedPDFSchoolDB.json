@@ -1,0 +1,43 @@
+{
+    "pdfTags": [
+      {
+        "tag": "Figure",
+        "description": "Represents visual content like images, graphs, or charts in a PDF document.",
+        "introducedIn": "PDF 1.4",
+        "namespace": ["1.4", "2.0"],
+        "type": "block",
+        "differences": {
+          "wellTaggedPDF": "Includes alt text and optionally captions, but may not meet all assistive technology needs.",
+          "pdfUA": "Strict adherence to accessibility, including unique alt text and proper role mapping."
+        },
+        "hierarchy": {
+          "parentTags": ["Section", "Paragraph"],
+          "childTags": ["AltText", "Caption"]
+        },
+        "attributes": [
+          "name"
+        ],
+        "properties": [
+          "alt"
+        ],
+        "roles": {
+          "intendedFor": ["Screen readers", "Accessibility tools"],
+          "misusePrevention": "Do not use for decorative elements; mark those as artifacts."
+        },
+        "validationTips": [
+          "Ensure every figure has meaningful alt text.",
+          "Verify figures are not incorrectly tagged as text."
+        ],
+        "useCases": {
+          "Tables": {
+              "description": "Figures can be used inside tables to visually represent data.",
+              "sample": "<Table><Row><Cell><Figure altText='Sales chart' /></Cell></Row></Table>"
+          },
+          "Lists": {
+              "description": "Figures can be part of a list, where each list item describes an image.",
+              "sample": "<List type='unordered'><ListItem><Figure altText='Company logo' /></ListItem></List>"
+          }
+        }
+      }
+    ]
+  }
