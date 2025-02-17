@@ -5,9 +5,6 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {
-    output: 'export', // Enables static export mode
-    assetPrefix: '.'
-};
+const config = {};
 
 export default config;

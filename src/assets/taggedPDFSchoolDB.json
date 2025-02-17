@@ -559,11 +559,11 @@
         "pdfUA": "Strict adherence to accessibility, including unique alt text and proper role mapping."
       },
       "hierarchy": {
-        "parentTags": ["Section", "Paragraph"],
-        "childTags": ["AltText", "Caption"]
+        "parentTags": ["Sect", "P"],
+        "childTags": ["Caption"]
       },
-      "attributes": ["name"],
-      "properties": ["alt"],
+      "attributes": ["BBox"],
+      "properties": ["Alt"],
       "roles": {
         "intendedFor": ["Screen readers", "Accessibility tools"],
         "misusePrevention": "Do not use for decorative elements; mark those as artifacts."
