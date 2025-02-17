@@ -1,6 +1,7 @@
 import "~/styles/globals.css";
 
 import { type Metadata } from "next";
+import { Navbar } from "~/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -14,10 +15,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-        {children}
-        </main>
-        </body>
+        <div className="min-h-screen bg-gray-900 text-gray-100">
+          <Navbar />
+          <main>{children}</main>
+          <footer className="bg-gray-900 py-8">
+            <div className="container mx-auto px-4 text-center">
+              <p>&copy; 2023 Tagged PDF School. All rights reserved.</p>
+            </div>
+          </footer>
+        </div>
+      </body>
     </html>
   );
 }

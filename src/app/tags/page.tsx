@@ -1,108 +1,74 @@
 "use client";
-import Link from "next/link";
-import { getPagePath } from "~/utils/utils";
-import data from "~/assets/taggedPDFSchoolDB.json";
-import { useEffect, useState } from "react";
 
-export default function Tags() {
-  const [currentTag, setCurrentTag] = useState("");
-
-  useEffect(() => {
-    // Access window safely inside useEffect
-    setCurrentTag(window.location.hash.replace("#", ""));
-  }, []); // Empty dependency array means this runs once on mount
-
-  // You can also listen for hash changes
-  useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentTag(window.location.hash.replace("#", ""));
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, []);
-
-  const currentTagData = data.pdfTags.find((tag) => tag.tag === currentTag);
-
+export default function Tag() {
   return (
-    <div className="container flex w-full flex-col justify-center gap-12 px-4 py-16">
-      <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-        Tags
+    <div className="mx-auto max-w-3xl text-gray-100">
+      <h1 className="mb-6 text-4xl font-bold text-orange-500">
+        PDF Tags Overview
       </h1>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-        <Link
-          className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-          href={getPagePath("./")}
-        >
-          <h3 className="text-2xl font-bold">Home →</h3>
-        </Link>
-      </div>
-      {currentTagData && (
-        <div>
-          <h1 className="text-2xl">{currentTagData.tag}</h1>
-          <h2>{currentTagData.description}</h2>
-          <br />
-          <p>Introducted in {currentTagData.introducedIn}</p>
-          <p>
-            Namespace:{" "}
-            {currentTagData.namespace?.map((item, i) => {
-              return (
-                <span className="mr-2" key={i}>
-                  {item}
-                </span>
-              );
-            })}
-          </p>
-          <p>Type: {currentTagData.type}</p>
-          <br />
-          <h3>Differences</h3>
-          <p>WellTaggedPDF: {currentTagData.differences?.wellTaggedPDF}</p>
-          <p>PdfUA: {currentTagData.differences?.pdfUA}</p>
-          <br />
-          <h3>Hierarchy</h3>
-          <p>
-            Allowed parrents:{" "}
-            {currentTagData.hierarchy?.parentTags.map((item, i) => {
-              return (
-                <span className="mr-2" key={i}>
-                  {item}
-                </span>
-              );
-            })}
-          </p>
-          <p>
-            Allowed childs:{" "}
-            {currentTagData.hierarchy?.childTags.map((item, i) => {
-              return (
-                <span className="mr-2" key={i}>
-                  {item}
-                </span>
-              );
-            })}
-          </p>
-          <br />
-          <p>
-            Intended for:{" "}
-            {currentTagData.roles?.intendedFor.map((item, i) => {
-              return (
-                <span className="mr-2" key={i}>
-                  {item}
-                </span>
-              );
-            })}
-          </p>
-          <p>Misuse prevention: {currentTagData.roles?.misusePrevention}</p>
-          <br />
-          <h3>ValidationTips</h3>
-          {currentTagData.validationTips?.map((item, i) => {
-            return (
-              <p className="mr-2" key={i}>
-                {item}
-              </p>
-            );
-          })}
-        </div>
-      )}
+
+      <section className="mb-8">
+        <p className="mb-6 text-xl">
+          PDF tags are structural elements that define the logical reading order
+          and hierarchy of a document&apos;s content. They are essential for
+          creating accessible PDFs that can be properly interpreted by screen
+          readers and other assistive technologies.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-4 text-2xl font-semibold">Why Use PDF Tags?</h2>
+        <ul className="list-inside list-disc space-y-2">
+          <li>Improve document accessibility for users with disabilities</li>
+          <li>
+            Enable proper content reflow on different devices and screen sizes
+          </li>
+          <li>Maintain logical reading order of content</li>
+          <li>Support better content extraction and repurposing</li>
+          <li>Meet accessibility compliance requirements</li>
+        </ul>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-4 text-2xl font-semibold">Tag Structure</h2>
+        <p className="mb-4">
+          PDF tags are organized in a hierarchical structure, similar to HTML.
+          The structure typically includes:
+        </p>
+        <pre className="mb-4 overflow-x-auto rounded-lg bg-gray-800 p-4">
+          <code className="text-sm text-gray-300">
+            {`<Document>
+  <Part>
+    <H1>Document Title</H1>
+    <P>First paragraph...</P>
+    <Sect>
+      <H2>Section Heading</H2>
+      <P>Section content...</P>
+      <Table>
+        <TR>
+          <TH>Header 1</TH>
+          <TH>Header 2</TH>
+        </TR>
+        <TR>
+          <TD>Data 1</TD>
+          <TD>Data 2</TD>
+        </TR>
+      </Table>
+    </Sect>
+  </Part>
+</Document>`}
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-semibold">Getting Started</h2>
+        <p className="mb-4">
+          Select a tag from the navigation menu on the left to learn more about
+          its specific usage, attributes, and best practices. Each tag
+          documentation includes examples and implementation notes.
+        </p>
+      </section>
     </div>
   );
 }

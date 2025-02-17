@@ -1,47 +1,30 @@
-"use client"
-import Link from "next/link";
-import { getPagePath } from "~/utils/utils";
-import data from "~/assets/taggedPDFSchoolDB.json";
-import { useEffect, useState } from "react";
+"use client";
 
-export default function Tags() {
-  const [currentAtr, setCurrentAtr] = useState("");
-
-  useEffect(() => {
-    // Access window safely inside useEffect
-    setCurrentAtr(window.location.hash.replace("#", ""));
-  }, []); // Empty dependency array means this runs once on mount
-  
-  // You can also listen for hash changes
-  useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentAtr(window.location.hash.replace("#", ""));
-    };
-  
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-  const currentAtrData = data.attributes.find((attr) => attr.name === currentAtr);
-
+export default function Tag() {
   return (
-      <div className="container flex flex-col justify-center gap-12 px-4 py-16 w-full">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Attributes
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href={getPagePath("./")}
-          >
-            <h3 className="text-2xl font-bold">Home →</h3>
-          </Link>
-        </div>
-        {currentAtrData && <div>
-          <h1 className="text-2xl">Name: {currentAtrData.name}</h1>
-          <h2>Description: {currentAtrData.description}</h2>
-          <br />
-        </div>}
-      </div>
+    <div className="mx-auto max-w-4xl px-4 py-8 text-gray-100">
+      <h1 className="mb-6 text-4xl font-bold text-orange-500">
+        PDF Attributes Overview
+      </h1>
+
+      <section className="mb-8">
+        <p className="mb-6 text-xl">
+          PDF attributes provide additional information about elements within a
+          PDF document. They are crucial for enhancing accessibility, providing
+          context, and defining relationships between elements.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-4 text-2xl font-semibold">Why Use PDF Attributes?</h2>
+        <ul className="list-inside list-disc space-y-2 text-gray-300">
+          <li>Improve accessibility for users with disabilities</li>
+          <li>Provide context and additional information for PDF elements</li>
+          <li>Define relationships between different parts of the document</li>
+          <li>Enhance the semantic structure of the document</li>
+          <li>Support better content extraction and repurposing</li>
+        </ul>
+      </section>
+    </div>
   );
 }
