@@ -1,5 +1,4 @@
 import data from "~/assets/taggedPDFSchoolDB.json";
-import { Home } from "lucide-react";
 import Link from "next/link";
 import { ScrollArea } from "~/components/ui/scroll-area";
 
