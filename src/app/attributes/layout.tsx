@@ -1,6 +1,4 @@
 import data from "~/assets/taggedPDFSchoolDB.json";
-import { Button } from "~/components/ui/button";
-import { ChevronLeft, ChevronRight, Home } from "lucide-react";
 import Link from "next/link";
 import { ScrollArea } from "~/components/ui/scroll-area";
 
