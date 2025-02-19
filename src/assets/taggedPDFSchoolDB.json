@@ -433,7 +433,7 @@
           "valueType": "number",
           "values": [
             {
-              "name": "Start",
+              "name": "",
               "description": "Measured in default user space units in the inline-progression direction."
             }
           ]
