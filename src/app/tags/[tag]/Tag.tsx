@@ -16,34 +16,34 @@ export default function Tag({ currentTag }: { currentTag: string }) {
   return (
     <div className="mx-auto max-w-3xl text-gray-100">
       <h1 className="mb-6 text-4xl font-bold text-orange-500">{tag.tag}</h1>
-
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Description</h2>
         <p className="text-gray-300">{tag.description}</p>
       </section>
-
       <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
         <section>
           <h2 className="mb-3 text-2xl font-semibold">Attributes</h2>
           <Card className="border-gray-700 bg-gray-800">
             <div className="space-y-3 p-4">
-              {tag.attributes?.map((attr) => {
-                const attrData = data.attributes.find((a) => a.name === attr);
+              {tag.attributes?.map((attr, index) => {
+                const attrData = data.attributes.find(
+                  (a) => a.name === attr.name,
+                );
 
                 if (!attrData) {
                   return null;
                 }
                 return (
                   <Link
-                    href={`/attributes/${attr}`}
-                    key={attr}
+                    href={`/attributes/${attr.name}`}
+                    key={index}
                     className="block"
                   >
                     <div className="group rounded-lg p-3 transition-colors hover:bg-gray-700">
                       <div className="mb-1 flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <span className="font-semibold text-orange-500">
-                            {attr}
+                            {attr.name}
                           </span>
                           <Badge variant="secondary" className="text-xs">
                             Attribute
@@ -101,7 +101,6 @@ export default function Tag({ currentTag }: { currentTag: string }) {
           </Card>
         </section>
       </div>
-
       {/*<section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Example</h2>
         <Card className="border-gray-700 bg-gray-800">
@@ -110,18 +109,14 @@ export default function Tag({ currentTag }: { currentTag: string }) {
           </pre>
         </Card>
       </section>*/}
-
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Differences</h2>
         <p className="text-gray-300">
-          Well tagged PDF: {tag.differences?.wellTaggedPDF}
+          Well tagged PDF: {tag.differences?.wellTaggedPDF.description}
         </p>
-        <p className="text-gray-300">PDFUA: {tag.differences?.pdfUA}</p>
-      </section>
-
-      <section className="mb-8">
-        <h2 className="mb-3 text-2xl font-semibold">Introduced In</h2>
-        <p className="text-gray-300">{tag.introducedIn}</p>
+        <p className="text-gray-300">
+          PDFUA: {tag.differences?.pdfUA.description}
+        </p>
       </section>
 
       <section className="mb-8">
