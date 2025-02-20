@@ -45,6 +45,13 @@ export default function Tag({
         <p className="text-gray-300">{attr.inheritable ? "Yes" : "No"}</p>
       </section>
 
+      {attr.defaultValue && (
+        <section className="mb-8">
+          <h2 className="mb-3 text-2xl font-semibold">Default Value</h2>
+          <p className="text-gray-300">{attr.defaultValue}</p>
+        </section>
+      )}
+
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Values</h2>
         <Accordion type="single" collapsible className="w-full">
