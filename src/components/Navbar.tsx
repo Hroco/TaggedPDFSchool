@@ -7,6 +7,8 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 import data from "~/assets/taggedPDFSchoolDB.json";
 import { useRouter } from "next/navigation";
+import { Badge } from "./ui/badge";
+import { ScrollArea } from "./ui/scroll-area";
 
 const searchAttr = data.attributes.map((attr) => attr.name);
 const searchTags = data.pdfTags.map((tag) => tag.tag);
@@ -118,7 +120,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 mx-auto flex items-center justify-between border-b border-gray-800 bg-gray-900/95 px-4 py-3 pl-5 backdrop-blur supports-[backdrop-filter]:bg-gray-900/75">
+    <header className="sticky top-0 z-50 mx-auto flex flex-col-reverse items-center justify-between space-y-2 border-b border-gray-800 bg-gray-900/95 px-4 py-3 pl-5 backdrop-blur supports-[backdrop-filter]:bg-gray-900/75 md:flex-row md:space-y-0">
       <h1 className="hidden text-2xl font-bold text-orange-500 sm:block">
         Tagged PDF School
       </h1>
@@ -136,52 +138,63 @@ export const Navbar = () => {
           <Search className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
         </div>
         {isDropdownVisible && searchResults.length > 0 && (
-          <div className="absolute mt-1 w-full rounded-md bg-gray-800 shadow-lg">
-            <ul className="max-h-60 overflow-auto py-1 text-base leading-6 focus:outline-none sm:text-sm sm:leading-5">
-              {searchResults.map((result, index) => {
-                let url = "/";
-                //find result in attributes
-                const attr = data.attributes.find(
-                  (attr) => attr.name === result,
-                );
-                if (attr) {
-                  url = `/attributes/${attr.name}`;
-                }
-                //find result in tags
-                const tag = data.pdfTags.find((tag) => tag.tag === result);
-                if (tag) {
-                  url = `/tags/${tag.tag}`;
-                }
-                //find result in properties
-                const prop = data.properties.find(
-                  (prop) => prop.name === result,
-                );
-                if (prop) {
-                  url = `/properties/${prop.name}`;
-                }
+          <div className="absolute w-full">
+            <ScrollArea className="mt-1 w-full rounded-md bg-gray-800 shadow-lg">
+              <ul className="max-h-60 w-full py-1 text-base leading-6 focus:outline-none sm:text-sm sm:leading-5">
+                {searchResults.map((result, index) => {
+                  let url = "/";
+                  let badgeValue = "";
+                  //find result in attributes
+                  const attr = data.attributes.find(
+                    (attr) => attr.name === result,
+                  );
+                  if (attr) {
+                    url = `/attributes/${attr.name}`;
+                    badgeValue = "Attribute";
+                  }
+                  //find result in tags
+                  const tag = data.pdfTags.find((tag) => tag.tag === result);
+                  if (tag) {
+                    url = `/tags/${tag.tag}`;
+                    badgeValue = "Tag";
+                  }
+                  //find result in properties
+                  const prop = data.properties.find(
+                    (prop) => prop.name === result,
+                  );
+                  if (prop) {
+                    url = `/properties/${prop.name}`;
+                    badgeValue = "Property";
+                  }
 
-                console.log(url);
+                  console.log(url);
 
-                return (
-                  <li
-                    key={index}
-                    className={`cursor-pointer px-4 py-2 text-white ${
-                      index === selectedIndex
-                        ? "bg-gray-700"
-                        : "hover:bg-gray-700"
-                    }`}
-                    onClick={() => {
-                      setSearchTerm("");
-                      setIsDropdownVisible(false);
-                      router.push(url);
-                      inputRef.current?.blur();
-                    }}
-                  >
-                    {highlightMatch(result)}
-                  </li>
-                );
-              })}
-            </ul>
+                  return (
+                    <li
+                      key={index}
+                      className={`cursor-pointer px-4 py-2 text-white ${
+                        index === selectedIndex
+                          ? "bg-gray-700"
+                          : "hover:bg-gray-700"
+                      }`}
+                      onClick={() => {
+                        setSearchTerm("");
+                        setIsDropdownVisible(false);
+                        router.push(url);
+                        inputRef.current?.blur();
+                      }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <p>{highlightMatch(result)}</p>
+                        <Badge variant="secondary" className="">
+                          {badgeValue}
+                        </Badge>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </ScrollArea>
           </div>
         )}
       </div>
