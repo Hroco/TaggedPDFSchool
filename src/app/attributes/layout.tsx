@@ -9,7 +9,14 @@ export default function Layout({
   const attributes = data.attributes;
 
   const sortedAttributes = attributes.sort((a, b) => {
-    const ownerOrder = ["Layout", "List", "Table", "PrintField", "Artifact"];
+    const ownerOrder = [
+      "Layout",
+      "List",
+      "Table",
+      "PrintField",
+      "Artifact",
+      "FENote",
+    ];
     const aIndex = ownerOrder.indexOf(a.owner);
     const bIndex = ownerOrder.indexOf(b.owner);
     if (aIndex === -1 || bIndex === -1) {
