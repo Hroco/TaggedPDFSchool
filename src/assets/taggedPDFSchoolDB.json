@@ -43,7 +43,7 @@
       "owner": "Layout",
       "inheritable": true,
       "type": null,
-      "defaultValue": "LrTb.",
+      "defaultValue": "LrTb",
       "values": [
         {
           "valueType": "name",
@@ -524,7 +524,7 @@
       "owner": "Layout",
       "inheritable": true,
       "type": "BLSE",
-      "defaultValue": "Start.",
+      "defaultValue": "Start",
       "values": [
         {
           "valueType": "name",
@@ -1373,6 +1373,34 @@
             {
               "name": "Redaction",
               "description": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NoteType",
+      "description": "The type of the FENote indicating a more specific semantic definition for the FENote",
+      "source": "ISO-14289-2-2024-sponsored.pdf (PDF/UA-2) Section 8.2.5.14.2",
+      "owner": "FENote",
+      "inheritable": null,
+      "type": null,
+      "defaultValue": "None",
+      "values": [
+        {
+          "valueType": "name",
+          "values": [
+            {
+              "name": "Footnote",
+              "description": " A subtype indicating a footnote"
+            },
+            {
+              "name": "Endnote",
+              "description": "A subtype indicating an endnote"
+            },
+            {
+              "name": "None",
+              "description": "A subtype indicating that the type is not specified"
             }
           ]
         }
