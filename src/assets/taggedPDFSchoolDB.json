@@ -1694,9 +1694,81 @@
         }
       ],
       "properties": ["Alt"],
-      "validationTips": [
-        "Ensure every figure has meaningful alt text.",
-        "Verify figures are not incorrectly tagged as text."
+      "validationTips": {
+        "tips": [
+          {
+            "index": "13-001",
+            "failureCondition": "Graphics objects other than text objects and artifacts are not tagged with a Figure tag.",
+            "section": "UA1:7.3-1",
+            "type": "Object",
+            "how": "Human"
+          },
+          {
+            "index": "13-002",
+            "failureCondition": "A link with a meaningful background does not include alternative text describing both the link and the graphic’s purpose.",
+            "section": "UA1:7.3-1",
+            "type": "Object",
+            "how": "Human"
+          },
+          {
+            "index": "13-003",
+            "failureCondition": "A caption is not tagged with a Caption tag.",
+            "section": "UA1:7.3-2",
+            "type": "Object",
+            "how": "Human"
+          },
+          {
+            "index": "13-004",
+            "failureCondition": "Figure tag alternative or replacement text is missing.",
+            "section": "UA1:7.3-3",
+            "type": "Object",
+            "how": "Machine"
+          },
+          {
+            "index": "13-005",
+            "failureCondition": "Actual text is used for a Figure for which Alternative text is more appropriate.",
+            "section": "UA1:7.3-4",
+            "type": "Object",
+            "how": "Human"
+          },
+          {
+            "index": "13-006",
+            "failureCondition": "Graphics objects that possess semantic value only within a group of graphics objects is tagged on its own.",
+            "section": "UA1:7.3-5",
+            "type": "Object",
+            "how": "Human"
+          },
+          {
+            "index": "13-007",
+            "failureCondition": "A more accessible representation is not used.",
+            "section": "UA1:7.3-6",
+            "type": "Object",
+            "how": "Human"
+          }
+        ],
+        "source": "MatterhornProtocol_1-011.pdf"
+      },
+      "examples": [
+        {
+          "description": "An image",
+          "source": "ISO 32000 Section 14.8.4.8.5, Table 373"
+        },
+        {
+          "description": "A drawing",
+          "source": "ISO 32000 Section 14.8.4.8.5, Table 373"
+        },
+        {
+          "description": "A chart, including the text that denotes values on each axis",
+          "source": "ISO 32000 Section 14.8.4.8.5, Table 373"
+        },
+        {
+          "description": "An organization chart enclosed by a single Figure structure element that itself contains substructure to describe each subunit of the chart.",
+          "source": "ISO-14289-2-2024-sponsored.pdf (PDF/UA-2) Section 8.2.5.28.1"
+        },
+        {
+          "description": "A background image intersecting an image which the author considers to be an intrinsic part of the figure is artifact content in this case",
+          "source": "ISO-14289-2-2024-sponsored.pdf (PDF/UA-2) Section 8.2.5.28.1"
+        }
       ],
       "useCases": {
         "Tables": {
