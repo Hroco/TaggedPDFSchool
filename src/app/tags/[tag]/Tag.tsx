@@ -16,10 +16,31 @@ export default function Tag({ currentTag }: { currentTag: string }) {
   return (
     <div className="mx-auto max-w-3xl text-gray-100">
       <h1 className="mb-6 text-4xl font-bold text-orange-500">{tag.tag}</h1>
+
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Description</h2>
         <p className="text-gray-300">{tag.description}</p>
       </section>
+
+      <section className="mb-8">
+        <h2 className="mb-3 text-2xl font-semibold">Namespace</h2>
+        <p className="text-gray-300">
+          {tag.namespace?.map((ns, index) => {
+            return (
+              <span key={index}>
+                {index > 0 ? ", " : ""}
+                {ns}
+              </span>
+            );
+          })}
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-3 text-2xl font-semibold">Type</h2>
+        <p className="text-gray-300">{tag.type}</p>
+      </section>
+
       <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
         <section>
           <h2 className="mb-3 text-2xl font-semibold">Attributes</h2>
@@ -66,23 +87,18 @@ export default function Tag({ currentTag }: { currentTag: string }) {
           <h2 className="mb-3 text-2xl font-semibold">Properties</h2>
           <Card className="border-gray-700 bg-gray-800">
             <div className="space-y-3 p-4">
-              {tag.properties?.map((prop) => {
-                const propData = data.properties.find((a) => a.name === prop);
-
-                if (!propData) {
-                  return null;
-                }
+              {tag.properties?.map((prop, index) => {
                 return (
                   <Link
-                    href={`/properties/${prop}`}
-                    key={prop}
+                    href={`/properties/${prop.name}`}
+                    key={index}
                     className="block"
                   >
                     <div className="group rounded-lg p-3 transition-colors hover:bg-gray-700">
                       <div className="mb-1 flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <span className="font-semibold text-orange-500">
-                            {prop}
+                            {prop.name}
                           </span>
                           <Badge variant="secondary" className="text-xs">
                             Property
@@ -91,7 +107,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
                         <ChevronRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
                       </div>
                       <p className="text-sm text-gray-400">
-                        {propData.description}
+                        {prop.description}
                       </p>
                     </div>
                   </Link>
@@ -109,32 +125,35 @@ export default function Tag({ currentTag }: { currentTag: string }) {
           </pre>
         </Card>
       </section>*/}
-      <section className="mb-8">
+
+      <section className="mb-8 space-y-2">
         <h2 className="mb-3 text-2xl font-semibold">Differences</h2>
+        <p className="text-gray-300">Well tagged PDF:</p>
         <p className="text-gray-300">
-          Well tagged PDF: {tag.differences?.wellTaggedPDF.description}
+          {tag.differences?.wellTaggedPDF.description}
         </p>
         <p className="text-gray-300">
-          PDFUA: {tag.differences?.pdfUA.description}
+          {tag.differences?.wellTaggedPDF.requirements}
         </p>
+        <br />
+        <p className="text-gray-300">PDFUA:</p>
+        <p className="text-gray-300">{tag.differences?.pdfUA.description}</p>
+        <p className="text-gray-300">{tag.differences?.pdfUA.requirements}</p>
       </section>
 
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Tag Relationships</h2>
         <Card className="border-gray-700 bg-gray-800">
           <div className="space-y-6 p-6">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-              <div className="mb-4 md:mb-0 md:w-5/12">
+            <div className="flex flex-col items-start gap-6 md:flex-row md:justify-between">
+              <div className="mb-4 md:mb-0 md:w-1/2">
                 <TagRelationship
                   tags={tag.hierarchy?.parentTags}
                   type="parent"
                   icon={ArrowUpCircle}
                 />
               </div>
-              <div className="hidden w-2/12 md:block">
-                <div className="mx-auto h-32 w-px bg-gray-700"></div>
-              </div>
-              <div className="md:w-5/12">
+              <div className="md:w-1/2">
                 <TagRelationship
                   tags={tag.hierarchy?.childTags}
                   type="child"
@@ -151,6 +170,24 @@ export default function Tag({ currentTag }: { currentTag: string }) {
             </div>
           </div>
         </Card>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-3 text-2xl font-semibold">Validation Tips</h2>
+        <ul className="ml-4 list-disc text-gray-300">
+          {tag.validationTips?.tips.map((tip, index) => {
+            return <li key={index}>{tip.failureCondition}</li>;
+          })}
+        </ul>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-3 text-2xl font-semibold">Examples</h2>
+        <ul className="ml-4 list-disc text-gray-300">
+          {tag.examples?.map((example, index) => {
+            return <li key={index}>{example.description}</li>;
+          })}
+        </ul>
       </section>
     </div>
   );
@@ -175,7 +212,7 @@ function TagRelationship({
         {type === "parent" ? "Parent" : "Child"} Tags
       </h3>
       {tags.length > 0 ? (
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-2">
           {tags.map((tag) => (
             <Link href={`/tags/${tag}`} key={tag}>
               <div className="rounded bg-gray-700 p-2 text-center transition-colors hover:bg-gray-600">

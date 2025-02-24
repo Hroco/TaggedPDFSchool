@@ -1673,27 +1673,125 @@
       "type": ["block"],
       "differences": {
         "wellTaggedPDF": {
-          "description": "Includes alt text and optionally captions, but may not meet all assistive technology needs.",
-          "requirements": "?????",
-          "source": "?????"
+          "description": "Includes required structural tagging for figures, plus appropriate alternative or replacement text to support basic reuse and accessibility needs in a PDF. Purely decorative figures are artifacted rather than tagged.",
+          "requirements": "As per Well-Tagged PDF (WTPDF) 1.0, any figure conveying meaning must be enclosed in a Figure structure element with at least one of the following: an Alt property (ISO 32000-2:2020, 14.9.3) or an ActualText property representing the figure’s content. If the figure is decorative or background-only, it should be artifacted. Where captions are used, they shall be tagged with the Caption structure element and placed as the first or last child of the figure’s parent element. All figure content (including background imagery deemed essential) should be enclosed in a single Figure element to accurately represent the real content.",
+          "source": "Well-Tagged PDF (WTPDF) 1.0, Sections 8.2.5.28 & 8.5"
         },
         "pdfUA": {
-          "description": "Strict adherence to accessibility, including unique alt text and proper role mapping.",
-          "requirements": "?????",
-          "source": "?????"
+          "description": "Strict adherence to PDF/UA-2 requirements for Figures, ensuring meaningful images are fully accessible through text-based descriptions.",
+          "requirements": "Under ISO 14289-2, each Figure structure element must have at least one of the following: an Alt property or an ActualText property representing the image’s content. Purely decorative (background-only) images should be artifacted instead of tagged as Figures. If ActualText is used, the Figure must be enclosed within an appropriate block-level element. ISO 14289-2 also requires that any integral substructure be contained within the same Figure element, so that assistive technologies can programmatically access all visual content and its text equivalents. Additional requirements in Section 8.5 mandate text-based equivalents for all non-text objects, ensuring end-users relying on assistive technologies can interpret the intended meaning or function of each figure.",
+          "source": "ISO 14289-2:2024 (PDF/UA-2), Sections 8.2.5.28 & 8.5"
         }
       },
       "hierarchy": {
-        "parentTags": ["Sect", "P"],
-        "childTags": ["Caption"]
+        "source": "ISO32000-2_AnnexL_matrix-version072024",
+        "parentTags": [
+          "Document",
+          "DocumentFragment",
+          "Part",
+          "Div",
+          "Sect",
+          "Aside",
+          "NonStruct",
+          "Title",
+          "Sub",
+          "P",
+          "Hn",
+          "H",
+          "Lbl",
+          "Em",
+          "Strong",
+          "Span",
+          "Link",
+          "Annot",
+          "Form",
+          "WP",
+          "FENote",
+          "LBody",
+          "TH",
+          "TD",
+          "Caption",
+          "Figure",
+          "Formula",
+          "Artifact"
+        ],
+        "childTags": [
+          "Part",
+          "Div",
+          "Sect",
+          "Aside",
+          "NonStruct",
+          "Sub",
+          "P",
+          "Hn",
+          "H",
+          "Lbl",
+          "Em",
+          "Strong",
+          "Span",
+          "Link",
+          "Annot",
+          "Form",
+          "Ruby",
+          "Warichu",
+          "FENote",
+          "L",
+          "Table",
+          "Caption",
+          "Figure",
+          "Formula",
+          "Artifact"
+        ]
       },
       "attributes": [
         {
           "name": "BBox",
-          "description": "????"
+          "description": "Defines the bounding box (in user space coordinates) of the figure’s graphical content. Typically used to describe its position and extent on the page.",
+          "source": "ISO 32000-2:2020, 14.8.5.4 (Standard layout attributes)"
+        },
+        {
+          "name": "Placement",
+          "description": "Indicates how the figure flows in the document. Possible values include 'Block', 'Inline', 'Start', or 'End'. This choice affects whether Width or Height is required, and whether BaselineShift applies.",
+          "source": "ISO 32000-2:2020, 14.8.5.4.6"
+        },
+        {
+          "name": "Height",
+          "description": "Specifies the figure’s height in the block-progression direction. If Placement='Block', this attribute must have a numeric value (not 'Auto') and is the sole source of the figure’s block extent.",
+          "source": "ISO 32000-2:2020, 14.8.5.4.3 & 14.8.5.4.6"
+        },
+        {
+          "name": "Width",
+          "description": "Specifies the figure’s width in the inline-progression direction. If Placement='Inline', this attribute must have a numeric value (not 'Auto') and is the sole source of the figure’s inline extent.",
+          "source": "ISO 32000-2:2020, 14.8.5.4.3 & 14.8.5.4.6"
+        },
+        {
+          "name": "BaselineShift",
+          "description": "Determines the figure’s vertical positioning relative to the text baseline when Placement='Inline', 'Start', or 'End'. Ignored for other Placement values.",
+          "source": "ISO 32000-2:2020, 14.8.5.4.5 & 14.8.5.4.6"
         }
       ],
-      "properties": ["Alt"],
+      "properties": [
+        {
+          "name": "Alt",
+          "description": "Provides alternate text that briefly describes the figure's content for assistive technologies.",
+          "source": "ISO 32000-2:2020, Section 14.9.3"
+        },
+        {
+          "name": "ActualText",
+          "description": "Supplies a replacement text string to be used if the figure is treated as if it were inline text (e.g., a logo-as-image that should be read as the company name).",
+          "source": "ISO 32000-2:2020, Section 14.9.4"
+        },
+        {
+          "name": "Lang",
+          "description": "Specifies the language for the figure’s content, if different from the document’s default or parent element’s language.",
+          "source": "ISO 32000-2:2020, Section 14.9.2"
+        },
+        {
+          "name": "Title",
+          "description": "An optional human-readable title for the figure structure element, which some user agents may display in navigation panels or structure views.",
+          "source": "ISO 32000-2:2020, Section 14.7.4.2"
+        }
+      ],
       "validationTips": {
         "tips": [
           {
@@ -1789,7 +1887,95 @@
     {
       "tag": "Artifact",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "hierarchy": {
+        "parentTags": [
+          "Document",
+          "DocumentFragment",
+          "Part",
+          "Div",
+          "Sect",
+          "Aside",
+          "NonStruct",
+          "Title",
+          "Sub",
+          "P",
+          "Hn",
+          "H",
+          "Lbl",
+          "Em",
+          "Strong",
+          "Span",
+          "Link",
+          "Annot",
+          "Form",
+          "Ruby",
+          "RB",
+          "RT",
+          "RP",
+          "Warichu",
+          "WT",
+          "WP",
+          "FENote",
+          "L",
+          "LI",
+          "LBody",
+          "Table",
+          "TR",
+          "TH",
+          "TD",
+          "THead",
+          "TBody",
+          "TFoot",
+          "Caption",
+          "Figure",
+          "Formula",
+          "Artifact"
+        ],
+        "childTags": [
+          "Document",
+          "DocumentFragment",
+          "Part",
+          "Div",
+          "Sect",
+          "Aside",
+          "NonStruct",
+          "Title",
+          "Sub",
+          "P",
+          "Hn",
+          "H",
+          "Lbl",
+          "Em",
+          "Strong",
+          "Span",
+          "Link",
+          "Annot",
+          "Form",
+          "Ruby",
+          "RB",
+          "RT",
+          "RP",
+          "Warichu",
+          "WT",
+          "WP",
+          "FENote",
+          "L",
+          "LI",
+          "LBody",
+          "Table",
+          "TR",
+          "TH",
+          "TD",
+          "THead",
+          "TBody",
+          "TFoot",
+          "Caption",
+          "Figure",
+          "Formula",
+          "Artifact"
+        ]
+      }
     }
   ]
 }
