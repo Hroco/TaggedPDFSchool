@@ -1477,13 +1477,293 @@
   "pdfTags": [
     {
       "tag": "Document",
-      "description": "",
-      "source": "ISO 32000 Section 14.8.4.3"
+      "description": "Represents the root element of a PDF's logical structure tree. It serves as the container for all content elements, defining the primary organizational hierarchy of the document.",
+      "source": "ISO 32000-2:2020, Section 14.8.4.3",
+      "namespace": ["2.0"],
+      "type": ["block"],
+      "differences": {
+        "wellTaggedPDF": {
+          "description": "Well-Tagged PDF provides detailed guidelines for document structure elements—such as Document, Part, Art, Sect, Div, and others—to ensure semantic clarity and reusability. It emphasizes clear nesting and explicit tagging of structural elements.",
+          "requirements": "Requires a well-defined structure tree with proper role mapping, explicit tagging for headings and sections, and consistent application of element boundaries to support both reusability and accessibility.",
+          "source": "Well-Tagged PDF Specification, v1.0.0 (February 2024)"
+        },
+        "pdfUA": {
+          "description": "PDF/UA (PDF/UA-1 and PDF/UA-2) mandates a complete and accessible logical structure tree. It ensures that all document structure elements are tagged in a way that assistive technologies can interpret, enhancing the document’s accessibility.",
+          "requirements": "Mandates inclusion of all essential structural elements with correct role mapping, proper tagging of headings, lists, tables, and alternative descriptions where needed, ensuring content is accessible to users with disabilities.",
+          "source": "PDF/UA-1 (ISO 14289-1:2014) and PDF/UA-2 (ISO 14289-2:2024)"
+        }
+      },
+      "hierarchy": {
+        "source": "ISO32000-2_AnnexL_matrix-version072024",
+        "parentTags": [
+          "StructTreeRoot",
+          "Document",
+          "DocumentFragment",
+          "Part",
+          "Div",
+          "Sect",
+          "Aside",
+          "NonStruct",
+          "Artifact"
+        ],
+        "childTags": [
+          "Document",
+          "DocumentFragment",
+          "Part",
+          "Div",
+          "Sect",
+          "Aside",
+          "NonStruct",
+          "Title",
+          "Link",
+          "Annot",
+          "Form",
+          "FENote",
+          "L",
+          "Table",
+          "Figure",
+          "Formula",
+          "Artifact"
+        ]
+      },
+      "attributes": [
+        {
+          "name": "WritingMode",
+          "description": "Defines the overall direction in which text flows across the document (e.g., left-to-right or right-to-left). This attribute sets the default reading order for the entire document, which is fundamental when tagging the Document element.",
+          "source": "ISO 32000-2:2020, Section 14.8.5.4.2"
+        },
+        {
+          "name": "BackgroundColor",
+          "description": "Specifies a uniform background color for the document’s content area. While the Document element itself is a container, applying a background color can affect the overall visual presentation of the tagged document.",
+          "source": "ISO 32000-2:2020, Section 14.8.5.4.2"
+        },
+        {
+          "name": "Padding",
+          "description": "Determines the margin or spacing between the document’s border (if defined) and its inner content. Setting a default padding can help ensure that the content is not flush against the edge and supports a clear, structured layout.",
+          "source": "ISO 32000-2:2020, Section 14.8.5.4.2"
+        }
+      ],
+      "properties": [
+        {
+          "name": "ID",
+          "description": "A unique identifier for this structure element, used to reference it from other elements or external sources.",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "Ref",
+          "description": "References the lower-level PDF objects (such as text or graphic content) that make up the content of the structure element.",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "A",
+          "description": "An attribute dictionary that provides additional layout or semantic attributes for the structure element, possibly linking to a class map.",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "C",
+          "description": "An array of class names associated with this element, used to apply further style or attribute definitions.",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "T",
+          "description": "An optional text label or title for the structure element that can serve as a short descriptor (for example, a heading title).",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "Lang",
+          "description": "Specifies the natural language of the content in this element (e.g., 'en-US'), facilitating proper processing and accessibility.",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "Alt",
+          "description": "Provides alternative text that describes the content of the structure element, primarily for accessibility purposes.",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "E",
+          "description": "Contains expansion text to clarify abbreviations, acronyms, or symbolic content within the element.",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "ActualText",
+          "description": "Specifies an exact text equivalent for non-textual or symbolic content, ensuring that screen readers interpret it as plain text.",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "AF",
+          "description": "An array of associated files or file specifications that are related to this structure element (for example, attachments).",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "NS",
+          "description": "Defines a namespace identifier for custom attributes, allowing for extensibility while avoiding conflicts with standard keys.",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "PhoneticAlphabet",
+          "description": "Indicates the phonetic alphabet (such as IPA) used for any phonetic text within the element, aiding pronunciation.",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        },
+        {
+          "name": "Phoneme",
+          "description": "Provides the phonemic representation of text for pronunciation guidance or linguistic analysis.",
+          "source": "ISO 32000-2:2020, Section 14.7.2"
+        }
+      ],
+      "validationTips": {
+        "tips": [
+          {
+            "index": "01-006",
+            "failureCondition": "The structure type and attributes of a structure element are not semantically appropriate for the structure element.",
+            "section": "UA1:7.1-2",
+            "type": "Doc",
+            "how": "Human"
+          },
+          {
+            "index": "02-001",
+            "failureCondition": "One or more non-standard tag’s mapping does not terminate with a standard type.",
+            "section": "UA1:7.1-3",
+            "type": "Doc",
+            "how": "Machine"
+          },
+          {
+            "index": "02-002",
+            "failureCondition": "The mapping of one or more non-standard types is semantically inappropriate.",
+            "section": "UA1:7.1-3",
+            "type": "Doc",
+            "how": "Human"
+          },
+          {
+            "index": "02-003",
+            "failureCondition": "A circular mapping exists.",
+            "section": "UA1:7.1-3",
+            "type": "Doc",
+            "how": "Machine"
+          },
+          {
+            "index": "02-004",
+            "failureCondition": "One or more standard types are remapped.",
+            "section": "UA1:7.1-4",
+            "type": "Doc",
+            "how": "Machine"
+          },
+          {
+            "index": "06-001",
+            "failureCondition": "Document does not contain XMP metadata stream.",
+            "section": "UA1:7.1-8",
+            "type": "Doc",
+            "how": "Machine"
+          },
+          {
+            "index": "06-002",
+            "failureCondition": "The metadata stream in the Catalog dictionary does not include the PDF/UA identifier.",
+            "section": "UA1:5",
+            "type": "Doc",
+            "how": "Machine"
+          },
+          {
+            "index": "06-003",
+            "failureCondition": "Metadata stream does not contain dc:title.",
+            "section": "UA1:7.1-8",
+            "type": "Doc",
+            "how": "Machine"
+          },
+          {
+            "index": "06-004",
+            "failureCondition": "dc:title does not clearly identify the document.",
+            "section": "UA1:7.1-8",
+            "type": "Doc",
+            "how": "Human"
+          },
+          {
+            "index": "09-001",
+            "failureCondition": "Tags are not in logical reading order.",
+            "section": "UA1:7.2-1",
+            "type": "Doc",
+            "how": "Human"
+          },
+          {
+            "index": "09-002",
+            "failureCondition": "Structure elements are nested in a semantically inappropriate manner (e.g., a table inside a heading).",
+            "section": "UA1:7.2-1",
+            "type": "Doc",
+            "how": "Human"
+          },
+          {
+            "index": "09-003",
+            "failureCondition": "The structure type of a structure element is not semantically appropriate after applying any role-mapping.",
+            "section": "UA1:7.2-1",
+            "type": "Doc",
+            "how": "Human"
+          },
+          {
+            "index": "11-006",
+            "failureCondition": "Natural language for document metadata cannot be determined.",
+            "section": "UA1:7.2-3",
+            "type": "Doc",
+            "how": "Machine"
+          },
+          {
+            "index": "14-001",
+            "failureCondition": "Headings are not tagged.",
+            "section": "UA1:7.4-1",
+            "type": "Doc",
+            "how": "Human"
+          },
+          {
+            "index": "14-002",
+            "failureCondition": "Document uses numbered headings, but the first heading tag is not H1.",
+            "section": "UA1:7.4-1",
+            "type": "Doc",
+            "how": "Machine"
+          },
+          {
+            "index": "14-003",
+            "failureCondition": "Numbered heading levels in descending sequence are skipped (e.g., H3 follows directly after H1).",
+            "section": "UA1:7.4-1",
+            "type": "Doc",
+            "how": "Machine"
+          }
+        ],
+        "source": "MatterhornProtocol_1-011.pdf"
+      },
+      "examples": [
+        {
+          "description": "A mail merge PDF typically contains a number of letters to different recipients. This implies that the PDF at the top level is one document, containing multiple documents at its child level where each such document is a letter to a recipient.",
+          "source": "ISO 32000-2:2020, Section 14.8.4.3"
+        },
+        {
+          "description": "A mail merge PDF typically contains a number of letters to different recipients. This implies that the PDF at the top level is one document, containing multiple documents at its child level where each such document is a letter to a recipient.",
+          "source": "ISO 32000-2:2020, Section 14.8.4.3"
+        }
+      ],
+      "useCases": {
+        "Reports": {
+          "description": "Documents that consolidate structured data and narrative content for business or academic purposes.",
+          "sample": "<Document><Title>Annual Report</Title><Sect><H1>Executive Summary</H1><P>...</P></Sect></Document>"
+        },
+        "Books": {
+          "description": "Documents containing chapters, sections, and figures, organized for long-form reading.",
+          "sample": "<Document><Title>Science Textbook</Title><Part><H1>Chapter 1</H1><P>Introduction to Physics...</P></Part></Document>"
+        }
+      }
     },
     {
       "tag": "DocumentFragment",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.3"
+      "source": "ISO 32000 Section 14.8.4.3",
+      "validationTips": {
+        "tips": [
+          {
+            "index": "",
+            "failureCondition": "",
+            "section": "",
+            "type": "",
+            "how": ""
+          }
+        ],
+        "source": "MatterhornProtocol_1-011.pdf"
+      }
     },
     {
       "tag": "Part",
