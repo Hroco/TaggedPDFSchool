@@ -198,7 +198,7 @@ function TagRelationship({
   type,
   icon: Icon,
 }: {
-  tags: string[] | undefined;
+  tags: string[][] | undefined;
   type: "parent" | "child";
   icon: React.ElementType;
 }) {
@@ -213,15 +213,19 @@ function TagRelationship({
       </h3>
       {tags.length > 0 ? (
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-2">
-          {tags.map((tag) => (
-            <Link href={`/tags/${tag}`} key={tag}>
-              <div className="rounded bg-gray-700 p-2 text-center transition-colors hover:bg-gray-600">
-                <span className="text-sm font-medium text-blue-400 hover:underline">
-                  {tag}
-                </span>
-              </div>
-            </Link>
-          ))}
+          {tags.map((tagData) => {
+            const [tag, occ] = tagData;
+            return (
+              <Link href={`/tags/${tag}`} key={tag}>
+                <div className="flex justify-between rounded bg-gray-700 p-2 text-center transition-colors hover:bg-gray-600">
+                  <span className="text-sm font-medium text-blue-400 hover:underline">
+                    {tag}
+                  </span>
+                  <Badge variant="secondary">{occ}</Badge>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       ) : (
         <p className="italic text-gray-400">
