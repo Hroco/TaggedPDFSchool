@@ -1479,8 +1479,8 @@
       "tag": "Document",
       "description": "Represents the root element of a PDF's logical structure tree. It serves as the container for all content elements, defining the primary organizational hierarchy of the document.",
       "source": "ISO 32000-2:2020, Section 14.8.4.3",
-      "namespace": ["2.0"],
-      "type": ["block"],
+      "namespace": ["1.7", "2.0"],
+      "type": ["document", "grouping"],
       "differences": {
         "wellTaggedPDF": {
           "description": "Well-Tagged PDF provides detailed guidelines for document structure elements—such as Document, Part, Art, Sect, Div, and others—to ensure semantic clarity and reusability. It emphasizes clear nesting and explicit tagging of structural elements.",
@@ -1496,34 +1496,36 @@
       "hierarchy": {
         "source": "ISO32000-2_AnnexL_matrix-version072024",
         "parentTags": [
-          "StructTreeRoot",
-          "Document",
-          "DocumentFragment",
-          "Part",
-          "Div",
-          "Sect",
-          "Aside",
-          "NonStruct",
-          "Artifact"
+          ["StructTreeRoot", "1"],
+          ["Document", "0..n"],
+          ["DocumentFragment", "0..n"],
+          ["Part", "‡"],
+          ["Div", "‡"],
+          ["Aside", "0..n"],
+          ["NonStruct", "‡"],
+          ["Artifact", "0..n"]
         ],
         "childTags": [
-          "Document",
-          "DocumentFragment",
-          "Part",
-          "Div",
-          "Sect",
-          "Aside",
-          "NonStruct",
-          "Title",
-          "Link",
-          "Annot",
-          "Form",
-          "FENote",
-          "L",
-          "Table",
-          "Figure",
-          "Formula",
-          "Artifact"
+          ["Document", "0..n"],
+          ["DocumentFragment", "0..n"],
+          ["Part", "0..n"],
+          ["Div", "0..n"],
+          ["Sect", "0..n"],
+          ["Aside", "0..n"],
+          ["NonStruct", "0..n"],
+          ["P", "0..n"],
+          ["Hn", "0..n"],
+          ["H", "0..1"],
+          ["Title", "0..n"],
+          ["Link", "0..n"],
+          ["Annot", "0..n"],
+          ["Form", "0..n"],
+          ["FENote", "0..n"],
+          ["L", "0..n"],
+          ["Table", "0..n"],
+          ["Figure", "0..n"],
+          ["Formula", "0..n"],
+          ["Artifact", "0..n"]
         ]
       },
       "attributes": [
@@ -1736,221 +1738,312 @@
           "description": "A mail merge PDF typically contains a number of letters to different recipients. This implies that the PDF at the top level is one document, containing multiple documents at its child level where each such document is a letter to a recipient.",
           "source": "ISO 32000-2:2020, Section 14.8.4.3"
         }
-      ],
-      "useCases": {
-        "Reports": {
-          "description": "Documents that consolidate structured data and narrative content for business or academic purposes.",
-          "sample": "<Document><Title>Annual Report</Title><Sect><H1>Executive Summary</H1><P>...</P></Sect></Document>"
-        },
-        "Books": {
-          "description": "Documents containing chapters, sections, and figures, organized for long-form reading.",
-          "sample": "<Document><Title>Science Textbook</Title><Part><H1>Chapter 1</H1><P>Introduction to Physics...</P></Part></Document>"
-        }
-      }
+      ]
     },
     {
       "tag": "DocumentFragment",
       "description": "",
       "source": "ISO 32000 Section 14.8.4.3",
-      "validationTips": {
-        "tips": [
-          {
-            "index": "",
-            "failureCondition": "",
-            "section": "",
-            "type": "",
-            "how": ""
-          }
+      "namespace": ["2.0"],
+      "type": ["document"],
+      "hierarchy": {
+        "source": "ISO32000-2_AnnexL_matrix-version072024",
+        "childTags": [
+          ["Document", "0..n"],
+          ["DocumentFragment", "0..n"],
+          ["Part", "0..n"],
+          ["Div", "0..n"],
+          ["Sect", "0..n"],
+          ["Aside", "0..n"],
+          ["NonStruct", "0..n"],
+          ["P", "0..n"],
+          ["Hn", "0..1"],
+          ["H", "0..n"],
+          ["Title", "0..n"],
+          ["Link", "0..n"],
+          ["Annot", "0..n"],
+          ["Form", "0..n"],
+          ["FENote", "0..n"],
+          ["L", "0..n"],
+          ["Table", "0..n"],
+          ["Figure", "0..n"],
+          ["Formula", "0..n"],
+          ["Artifact", "0..n"]
         ],
-        "source": "MatterhornProtocol_1-011.pdf"
+        "parentTags": [
+          ["Document", "0..n"],
+          ["DocumentFragment", "0..n"],
+          ["Part", "‡"],
+          ["Div", "‡"],
+          ["Sect", "0..n"],
+          ["Aside", "0..n"],
+          ["NonStruct", "‡"],
+          ["Link", "∅*"],
+          ["Annot", "∅*"],
+          ["FENote", "∅*"],
+          ["Caption", "∅*"],
+          ["Artifact", "0..n"]
+        ]
       }
     },
     {
       "tag": "Part",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.4"
+      "source": "ISO 32000 Section 14.8.4.4",
+      "namespace": ["1.7", "2.0"],
+      "type": ["grouping"]
     },
     {
       "tag": "Sect",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.4"
+      "source": "ISO 32000 Section 14.8.4.4",
+      "namespace": ["1.7", "2.0"],
+      "type": ["grouping"]
     },
     {
       "tag": "Div",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.4"
+      "source": "ISO 32000 Section 14.8.4.4",
+      "namespace": ["1.7", "2.0"],
+      "type": ["grouping"]
     },
     {
       "tag": "Aside",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.4"
+      "source": "ISO 32000 Section 14.8.4.4",
+      "namespace": ["2.0"],
+      "type": ["grouping"]
     },
     {
       "tag": "NonStruct",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.4"
+      "source": "ISO 32000 Section 14.8.4.4",
+      "namespace": ["1.7", "2.0"],
+      "type": ["grouping"]
     },
     {
       "tag": "P",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.5"
+      "source": "ISO 32000 Section 14.8.4.5",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block"]
     },
     {
       "tag": "Hn",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.5"
+      "source": "ISO 32000 Section 14.8.4.5",
+      "namespace": ["2.0"],
+      "type": ["block"]
     },
     {
       "tag": "H",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.5"
+      "source": "ISO 32000 Section 14.8.4.5",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block"]
     },
     {
       "tag": "Title",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.5"
+      "source": "ISO 32000 Section 14.8.4.5",
+      "namespace": ["2.0"],
+      "type": ["grouping", "block"]
     },
     {
       "tag": "FENote",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.5"
+      "source": "ISO 32000 Section 14.8.4.5",
+      "namespace": ["2.0"],
+      "type": ["grouping", "block", "inline"]
     },
     {
       "tag": "Sub",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.6"
+      "source": "ISO 32000 Section 14.8.4.6",
+      "namespace": ["2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "Lbl",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "Span",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "Em",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "Strong",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "Link",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["grouping", "block", "inline"]
     },
     {
       "tag": "Annot",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["grouping", "block", "inline"]
     },
     {
       "tag": "Form",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["grouping", "block", "inline"]
     },
     {
       "tag": "Ruby",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "RB",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "RT",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "RP",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "Warichu",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "WT",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "WP",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.7"
+      "source": "ISO 32000 Section 14.8.4.7",
+      "namespace": ["1.7", "2.0"],
+      "type": ["inline"]
     },
     {
       "tag": "L",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block", "inline"]
     },
     {
       "tag": "LI",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block", "inline"]
     },
     {
       "tag": "LBody",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block", "inline"]
     },
     {
       "tag": "Table",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block"]
     },
     {
       "tag": "TR",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block"]
     },
     {
       "tag": "TH",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block"]
     },
     {
       "tag": "TD",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block"]
     },
     {
       "tag": "THead",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block"]
     },
     {
       "tag": "TBody",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block"]
     },
     {
       "tag": "TFoot",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["block"]
     },
     {
       "tag": "Caption",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["grouping", "block"]
     },
     {
       "tag": "Figure",
       "description": "Represents visual content like images, graphs, or charts in a PDF document.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
-      "type": ["block"],
+      "type": ["grouping", "block", "inline"],
       "differences": {
         "wellTaggedPDF": {
           "description": "Includes required structural tagging for figures, plus appropriate alternative or replacement text to support basic reuse and accessibility needs in a PDF. Purely decorative figures are artifacted rather than tagged.",
@@ -1966,61 +2059,62 @@
       "hierarchy": {
         "source": "ISO32000-2_AnnexL_matrix-version072024",
         "parentTags": [
-          "Document",
-          "DocumentFragment",
-          "Part",
-          "Div",
-          "Sect",
-          "Aside",
-          "NonStruct",
-          "Title",
-          "Sub",
-          "P",
-          "Hn",
-          "H",
-          "Lbl",
-          "Em",
-          "Strong",
-          "Span",
-          "Link",
-          "Annot",
-          "Form",
-          "WP",
-          "FENote",
-          "LBody",
-          "TH",
-          "TD",
-          "Caption",
-          "Figure",
-          "Formula",
-          "Artifact"
+          ["Document", "0..n"],
+          ["DocumentFragment", "0..n"],
+          ["Part", "‡"],
+          ["Div", "‡"],
+          ["Sect", "0..n"],
+          ["Aside", "0..n"],
+          ["NonStruct", "‡"],
+          ["Title", "0..n"],
+          ["Sub", "0..n"],
+          ["P", "0..n"],
+          ["Hn", "0..n"],
+          ["H", "0..n"],
+          ["Lbl", "0..n"],
+          ["Em", "0..n"],
+          ["Strong", "0..n"],
+          ["Span", "0..n"],
+          ["Link", "0..n"],
+          ["Annot", "0..n"],
+          ["Form", "∅*"],
+          ["WP", "c"],
+          ["FENote", "0..n"],
+          ["LBody", "0..n"],
+          ["TH", "0..n"],
+          ["TD", "0..n"],
+          ["Caption", "0..n"],
+          ["Figure", "0..n"],
+          ["Formula", "0..n"],
+          ["Artifact", "0..n"]
         ],
         "childTags": [
-          "Part",
-          "Div",
-          "Sect",
-          "Aside",
-          "NonStruct",
-          "Sub",
-          "P",
-          "Hn",
-          "H",
-          "Lbl",
-          "Em",
-          "Strong",
-          "Span",
-          "Link",
-          "Annot",
-          "Form",
-          "Ruby",
-          "Warichu",
-          "FENote",
-          "L",
-          "Table",
-          "Caption",
-          "Figure",
-          "Formula",
-          "Artifact"
+          ["Part", "0..n"],
+          ["Div", "0..n"],
+          ["Sect", "0..n"],
+          ["Aside", "0..n"],
+          ["NonStruct", "0..n"],
+          ["P", "0..n"],
+          ["Hn", "0..n"],
+          ["H", "0..1"],
+          ["Sub", "∅*"],
+          ["Lbl", "0..n"],
+          ["Em", "0..n"],
+          ["Strong", "0..n"],
+          ["Span", "0..n"],
+          ["Link", "0..n"],
+          ["Annot", "0..n"],
+          ["Form", "0..n"],
+          ["Ruby", "0..n"],
+          ["Warichu", "0..n"],
+          ["FENote", "0..n"],
+          ["L", "0..n"],
+          ["Table", "0..n"],
+          ["Caption", "0..1"],
+          ["Figure", "0..n"],
+          ["Formula", "0..n"],
+          ["Artifact", "0..n"],
+          ["contentItem", "0..n"]
         ]
       },
       "attributes": [
@@ -2162,100 +2256,181 @@
     {
       "tag": "Formula",
       "description": "",
-      "source": "ISO 32000 Section 14.8.4.8"
+      "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["1.7", "2.0"],
+      "type": ["grouping", "block", "inline"]
     },
     {
       "tag": "Artifact",
       "description": "",
       "source": "ISO 32000 Section 14.8.4.8",
+      "namespace": ["2.0"],
+      "type": ["grouping", "block", "inline"],
       "hierarchy": {
         "parentTags": [
-          "Document",
-          "DocumentFragment",
-          "Part",
-          "Div",
-          "Sect",
-          "Aside",
-          "NonStruct",
-          "Title",
-          "Sub",
-          "P",
-          "Hn",
-          "H",
-          "Lbl",
-          "Em",
-          "Strong",
-          "Span",
-          "Link",
-          "Annot",
-          "Form",
-          "Ruby",
-          "RB",
-          "RT",
-          "RP",
-          "Warichu",
-          "WT",
-          "WP",
-          "FENote",
-          "L",
-          "LI",
-          "LBody",
-          "Table",
-          "TR",
-          "TH",
-          "TD",
-          "THead",
-          "TBody",
-          "TFoot",
-          "Caption",
-          "Figure",
-          "Formula",
-          "Artifact"
+          ["Document", ""],
+          ["DocumentFragment", ""],
+          ["Part", ""],
+          ["Div", ""],
+          ["Sect", ""],
+          ["Aside", ""],
+          ["NonStruct", ""],
+          ["Title", ""],
+          ["Sub", ""],
+          ["P", ""],
+          ["Hn", ""],
+          ["H", ""],
+          ["Lbl", ""],
+          ["Em", ""],
+          ["Strong", ""],
+          ["Span", ""],
+          ["Link", ""],
+          ["Annot", ""],
+          ["Form", ""],
+          ["Ruby", ""],
+          ["RB", ""],
+          ["RT", ""],
+          ["RP", ""],
+          ["Warichu", ""],
+          ["WT", ""],
+          ["WP", ""],
+          ["FENote", ""],
+          ["L", ""],
+          ["LI", ""],
+          ["LBody", ""],
+          ["Table", ""],
+          ["TR", ""],
+          ["TH", ""],
+          ["TD", ""],
+          ["THead", ""],
+          ["TBody", ""],
+          ["TFoot", ""],
+          ["Caption", ""],
+          ["Figure", ""],
+          ["Formula", ""],
+          ["Artifact", ""]
         ],
         "childTags": [
-          "Document",
-          "DocumentFragment",
-          "Part",
-          "Div",
-          "Sect",
-          "Aside",
-          "NonStruct",
-          "Title",
-          "Sub",
-          "P",
-          "Hn",
-          "H",
-          "Lbl",
-          "Em",
-          "Strong",
-          "Span",
-          "Link",
-          "Annot",
-          "Form",
-          "Ruby",
-          "RB",
-          "RT",
-          "RP",
-          "Warichu",
-          "WT",
-          "WP",
-          "FENote",
-          "L",
-          "LI",
-          "LBody",
-          "Table",
-          "TR",
-          "TH",
-          "TD",
-          "THead",
-          "TBody",
-          "TFoot",
-          "Caption",
-          "Figure",
-          "Formula",
-          "Artifact"
+          ["Document", ""],
+          ["DocumentFragment", ""],
+          ["Part", ""],
+          ["Div", ""],
+          ["Sect", ""],
+          ["Aside", ""],
+          ["NonStruct", ""],
+          ["Title", ""],
+          ["Sub", ""],
+          ["P", ""],
+          ["Hn", ""],
+          ["H", ""],
+          ["Lbl", ""],
+          ["Em", ""],
+          ["Strong", ""],
+          ["Span", ""],
+          ["Link", ""],
+          ["Annot", ""],
+          ["Form", ""],
+          ["Ruby", ""],
+          ["RB", ""],
+          ["RT", ""],
+          ["RP", ""],
+          ["Warichu", ""],
+          ["WT", ""],
+          ["WP", ""],
+          ["FENote", ""],
+          ["L", ""],
+          ["LI", ""],
+          ["LBody", ""],
+          ["Table", ""],
+          ["TR", ""],
+          ["TH", ""],
+          ["TD", ""],
+          ["THead", ""],
+          ["TBody", ""],
+          ["TFoot", ""],
+          ["Caption", ""],
+          ["Figure", ""],
+          ["Formula", ""],
+          ["Artifact", ""]
         ]
       }
+    },
+    {
+      "tag": "Art",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7"],
+      "type": ["grouping"]
+    },
+    {
+      "tag": "BlockQuote",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7"],
+      "type": ["grouping"]
+    },
+    {
+      "tag": "BibEntry",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7"],
+      "type": ["inline"]
+    },
+    {
+      "tag": "Code",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7"],
+      "type": ["inline"]
+    },
+    {
+      "tag": "Index",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7"],
+      "type": ["grouping"]
+    },
+    {
+      "tag": "Note",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7"],
+      "type": ["inline"]
+    },
+    {
+      "tag": "Private",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7"],
+      "type": ["grouping"]
+    },
+    {
+      "tag": "Quote",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7"],
+      "type": ["inline"]
+    },
+    {
+      "tag": "Reference",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7"],
+      "type": ["inline"]
+    },
+    {
+      "tag": "TOC",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7"],
+      "type": ["grouping"]
+    },
+    {
+      "tag": "TOCI",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7"],
+      "type": ["grouping"]
     }
   ]
 }
