@@ -1742,7 +1742,7 @@
     },
     {
       "tag": "DocumentFragment",
-      "description": "",
+      "description": "Encapsulates a fragment of a logical document extracted from another source. It is used to preserve content from an external document while maintaining its logical structure.",
       "source": "ISO 32000 Section 14.8.4.3",
       "namespace": ["2.0"],
       "type": ["document"],
@@ -1757,8 +1757,8 @@
           ["Aside", "0..n"],
           ["NonStruct", "0..n"],
           ["P", "0..n"],
-          ["Hn", "0..1"],
-          ["H", "0..n"],
+          ["Hn", "0..n"],
+          ["H", "0..1"],
           ["Title", "0..n"],
           ["Link", "0..n"],
           ["Annot", "0..n"],
@@ -1788,7 +1788,7 @@
     },
     {
       "tag": "Part",
-      "description": "",
+      "description": "Defines a grouping element for content that has a semantic purpose unrelated to the document’s heading hierarchy, allowing segmentation of content into distinct parts.",
       "source": "ISO 32000 Section 14.8.4.4",
       "namespace": ["1.7", "2.0"],
       "type": ["grouping"],
@@ -1807,7 +1807,7 @@
     },
     {
       "tag": "Sect",
-      "description": "",
+      "description": "Denotes a section of a document, grouping together related content under a common thematic heading to organize the document’s overall structure.",
       "source": "ISO 32000 Section 14.8.4.4",
       "namespace": ["1.7", "2.0"],
       "type": ["grouping"],
@@ -1826,7 +1826,7 @@
     },
     {
       "tag": "Div",
-      "description": "",
+      "description": "A generic container used to group content that shares common attributes or properties, without imparting any specific semantic meaning.",
       "source": "ISO 32000 Section 14.8.4.4",
       "namespace": ["1.7", "2.0"],
       "type": ["grouping"],
@@ -1845,7 +1845,7 @@
     },
     {
       "tag": "Aside",
-      "description": "",
+      "description": "Represents content that is tangentially related to the main content, such as side notes or additional commentary.",
       "source": "ISO 32000 Section 14.8.4.4",
       "namespace": ["2.0"],
       "type": ["grouping"],
@@ -1864,7 +1864,7 @@
     },
     {
       "tag": "NonStruct",
-      "description": "",
+      "description": "Denotes content that is not assigned a semantic structure, typically used for content that should be ignored in logical reading order.",
       "source": "ISO 32000 Section 14.8.4.4",
       "namespace": ["1.7", "2.0"],
       "type": ["grouping"],
@@ -1883,7 +1883,7 @@
     },
     {
       "tag": "P",
-      "description": "",
+      "description": "Represents a paragraph, grouping together block-level text content and establishing a basic unit of prose.",
       "source": "ISO 32000 Section 14.8.4.5",
       "namespace": ["1.7", "2.0"],
       "type": ["block"],
@@ -1902,7 +1902,7 @@
     },
     {
       "tag": "Hn",
-      "description": "",
+      "description": "A generic heading element used when a specific heading level (such as H1–H6) is not applicable, often role-mapped to standard headings.",
       "source": "ISO 32000 Section 14.8.4.5",
       "namespace": ["2.0"],
       "type": ["block"],
@@ -1921,7 +1921,7 @@
     },
     {
       "tag": "H",
-      "description": "",
+      "description": "A generic heading element used to label sections of a document. Specific heading levels (H1–H6) provide hierarchical context.",
       "source": "ISO 32000 Section 14.8.4.5",
       "namespace": ["1.7", "2.0"],
       "type": ["block"],
@@ -1940,7 +1940,7 @@
     },
     {
       "tag": "Title",
-      "description": "",
+      "description": "Specifies a title for an article, section, or the entire document, serving as a concise descriptor of the content.",
       "source": "ISO 32000 Section 14.8.4.5",
       "namespace": ["2.0"],
       "type": ["grouping", "block"],
@@ -1959,7 +1959,7 @@
     },
     {
       "tag": "FENote",
-      "description": "",
+      "description": "Denotes a note associated with form elements, providing additional instructions or context for form fields.",
       "source": "ISO 32000 Section 14.8.4.5",
       "namespace": ["2.0"],
       "type": ["grouping", "block", "inline"],
@@ -1978,7 +1978,7 @@
     },
     {
       "tag": "Sub",
-      "description": "",
+      "description": "Specifies subscript text, used in expressions like mathematical formulas or chemical notations where text is set below the baseline.",
       "source": "ISO 32000 Section 14.8.4.6",
       "namespace": ["2.0"],
       "type": ["inline"],
@@ -1997,7 +1997,7 @@
     },
     {
       "tag": "Lbl",
-      "description": "",
+      "description": "Represents a label within a list item, used to denote or number the item, such as a bullet or numeric identifier.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["inline"],
@@ -2016,7 +2016,7 @@
     },
     {
       "tag": "Span",
-      "description": "",
+      "description": "A generic inline container that groups text or other inline elements without imparting any additional semantic meaning.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["inline"],
@@ -2035,7 +2035,7 @@
     },
     {
       "tag": "Em",
-      "description": "",
+      "description": "Marks text that should be emphasized, conveying a stress or subtle change in meaning from the surrounding content.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["2.0"],
       "type": ["inline"],
@@ -2054,7 +2054,7 @@
     },
     {
       "tag": "Strong",
-      "description": "",
+      "description": "Denotes text that requires strong emphasis, typically indicating important or high-impact content.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["2.0"],
       "type": ["inline"],
@@ -2073,7 +2073,7 @@
     },
     {
       "tag": "Link",
-      "description": "",
+      "description": "Defines a hyperlink or reference to other content, either within the document or to an external resource.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["grouping", "block", "inline"],
@@ -2092,7 +2092,7 @@
     },
     {
       "tag": "Annot",
-      "description": "",
+      "description": "Represents an annotation that adds interactive features such as comments, links, or multimedia elements to the document.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["grouping", "block", "inline"],
@@ -2111,7 +2111,7 @@
     },
     {
       "tag": "Form",
-      "description": "",
+      "description": "Encapsulates interactive form elements, allowing for user input and data collection within the PDF.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["grouping", "block", "inline"],
@@ -2130,7 +2130,7 @@
     },
     {
       "tag": "Ruby",
-      "description": "",
+      "description": "Represents a ruby annotation that provides pronunciation or other linguistic hints alongside the base text, commonly used in East Asian typography.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["inline"],
@@ -2149,7 +2149,7 @@
     },
     {
       "tag": "RB",
-      "description": "",
+      "description": "Defines the base text element within a ruby annotation, representing the main text to which the annotation applies.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["inline"],
@@ -2168,7 +2168,7 @@
     },
     {
       "tag": "RT",
-      "description": "",
+      "description": "Specifies the ruby text element that provides supplementary pronunciation or annotation information for the associated base text.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["inline"],
@@ -2187,7 +2187,7 @@
     },
     {
       "tag": "RP",
-      "description": "",
+      "description": "Provides fallback punctuation or parentheses for ruby annotations when the ruby text cannot be rendered.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["inline"],
@@ -2206,7 +2206,7 @@
     },
     {
       "tag": "Warichu",
-      "description": "",
+      "description": "Denotes inline annotations or side comments that appear in a smaller type, typically used to offer additional explanation or commentary, especially in Japanese typography.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["inline"],
@@ -2225,7 +2225,7 @@
     },
     {
       "tag": "WT",
-      "description": "",
+      "description": "Represents the primary text content within a warichu annotation, conveying the main annotation message.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["inline"],
@@ -2244,7 +2244,7 @@
     },
     {
       "tag": "WP",
-      "description": "",
+      "description": "Specifies punctuation or separators within a warichu annotation, used to delineate different parts of the annotation.",
       "source": "ISO 32000 Section 14.8.4.7",
       "namespace": ["1.7", "2.0"],
       "type": ["inline"],
@@ -2263,7 +2263,7 @@
     },
     {
       "tag": "L",
-      "description": "",
+      "description": "Represents a list structure that groups together a sequence of semantically related items.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["block", "inline"],
@@ -2282,7 +2282,7 @@
     },
     {
       "tag": "LI",
-      "description": "",
+      "description": "Defines an individual list item within a list, containing specific content or a discrete entry.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["block", "inline"],
@@ -2301,7 +2301,7 @@
     },
     {
       "tag": "LBody",
-      "description": "",
+      "description": "Encapsulates the body content of a list item, providing detailed descriptive content associated with the label.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["block", "inline"],
@@ -2320,7 +2320,7 @@
     },
     {
       "tag": "Table",
-      "description": "",
+      "description": "Represents a table structure that organizes content into rows and columns, facilitating tabular presentation.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["block"],
@@ -2339,7 +2339,7 @@
     },
     {
       "tag": "TR",
-      "description": "",
+      "description": "Defines a table row that groups together table cells in a horizontal line within a table.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["block"],
@@ -2358,7 +2358,7 @@
     },
     {
       "tag": "TH",
-      "description": "",
+      "description": "Represents a table header cell that contains descriptive information for the table’s columns or rows.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["block"],
@@ -2377,7 +2377,7 @@
     },
     {
       "tag": "TD",
-      "description": "",
+      "description": "Defines a table data cell containing content that is part of the table’s body.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["block"],
@@ -2396,7 +2396,7 @@
     },
     {
       "tag": "THead",
-      "description": "",
+      "description": "Defines the header section of a table, containing cells that label the columns or rows and provide context for the table data.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["block"],
@@ -2415,7 +2415,7 @@
     },
     {
       "tag": "TBody",
-      "description": "",
+      "description": "Represents the main body of a table, grouping together the rows that contain the primary data entries.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["block"],
@@ -2434,7 +2434,7 @@
     },
     {
       "tag": "TFoot",
-      "description": "",
+      "description": "Represents the footer section of a table, grouping together table rows that contain summary information, totals, or additional annotations related to the table's content.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["block"],
@@ -2453,7 +2453,7 @@
     },
     {
       "tag": "Caption",
-      "description": "",
+      "description": "Specifies a caption or title for an element such as a figure or table, providing a brief description of its content.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["grouping", "block"],
@@ -2687,7 +2687,7 @@
     },
     {
       "tag": "Formula",
-      "description": "",
+      "description": "Encapsulates mathematical expressions or equations, preserving the semantics of technical or scientific formulas.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["1.7", "2.0"],
       "type": ["grouping", "block", "inline"],
@@ -2706,7 +2706,7 @@
     },
     {
       "tag": "Artifact",
-      "description": "",
+      "description": "Denotes content that is non-structural or decorative, such as background graphics or other content not intended to be read in the logical order.",
       "source": "ISO 32000 Section 14.8.4.8",
       "namespace": ["2.0"],
       "type": ["grouping", "block", "inline"],
@@ -2813,7 +2813,7 @@
     },
     {
       "tag": "Art",
-      "description": "",
+      "description": "Represents an article or self-contained narrative within a larger document. It often includes its own headings and substructure to distinguish it as an independent unit.",
       "source": "",
       "namespace": ["1.7"],
       "type": ["grouping"],
@@ -2832,7 +2832,7 @@
     },
     {
       "tag": "BlockQuote",
-      "description": "",
+      "description": "Identifies a block of content that is quoted from another source, providing both visual and logical separation from the main text.",
       "source": "",
       "namespace": ["1.7"],
       "type": ["grouping"],
@@ -2851,7 +2851,7 @@
     },
     {
       "tag": "BibEntry",
-      "description": "",
+      "description": "Represents a bibliographic entry within a list of references, detailing citation information for a source.",
       "source": "",
       "namespace": ["1.7"],
       "type": ["inline"],
@@ -2870,7 +2870,7 @@
     },
     {
       "tag": "Code",
-      "description": "",
+      "description": "Encapsulates a fragment of computer program text, preserving formatting and indicating that the content is intended as code.",
       "source": "",
       "namespace": ["1.7"],
       "type": ["inline"],
@@ -2889,7 +2889,7 @@
     },
     {
       "tag": "Index",
-      "description": "",
+      "description": "Defines an index that lists terms or topics along with references to their occurrences in the document, facilitating quick lookup.",
       "source": "",
       "namespace": ["1.7"],
       "type": ["grouping"],
@@ -2908,7 +2908,7 @@
     },
     {
       "tag": "Note",
-      "description": "",
+      "description": "Contains supplementary or explanatory information such as footnotes or endnotes, adding context to the main content.",
       "source": "",
       "namespace": ["1.7"],
       "type": ["inline"],
@@ -2927,7 +2927,7 @@
     },
     {
       "tag": "Private",
-      "description": "",
+      "description": "A grouping element for content specific to the producing application. Its semantic significance is undefined and may be ignored by processors.",
       "source": "",
       "namespace": ["1.7"],
       "type": ["grouping"],
@@ -2946,7 +2946,7 @@
     },
     {
       "tag": "Quote",
-      "description": "",
+      "description": "Encapsulates a block or inline quotation, preserving the exact wording of text taken from another source.",
       "source": "",
       "namespace": ["1.7"],
       "type": ["inline"],
@@ -2965,7 +2965,7 @@
     },
     {
       "tag": "Reference",
-      "description": "",
+      "description": "Denotes a cross-reference element that links to related content within the document or to external sources for additional information.",
       "source": "",
       "namespace": ["1.7"],
       "type": ["inline"],
@@ -2984,7 +2984,7 @@
     },
     {
       "tag": "TOC",
-      "description": "",
+      "description": "Represents a table of contents that lists the major sections or topics of the document, serving as an entry point for navigation.",
       "source": "",
       "namespace": ["1.7"],
       "type": ["grouping"],
@@ -3003,7 +3003,7 @@
     },
     {
       "tag": "TOCI",
-      "description": "",
+      "description": "Denotes an individual entry within a table of contents, linking to a specific section or topic in the document.",
       "source": "",
       "namespace": ["1.7"],
       "type": ["grouping"],
