@@ -1479,8 +1479,14 @@
       "tag": "Document",
       "description": "Represents the root element of a PDF's logical structure tree. It serves as the container for all content elements, defining the primary organizational hierarchy of the document.",
       "source": "ISO 32000-2:2020, Section 14.8.4.3",
-      "namespace": ["1.7", "2.0"],
-      "type": ["document", "grouping"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "document",
+        "grouping"
+      ],
       "differences": {
         "wellTaggedPDF": {
           "description": "Well-Tagged PDF provides detailed guidelines for document structure elements—such as Document, Part, Art, Sect, Div, and others—to ensure semantic clarity and reusability. It emphasizes clear nesting and explicit tagging of structural elements.",
@@ -1496,36 +1502,120 @@
       "hierarchy": {
         "source": "ISO32000-2_AnnexL_matrix-version072024",
         "parentTags": [
-          ["StructTreeRoot", "1"],
-          ["Document", "0..n"],
-          ["DocumentFragment", "0..n"],
-          ["Part", "‡"],
-          ["Div", "‡"],
-          ["Aside", "0..n"],
-          ["NonStruct", "‡"],
-          ["Artifact", "0..n"]
+          [
+            "StructTreeRoot",
+            "1"
+          ],
+          [
+            "Document",
+            "0..n"
+          ],
+          [
+            "DocumentFragment",
+            "0..n"
+          ],
+          [
+            "Part",
+            "‡"
+          ],
+          [
+            "Div",
+            "‡"
+          ],
+          [
+            "Aside",
+            "0..n"
+          ],
+          [
+            "NonStruct",
+            "‡"
+          ],
+          [
+            "Artifact",
+            "0..n"
+          ]
         ],
         "childTags": [
-          ["Document", "0..n"],
-          ["DocumentFragment", "0..n"],
-          ["Part", "0..n"],
-          ["Div", "0..n"],
-          ["Sect", "0..n"],
-          ["Aside", "0..n"],
-          ["NonStruct", "0..n"],
-          ["P", "0..n"],
-          ["Hn", "0..n"],
-          ["H", "0..1"],
-          ["Title", "0..n"],
-          ["Link", "0..n"],
-          ["Annot", "0..n"],
-          ["Form", "0..n"],
-          ["FENote", "0..n"],
-          ["L", "0..n"],
-          ["Table", "0..n"],
-          ["Figure", "0..n"],
-          ["Formula", "0..n"],
-          ["Artifact", "0..n"]
+          [
+            "Document",
+            "0..n"
+          ],
+          [
+            "DocumentFragment",
+            "0..n"
+          ],
+          [
+            "Part",
+            "0..n"
+          ],
+          [
+            "Div",
+            "0..n"
+          ],
+          [
+            "Sect",
+            "0..n"
+          ],
+          [
+            "Aside",
+            "0..n"
+          ],
+          [
+            "NonStruct",
+            "0..n"
+          ],
+          [
+            "P",
+            "0..n"
+          ],
+          [
+            "Hn",
+            "0..n"
+          ],
+          [
+            "H",
+            "0..1"
+          ],
+          [
+            "Title",
+            "0..n"
+          ],
+          [
+            "Link",
+            "0..n"
+          ],
+          [
+            "Annot",
+            "0..n"
+          ],
+          [
+            "Form",
+            "0..n"
+          ],
+          [
+            "FENote",
+            "0..n"
+          ],
+          [
+            "L",
+            "0..n"
+          ],
+          [
+            "Table",
+            "0..n"
+          ],
+          [
+            "Figure",
+            "0..n"
+          ],
+          [
+            "Formula",
+            "0..n"
+          ],
+          [
+            "Artifact",
+            "0..n"
+          ]
         ]
       },
       "attributes": [
@@ -1744,45 +1834,145 @@
       "tag": "DocumentFragment",
       "description": "Encapsulates a fragment of a logical document extracted from another source. It is used to preserve content from an external document while maintaining its logical structure.",
       "source": "ISO 32000 Section 14.8.4.3",
-      "namespace": ["2.0"],
-      "type": ["document"],
+      "namespace": [
+        "2.0"
+      ],
+      "type": [
+        "document"
+      ],
       "hierarchy": {
         "source": "ISO32000-2_AnnexL_matrix-version072024",
         "childTags": [
-          ["Document", "0..n"],
-          ["DocumentFragment", "0..n"],
-          ["Part", "0..n"],
-          ["Div", "0..n"],
-          ["Sect", "0..n"],
-          ["Aside", "0..n"],
-          ["NonStruct", "0..n"],
-          ["P", "0..n"],
-          ["Hn", "0..n"],
-          ["H", "0..1"],
-          ["Title", "0..n"],
-          ["Link", "0..n"],
-          ["Annot", "0..n"],
-          ["Form", "0..n"],
-          ["FENote", "0..n"],
-          ["L", "0..n"],
-          ["Table", "0..n"],
-          ["Figure", "0..n"],
-          ["Formula", "0..n"],
-          ["Artifact", "0..n"]
+          [
+            "Document",
+            "0..n"
+          ],
+          [
+            "DocumentFragment",
+            "0..n"
+          ],
+          [
+            "Part",
+            "0..n"
+          ],
+          [
+            "Div",
+            "0..n"
+          ],
+          [
+            "Sect",
+            "0..n"
+          ],
+          [
+            "Aside",
+            "0..n"
+          ],
+          [
+            "NonStruct",
+            "0..n"
+          ],
+          [
+            "P",
+            "0..n"
+          ],
+          [
+            "Hn",
+            "0..n"
+          ],
+          [
+            "H",
+            "0..1"
+          ],
+          [
+            "Title",
+            "0..n"
+          ],
+          [
+            "Link",
+            "0..n"
+          ],
+          [
+            "Annot",
+            "0..n"
+          ],
+          [
+            "Form",
+            "0..n"
+          ],
+          [
+            "FENote",
+            "0..n"
+          ],
+          [
+            "L",
+            "0..n"
+          ],
+          [
+            "Table",
+            "0..n"
+          ],
+          [
+            "Figure",
+            "0..n"
+          ],
+          [
+            "Formula",
+            "0..n"
+          ],
+          [
+            "Artifact",
+            "0..n"
+          ]
         ],
         "parentTags": [
-          ["Document", "0..n"],
-          ["DocumentFragment", "0..n"],
-          ["Part", "‡"],
-          ["Div", "‡"],
-          ["Sect", "0..n"],
-          ["Aside", "0..n"],
-          ["NonStruct", "‡"],
-          ["Link", "∅*"],
-          ["Annot", "∅*"],
-          ["FENote", "∅*"],
-          ["Caption", "∅*"],
-          ["Artifact", "0..n"]
+          [
+            "Document",
+            "0..n"
+          ],
+          [
+            "DocumentFragment",
+            "0..n"
+          ],
+          [
+            "Part",
+            "‡"
+          ],
+          [
+            "Div",
+            "‡"
+          ],
+          [
+            "Sect",
+            "0..n"
+          ],
+          [
+            "Aside",
+            "0..n"
+          ],
+          [
+            "NonStruct",
+            "‡"
+          ],
+          [
+            "Link",
+            "∅*"
+          ],
+          [
+            "Annot",
+            "∅*"
+          ],
+          [
+            "FENote",
+            "∅*"
+          ],
+          [
+            "Caption",
+            "∅*"
+          ],
+          [
+            "Artifact",
+            "0..n"
+          ]
         ]
       }
     },
@@ -1790,8 +1980,13 @@
       "tag": "Part",
       "description": "Defines a grouping element for content that has a semantic purpose unrelated to the document’s heading hierarchy, allowing segmentation of content into distinct parts.",
       "source": "ISO 32000 Section 14.8.4.4",
-      "namespace": ["1.7", "2.0"],
-      "type": ["grouping"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "grouping"
+      ],
       "differences": {
         "wellTaggedPDF": {
           "description": "The 'Part' element in Well-Tagged PDF is used to mark a major subdivision of a document—often representing a volume or large section—to enhance reusability and interoperability. It groups related content that can be independently extracted or reflowed.",
@@ -1809,8 +2004,13 @@
       "tag": "Sect",
       "description": "Denotes a section of a document, grouping together related content under a common thematic heading to organize the document’s overall structure.",
       "source": "ISO 32000 Section 14.8.4.4",
-      "namespace": ["1.7", "2.0"],
-      "type": ["grouping"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "grouping"
+      ],
       "differences": {
         "wellTaggedPDF": {
           "description": "The 'Sect' element in Well-Tagged PDF represents a distinct section within a document. It is used to logically group related content that belongs together, facilitating efficient content extraction and reflow for reuse purposes.",
@@ -1828,8 +2028,13 @@
       "tag": "Div",
       "description": "A generic container used to group content that shares common attributes or properties, without imparting any specific semantic meaning.",
       "source": "ISO 32000 Section 14.8.4.4",
-      "namespace": ["1.7", "2.0"],
-      "type": ["grouping"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "grouping"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Div' element in Well-Tagged PDF is a generic container used to group content when no more specific semantic element applies. It supports content reusability and logical grouping without imposing strict semantic meaning.",
@@ -1847,8 +2052,12 @@
       "tag": "Aside",
       "description": "Represents content that is tangentially related to the main content, such as side notes or additional commentary.",
       "source": "ISO 32000 Section 14.8.4.4",
-      "namespace": ["2.0"],
-      "type": ["grouping"],
+      "namespace": [
+        "2.0"
+      ],
+      "type": [
+        "grouping"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Aside' element in Well-Tagged PDF denotes content that is related but secondary to the main content. It is used to present supplementary information, such as side notes or tangential details.",
@@ -1866,8 +2075,13 @@
       "tag": "NonStruct",
       "description": "Denotes content that is not assigned a semantic structure, typically used for content that should be ignored in logical reading order.",
       "source": "ISO 32000 Section 14.8.4.4",
-      "namespace": ["1.7", "2.0"],
-      "type": ["grouping"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "grouping"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'NonStruct' element in Well-Tagged PDF is used for content that does not have a defined semantic structure or does not fit into the standard structure elements. It provides a way to include content without imposing artificial structure.",
@@ -1885,8 +2099,13 @@
       "tag": "P",
       "description": "Represents a paragraph, grouping together block-level text content and establishing a basic unit of prose.",
       "source": "ISO 32000 Section 14.8.4.5",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'P' element represents a paragraph in Well-Tagged PDF. It is fundamental for organizing text content into readable blocks and supports content extraction and reflow.",
@@ -1904,8 +2123,12 @@
       "tag": "Hn",
       "description": "A generic heading element used when a specific heading level (such as H1–H6) is not applicable, often role-mapped to standard headings.",
       "source": "ISO 32000 Section 14.8.4.5",
-      "namespace": ["2.0"],
-      "type": ["block"],
+      "namespace": [
+        "2.0"
+      ],
+      "type": [
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Hn' element in Well-Tagged PDF is used as a generic heading element where 'n' represents the level. It provides a flexible mechanism to denote hierarchical headings without being restricted to fixed levels.",
@@ -1923,8 +2146,13 @@
       "tag": "H",
       "description": "A generic heading element used to label sections of a document. Specific heading levels (H1–H6) provide hierarchical context.",
       "source": "ISO 32000 Section 14.8.4.5",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'H' element in Well-Tagged PDF serves as a general heading element when a specific level is not defined. It groups header content without enforcing a particular hierarchy.",
@@ -1942,8 +2170,13 @@
       "tag": "Title",
       "description": "Specifies a title for an article, section, or the entire document, serving as a concise descriptor of the content.",
       "source": "ISO 32000 Section 14.8.4.5",
-      "namespace": ["2.0"],
-      "type": ["grouping", "block"],
+      "namespace": [
+        "2.0"
+      ],
+      "type": [
+        "grouping",
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Title' element in Well-Tagged PDF identifies the title of a section or the document as a whole. It is used to enhance the reusability and clarity of content by explicitly marking title information.",
@@ -1961,8 +2194,14 @@
       "tag": "FENote",
       "description": "Denotes a note associated with form elements, providing additional instructions or context for form fields.",
       "source": "ISO 32000 Section 14.8.4.5",
-      "namespace": ["2.0"],
-      "type": ["grouping", "block", "inline"],
+      "namespace": [
+        "2.0"
+      ],
+      "type": [
+        "grouping",
+        "block",
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'FENote' element in Well-Tagged PDF is used to represent footnotes or endnotes that provide additional commentary or references related to the main content.",
@@ -1980,8 +2219,12 @@
       "tag": "Sub",
       "description": "Specifies subscript text, used in expressions like mathematical formulas or chemical notations where text is set below the baseline.",
       "source": "ISO 32000 Section 14.8.4.6",
-      "namespace": ["2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Sub' element is used to denote subscript text in Well-Tagged PDF. It indicates that the enclosed text should be rendered lower than the baseline, typically for scientific, mathematical, or chemical notations.",
@@ -1999,8 +2242,13 @@
       "tag": "Lbl",
       "description": "Represents a label within a list item, used to denote or number the item, such as a bullet or numeric identifier.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Lbl' element in Well-Tagged PDF is used to define label text that typically serves as a descriptor for form controls or other interactive elements.",
@@ -2018,8 +2266,13 @@
       "tag": "Span",
       "description": "A generic inline container that groups text or other inline elements without imparting any additional semantic meaning.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Span' element serves as a generic inline container in Well-Tagged PDF for grouping text or other inline elements that do not have a more specific semantic role.",
@@ -2037,8 +2290,12 @@
       "tag": "Em",
       "description": "Marks text that should be emphasized, conveying a stress or subtle change in meaning from the surrounding content.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Em' element indicates emphasized text in Well-Tagged PDF, often rendered in italics to denote a change in tone or to highlight important information.",
@@ -2056,8 +2313,12 @@
       "tag": "Strong",
       "description": "Denotes text that requires strong emphasis, typically indicating important or high-impact content.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Strong' element in Well-Tagged PDF denotes text of strong importance, often rendered in bold, to signal a high degree of emphasis.",
@@ -2075,8 +2336,15 @@
       "tag": "Link",
       "description": "Defines a hyperlink or reference to other content, either within the document or to an external resource.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["grouping", "block", "inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "grouping",
+        "block",
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Link' element in Well-Tagged PDF represents interactive hypertext links. It is used to associate clickable areas with actions or destinations within the document or external resources.",
@@ -2094,8 +2362,15 @@
       "tag": "Annot",
       "description": "Represents an annotation that adds interactive features such as comments, links, or multimedia elements to the document.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["grouping", "block", "inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "grouping",
+        "block",
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Annot' element in Well-Tagged PDF is used to represent annotations attached to the document content, such as comments, highlights, or other interactive notes.",
@@ -2113,8 +2388,15 @@
       "tag": "Form",
       "description": "Encapsulates interactive form elements, allowing for user input and data collection within the PDF.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["grouping", "block", "inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "grouping",
+        "block",
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Form' element in Well-Tagged PDF represents interactive form fields and related objects, grouping them into a cohesive structure.",
@@ -2132,8 +2414,13 @@
       "tag": "Ruby",
       "description": "Represents a ruby annotation that provides pronunciation or other linguistic hints alongside the base text, commonly used in East Asian typography.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Ruby' element in Well-Tagged PDF is used for ruby annotations, typically providing phonetic guides or supplementary pronunciation information for base text in East Asian languages.",
@@ -2151,8 +2438,13 @@
       "tag": "RB",
       "description": "Defines the base text element within a ruby annotation, representing the main text to which the annotation applies.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'RB' (Ruby Base) element in Well-Tagged PDF identifies the base text that is being annotated with ruby text.",
@@ -2170,8 +2462,13 @@
       "tag": "RT",
       "description": "Specifies the ruby text element that provides supplementary pronunciation or annotation information for the associated base text.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'RT' (Ruby Text) element in Well-Tagged PDF contains the annotation text that provides phonetic or supplementary information related to the base text.",
@@ -2189,8 +2486,13 @@
       "tag": "RP",
       "description": "Provides fallback punctuation or parentheses for ruby annotations when the ruby text cannot be rendered.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'RP' (Ruby Parenthesis) element in Well-Tagged PDF is used to enclose fallback characters (such as parentheses) that may be rendered if the ruby text is not displayed.",
@@ -2208,8 +2510,13 @@
       "tag": "Warichu",
       "description": "Denotes inline annotations or side comments that appear in a smaller type, typically used to offer additional explanation or commentary, especially in Japanese typography.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Warichu' element in Well-Tagged PDF is used to denote interlinear annotations typically found in East Asian texts. It provides supplemental commentary or pronunciation guides in a reduced size, positioned adjacent to the main text.",
@@ -2227,8 +2534,13 @@
       "tag": "WT",
       "description": "Represents the primary text content within a warichu annotation, conveying the main annotation message.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'WT' element in Well-Tagged PDF encapsulates the annotation text of a Warichu, delivering the actual content of the interlinear note.",
@@ -2246,8 +2558,13 @@
       "tag": "WP",
       "description": "Specifies punctuation or separators within a warichu annotation, used to delineate different parts of the annotation.",
       "source": "ISO 32000 Section 14.8.4.7",
-      "namespace": ["1.7", "2.0"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'WP' element in Well-Tagged PDF denotes the parenthetical characters or markers associated with a Warichu annotation, acting as visual cues.",
@@ -2259,14 +2576,86 @@
           "requirements": "It must be tagged appropriately, with any necessary alternative text, to allow assistive technologies to convey its function alongside the main annotation content.",
           "source": "PDF/UA-1 and PDF/UA-2 Standards"
         }
+      },
+      "hierarchy": {
+        "childTags": [
+          [
+            "NonStruct",
+            "0..n"
+          ],
+          [
+            "Sub",
+            "0..n"
+          ],
+          [
+            "Em",
+            "0..n"
+          ],
+          [
+            "Strong",
+            "0..n"
+          ],
+          [
+            "Span",
+            "0..n"
+          ],
+          [
+            "Link",
+            "0..n"
+          ],
+          [
+            "Annot",
+            "0..n"
+          ],
+          [
+            "Form",
+            "0..n"
+          ],
+          [
+            "Figure",
+            "c"
+          ],
+          [
+            "Artifact",
+            "0..n"
+          ],
+          [
+            "content item",
+            "‡"
+          ]
+        ],
+        "parentTags": [
+          [
+            "Div",
+            "‡"
+          ],
+          [
+            "NonStruct",
+            "‡"
+          ],
+          [
+            "Warichu",
+            "[b]"
+          ],
+          [
+            "Artifact",
+            "0..n"
+          ]
+        ]
       }
     },
     {
       "tag": "L",
       "description": "Represents a list structure that groups together a sequence of semantically related items.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block", "inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block",
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'L' element in Well-Tagged PDF represents the container for a list. It groups together all list items, establishing the overall structure of a list.",
@@ -2284,8 +2673,14 @@
       "tag": "LI",
       "description": "Defines an individual list item within a list, containing specific content or a discrete entry.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block", "inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block",
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'LI' element in Well-Tagged PDF denotes an individual list item within a list. It encapsulates the content of each item.",
@@ -2303,8 +2698,14 @@
       "tag": "LBody",
       "description": "Encapsulates the body content of a list item, providing detailed descriptive content associated with the label.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block", "inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block",
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'LBody' element in Well-Tagged PDF serves as a container for the main content of a list, grouping all list items together.",
@@ -2322,8 +2723,13 @@
       "tag": "Table",
       "description": "Represents a table structure that organizes content into rows and columns, facilitating tabular presentation.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Table' element in Well-Tagged PDF is used to represent tabular data as a cohesive unit. It organizes rows, columns, and cells to support content extraction and reflow for reuse.",
@@ -2341,8 +2747,13 @@
       "tag": "TR",
       "description": "Defines a table row that groups together table cells in a horizontal line within a table.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'TR' element denotes a table row in Well-Tagged PDF, grouping cells horizontally.",
@@ -2360,8 +2771,13 @@
       "tag": "TH",
       "description": "Represents a table header cell that contains descriptive information for the table’s columns or rows.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'TH' element in Well-Tagged PDF represents a table header cell, used to designate header information within a table.",
@@ -2379,8 +2795,13 @@
       "tag": "TD",
       "description": "Defines a table data cell containing content that is part of the table’s body.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'TD' element denotes a standard table data cell in Well-Tagged PDF, holding the primary content of a table.",
@@ -2398,8 +2819,13 @@
       "tag": "THead",
       "description": "Defines the header section of a table, containing cells that label the columns or rows and provide context for the table data.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'THead' element in Well-Tagged PDF is used to group header rows in a table, providing a clear separation from the table body.",
@@ -2417,8 +2843,13 @@
       "tag": "TBody",
       "description": "Represents the main body of a table, grouping together the rows that contain the primary data entries.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'TBody' element groups the main content rows of a table in Well-Tagged PDF. It organizes the bulk of the table’s data.",
@@ -2436,8 +2867,13 @@
       "tag": "TFoot",
       "description": "Represents the footer section of a table, grouping together table rows that contain summary information, totals, or additional annotations related to the table's content.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["block"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'TFoot' element in Well-Tagged PDF is used to group footer rows in a table, often containing summary or total information.",
@@ -2455,8 +2891,14 @@
       "tag": "Caption",
       "description": "Specifies a caption or title for an element such as a figure or table, providing a brief description of its content.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["grouping", "block"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "grouping",
+        "block"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Caption' element in Well-Tagged PDF provides a title or summary for a table, offering context and a brief description.",
@@ -2474,8 +2916,15 @@
       "tag": "Figure",
       "description": "Represents visual content like images, graphs, or charts in a PDF document.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["grouping", "block", "inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "grouping",
+        "block",
+        "inline"
+      ],
       "differences": {
         "wellTaggedPDF": {
           "description": "Includes required structural tagging for figures, plus appropriate alternative or replacement text to support basic reuse and accessibility needs in a PDF. Purely decorative figures are artifacted rather than tagged.",
@@ -2491,62 +2940,224 @@
       "hierarchy": {
         "source": "ISO32000-2_AnnexL_matrix-version072024",
         "parentTags": [
-          ["Document", "0..n"],
-          ["DocumentFragment", "0..n"],
-          ["Part", "‡"],
-          ["Div", "‡"],
-          ["Sect", "0..n"],
-          ["Aside", "0..n"],
-          ["NonStruct", "‡"],
-          ["Title", "0..n"],
-          ["Sub", "0..n"],
-          ["P", "0..n"],
-          ["Hn", "0..n"],
-          ["H", "0..n"],
-          ["Lbl", "0..n"],
-          ["Em", "0..n"],
-          ["Strong", "0..n"],
-          ["Span", "0..n"],
-          ["Link", "0..n"],
-          ["Annot", "0..n"],
-          ["Form", "∅*"],
-          ["WP", "c"],
-          ["FENote", "0..n"],
-          ["LBody", "0..n"],
-          ["TH", "0..n"],
-          ["TD", "0..n"],
-          ["Caption", "0..n"],
-          ["Figure", "0..n"],
-          ["Formula", "0..n"],
-          ["Artifact", "0..n"]
+          [
+            "Document",
+            "0..n"
+          ],
+          [
+            "DocumentFragment",
+            "0..n"
+          ],
+          [
+            "Part",
+            "‡"
+          ],
+          [
+            "Div",
+            "‡"
+          ],
+          [
+            "Sect",
+            "0..n"
+          ],
+          [
+            "Aside",
+            "0..n"
+          ],
+          [
+            "NonStruct",
+            "‡"
+          ],
+          [
+            "Title",
+            "0..n"
+          ],
+          [
+            "Sub",
+            "0..n"
+          ],
+          [
+            "P",
+            "0..n"
+          ],
+          [
+            "Hn",
+            "0..n"
+          ],
+          [
+            "H",
+            "0..n"
+          ],
+          [
+            "Lbl",
+            "0..n"
+          ],
+          [
+            "Em",
+            "0..n"
+          ],
+          [
+            "Strong",
+            "0..n"
+          ],
+          [
+            "Span",
+            "0..n"
+          ],
+          [
+            "Link",
+            "0..n"
+          ],
+          [
+            "Annot",
+            "0..n"
+          ],
+          [
+            "Form",
+            "∅*"
+          ],
+          [
+            "WP",
+            "c"
+          ],
+          [
+            "FENote",
+            "0..n"
+          ],
+          [
+            "LBody",
+            "0..n"
+          ],
+          [
+            "TH",
+            "0..n"
+          ],
+          [
+            "TD",
+            "0..n"
+          ],
+          [
+            "Caption",
+            "0..n"
+          ],
+          [
+            "Figure",
+            "0..n"
+          ],
+          [
+            "Formula",
+            "0..n"
+          ],
+          [
+            "Artifact",
+            "0..n"
+          ]
         ],
         "childTags": [
-          ["Part", "0..n"],
-          ["Div", "0..n"],
-          ["Sect", "0..n"],
-          ["Aside", "0..n"],
-          ["NonStruct", "0..n"],
-          ["P", "0..n"],
-          ["Hn", "0..n"],
-          ["H", "0..1"],
-          ["Sub", "∅*"],
-          ["Lbl", "0..n"],
-          ["Em", "0..n"],
-          ["Strong", "0..n"],
-          ["Span", "0..n"],
-          ["Link", "0..n"],
-          ["Annot", "0..n"],
-          ["Form", "0..n"],
-          ["Ruby", "0..n"],
-          ["Warichu", "0..n"],
-          ["FENote", "0..n"],
-          ["L", "0..n"],
-          ["Table", "0..n"],
-          ["Caption", "0..1"],
-          ["Figure", "0..n"],
-          ["Formula", "0..n"],
-          ["Artifact", "0..n"],
-          ["contentItem", "0..n"]
+          [
+            "Part",
+            "0..n"
+          ],
+          [
+            "Div",
+            "0..n"
+          ],
+          [
+            "Sect",
+            "0..n"
+          ],
+          [
+            "Aside",
+            "0..n"
+          ],
+          [
+            "NonStruct",
+            "0..n"
+          ],
+          [
+            "P",
+            "0..n"
+          ],
+          [
+            "Hn",
+            "0..n"
+          ],
+          [
+            "H",
+            "0..1"
+          ],
+          [
+            "Sub",
+            "∅*"
+          ],
+          [
+            "Lbl",
+            "0..n"
+          ],
+          [
+            "Em",
+            "0..n"
+          ],
+          [
+            "Strong",
+            "0..n"
+          ],
+          [
+            "Span",
+            "0..n"
+          ],
+          [
+            "Link",
+            "0..n"
+          ],
+          [
+            "Annot",
+            "0..n"
+          ],
+          [
+            "Form",
+            "0..n"
+          ],
+          [
+            "Ruby",
+            "0..n"
+          ],
+          [
+            "Warichu",
+            "0..n"
+          ],
+          [
+            "FENote",
+            "0..n"
+          ],
+          [
+            "L",
+            "0..n"
+          ],
+          [
+            "Table",
+            "0..n"
+          ],
+          [
+            "Caption",
+            "0..1"
+          ],
+          [
+            "Figure",
+            "0..n"
+          ],
+          [
+            "Formula",
+            "0..n"
+          ],
+          [
+            "Artifact",
+            "0..n"
+          ],
+          [
+            "contentItem",
+            "0..n"
+          ]
         ]
       },
       "attributes": [
@@ -2689,8 +3300,15 @@
       "tag": "Formula",
       "description": "Encapsulates mathematical expressions or equations, preserving the semantics of technical or scientific formulas.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["1.7", "2.0"],
-      "type": ["grouping", "block", "inline"],
+      "namespace": [
+        "1.7",
+        "2.0"
+      ],
+      "type": [
+        "grouping",
+        "block",
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Formula' element in Well-Tagged PDF represents mathematical expressions or equations within a document, ensuring that they are distinctly identified.",
@@ -2708,8 +3326,14 @@
       "tag": "Artifact",
       "description": "Denotes content that is non-structural or decorative, such as background graphics or other content not intended to be read in the logical order.",
       "source": "ISO 32000 Section 14.8.4.8",
-      "namespace": ["2.0"],
-      "type": ["grouping", "block", "inline"],
+      "namespace": [
+        "2.0"
+      ],
+      "type": [
+        "grouping",
+        "block",
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Artifact' element in Well-Tagged PDF is used for content that is decorative or non-essential to the logical structure. It marks items that should be ignored in content extraction and reflow.",
@@ -2724,90 +3348,336 @@
       },
       "hierarchy": {
         "parentTags": [
-          ["Document", ""],
-          ["DocumentFragment", ""],
-          ["Part", ""],
-          ["Div", ""],
-          ["Sect", ""],
-          ["Aside", ""],
-          ["NonStruct", ""],
-          ["Title", ""],
-          ["Sub", ""],
-          ["P", ""],
-          ["Hn", ""],
-          ["H", ""],
-          ["Lbl", ""],
-          ["Em", ""],
-          ["Strong", ""],
-          ["Span", ""],
-          ["Link", ""],
-          ["Annot", ""],
-          ["Form", ""],
-          ["Ruby", ""],
-          ["RB", ""],
-          ["RT", ""],
-          ["RP", ""],
-          ["Warichu", ""],
-          ["WT", ""],
-          ["WP", ""],
-          ["FENote", ""],
-          ["L", ""],
-          ["LI", ""],
-          ["LBody", ""],
-          ["Table", ""],
-          ["TR", ""],
-          ["TH", ""],
-          ["TD", ""],
-          ["THead", ""],
-          ["TBody", ""],
-          ["TFoot", ""],
-          ["Caption", ""],
-          ["Figure", ""],
-          ["Formula", ""],
-          ["Artifact", ""]
+          [
+            "Document",
+            ""
+          ],
+          [
+            "DocumentFragment",
+            ""
+          ],
+          [
+            "Part",
+            ""
+          ],
+          [
+            "Div",
+            ""
+          ],
+          [
+            "Sect",
+            ""
+          ],
+          [
+            "Aside",
+            ""
+          ],
+          [
+            "NonStruct",
+            ""
+          ],
+          [
+            "Title",
+            ""
+          ],
+          [
+            "Sub",
+            ""
+          ],
+          [
+            "P",
+            ""
+          ],
+          [
+            "Hn",
+            ""
+          ],
+          [
+            "H",
+            ""
+          ],
+          [
+            "Lbl",
+            ""
+          ],
+          [
+            "Em",
+            ""
+          ],
+          [
+            "Strong",
+            ""
+          ],
+          [
+            "Span",
+            ""
+          ],
+          [
+            "Link",
+            ""
+          ],
+          [
+            "Annot",
+            ""
+          ],
+          [
+            "Form",
+            ""
+          ],
+          [
+            "Ruby",
+            ""
+          ],
+          [
+            "RB",
+            ""
+          ],
+          [
+            "RT",
+            ""
+          ],
+          [
+            "RP",
+            ""
+          ],
+          [
+            "Warichu",
+            ""
+          ],
+          [
+            "WT",
+            ""
+          ],
+          [
+            "WP",
+            ""
+          ],
+          [
+            "FENote",
+            ""
+          ],
+          [
+            "L",
+            ""
+          ],
+          [
+            "LI",
+            ""
+          ],
+          [
+            "LBody",
+            ""
+          ],
+          [
+            "Table",
+            ""
+          ],
+          [
+            "TR",
+            ""
+          ],
+          [
+            "TH",
+            ""
+          ],
+          [
+            "TD",
+            ""
+          ],
+          [
+            "THead",
+            ""
+          ],
+          [
+            "TBody",
+            ""
+          ],
+          [
+            "TFoot",
+            ""
+          ],
+          [
+            "Caption",
+            ""
+          ],
+          [
+            "Figure",
+            ""
+          ],
+          [
+            "Formula",
+            ""
+          ],
+          [
+            "Artifact",
+            ""
+          ]
         ],
         "childTags": [
-          ["Document", ""],
-          ["DocumentFragment", ""],
-          ["Part", ""],
-          ["Div", ""],
-          ["Sect", ""],
-          ["Aside", ""],
-          ["NonStruct", ""],
-          ["Title", ""],
-          ["Sub", ""],
-          ["P", ""],
-          ["Hn", ""],
-          ["H", ""],
-          ["Lbl", ""],
-          ["Em", ""],
-          ["Strong", ""],
-          ["Span", ""],
-          ["Link", ""],
-          ["Annot", ""],
-          ["Form", ""],
-          ["Ruby", ""],
-          ["RB", ""],
-          ["RT", ""],
-          ["RP", ""],
-          ["Warichu", ""],
-          ["WT", ""],
-          ["WP", ""],
-          ["FENote", ""],
-          ["L", ""],
-          ["LI", ""],
-          ["LBody", ""],
-          ["Table", ""],
-          ["TR", ""],
-          ["TH", ""],
-          ["TD", ""],
-          ["THead", ""],
-          ["TBody", ""],
-          ["TFoot", ""],
-          ["Caption", ""],
-          ["Figure", ""],
-          ["Formula", ""],
-          ["Artifact", ""]
+          [
+            "Document",
+            ""
+          ],
+          [
+            "DocumentFragment",
+            ""
+          ],
+          [
+            "Part",
+            ""
+          ],
+          [
+            "Div",
+            ""
+          ],
+          [
+            "Sect",
+            ""
+          ],
+          [
+            "Aside",
+            ""
+          ],
+          [
+            "NonStruct",
+            ""
+          ],
+          [
+            "Title",
+            ""
+          ],
+          [
+            "Sub",
+            ""
+          ],
+          [
+            "P",
+            ""
+          ],
+          [
+            "Hn",
+            ""
+          ],
+          [
+            "H",
+            ""
+          ],
+          [
+            "Lbl",
+            ""
+          ],
+          [
+            "Em",
+            ""
+          ],
+          [
+            "Strong",
+            ""
+          ],
+          [
+            "Span",
+            ""
+          ],
+          [
+            "Link",
+            ""
+          ],
+          [
+            "Annot",
+            ""
+          ],
+          [
+            "Form",
+            ""
+          ],
+          [
+            "Ruby",
+            ""
+          ],
+          [
+            "RB",
+            ""
+          ],
+          [
+            "RT",
+            ""
+          ],
+          [
+            "RP",
+            ""
+          ],
+          [
+            "Warichu",
+            ""
+          ],
+          [
+            "WT",
+            ""
+          ],
+          [
+            "WP",
+            ""
+          ],
+          [
+            "FENote",
+            ""
+          ],
+          [
+            "L",
+            ""
+          ],
+          [
+            "LI",
+            ""
+          ],
+          [
+            "LBody",
+            ""
+          ],
+          [
+            "Table",
+            ""
+          ],
+          [
+            "TR",
+            ""
+          ],
+          [
+            "TH",
+            ""
+          ],
+          [
+            "TD",
+            ""
+          ],
+          [
+            "THead",
+            ""
+          ],
+          [
+            "TBody",
+            ""
+          ],
+          [
+            "TFoot",
+            ""
+          ],
+          [
+            "Caption",
+            ""
+          ],
+          [
+            "Figure",
+            ""
+          ],
+          [
+            "Formula",
+            ""
+          ],
+          [
+            "Artifact",
+            ""
+          ]
         ]
       }
     },
@@ -2815,8 +3685,12 @@
       "tag": "Art",
       "description": "Represents an article or self-contained narrative within a larger document. It often includes its own headings and substructure to distinguish it as an independent unit.",
       "source": "",
-      "namespace": ["1.7"],
-      "type": ["grouping"],
+      "namespace": [
+        "1.7"
+      ],
+      "type": [
+        "grouping"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Art' element in Well-Tagged PDF is used to delineate an article or a self-contained narrative unit within a document. It groups content that belongs together as an independent article.",
@@ -2834,8 +3708,12 @@
       "tag": "BlockQuote",
       "description": "Identifies a block of content that is quoted from another source, providing both visual and logical separation from the main text.",
       "source": "",
-      "namespace": ["1.7"],
-      "type": ["grouping"],
+      "namespace": [
+        "1.7"
+      ],
+      "type": [
+        "grouping"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'BlockQuote' element in Well-Tagged PDF is used to represent extended quotations that are set off from the main text, typically indented or styled differently.",
@@ -2853,8 +3731,12 @@
       "tag": "BibEntry",
       "description": "Represents a bibliographic entry within a list of references, detailing citation information for a source.",
       "source": "",
-      "namespace": ["1.7"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'BibEntry' element in Well-Tagged PDF denotes a single bibliographic entry, typically used within a bibliography or reference list.",
@@ -2872,8 +3754,12 @@
       "tag": "Code",
       "description": "Encapsulates a fragment of computer program text, preserving formatting and indicating that the content is intended as code.",
       "source": "",
-      "namespace": ["1.7"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Code' element in Well-Tagged PDF is used to encapsulate programming code or code snippets. It distinguishes code from regular text.",
@@ -2891,8 +3777,12 @@
       "tag": "Index",
       "description": "Defines an index that lists terms or topics along with references to their occurrences in the document, facilitating quick lookup.",
       "source": "",
-      "namespace": ["1.7"],
-      "type": ["grouping"],
+      "namespace": [
+        "1.7"
+      ],
+      "type": [
+        "grouping"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Index' element in Well-Tagged PDF is used to represent an index that organizes key terms and topics for easy reference.",
@@ -2910,8 +3800,12 @@
       "tag": "Note",
       "description": "Contains supplementary or explanatory information such as footnotes or endnotes, adding context to the main content.",
       "source": "",
-      "namespace": ["1.7"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Note' element in Well-Tagged PDF is used for annotations or side comments that provide additional information about the main text.",
@@ -2929,8 +3823,12 @@
       "tag": "Private",
       "description": "A grouping element for content specific to the producing application. Its semantic significance is undefined and may be ignored by processors.",
       "source": "",
-      "namespace": ["1.7"],
-      "type": ["grouping"],
+      "namespace": [
+        "1.7"
+      ],
+      "type": [
+        "grouping"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Private' element in Well-Tagged PDF is used for custom or proprietary content that does not conform to standard semantic elements. It allows for the inclusion of non-standard content.",
@@ -2948,8 +3846,12 @@
       "tag": "Quote",
       "description": "Encapsulates a block or inline quotation, preserving the exact wording of text taken from another source.",
       "source": "",
-      "namespace": ["1.7"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Quote' element in Well-Tagged PDF is used to designate inline or block quotations, distinguishing them from the main text.",
@@ -2967,8 +3869,12 @@
       "tag": "Reference",
       "description": "Denotes a cross-reference element that links to related content within the document or to external sources for additional information.",
       "source": "",
-      "namespace": ["1.7"],
-      "type": ["inline"],
+      "namespace": [
+        "1.7"
+      ],
+      "type": [
+        "inline"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'Reference' element in Well-Tagged PDF is used for citations and cross-references within a document. It links text to bibliographic entries or external resources.",
@@ -2986,8 +3892,12 @@
       "tag": "TOC",
       "description": "Represents a table of contents that lists the major sections or topics of the document, serving as an entry point for navigation.",
       "source": "",
-      "namespace": ["1.7"],
-      "type": ["grouping"],
+      "namespace": [
+        "1.7"
+      ],
+      "type": [
+        "grouping"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'TOC' element in Well-Tagged PDF represents a Table of Contents, outlining the major sections of the document.",
@@ -3005,8 +3915,12 @@
       "tag": "TOCI",
       "description": "Denotes an individual entry within a table of contents, linking to a specific section or topic in the document.",
       "source": "",
-      "namespace": ["1.7"],
-      "type": ["grouping"],
+      "namespace": [
+        "1.7"
+      ],
+      "type": [
+        "grouping"
+      ],
       "difference": {
         "wellTaggedPDF": {
           "description": "The 'TOCI' element in Well-Tagged PDF is an interactive Table of Contents that not only lists document sections but also provides clickable links for navigation.",
