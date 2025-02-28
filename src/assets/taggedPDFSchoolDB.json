@@ -1476,6 +1476,18 @@
   ],
   "pdfTags": [
     {
+      "tag": "StructTreeRoot",
+      "description": "",
+      "source": "",
+      "namespace": ["1.7", "2.0"],
+      "type": [],
+      "hierarchy": {
+        "source": "ISO-TS-32005-2023 Section 7.2",
+        "childTags": [["Document", "1"]],
+        "parentTags": []
+      }
+    },
+    {
       "tag": "Document",
       "description": "Represents the root element of a PDF's logical structure tree. It serves as the container for all content elements, defining the primary organizational hierarchy of the document.",
       "source": "ISO 32000-2:2020, Section 14.8.4.3",
@@ -1525,14 +1537,15 @@
           ["Artifact", "0..n"]
         ],
         "parentTags": [
-          ["Document", "1"],
+          ["StructTreeRoot", "1"],
+          ["Document", "0..n"],
           ["DocumentFragment", "0..n"],
-          ["Part", "0..n"],
+          ["Part", "‡"],
           ["Div", "‡"],
-          ["Aside", "‡"],
+          ["Aside", "0..n"],
           ["BlockQuote", "0..n"],
-          ["NonStruct", "0..n"],
-          ["Private", "‡"],
+          ["NonStruct", "‡"],
+          ["Private", "0..n"],
           ["Artifact", "0..n"]
         ]
       },

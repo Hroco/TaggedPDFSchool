@@ -215,6 +215,19 @@ function TagRelationship({
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-2">
           {tags.map((tagData) => {
             const [tag, occ] = tagData;
+            if (tag === "content item") {
+              return (
+                <div
+                  key={tag}
+                  className="flex justify-between rounded bg-gray-700 p-2 text-center transition-colors hover:bg-gray-600"
+                >
+                  <span className="text-sm font-medium text-blue-400 hover:underline">
+                    {tag}
+                  </span>
+                  <Badge variant="secondary">{occ}</Badge>
+                </div>
+              );
+            }
             return (
               <Link href={`/tags/${tag}`} key={tag}>
                 <div className="flex justify-between rounded bg-gray-700 p-2 text-center transition-colors hover:bg-gray-600">
