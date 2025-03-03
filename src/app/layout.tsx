@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 };
 
 const allTags = [
+  "StructTreeRoot",
   "Index",
   "Reference",
   "Art",
