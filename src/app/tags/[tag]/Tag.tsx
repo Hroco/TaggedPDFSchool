@@ -136,15 +136,15 @@ export default function Tag({ currentTag }: { currentTag: string }) {
         <h2 className="mb-3 text-2xl font-semibold">Differences</h2>
         <p className="text-gray-300">Well tagged PDF:</p>
         <p className="text-gray-300">
-          {tag.differences?.wellTaggedPDF.description}
+          {tag.difference?.wellTaggedPDF.description}
         </p>
         <p className="text-gray-300">
-          {tag.differences?.wellTaggedPDF.requirements}
+          {tag.difference?.wellTaggedPDF.requirements}
         </p>
         <br />
         <p className="text-gray-300">PDFUA:</p>
-        <p className="text-gray-300">{tag.differences?.pdfUA.description}</p>
-        <p className="text-gray-300">{tag.differences?.pdfUA.requirements}</p>
+        <p className="text-gray-300">{tag.difference?.pdfUA.description}</p>
+        <p className="text-gray-300">{tag.difference?.pdfUA.requirements}</p>
       </section>
 
       <section className="mb-8">
@@ -187,14 +187,16 @@ export default function Tag({ currentTag }: { currentTag: string }) {
         </ul>
       </section>
 
-      <section className="mb-8">
-        <h2 className="mb-3 text-2xl font-semibold">Examples</h2>
-        <ul className="ml-4 list-disc text-gray-300">
-          {tag.examples?.map((example, index) => {
-            return <li key={index}>{example.description}</li>;
-          })}
-        </ul>
-      </section>
+      {tag.examples && (
+        <section className="mb-8">
+          <h2 className="mb-3 text-2xl font-semibold">Examples</h2>
+          <ul className="ml-4 list-disc text-gray-300">
+            {tag.examples?.map((example, index) => {
+              return <li key={index}>{example.description}</li>;
+            })}
+          </ul>
+        </section>
+      )}
     </div>
   );
 }
