@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import data from "~/assets/taggedPDFSchoolDB.json";
+import checks from "~/assets/MatterhornProtocol.json";
 import { Badge } from "~/components/ui/badge";
 import { Card } from "~/components/ui/card";
 import { ChevronRight, ArrowUpCircle, ArrowDownCircle } from "lucide-react";
@@ -8,10 +9,15 @@ import { notFound } from "next/navigation";
 
 export default function Tag({ currentTag }: { currentTag: string }) {
   const tag = data.pdfTags.find((tag) => tag.tag === currentTag);
+  //Find all checks where structureElementsRelatedToThisCheck contains the current tag.tag
 
   if (!tag) {
     notFound();
   }
+
+  const checksForTag = checks.filter((check) => {
+    return check.structureElementsRelatedToThisCheck.includes(tag.tag);
+  });
 
   return (
     <div className="mx-auto max-w-3xl text-gray-100">
@@ -175,8 +181,8 @@ export default function Tag({ currentTag }: { currentTag: string }) {
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Validation Tips</h2>
         <ul className="ml-4 list-disc text-gray-300">
-          {tag.validationTips?.tips.map((tip, index) => {
-            return <li key={index}>{tip.failureCondition}</li>;
+          {checksForTag.map((tip) => {
+            return <li key={tip.index}>{tip.failureCondition}</li>;
           })}
         </ul>
       </section>
