@@ -1700,7 +1700,8 @@
           ["Caption", "∅*"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Part",
@@ -1783,7 +1784,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Sect",
@@ -1860,7 +1862,8 @@
           ["Figure", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Div",
@@ -1965,7 +1968,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Aside",
@@ -2038,7 +2042,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "NonStruct",
@@ -2168,7 +2173,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "P",
@@ -2243,7 +2249,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Hn",
@@ -2313,7 +2320,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "H",
@@ -2383,7 +2391,8 @@
           ["Formula", "0..1"],
           ["Artifact", "0..1"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Title",
@@ -2449,7 +2458,8 @@
           ["Annot", "∅*"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "FENote",
@@ -2543,7 +2553,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Sub",
@@ -2617,7 +2628,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Lbl",
@@ -2696,7 +2708,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Span",
@@ -2764,7 +2777,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Em",
@@ -2844,7 +2858,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Strong",
@@ -2924,7 +2939,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Link",
@@ -3023,7 +3039,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Annot",
@@ -3124,7 +3141,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Form",
@@ -3203,7 +3221,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Ruby",
@@ -3259,7 +3278,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "RB",
@@ -3303,7 +3323,8 @@
           ["Ruby", "[a]"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "RT",
@@ -3347,7 +3368,19 @@
           ["Ruby", "[a]"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": [
+        {
+          "name": "RubyAlign",
+          "description": "Specifies the alignment of the ruby annotation text relative to the ruby base text.",
+          "source": "PDF/UA-2 specification"
+        },
+        {
+          "name": "RubyPosition",
+          "description": "Determines the vertical placement of the ruby annotation text relative to the ruby base text (e.g., above or below).",
+          "source": "PDF/UA-2 specification"
+        }
+      ]
     },
     {
       "tag": "RP",
@@ -3391,7 +3424,8 @@
           ["Ruby", "[a]"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Warichu",
@@ -3446,7 +3480,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "WT",
@@ -3490,7 +3525,8 @@
           ["Warichu", "[b]"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "WP",
@@ -3535,7 +3571,8 @@
           ["Warichu", "[b]"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "L",
@@ -3594,7 +3631,24 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": [
+        {
+          "name": "ListNumbering",
+          "description": "Specifies the numbering scheme for list items (e.g., Arabic, Roman, bullet, or none).",
+          "source": "PDF/UA-2 guidelines :contentReference[oaicite:0]{index=0}"
+        },
+        {
+          "name": "ContinuedList",
+          "description": "Indicates whether the list is a continuation of a previous list.",
+          "source": "PDF/UA-2 guidelines :contentReference[oaicite:1]{index=1}"
+        },
+        {
+          "name": "ContinuedFrom",
+          "description": "References the preceding list when a list is continued.",
+          "source": "PDF/UA-2 guidelines :contentReference[oaicite:2]{index=2}"
+        }
+      ]
     },
     {
       "tag": "LI",
@@ -3632,7 +3686,8 @@
           ["L", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "LBody",
@@ -3697,7 +3752,8 @@
           ["LI", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Table",
@@ -3756,7 +3812,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "TR",
@@ -3795,7 +3852,8 @@
           ["TFoot", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "TH",
@@ -3856,7 +3914,34 @@
           ["TR", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": [
+        {
+          "name": "RowSpan",
+          "description": "Defines the number of rows the header cell spans.",
+          "source": "ISO 32000-2:2020 and PDF/UA-2 guidelines"
+        },
+        {
+          "name": "ColSpan",
+          "description": "Specifies the number of columns the header cell spans.",
+          "source": "ISO 32000-2:2020 and PDF/UA-2 guidelines"
+        },
+        {
+          "name": "Headers",
+          "description": "Lists the identifiers of associated header cells, linking them with the data cells.",
+          "source": "PDF/UA-2 guidelines"
+        },
+        {
+          "name": "Scope",
+          "description": "Indicates whether the header cell applies to a row, column, or group of rows/columns.",
+          "source": "ISO 32000-2:2020 and PDF/UA-2 guidelines"
+        },
+        {
+          "name": "Short",
+          "description": "Provides an abbreviated version of the header text for concise labeling and accessibility purposes.",
+          "source": "PDF/UA-2 guidelines"
+        }
+      ]
     },
     {
       "tag": "TD",
@@ -3917,7 +4002,24 @@
           ["TR", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": [
+        {
+          "name": "RowSpan",
+          "description": "Defines the number of rows that the TD element spans. A value greater than 1 indicates that the cell extends vertically across multiple rows in the table.",
+          "source": "ISO 32000-2:2020 and PDF/UA-2"
+        },
+        {
+          "name": "ColSpan",
+          "description": "Specifies the number of columns that the TD element spans. A value greater than 1 means the cell extends horizontally over multiple columns.",
+          "source": "ISO 32000-2:2020 and PDF/UA-2"
+        },
+        {
+          "name": "Headers",
+          "description": "Lists the identifiers of header (TH) cells that are associated with this TD element, linking the cell’s content with its corresponding headers for accessibility.",
+          "source": "PDF/UA-2 guidelines and ISO 32000-2:2020"
+        }
+      ]
     },
     {
       "tag": "THead",
@@ -3952,7 +4054,8 @@
           ["Table", "0..1"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "TBody",
@@ -3987,7 +4090,8 @@
           ["Table", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "TFoot",
@@ -4022,7 +4126,8 @@
           ["Table", "0..1"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Caption",
@@ -4105,7 +4210,8 @@
           ["Formula", "0..1"],
           ["Artifact", "0..1"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Figure",
@@ -4375,7 +4481,14 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": [
+        {
+          "name": "BBox",
+          "description": "Specifies the bounding box for the formula when it appears in its entirety on a single page, indicating the area occupied by the formula.",
+          "source": "ISO 32000-2:2020, 14.8.5 Standard structure attributes"
+        }
+      ]
     },
     {
       "tag": "Artifact",
@@ -4504,7 +4617,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Art",
@@ -4578,7 +4692,8 @@
           ["Figure", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "BlockQuote",
@@ -4653,7 +4768,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "BibEntry",
@@ -4723,7 +4839,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Code",
@@ -4797,7 +4914,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Index",
@@ -4859,7 +4977,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Note",
@@ -4955,7 +5074,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Private",
@@ -5085,7 +5205,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Quote",
@@ -5162,7 +5283,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "Reference",
@@ -5239,7 +5361,8 @@
           ["Formula", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "TOC",
@@ -5285,7 +5408,8 @@
           ["Private", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     },
     {
       "tag": "TOCI",
@@ -5325,7 +5449,8 @@
           ["Private", "0..n"],
           ["Artifact", "0..n"]
         ]
-      }
+      },
+      "attributes": []
     }
   ]
 }
