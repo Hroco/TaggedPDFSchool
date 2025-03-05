@@ -1,11 +1,10 @@
-import data from "~/assets/taggedPDFSchoolDB.json";
+import properties from "~/assets/propertiesDB.json";
 import Link from "next/link";
 import { ScrollArea } from "~/components/ui/scroll-area";
 
 export default function Layout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const properties = data.properties;
   return (
     <div className="container flex max-w-screen-2xl">
       <aside className="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-72 border-r border-gray-800 bg-gray-900 lg:block">

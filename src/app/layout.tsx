@@ -184,26 +184,26 @@ async function generateJson() {
   });
 
   const fileContent = await fs.readFile(
-    process.cwd() + "/src/assets/taggedPDFSchoolDB.json",
+    process.cwd() + "/src/assets/taggsDB.json",
     "utf8",
   );
 
   // Parse the JSON content
-  const data = JSON.parse(fileContent);
+  const pdfTags = JSON.parse(fileContent);
 
-  const origElement = data.pdfTags.find((elm: any) => elm.tag === name);
+  const origElement = pdfTags.find((elm: any) => elm.name === name);
 
-  data.pdfTags.map((elm: any) => {
+  pdfTags.map((elm: any) => {
     if (elm.tag === name) {
       elm.hierarchy = output.hierarchy;
     }
   });
 
-  const newElement = data.pdfTags.find((elm: any) => elm.tag === name);
+  const newElement = pdfTags.find((elm: any) => elm.tag === name);
 
-  const updatedContent = JSON.stringify(data, null, 2);
+  const updatedContent = JSON.stringify(pdfTags, null, 2);
   await fs.writeFile(
-    process.cwd() + "/src/assets/taggedPDFSchoolDB.json",
+    process.cwd() + "/src/assets/taggsDB.json",
     updatedContent,
     "utf8",
   );
@@ -212,7 +212,7 @@ async function generateJson() {
     output,
     origElement,
     newElement,
-    data,
+    pdfTags,
   });
 }
 

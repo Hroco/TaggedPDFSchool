@@ -1,5 +1,5 @@
 "use client";
-import data from "~/assets/taggedPDFSchoolDB.json";
+import attributes from "~/assets/attributesDB.json";
 import { notFound } from "next/navigation";
 import React from "react";
 import { Badge } from "~/components/ui/badge";
@@ -20,7 +20,7 @@ export default function Tag({
 }: {
   currentAttribute: string;
 }) {
-  const attr = data.attributes.find((attr) => attr.name === currentAttribute);
+  const attr = attributes.find((attr) => attr.name === currentAttribute);
 
   if (!attr) {
     notFound();

@@ -1,13 +1,15 @@
-import data from "~/assets/taggedPDFSchoolDB.json";
+import tags from "~/assets/taggsDB.json";
 import Tag from "./Tag";
 
 export async function generateStaticParams() {
-  return data.pdfTags.map((tag) => ({
-    tag: tag.tag,
+  return tags.map((tag) => ({
+    tag: tag.name,
   }));
 }
 
-export default async function Page(props: { params: Promise<{ tag: string }> }) {
+export default async function Page(props: {
+  params: Promise<{ tag: string }>;
+}) {
   const params = await props.params;
   return <Tag currentTag={params.tag} />;
 }

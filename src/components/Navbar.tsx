@@ -5,14 +5,16 @@
 import { useState, useEffect, useRef, type KeyboardEvent } from "react";
 import Link from "next/link";
 import { Search } from "lucide-react";
-import data from "~/assets/taggedPDFSchoolDB.json";
+import tags from "~/assets/taggsDB.json";
+import attributes from "~/assets/attributesDB.json";
+import properties from "~/assets/propertiesDB.json";
 import { useRouter } from "next/navigation";
 import { Badge } from "./ui/badge";
 import { ScrollArea } from "./ui/scroll-area";
 
-const searchAttr = data.attributes.map((attr) => attr.name);
-const searchTags = data.pdfTags.map((tag) => tag.tag);
-const searchProperties = data.properties.map((prop) => prop.name);
+const searchAttr = attributes.map((attr) => attr.name);
+const searchTags = tags.map((tag) => tag.name);
+const searchProperties = properties.map((prop) => prop.name);
 const searchItems = [...searchAttr, ...searchTags, ...searchProperties];
 
 export const Navbar = () => {
@@ -95,17 +97,17 @@ export const Navbar = () => {
       if (!result) return;
       let url = "/";
       //find result in attributes
-      const attr = data.attributes.find((attr) => attr.name === result);
+      const attr = attributes.find((attr) => attr.name === result);
       if (attr) {
         url = `/attributes/${attr.name}`;
       }
       //find result in tags
-      const tag = data.pdfTags.find((tag) => tag.tag === result);
+      const tag = tags.find((tag) => tag.name === result);
       if (tag) {
-        url = `/tags/${tag.tag}`;
+        url = `/tags/${tag.name}`;
       }
       //find result in properties
-      const prop = data.properties.find((prop) => prop.name === result);
+      const prop = properties.find((prop) => prop.name === result);
       if (prop) {
         url = `/properties/${prop.name}`;
       }
@@ -145,23 +147,19 @@ export const Navbar = () => {
                   let url = "/";
                   let badgeValue = "";
                   //find result in attributes
-                  const attr = data.attributes.find(
-                    (attr) => attr.name === result,
-                  );
+                  const attr = attributes.find((attr) => attr.name === result);
                   if (attr) {
                     url = `/attributes/${attr.name}`;
                     badgeValue = "Attribute";
                   }
                   //find result in tags
-                  const tag = data.pdfTags.find((tag) => tag.tag === result);
+                  const tag = tags.find((tag) => tag.name === result);
                   if (tag) {
-                    url = `/tags/${tag.tag}`;
+                    url = `/tags/${tag.name}`;
                     badgeValue = "Tag";
                   }
                   //find result in properties
-                  const prop = data.properties.find(
-                    (prop) => prop.name === result,
-                  );
+                  const prop = properties.find((prop) => prop.name === result);
                   if (prop) {
                     url = `/properties/${prop.name}`;
                     badgeValue = "Property";
