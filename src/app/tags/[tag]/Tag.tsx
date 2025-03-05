@@ -1,27 +1,38 @@
 "use client";
 import Link from "next/link";
-import data from "~/assets/taggedPDFSchoolDB.json";
-import checks from "~/assets/MatterhornProtocol.json";
+import tags from "~/assets/taggsDB.json";
+import attributes from "~/assets/attributesDB.json";
+import properties from "~/assets/propertiesDB.json";
+import checks from "~/assets/matterhornProtocol.json";
 import { Badge } from "~/components/ui/badge";
 import { Card } from "~/components/ui/card";
 import { ChevronRight, ArrowUpCircle, ArrowDownCircle } from "lucide-react";
 import { notFound } from "next/navigation";
 
 export default function Tag({ currentTag }: { currentTag: string }) {
-  const tag = data.pdfTags.find((tag) => tag.tag === currentTag);
-  //Find all checks where structureElementsRelatedToThisCheck contains the current tag.tag
+  const tag = tags.find((tag) => tag.name === currentTag);
 
   if (!tag) {
     notFound();
   }
 
   const checksForTag = checks.filter((check) => {
-    return check.structureElementsRelatedToThisCheck.includes(tag.tag);
+    return check.relatedTags.includes(tag.name);
+  });
+
+  const attributesForTag = attributes.filter((attribute) => {
+    const relatedTags = attribute.relatedTags as string[];
+    return relatedTags.includes(tag.name);
+  });
+
+  const propertiesForTag = properties.filter((propertie) => {
+    const relatedTags = propertie.relatedTags as string[];
+    return relatedTags.includes(tag.name);
   });
 
   return (
     <div className="mx-auto max-w-3xl text-gray-100">
-      <h1 className="mb-6 text-4xl font-bold text-orange-500">{tag.tag}</h1>
+      <h1 className="mb-6 text-4xl font-bold text-orange-500">{tag.name}</h1>
 
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Description</h2>
@@ -44,7 +55,16 @@ export default function Tag({ currentTag }: { currentTag: string }) {
 
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Type</h2>
-        <p className="text-gray-300">{tag.type}</p>
+        <p className="text-gray-300">
+          {tag.type.map((type, index) => {
+            return (
+              <span key={index}>
+                {index > 0 ? ", " : ""}
+                {type}
+              </span>
+            );
+          })}
+        </p>
       </section>
 
       <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -52,14 +72,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
           <h2 className="mb-3 text-2xl font-semibold">Attributes</h2>
           <Card className="border-gray-700 bg-gray-800">
             <div className="space-y-3 p-4">
-              {tag.attributes?.map((attr, index) => {
-                const attrData = data.attributes.find(
-                  (a) => a.name === attr.name,
-                );
-
-                if (!attrData) {
-                  return null;
-                }
+              {attributesForTag.map((attr, index) => {
                 return (
                   <Link
                     href={`/attributes/${attr.name}`}
@@ -79,7 +92,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
                         <ChevronRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
                       </div>
                       <p className="text-sm text-gray-400">
-                        {attrData.description}
+                        {attr.description}
                       </p>
                     </div>
                   </Link>
@@ -93,7 +106,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
           <h2 className="mb-3 text-2xl font-semibold">Properties</h2>
           <Card className="border-gray-700 bg-gray-800">
             <div className="space-y-3 p-4">
-              {tag.properties?.map((prop, index) => {
+              {propertiesForTag.map((prop, index) => {
                 return (
                   <Link
                     href={`/properties/${prop.name}`}

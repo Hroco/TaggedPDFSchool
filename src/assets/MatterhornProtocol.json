@@ -6,7 +6,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Artifact"]
+    "relatedTags": ["Artifact"]
   },
   {
     "index": "01-002",
@@ -15,7 +15,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Artifact"]
+    "relatedTags": ["Artifact"]
   },
   {
     "index": "01-003",
@@ -24,7 +24,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Artifact"]
+    "relatedTags": ["Artifact"]
   },
   {
     "index": "01-004",
@@ -33,7 +33,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Artifact"]
+    "relatedTags": ["Artifact"]
   },
   {
     "index": "01-005",
@@ -42,7 +42,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "01-006",
@@ -51,7 +51,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "02-001",
@@ -60,7 +60,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["H", "Hn"]
+    "relatedTags": ["H", "Hn"]
   },
   {
     "index": "02-002",
@@ -69,7 +69,7 @@
     "type": "Doc",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["H", "Hn"]
+    "relatedTags": ["H", "Hn"]
   },
   {
     "index": "02-003",
@@ -78,7 +78,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "02-004",
@@ -87,7 +87,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "03-001",
@@ -96,7 +96,7 @@
     "type": "Page",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "03-002",
@@ -105,7 +105,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "03-003",
@@ -114,7 +114,7 @@
     "type": "JS",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "04-001",
@@ -123,7 +123,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "05-001",
@@ -132,7 +132,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Annot"]
+    "relatedTags": ["Annot"]
   },
   {
     "index": "05-002",
@@ -141,7 +141,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Annot"]
+    "relatedTags": ["Annot"]
   },
   {
     "index": "05-003",
@@ -150,7 +150,7 @@
     "type": "JS",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "06-001",
@@ -159,7 +159,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "06-002",
@@ -168,7 +168,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "06-003",
@@ -177,7 +177,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "06-004",
@@ -186,7 +186,7 @@
     "type": "Doc",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "07-001",
@@ -195,7 +195,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "07-002",
@@ -204,7 +204,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "08-001",
@@ -213,7 +213,7 @@
     "type": "Page",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "08-002",
@@ -222,7 +222,7 @@
     "type": "Page",
     "how": "Human",
     "see": "01-006",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "08-003",
@@ -231,7 +231,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "09-001",
@@ -240,7 +240,7 @@
     "type": "Doc",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": [
+    "relatedTags": [
       "Index",
       "Reference",
       "Art",
@@ -302,7 +302,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": [
+    "relatedTags": [
       "Index",
       "Reference",
       "Art",
@@ -364,7 +364,7 @@
     "type": "Object",
     "how": "Human",
     "see": "01-006",
-    "structureElementsRelatedToThisCheck": [
+    "relatedTags": [
       "Index",
       "Reference",
       "Art",
@@ -426,15 +426,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": [
-      "Table",
-      "TR",
-      "TH",
-      "TD",
-      "THead",
-      "TBody",
-      "TFoot"
-    ]
+    "relatedTags": ["Table", "TR", "TH", "TD", "THead", "TBody", "TFoot"]
   },
   {
     "index": "09-005",
@@ -443,7 +435,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["L", "LI", "Lbl", "LBody"]
+    "relatedTags": ["L", "LI", "Lbl", "LBody"]
   },
   {
     "index": "09-006",
@@ -452,7 +444,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["TOC", "TOCI"]
+    "relatedTags": ["TOC", "TOCI"]
   },
   {
     "index": "09-007",
@@ -461,7 +453,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Ruby", "RB", "RT", "RP"]
+    "relatedTags": ["Ruby", "RB", "RT", "RP"]
   },
   {
     "index": "09-008",
@@ -470,7 +462,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Warichu", "WT", "WP"]
+    "relatedTags": ["Warichu", "WT", "WP"]
   },
   {
     "index": "10-001",
@@ -479,7 +471,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "11-001",
@@ -488,7 +480,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "11-002",
@@ -497,7 +489,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "11-003",
@@ -506,7 +498,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "11-004",
@@ -515,7 +507,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "11-005",
@@ -524,7 +516,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "11-006",
@@ -533,7 +525,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "11-007",
@@ -542,7 +534,7 @@
     "type": "All",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "12-001",
@@ -551,7 +543,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "13-001",
@@ -560,7 +552,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Figure"]
+    "relatedTags": ["Figure"]
   },
   {
     "index": "13-002",
@@ -569,7 +561,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Link"]
+    "relatedTags": ["Link"]
   },
   {
     "index": "13-003",
@@ -578,7 +570,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Caption"]
+    "relatedTags": ["Caption"]
   },
   {
     "index": "13-004",
@@ -587,7 +579,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Figure"]
+    "relatedTags": ["Figure"]
   },
   {
     "index": "13-005",
@@ -596,7 +588,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Figure"]
+    "relatedTags": ["Figure"]
   },
   {
     "index": "13-006",
@@ -605,7 +597,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Figure"]
+    "relatedTags": ["Figure"]
   },
   {
     "index": "13-007",
@@ -614,7 +606,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Figure"]
+    "relatedTags": ["Figure"]
   },
   {
     "index": "14-001",
@@ -623,7 +615,7 @@
     "type": "Doc",
     "how": "Human",
     "see": "01-006",
-    "structureElementsRelatedToThisCheck": ["H", "Hn"]
+    "relatedTags": ["H", "Hn"]
   },
   {
     "index": "14-002",
@@ -632,7 +624,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["H", "Hn"]
+    "relatedTags": ["H", "Hn"]
   },
   {
     "index": "14-003",
@@ -641,7 +633,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["H", "Hn"]
+    "relatedTags": ["H", "Hn"]
   },
   {
     "index": "14-004",
@@ -650,7 +642,7 @@
     "type": "Object",
     "how": "Human",
     "see": "01-006",
-    "structureElementsRelatedToThisCheck": ["H", "Hn"]
+    "relatedTags": ["H", "Hn"]
   },
   {
     "index": "14-005",
@@ -659,7 +651,7 @@
     "type": "Object",
     "how": "Human",
     "see": "01-006",
-    "structureElementsRelatedToThisCheck": ["Hn"]
+    "relatedTags": ["Hn"]
   },
   {
     "index": "14-006",
@@ -668,7 +660,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["H"]
+    "relatedTags": ["H"]
   },
   {
     "index": "14-007",
@@ -677,7 +669,7 @@
     "type": "Doc",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["H", "Hn"]
+    "relatedTags": ["H", "Hn"]
   },
   {
     "index": "15-001",
@@ -686,7 +678,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["TH"]
+    "relatedTags": ["TH"]
   },
   {
     "index": "15-002",
@@ -695,7 +687,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["TH"]
+    "relatedTags": ["TH"]
   },
   {
     "index": "15-003",
@@ -704,7 +696,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["TH"]
+    "relatedTags": ["TH"]
   },
   {
     "index": "15-004",
@@ -713,7 +705,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Table"]
+    "relatedTags": ["Table"]
   },
   {
     "index": "15-005",
@@ -722,7 +714,7 @@
     "type": "Object",
     "how": "Human",
     "see": "01-006 ",
-    "structureElementsRelatedToThisCheck": ["TH"]
+    "relatedTags": ["TH"]
   },
   {
     "index": "16-001",
@@ -731,7 +723,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["L"]
+    "relatedTags": ["L"]
   },
   {
     "index": "16-002",
@@ -740,7 +732,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["L"]
+    "relatedTags": ["L"]
   },
   {
     "index": "16-003",
@@ -749,7 +741,7 @@
     "type": "Object",
     "how": "Human",
     "see": "01-006 ",
-    "structureElementsRelatedToThisCheck": ["L"]
+    "relatedTags": ["L"]
   },
   {
     "index": "17-001",
@@ -758,7 +750,7 @@
     "type": "Object",
     "how": "Human",
     "see": "01-006 ",
-    "structureElementsRelatedToThisCheck": ["Formula"]
+    "relatedTags": ["Formula"]
   },
   {
     "index": "17-002",
@@ -767,7 +759,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Formula"]
+    "relatedTags": ["Formula"]
   },
   {
     "index": "17-003",
@@ -776,7 +768,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "10-001 ",
-    "structureElementsRelatedToThisCheck": ["Formula"]
+    "relatedTags": ["Formula"]
   },
   {
     "index": "18-001",
@@ -785,7 +777,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Artifact"]
+    "relatedTags": ["Artifact"]
   },
   {
     "index": "18-002",
@@ -794,7 +786,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Artifact"]
+    "relatedTags": ["Artifact"]
   },
   {
     "index": "19-001",
@@ -803,7 +795,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Note"]
+    "relatedTags": ["Note"]
   },
   {
     "index": "19-002",
@@ -812,7 +804,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Reference"]
+    "relatedTags": ["Reference"]
   },
   {
     "index": "19-003",
@@ -821,7 +813,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Note"]
+    "relatedTags": ["Note"]
   },
   {
     "index": "19-004",
@@ -830,7 +822,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Note"]
+    "relatedTags": ["Note"]
   },
   {
     "index": "20-001",
@@ -839,7 +831,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "20-002",
@@ -848,7 +840,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "20-003",
@@ -857,7 +849,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "21-001",
@@ -866,7 +858,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "22-001",
@@ -875,7 +867,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Art"]
+    "relatedTags": ["Art"]
   },
   {
     "index": "23-001",
@@ -884,7 +876,7 @@
     "type": "--",
     "how": "--",
     "see": "01-006 ",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "24-001",
@@ -893,7 +885,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Form"]
+    "relatedTags": ["Form"]
   },
   {
     "index": "25-001",
@@ -902,7 +894,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "26-001",
@@ -911,7 +903,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "26-002",
@@ -920,7 +912,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "27-001",
@@ -929,7 +921,7 @@
     "type": "--",
     "how": "--",
     "see": "01-006 ",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "28-001",
@@ -938,7 +930,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Annot"]
+    "relatedTags": ["Annot"]
   },
   {
     "index": "28-002",
@@ -947,7 +939,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Annot"]
+    "relatedTags": ["Annot"]
   },
   {
     "index": "28-003",
@@ -956,7 +948,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Annot"]
+    "relatedTags": ["Annot"]
   },
   {
     "index": "28-004",
@@ -965,7 +957,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Annot"]
+    "relatedTags": ["Annot"]
   },
   {
     "index": "28-005",
@@ -974,7 +966,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Form"]
+    "relatedTags": ["Form"]
   },
   {
     "index": "28-006",
@@ -983,7 +975,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "28-001,  28-002,  28-003,  28-004",
-    "structureElementsRelatedToThisCheck": ["Annot"]
+    "relatedTags": ["Annot"]
   },
   {
     "index": "28-007",
@@ -992,7 +984,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "28-008",
@@ -1001,7 +993,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "28-009",
@@ -1010,7 +1002,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "28-010",
@@ -1019,7 +1011,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Form"]
+    "relatedTags": ["Form"]
   },
   {
     "index": "28-011",
@@ -1028,7 +1020,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Link"]
+    "relatedTags": ["Link"]
   },
   {
     "index": "28-012",
@@ -1037,7 +1029,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Link"]
+    "relatedTags": ["Link"]
   },
   {
     "index": "28-013",
@@ -1046,7 +1038,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": ["Link"]
+    "relatedTags": ["Link"]
   },
   {
     "index": "28-014",
@@ -1055,7 +1047,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "28-015",
@@ -1064,7 +1056,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "28-016",
@@ -1073,7 +1065,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "21-001 ",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "28-017",
@@ -1082,7 +1074,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "28-018",
@@ -1091,7 +1083,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "01-002, 01-005 ",
-    "structureElementsRelatedToThisCheck": ["Artifact"]
+    "relatedTags": ["Artifact"]
   },
   {
     "index": "29-001",
@@ -1100,7 +1092,7 @@
     "type": "Object",
     "how": "Human",
     "see": "- Checkpoint 30: XObjects Index Failure Condition Section Type How See ",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "30-001",
@@ -1109,7 +1101,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "30-002",
@@ -1118,7 +1110,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "- Checkpoint 31: Fonts Index Failure Condition Section Type How See ",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-001",
@@ -1127,7 +1119,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-002",
@@ -1136,7 +1128,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-003",
@@ -1145,7 +1137,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-004",
@@ -1154,7 +1146,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-005",
@@ -1163,7 +1155,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-006",
@@ -1172,7 +1164,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-007",
@@ -1181,7 +1173,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-008",
@@ -1190,7 +1182,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-009",
@@ -1199,7 +1191,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-010",
@@ -1208,7 +1200,7 @@
     "type": "Object",
     "how": "Human",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-011",
@@ -1217,7 +1209,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-012",
@@ -1226,7 +1218,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-013",
@@ -1235,7 +1227,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-014",
@@ -1244,7 +1236,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-015",
@@ -1253,7 +1245,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-016",
@@ -1262,7 +1254,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-017",
@@ -1271,7 +1263,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-018",
@@ -1280,7 +1272,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-019",
@@ -1289,7 +1281,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-020",
@@ -1298,7 +1290,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-021",
@@ -1307,7 +1299,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-022",
@@ -1316,7 +1308,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-023",
@@ -1325,7 +1317,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-024",
@@ -1334,7 +1326,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-025",
@@ -1343,7 +1335,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-026",
@@ -1352,7 +1344,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-027",
@@ -1361,7 +1353,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-028",
@@ -1370,7 +1362,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-029",
@@ -1379,7 +1371,7 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   },
   {
     "index": "31-030",
@@ -1388,6 +1380,6 @@
     "type": "Object",
     "how": "Machine",
     "see": "-",
-    "structureElementsRelatedToThisCheck": []
+    "relatedTags": []
   }
 ]

@@ -1,0 +1,80 @@
+[
+  {
+    "name": "ID",
+    "description": "A unique identifier for this structure element, used for referencing it from other elements or external sources.",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document"]
+  },
+  {
+    "name": "Ref",
+    "description": "Defines or references the lower-level PDF objects (content items) that represent the actual text or graphic content of this element.",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document"]
+  },
+  {
+    "name": "A",
+    "description": "An attribute dictionary providing additional layout or semantic attributes for this element. May reference a class map.",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document"]
+  },
+  {
+    "name": "C",
+    "description": "An array of class names associated with this element, which can link to further style or attribute definitions in a class map.",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document"]
+  },
+  {
+    "name": "T",
+    "description": "An optional text label or title for this structure element—can serve as a short descriptor (e.g., for a heading).",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document", "Figure"]
+  },
+  {
+    "name": "Lang",
+    "description": "Identifies the primary language for the text in this element (e.g., 'en-US'), aiding in proper text processing and accessibility.",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document", "Figure", "Caption", "Span", "Code"]
+  },
+  {
+    "name": "Alt",
+    "description": "Provides alternative text describing the element’s content, primarily for accessibility (screen readers).",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document", "Figure", "Code", "Span"]
+  },
+  {
+    "name": "E",
+    "description": "Contains expansion text used to clarify abbreviations, acronyms, or symbolic content within the element.",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document"]
+  },
+  {
+    "name": "ActualText",
+    "description": "Gives an exact text equivalent for non-textual or symbolic content, allowing screen readers to read it as plain text.",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document", "Figure", "RT", "Span"]
+  },
+  {
+    "name": "AF",
+    "description": "An array of associated files or file specifications that relate to this structure element (e.g., attachments).",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document"]
+  },
+  {
+    "name": "NS",
+    "description": "Specifies a namespace identifier for custom attributes, enabling extensibility without conflicting with standard keys.",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document"]
+  },
+  {
+    "name": "PhoneticAlphabet",
+    "description": "Indicates the phonetic alphabet used for any phonetic text within the element (e.g., IPA).",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document"]
+  },
+  {
+    "name": "Phoneme",
+    "description": "Contains the phonemic representation of text for pronunciation guidance or linguistic analysis.",
+    "source": "ISO 32000 Section 14.7.2",
+    "relatedTags": ["Document"]
+  }
+]

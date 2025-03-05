@@ -1,9 +1,9 @@
 "use client";
-import data from "~/assets/taggedPDFSchoolDB.json";
+import properties from "~/assets/propertiesDB.json";
 import { notFound } from "next/navigation";
 
 export default function Tag({ currentProperty }: { currentProperty: string }) {
-  const prop = data.properties.find((prop) => prop.name === currentProperty);
+  const prop = properties.find((prop) => prop.name === currentProperty);
 
   if (!prop) {
     notFound();

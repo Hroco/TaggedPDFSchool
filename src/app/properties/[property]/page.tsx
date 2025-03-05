@@ -1,8 +1,8 @@
-import data from "~/assets/taggedPDFSchoolDB.json";
+import properties from "~/assets/propertiesDB.json";
 import Property from "./Property";
 
 export async function generateStaticParams() {
-  return data.properties.map((prop) => ({
+  return properties.map((prop) => ({
     property: prop.name,
   }));
 }

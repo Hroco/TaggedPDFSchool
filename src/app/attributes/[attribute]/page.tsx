@@ -1,8 +1,8 @@
-import data from "~/assets/taggedPDFSchoolDB.json";
+import attributes from "~/assets/attributesDB.json";
 import Attribute from "./Attribute";
 
 export async function generateStaticParams() {
-  return data.attributes.map((attr) => ({
+  return attributes.map((attr) => ({
     attribute: attr.name,
   }));
 }

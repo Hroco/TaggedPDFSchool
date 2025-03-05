@@ -1,4 +1,4 @@
-import data from "~/assets/taggedPDFSchoolDB.json";
+import attributes from "~/assets/attributesDB.json";
 import Link from "next/link";
 import { ScrollArea } from "~/components/ui/scroll-area";
 import React from "react";
@@ -6,8 +6,6 @@ import React from "react";
 export default function Layout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const attributes = data.attributes;
-
   const sortedAttributes = attributes.sort((a, b) => {
     const ownerOrder = [
       "Layout",
