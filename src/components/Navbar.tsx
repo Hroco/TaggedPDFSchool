@@ -215,6 +215,12 @@ export const Navbar = () => {
         >
           Attributes
         </Link>
+        <Link
+          href="/matterhorn"
+          className="transition-colors hover:text-orange-500"
+        >
+          Matterhorn
+        </Link>
         <Link href="/about" className="transition-colors hover:text-orange-500">
           About
         </Link>

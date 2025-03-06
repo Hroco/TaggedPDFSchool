@@ -21,12 +21,12 @@ export default function Tag({ currentTag }: { currentTag: string }) {
   });
 
   const attributesForTag = attributes.filter((attribute) => {
-    const relatedTags = attribute.relatedTags as string[];
+    const relatedTags = attribute.relatedTags;
     return relatedTags.includes(tag.name);
   });
 
   const propertiesForTag = properties.filter((propertie) => {
-    const relatedTags = propertie.relatedTags as string[];
+    const relatedTags = propertie.relatedTags;
     return relatedTags.includes(tag.name);
   });
 
@@ -195,7 +195,16 @@ export default function Tag({ currentTag }: { currentTag: string }) {
         <h2 className="mb-3 text-2xl font-semibold">Validation Tips</h2>
         <ul className="ml-4 list-disc text-gray-300">
           {checksForTag.map((tip) => {
-            return <li key={tip.index}>{tip.failureCondition}</li>;
+            return (
+              <li key={tip.index}>
+                <Link
+                  href={`/matterhorn?check=${tip.index}`}
+                  className="inline py-1 text-sm transition-colors hover:text-orange-500"
+                >
+                  {tip.failureCondition}
+                </Link>
+              </li>
+            );
           })}
         </ul>
       </section>
