@@ -10,7 +10,7 @@ import {
 } from "~/components/ui/card";
 import { AlertTriangle, Info, CheckCircle } from "lucide-react";
 import { Badge } from "~/components/ui/badge";
-import React, { useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 
 type Check = {
@@ -23,7 +23,7 @@ type Check = {
   relatedTags: string[];
 };
 
-export default function About() {
+function List() {
   const allChecks = checks as Check[];
   const searchParams = useSearchParams();
   const checkIndex = searchParams.get("check");
@@ -42,6 +42,81 @@ export default function About() {
     }
   }, [checkIndex]);
 
+  return (
+    <>
+      {allChecks.map((check, index) => (
+        <Card
+          key={index}
+          ref={(el) => {
+            checkRefs.current[check.index] = el;
+          }}
+          id={`check-${check.index}`}
+          className={`mb-6 overflow-hidden border border-gray-700 bg-gray-800 text-white ${check.index === checkIndex ? "border-orange-500" : ""}`}
+        >
+          <div className="flex items-center justify-between border-b-2 border-gray-700 px-4 py-2">
+            <Badge variant="outline" className="bg-white dark:bg-gray-800">
+              #{check.index}
+            </Badge>
+            <Badge>{check.type}</Badge>
+          </div>
+          <CardHeader>
+            <CardTitle className="text-lg font-semibold leading-tight">
+              {check.failureCondition}
+            </CardTitle>
+            <CardDescription className="text-sm text-white">
+              Section: {check.section}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div>
+                <h3 className="mb-2 flex items-center text-sm font-medium text-orange-500">
+                  <AlertTriangle className="mr-2 h-4 w-4" />
+                  How to Detect
+                </h3>
+                <p className="text-sm">{check.how}</p>
+              </div>
+              {check.relatedTags.length > 0 && (
+                <div>
+                  <h3 className="mb-2 flex items-center text-sm font-medium text-orange-500">
+                    <CheckCircle className="mr-2 h-4 w-4" />
+                    Tags affected by this check
+                  </h3>
+                  <p className="text-sm">
+                    {check.relatedTags.map((tag, index) => {
+                      return (
+                        <React.Fragment key={index}>
+                          <span>{index > 0 ? ", " : ""}</span>
+                          <Link
+                            href={`/tags/${tag}`}
+                            className="inline py-1 text-sm transition-colors hover:text-orange-500"
+                          >
+                            {tag}
+                          </Link>
+                        </React.Fragment>
+                      );
+                    })}
+                  </p>
+                </div>
+              )}
+              {check.see && check.see !== "-" && (
+                <div>
+                  <h3 className="mb-2 flex items-center text-sm font-medium text-orange-500">
+                    <CheckCircle className="mr-2 h-4 w-4" />
+                    See Also
+                  </h3>
+                  <p className="text-sm">{check.see}</p>
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      ))}
+    </>
+  );
+}
+
+export default function About() {
   return (
     <div className="flex min-h-screen flex-col items-center">
       <main className="flex-1">
@@ -85,77 +160,9 @@ export default function About() {
                 </CardContent>
               </Card>
             </div>
-            {allChecks.map((check, index) => (
-              <Card
-                key={index}
-                ref={(el) => {
-                  checkRefs.current[check.index] = el;
-                }}
-                id={`check-${check.index}`}
-                className={`mb-6 overflow-hidden border border-gray-700 bg-gray-800 text-white ${check.index === checkIndex ? "border-orange-500" : ""}`}
-              >
-                <div className="flex items-center justify-between border-b-2 border-gray-700 px-4 py-2">
-                  <Badge
-                    variant="outline"
-                    className="bg-white dark:bg-gray-800"
-                  >
-                    #{check.index}
-                  </Badge>
-                  <Badge>{check.type}</Badge>
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-lg font-semibold leading-tight">
-                    {check.failureCondition}
-                  </CardTitle>
-                  <CardDescription className="text-sm text-white">
-                    Section: {check.section}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="mb-2 flex items-center text-sm font-medium text-orange-500">
-                        <AlertTriangle className="mr-2 h-4 w-4" />
-                        How to Detect
-                      </h3>
-                      <p className="text-sm">{check.how}</p>
-                    </div>
-                    {check.relatedTags.length > 0 && (
-                      <div>
-                        <h3 className="mb-2 flex items-center text-sm font-medium text-orange-500">
-                          <CheckCircle className="mr-2 h-4 w-4" />
-                          Tags affected by this check
-                        </h3>
-                        <p className="text-sm">
-                          {check.relatedTags.map((tag, index) => {
-                            return (
-                              <React.Fragment key={index}>
-                                <span>{index > 0 ? ", " : ""}</span>
-                                <Link
-                                  href={`/tags/${tag}`}
-                                  className="inline py-1 text-sm transition-colors hover:text-orange-500"
-                                >
-                                  {tag}
-                                </Link>
-                              </React.Fragment>
-                            );
-                          })}
-                        </p>
-                      </div>
-                    )}
-                    {check.see && check.see !== "-" && (
-                      <div>
-                        <h3 className="mb-2 flex items-center text-sm font-medium text-orange-500">
-                          <CheckCircle className="mr-2 h-4 w-4" />
-                          See Also
-                        </h3>
-                        <p className="text-sm">{check.see}</p>
-                      </div>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            <Suspense>
+              <List />
+            </Suspense>
           </div>
         </section>
       </main>
