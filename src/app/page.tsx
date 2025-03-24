@@ -13,7 +13,7 @@ export default function HomePage() {
           Learn how to create accessible, structured, and searchable PDFs with
           our comprehensive guides on PDF tagging, properties, and attributes.
         </p>
-        <Button className="bg-orange-500 text-white hover:bg-orange-600">
+        <Button className="bg-primary text-white hover:bg-orange-600">
           Get Started
         </Button>
       </section>
@@ -25,22 +25,22 @@ export default function HomePage() {
           </h3>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <FeatureCard
-              icon={<Accessibility className="h-12 w-12 text-orange-500" />}
+              icon={<Accessibility className="h-12 w-12 text-primary" />}
               title="Accessibility"
               description="Make your PDFs accessible to all users, including those with disabilities."
             />
             <FeatureCard
-              icon={<FileText className="h-12 w-12 text-orange-500" />}
+              icon={<FileText className="h-12 w-12 text-primary" />}
               title="Structure"
               description="Create well-structured documents for better organization and readability."
             />
             <FeatureCard
-              icon={<Tag className="h-12 w-12 text-orange-500" />}
+              icon={<Tag className="h-12 w-12 text-primary" />}
               title="Searchability"
               description="Enhance document searchability and improve content discovery."
             />
             <FeatureCard
-              icon={<BookOpen className="h-12 w-12 text-orange-500" />}
+              icon={<BookOpen className="h-12 w-12 text-primary" />}
               title="Compliance"
               description="Meet industry standards and regulatory requirements for document accessibility."
             />
@@ -66,7 +66,7 @@ export default function HomePage() {
             <li>Methods for creating a logical reading order</li>
           </ul>
           <div className="text-center">
-            <Button className="bg-orange-500 text-white hover:bg-orange-600">
+            <Button className="bg-primary text-white hover:bg-orange-600">
               Explore Courses
             </Button>
           </div>
@@ -85,7 +85,7 @@ export default function HomePage() {
           </p>
           <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2">
             <div>
-              <h4 className="mb-4 text-xl font-semibold text-orange-500">
+              <h4 className="mb-4 text-xl font-semibold text-primary">
                 PDF Properties
               </h4>
               <ul className="list-inside list-disc space-y-2">
@@ -96,7 +96,7 @@ export default function HomePage() {
               </ul>
             </div>
             <div>
-              <h4 className="mb-4 text-xl font-semibold text-orange-500">
+              <h4 className="mb-4 text-xl font-semibold text-primary">
                 PDF Attributes
               </h4>
               <ul className="list-inside list-disc space-y-2">
@@ -108,7 +108,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="text-center">
-            <Button className="bg-orange-500 text-white hover:bg-orange-600">
+            <Button className="bg-primary text-white hover:bg-orange-600">
               Explore Guides
             </Button>
           </div>
@@ -125,7 +125,7 @@ export default function HomePage() {
             structured, and valuable PDF documents with expert knowledge of
             tags, properties, and attributes.
           </p>
-          <Button className="bg-orange-500 text-white hover:bg-orange-600">
+          <Button className="bg-primary text-white hover:bg-orange-600">
             Explore Resources
           </Button>
         </div>

@@ -1,0 +1,165 @@
+
+namespace latexSE = ""
+namespace latexSEbook = ""
+namespace latexSEbible = ""
+
+## PDF/UA-1
+
+include "document-pdf-ua1.rnc"
+
+## Default Article Namespace
+
+H1 |= element latexSE:section       {attribute rolemaps-to {"H1"}, sechead.content}
+H2 |= element latexSE:subsection    {attribute rolemaps-to {"H2"}, sechead.content}
+H3 |= element latexSE:subsubsection {attribute rolemaps-to {"H3"}, sechead.content}
+H4 |= element latexSE:paragraph     {attribute rolemaps-to {"H4"}, sechead.content}
+H5 |= element latexSE:subparagraph  {attribute rolemaps-to {"H5"}, sechead.content}
+
+
+## LaTeX Book structure Namespace
+
+H1 |= element latexSEbook:chapter       {attribute rolemaps-to {"H1"}, sechead.content}
+H2 |= element latexSEbook:section       {attribute rolemaps-to {"H2"}, sechead.content}
+H3 |= element latexSEbook:subsection    {attribute rolemaps-to {"H3"}, sechead.content}
+H4 |= element latexSEbook:subsubsection {attribute rolemaps-to {"H4"}, sechead.content}
+H5 |= element latexSEbook:paragraph     {attribute rolemaps-to {"H5"}, sechead.content}
+H6 |= element latexSEbook:subparagraph  {attribute rolemaps-to {"H6"}, sechead.content}
+
+# This could be restricted to section headings, but for now allow where Lbl is allowed
+Lbl |= element latexSE:section-number {pdf2-attributes, attribute rolemaps-to {"Span"}, text} 
+
+# LaTeX NS
+
+document.1 &= figures?
+           & tables?
+
+figures = element latexSE:figures {
+  attribute rolemaps-to {"Sect"},
+  attribute id {text}?,
+  float*
+ }
+
+tables = element latexSE:tables {
+  attribute rolemaps-to {"Sect"},
+  attribute id {text}?,
+  float*
+ }
+
+float = element latexSE:float {
+  attribute rolemaps-to {"Aside"|"Note"},
+  attribute id {text}?,
+  (Caption|Part|Div|Figure|\text)*
+ }
+
+
+
+theorem-like = element latexSE:theorem-like {
+  attribute rolemaps-to {"Sect"},
+  attribute id {text}?,
+  Caption?,
+  Lbl?,
+  (Part)*
+}
+Sect |= theorem-like
+
+
+text-unit = element latexSE:text-unit {
+  attribute rolemaps-to {"Part"},
+  pdf2-attributes,
+   (title|Title)?,(H4|H5|Div|Sect|P|Aside|Figure|Table|Formula|quote|quotation|\text|itemize|description|enumerate|verbatim|\list|Part)*}
+Part |= text-unit
+
+verbatim = element latexSE:verbatim {
+  attribute rolemaps-to {"P"|"Code"},
+  pdf2-attributes,
+  codeline*
+}
+P |= verbatim
+
+codeline = element latexSE:codeline {
+  attribute rolemaps-to {"Sub"|"Span"},
+  pdf2-attributes,
+  (text|Lbl)*
+}
+
+
+
+
+\list = element latexSE:list {
+ attribute rolemaps-to {"L"},
+  pdf2-attributes,
+  list-attributes,
+  LI*
+}
+L |= \list
+
+itemize = element latexSE:itemize {
+  attribute rolemaps-to {"L"},
+  pdf2-attributes,
+  list-attributes,
+  LI*
+}
+L |= itemize
+
+enumerate = element latexSE:enumerate {
+  attribute rolemaps-to {"L"},
+  pdf2-attributes,
+  list-attributes,
+  LI*
+}
+L |= enumerate
+
+quote = element latexSE:quote {
+ attribute rolemaps-to {"BlockQuote"},
+ pdf2-attributes,
+ (Part)*
+}
+
+quotation = element latexSE:quotation {
+ attribute rolemaps-to {"BlockQuote"},
+ pdf2-attributes,
+ (Part)*
+}
+
+description= element latexSE:description {
+ attribute rolemaps-to {"L"},
+ pdf2-attributes,
+ list-attributes,
+ LI*
+}
+
+
+title = element latexSE:title {
+ attribute rolemaps-to {"Title"},
+ pdf2-attributes,
+ (Span|\text)*
+ }
+
+
+\text = element latexSE:text {
+ attribute rolemaps-to {"P"},
+ pdf2-attributes,
+ (text|Figure|Span|Link|Lbl|Reference|Em|Strong|FENote|Formula)*
+}
+P |= \text
+
+
+Lbl |= element latexSE:footnotemark {
+ attribute rolemaps-to {"Lbl"},
+ pdf2-attributes,
+(text|Link)*
+}
+
+FENote |= element latexSE:footnote {
+  attribute rolemaps-to {"FENote"|"Note"},
+  pdf2-attributes,
+  footnotelabel,(Part)*
+}
+
+footnotelabel = element latexSE:footnotelabel {
+ attribute rolemaps-to {"Lbl"},
+ pdf2-attributes,
+ (text|NonStruct)*
+}
+
+
