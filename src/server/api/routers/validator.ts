@@ -49,7 +49,10 @@ export const validatorRouter = createTRPCRouter({
 
       console.log("process.cwd()", process.cwd());
 
-      const schemaPath = join(process.cwd(), "src/lib/rnv/schema.rnc");
+      const schemaPath = join(
+        process.cwd(),
+        "src/lib/rnv/latex-document-switch.rnc",
+      );
 
       console.log("schemaPath", schemaPath);
 
@@ -80,7 +83,7 @@ export const validatorRouter = createTRPCRouter({
                   // Return validation errors but don't reject the promise
                   resolve(stderr || stdout);
                 } else {
-                  resolve(stdout);
+                  resolve("PDF should be valid");
                 }
               });
             })
