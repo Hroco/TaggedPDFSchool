@@ -4,7 +4,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "~/components/ui/resizable";
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
 import CodeMirror from "@uiw/react-codemirror";
 import { xml } from "@codemirror/lang-xml";
@@ -12,16 +12,17 @@ import { Textarea } from "~/components/ui/textarea";
 import { api } from "~/trpc/react";
 
 export default function Playground() {
-  const [xmlContent, setXmlContent] = useState<string>(`<root>
-  <person>
-    <name>John Doe</name>
-    <age>30</age>
-  </person>
-</root>`);
-  const [validationOutput, setValidationOutput] = useState<string>("Test");
+  const [xmlContent, setXmlContent] = useState<string>(`<Document>
+ 
+</Document>`);
+  const [validationOutput, setValidationOutput] = useState<string>("");
   const validateXML = api.validator.validate.useMutation();
   const onChange = React.useCallback((value: string) => {
     setXmlContent(value);
+  }, []);
+
+  useEffect(() => {
+    void run();
   }, []);
 
   async function run() {
