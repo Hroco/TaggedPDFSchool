@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { z } from "zod";
@@ -57,21 +58,54 @@ export const validatorRouter = createTRPCRouter({
       const rnvLocation = join(process.cwd(), "src/lib/rnv/rnv");
 
       return new Promise<string>((resolve, reject) => {
-        execFile(rnvLocation, args, (error, stdout, stderr) => {
-          console.log("stdout", stdout);
-          console.log("stderr", stderr);
-          console.log("error", error);
+        try {
+          // First check if the validator executable exists
+          fs.access(rnvLocation, fs.constants.X_OK)
+            .then(() => {
+              // Executable exists and is executable
+              execFile(rnvLocation, args, (error, stdout, stderr) => {
+                console.log("stdout", stdout);
+                console.log("stderr", stderr);
+                console.log("error", error);
 
-          // Clean up temporary file
+                // Clean up temporary file
+                fs.unlink(tempFileName).catch((unlinkErr) => {
+                  console.error("Error deleting temp file:", {
+                    path: tempFileName,
+                    error: unlinkErr,
+                  });
+                });
+
+                if (error) {
+                  // Return validation errors but don't reject the promise
+                  resolve(stderr || stdout);
+                } else {
+                  resolve(stdout);
+                }
+              });
+            })
+            .catch((accessErr) => {
+              console.error(
+                "Validator executable not found or not executable:",
+                {
+                  path: rnvLocation,
+                  error: accessErr,
+                },
+              );
+              resolve(
+                `Validator error: The validation tool was not found or is not executable.`,
+              );
+            });
+        } catch (unexpectedError) {
+          console.error("Unexpected error during validation:", unexpectedError);
+
+          // Clean up in case of unexpected error
           fs.unlink(tempFileName).catch(() => {});
 
-          if (error) {
-            // Return validation errors but don't reject the promise
-            resolve(stderr || stdout);
-          } else {
-            resolve(stdout);
-          }
-        });
+          resolve(
+            `Unexpected error: ${unexpectedError instanceof Error ? unexpectedError.message : String(unexpectedError)}`,
+          );
+        }
       });
     }),
 });

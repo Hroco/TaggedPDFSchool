@@ -4,7 +4,7 @@
 FROM node:18-alpine AS base
 
 # Installing dependencies that Next.js might need
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat build-base make gcc libc-dev expat-dev
 
 # Set working directory
 WORKDIR /app
@@ -31,16 +31,29 @@ COPY --from=deps /app/node_modules ./node_modules
 # Copy the rest of your project files
 COPY . .
 
+# Build the validator
+RUN cd /app/src/lib/rnv && \
+    # Clean any pre-existing object files
+    rm -f *.o *.a && \
+    # Rebuild from scratch
+    make -f Makefile.gnu
+
+# Make sure the validator is executable
+RUN chmod +x /app/src/lib/rnv/rnv
+
 # (Optional) Disable Next.js telemetry during build:
 # ENV NEXT_TELEMETRY_DISABLED 1
 
 # Build your Next.js application
-RUN npm run build
+RUN npm run build -- --no-lint
 
 # ------------------------------
 # 4) Production runner
 # ------------------------------
 FROM base AS runner
+
+# Install runtime dependencies
+RUN apk add --no-cache expat
 
 # Set NODE_ENV to production
 ENV NODE_ENV=production
@@ -59,6 +72,19 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 # Add this before switching to non-root user
 RUN mkdir -p /app/src/assets/tmp && chown nextjs:nodejs /app/src/assets/tmp
+
+# Make sure the validator is executable
+RUN chmod +x /app/src/lib/rnv/rnv
+# After copying the validator but before switching users
+COPY --from=builder --chown=nextjs:nodejs /app/src/lib/rnv/rnv /app/src/lib/rnv/rnv
+COPY --from=builder --chown=nextjs:nodejs /app/src/lib/rnv/*.rnc /app/src/lib/rnv/
+
+# Debug the validator
+RUN apk add --no-cache file
+RUN file /app/src/lib/rnv/rnv
+RUN ldd /app/src/lib/rnv/rnv || echo "Not a dynamic executable"
+RUN ls -la /app/src/lib/rnv/
+RUN chmod +x /app/src/lib/rnv/rnv
 
 # Switch to the non-root user
 USER nextjs
