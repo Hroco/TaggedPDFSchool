@@ -57,6 +57,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Add this before switching to non-root user
+RUN mkdir -p /app/src/assets/tmp && chown nextjs:nodejs /app/src/assets/tmp
+
 # Switch to the non-root user
 USER nextjs
 
