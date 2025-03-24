@@ -1,0 +1,6 @@
+<locatingRules xmlns="http://thaiopensource.com/ns/locating-rules/1.0">
+ <uri pattern="*-mathml.html" uri="latex-mathml.rnc"/>
+ <documentElement localName="Document" uri="latex-document-switch.rnc"/>
+ <documentElement localName="Part" uri="latex-document-switch.rnc"/>
+ <documentElement localName="Art" uri="latex-document-switch.rnc"/>
+</locatingRules>

@@ -25,10 +25,10 @@ export default function Layout({
 
   return (
     <div className="container flex max-w-screen-2xl">
-      <aside className="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-72 border-r border-gray-800 bg-gray-900 lg:block">
+      <aside className="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-72 border-r border-gray-800 lg:block">
         <ScrollArea className="h-full py-6 pl-8 pr-6">
           <nav className="relative">
-            <div className="text-lg font-bold text-orange-500">
+            <div className="text-lg font-bold text-primary">
               PDF Tags Reference
             </div>
             <ul className="space-y-2">
@@ -41,7 +41,7 @@ export default function Layout({
                   <React.Fragment key={index}>
                     {shouldShownOwner && (
                       <li className="mt-4">
-                        <h2 className="text-xl font-bold text-orange-500">
+                        <h2 className="text-xl font-bold text-primary">
                           {attr.owner}
                         </h2>
                       </li>
@@ -50,7 +50,7 @@ export default function Layout({
                     <li>
                       <Link
                         href={`/attributes/${attr.name}`}
-                        className="block py-1 text-sm text-gray-400 transition-colors hover:text-orange-500"
+                        className="block py-1 text-sm text-gray-400 transition-colors hover:text-primary"
                       >
                         {attr.name}
                       </Link>

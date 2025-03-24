@@ -32,7 +32,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
 
   return (
     <div className="mx-auto max-w-3xl text-gray-100">
-      <h1 className="mb-6 text-4xl font-bold text-orange-500">{tag.name}</h1>
+      <h1 className="mb-6 text-4xl font-bold text-primary">{tag.name}</h1>
 
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Description</h2>
@@ -82,7 +82,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
                     <div className="group rounded-lg p-3 transition-colors hover:bg-gray-700">
                       <div className="mb-1 flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <span className="font-semibold text-orange-500">
+                          <span className="font-semibold text-primary">
                             {attr.name}
                           </span>
                           <Badge variant="secondary" className="text-xs">
@@ -116,7 +116,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
                     <div className="group rounded-lg p-3 transition-colors hover:bg-gray-700">
                       <div className="mb-1 flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <span className="font-semibold text-orange-500">
+                          <span className="font-semibold text-primary">
                             {prop.name}
                           </span>
                           <Badge variant="secondary" className="text-xs">
@@ -199,7 +199,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
               <li key={tip.index}>
                 <Link
                   href={`/matterhorn?check=${tip.index}`}
-                  className="inline py-1 text-sm transition-colors hover:text-orange-500"
+                  className="inline py-1 text-sm transition-colors hover:text-primary"
                 >
                   {tip.failureCondition}
                 </Link>
@@ -237,7 +237,7 @@ function TagRelationship({
   }
   return (
     <div className="space-y-2">
-      <h3 className="mb-2 flex items-center text-lg font-semibold text-orange-500">
+      <h3 className="mb-2 flex items-center text-lg font-semibold text-primary">
         <Icon className="mr-2" />
         {type === "parent" ? "Parent" : "Child"} Tags
       </h3>

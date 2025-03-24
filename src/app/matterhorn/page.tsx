@@ -51,7 +51,7 @@ function List() {
             checkRefs.current[check.index] = el;
           }}
           id={`check-${check.index}`}
-          className={`mb-6 overflow-hidden border border-gray-700 bg-gray-800 text-white ${check.index === checkIndex ? "border-orange-500" : ""}`}
+          className={`mb-6 overflow-hidden border border-gray-700 bg-gray-800 text-white ${check.index === checkIndex ? "border-primary" : ""}`}
         >
           <div className="flex items-center justify-between border-b-2 border-gray-700 px-4 py-2">
             <Badge variant="outline" className="bg-white dark:bg-gray-800">
@@ -70,7 +70,7 @@ function List() {
           <CardContent>
             <div className="space-y-4">
               <div>
-                <h3 className="mb-2 flex items-center text-sm font-medium text-orange-500">
+                <h3 className="mb-2 flex items-center text-sm font-medium text-primary">
                   <AlertTriangle className="mr-2 h-4 w-4" />
                   How to Detect
                 </h3>
@@ -78,7 +78,7 @@ function List() {
               </div>
               {check.relatedTags.length > 0 && (
                 <div>
-                  <h3 className="mb-2 flex items-center text-sm font-medium text-orange-500">
+                  <h3 className="mb-2 flex items-center text-sm font-medium text-primary">
                     <CheckCircle className="mr-2 h-4 w-4" />
                     Tags affected by this check
                   </h3>
@@ -89,7 +89,7 @@ function List() {
                           <span>{index > 0 ? ", " : ""}</span>
                           <Link
                             href={`/tags/${tag}`}
-                            className="inline py-1 text-sm transition-colors hover:text-orange-500"
+                            className="inline py-1 text-sm transition-colors hover:text-primary"
                           >
                             {tag}
                           </Link>
@@ -101,7 +101,7 @@ function List() {
               )}
               {check.see && check.see !== "-" && (
                 <div>
-                  <h3 className="mb-2 flex items-center text-sm font-medium text-orange-500">
+                  <h3 className="mb-2 flex items-center text-sm font-medium text-primary">
                     <CheckCircle className="mr-2 h-4 w-4" />
                     See Also
                   </h3>
@@ -124,7 +124,7 @@ export default function About() {
           <div className="container px-4 md:px-6">
             <div className="mb-8 flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter text-orange-500 sm:text-4xl md:text-5xl lg:text-6xl/none">
+                <h1 className="text-3xl font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl lg:text-6xl/none">
                   Matterhorn Protocol
                 </h1>
                 <p className="mx-auto max-w-[700px] md:text-xl">
@@ -138,7 +138,7 @@ export default function About() {
             <div className="mb-8">
               <Card className="border border-gray-700 bg-gray-800 dark:border-gray-600">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-orange-500">
+                  <CardTitle className="flex items-center text-primary">
                     <Info className="mr-2 h-5 w-5" />
                     About the Protocol
                   </CardTitle>

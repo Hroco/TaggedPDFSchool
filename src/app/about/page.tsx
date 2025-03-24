@@ -6,7 +6,7 @@ import { Card } from "~/components/ui/card";
 export default function About() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 text-gray-100">
-      <h1 className="mb-6 text-4xl font-bold text-orange-500">
+      <h1 className="mb-6 text-4xl font-bold text-primary">
         About Tagged PDF School
       </h1>
 
@@ -30,7 +30,7 @@ export default function About() {
         <h2 className="mb-6 text-3xl font-semibold">Why Tagged PDFs Matter</h2>
         <div className="grid gap-6 md:grid-cols-3">
           <Card className="border-gray-700 bg-gray-800 p-6">
-            <BookOpen className="mb-4 h-12 w-12 text-orange-500" />
+            <BookOpen className="mb-4 h-12 w-12 text-primary" />
             <h3 className="mb-2 text-xl font-semibold text-gray-100">
               Accessibility
             </h3>
@@ -40,7 +40,7 @@ export default function About() {
             </p>
           </Card>
           <Card className="border-gray-700 bg-gray-800 p-6">
-            <Users className="mb-4 h-12 w-12 text-orange-500" />
+            <Users className="mb-4 h-12 w-12 text-primary" />
             <h3 className="mb-2 text-xl font-semibold text-gray-100">
               Usability
             </h3>
@@ -50,7 +50,7 @@ export default function About() {
             </p>
           </Card>
           <Card className="border-gray-700 bg-gray-800 p-6">
-            <Award className="mb-4 h-12 w-12 text-orange-500" />
+            <Award className="mb-4 h-12 w-12 text-primary" />
             <h3 className="mb-2 text-xl font-semibold text-gray-100">
               Compliance
             </h3>
@@ -96,7 +96,7 @@ export default function About() {
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Link href="/tags">
-            <Button className="w-full bg-orange-500 text-white hover:bg-orange-600 sm:w-auto">
+            <Button className="w-full bg-primary text-white hover:bg-orange-600 sm:w-auto">
               Explore PDF Tags
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -104,7 +104,7 @@ export default function About() {
           <Link href="/properties">
             <Button
               variant="outline"
-              className="w-full border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white sm:w-auto"
+              className="w-full border-primary text-primary hover:bg-primary hover:text-white sm:w-auto"
             >
               Learn About Properties
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -113,7 +113,7 @@ export default function About() {
           <Link href="/attributes">
             <Button
               variant="outline"
-              className="w-full border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white sm:w-auto"
+              className="w-full border-primary text-primary hover:bg-primary hover:text-white sm:w-auto"
             >
               Discover Attributes
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -132,9 +132,9 @@ export default function About() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="rounded-l-md bg-gray-700 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="rounded-l-md bg-gray-700 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary"
           />
-          <Button className="rounded-l-none bg-orange-500 text-white hover:bg-orange-600">
+          <Button className="rounded-l-none bg-primary text-white hover:bg-orange-600">
             Subscribe
           </Button>
         </div>

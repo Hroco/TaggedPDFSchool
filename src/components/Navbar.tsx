@@ -72,7 +72,7 @@ export const Navbar = () => {
       <span>
         {parts.map((part, index) =>
           part.toLowerCase() === searchTerm.toLowerCase() ? (
-            <span key={index} className="bg-orange-500 text-gray-900">
+            <span key={index} className="bg-primary text-gray-900">
               {part}
             </span>
           ) : (
@@ -123,7 +123,7 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 mx-auto flex flex-col-reverse items-center justify-between space-y-2 border-b border-gray-800 bg-gray-900/95 px-4 py-3 pl-5 backdrop-blur supports-[backdrop-filter]:bg-gray-900/75 md:flex-row md:space-y-0">
-      <h1 className="hidden text-2xl font-bold text-orange-500 sm:block">
+      <h1 className="hidden text-2xl font-bold text-primary sm:block">
         Tagged PDF School
       </h1>
       <div className="relative mt-2 w-full sm:mt-0 sm:w-64" ref={searchRef}>
@@ -135,7 +135,7 @@ export const Navbar = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="w-full rounded-md bg-gray-800 px-4 py-2 pr-10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full rounded-md bg-gray-800 px-4 py-2 pr-10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <Search className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
         </div>
@@ -197,31 +197,37 @@ export const Navbar = () => {
         )}
       </div>
       <nav className="flex items-center space-x-4">
-        <Link href="/" className="transition-colors hover:text-orange-500">
+        <Link href="/" className="transition-colors hover:text-primary">
           Home
         </Link>
-        <Link href="/tags" className="transition-colors hover:text-orange-500">
+        <Link href="/tags" className="transition-colors hover:text-primary">
           Tags
         </Link>
         <Link
           href="/properties"
-          className="transition-colors hover:text-orange-500"
+          className="transition-colors hover:text-primary"
         >
           Properties
         </Link>
         <Link
           href="/attributes"
-          className="transition-colors hover:text-orange-500"
+          className="transition-colors hover:text-primary"
         >
           Attributes
         </Link>
         <Link
           href="/matterhorn"
-          className="transition-colors hover:text-orange-500"
+          className="transition-colors hover:text-primary"
         >
           Matterhorn
         </Link>
-        <Link href="/about" className="transition-colors hover:text-orange-500">
+        <Link
+          href="/playground"
+          className="transition-colors hover:text-primary"
+        >
+          Playground
+        </Link>
+        <Link href="/about" className="transition-colors hover:text-primary">
           About
         </Link>
       </nav>

@@ -9,6 +9,8 @@ import { type Metadata } from "next";
 import { Navbar } from "~/components/Navbar";
 import { promises as fs } from "fs";
 import path from "path";
+import { ThemeProvider } from "~/components/theme-provider";
+import { TRPCReactProvider } from "~/trpc/react";
 
 export const metadata: Metadata = {
   title: "Tagging PDF School",
@@ -223,15 +225,24 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="min-h-screen bg-gray-900 text-gray-100">
-          <Navbar />
-          <main>{children}</main>
-          <footer className="bg-gray-900 py-8">
-            <div className="container mx-auto px-4 text-center">
-              <p>&copy; 2025 Tagged PDF School. All rights reserved.</p>
+        <TRPCReactProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="min-h-screen text-gray-100">
+              <Navbar />
+              <main>{children}</main>
+              <footer className="py-8">
+                <div className="container mx-auto px-4 text-center">
+                  <p>&copy; 2025 Tagged PDF School. All rights reserved.</p>
+                </div>
+              </footer>
             </div>
-          </footer>
-        </div>
+          </ThemeProvider>
+        </TRPCReactProvider>
       </body>
     </html>
   );

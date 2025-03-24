@@ -3,7 +3,7 @@
 export default function Tag() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 text-gray-100">
-      <h1 className="mb-6 text-4xl font-bold text-orange-500">
+      <h1 className="mb-6 text-4xl font-bold text-primary">
         PDF Attributes Overview
       </h1>
 

@@ -11,7 +11,7 @@ export default function Tag({ currentProperty }: { currentProperty: string }) {
 
   return (
     <div className="mx-auto max-w-3xl text-gray-100">
-      <h1 className="mb-6 text-4xl font-bold text-orange-500">{prop.name}</h1>
+      <h1 className="mb-6 text-4xl font-bold text-primary">{prop.name}</h1>
 
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Description</h2>
