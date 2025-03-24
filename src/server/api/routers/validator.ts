@@ -16,6 +16,17 @@ export const validatorRouter = createTRPCRouter({
 
       const { tagStructure } = input;
 
+      // Create temp directory path
+      const tmpDirPath = join(process.cwd(), "src/assets/tmp");
+      console.log("tmpDirPath", tmpDirPath);
+
+      // Ensure temp directory exists
+      try {
+        await fs.mkdir(tmpDirPath, { recursive: true });
+      } catch (err) {
+        console.error("Error creating tmp directory", err);
+      }
+
       // Create a temporary file for the XML content.
       const tempFileName = join(
         process.cwd(),
