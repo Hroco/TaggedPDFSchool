@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import data from "~/assets/taggsDB.json";
+import tags from "~/assets/taggsDB";
 
 export async function GET() {
-  return NextResponse.json(data);
+  return NextResponse.json(tags);
 }

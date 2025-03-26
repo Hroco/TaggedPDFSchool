@@ -1,5 +1,5 @@
-import tags from "~/assets/taggsDB.json";
 import Link from "next/link";
+import tags from "~/assets/taggsDB";
 import { ScrollArea } from "~/components/ui/scroll-area";
 
 export default function Layout({
