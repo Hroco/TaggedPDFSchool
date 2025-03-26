@@ -5,12 +5,12 @@
 import { useState, useEffect, useRef, type KeyboardEvent } from "react";
 import Link from "next/link";
 import { Search } from "lucide-react";
-import tags from "~/assets/taggsDB.json";
 import attributes from "~/assets/attributesDB.json";
 import properties from "~/assets/propertiesDB.json";
 import { useRouter } from "next/navigation";
 import { Badge } from "./ui/badge";
 import { ScrollArea } from "./ui/scroll-area";
+import tags from "~/assets/taggsDB";
 
 const searchAttr = attributes.map((attr) => attr.name);
 const searchTags = tags.map((tag) => tag.name);

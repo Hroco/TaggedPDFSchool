@@ -4,17 +4,32 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "~/components/ui/resizable";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
 import CodeMirror from "@uiw/react-codemirror";
 import { xml } from "@codemirror/lang-xml";
 import { Textarea } from "~/components/ui/textarea";
 import { api } from "~/trpc/react";
+import tags from "~/assets/taggsDB";
+import { useSearchParams } from "next/navigation";
 
 export default function Playground() {
-  const [xmlContent, setXmlContent] = useState<string>(`<Document>
+  const searchParams = useSearchParams();
+  const tagName = searchParams.get("tag");
+  const useCaseIndex = searchParams.get("useCase");
+  const tag = tagName ? tags.find((tag) => tag.name === tagName) : null;
+  const useCase =
+    useCaseIndex && tag?.useCases
+      ? tag.useCases[parseInt(useCaseIndex)]
+      : undefined;
+
+  const [xmlContent, setXmlContent] = useState<string>(
+    useCase
+      ? useCase.sample
+      : `<Document>
  
-</Document>`);
+</Document>`,
+  );
   const [validationOutput, setValidationOutput] = useState<string>("");
   const validateXML = api.validator.validate.useMutation();
   const onChange = React.useCallback((value: string) => {

@@ -44,3 +44,34 @@ yarn-error.log*
 
 # idea files
 .idea
+src/lib/rnv/arx
+src/lib/rnv/arx.o
+src/lib/rnv/ary.o
+src/lib/rnv/drv.o
+src/lib/rnv/dsl.o
+src/lib/rnv/dxl.o
+src/lib/rnv/er.o
+src/lib/rnv/ht.o
+src/lib/rnv/librnv.a
+src/lib/rnv/m.o
+src/lib/rnv/rn.o
+src/lib/rnv/rnc.o
+src/lib/rnv/rnd.o
+src/lib/rnv/rnl.o
+src/lib/rnv/rnv
+src/lib/rnv/rnv.o
+src/lib/rnv/rnx.o
+src/lib/rnv/rvp
+src/lib/rnv/rvp.o
+src/lib/rnv/rx.o
+src/lib/rnv/s.o
+src/lib/rnv/sc.o
+src/lib/rnv/test
+src/lib/rnv/test.o
+src/lib/rnv/u.o
+src/lib/rnv/xcl.o
+src/lib/rnv/xmlc.o
+src/lib/rnv/xsd.o
+src/lib/rnv/xsd_tm.o
+src/lib/rnv/xsdck
+src/lib/rnv/xsdck.o

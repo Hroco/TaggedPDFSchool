@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import tags from "~/assets/taggsDB.json";
 import attributes from "~/assets/attributesDB.json";
 import properties from "~/assets/propertiesDB.json";
 import checks from "~/assets/matterhornProtocol.json";
@@ -8,6 +7,11 @@ import { Badge } from "~/components/ui/badge";
 import { Card } from "~/components/ui/card";
 import { ChevronRight, ArrowUpCircle, ArrowDownCircle } from "lucide-react";
 import { notFound } from "next/navigation";
+import tags from "~/assets/taggsDB";
+import CodeMirror from "@uiw/react-codemirror";
+import { xml } from "@codemirror/lang-xml";
+import React from "react";
+import { buttonVariants } from "~/components/ui/button";
 
 export default function Tag({ currentTag }: { currentTag: string }) {
   const tag = tags.find((tag) => tag.name === currentTag);
@@ -158,6 +162,32 @@ export default function Tag({ currentTag }: { currentTag: string }) {
         <p className="text-gray-300">PDFUA:</p>
         <p className="text-gray-300">{tag.difference?.pdfUA.description}</p>
         <p className="text-gray-300">{tag.difference?.pdfUA.requirements}</p>
+      </section>
+
+      <section className="mb-8 space-y-2">
+        <h2 className="mb-3 text-2xl font-semibold">Use cases</h2>
+        {tag.useCases?.map((useCase, index) => (
+          <React.Fragment key={index}>
+            <p className="text-gray-300">{useCase.description}</p>
+            <CodeMirror
+              value={useCase.sample}
+              height="calc(100%)"
+              extensions={[xml()]}
+              theme="dark"
+              className="h-full"
+            />
+            <Link
+              href={`/playground?tag=${tag.name}&useCase=${index}`}
+              className={buttonVariants({
+                variant: "default",
+                className: "mt-2 inline-block text-white",
+                size: "sm",
+              })}
+            >
+              Try it
+            </Link>
+          </React.Fragment>
+        ))}
       </section>
 
       <section className="mb-8">

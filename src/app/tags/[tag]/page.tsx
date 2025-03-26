@@ -1,4 +1,4 @@
-import tags from "~/assets/taggsDB.json";
+import tags from "~/assets/taggsDB";
 import Tag from "./Tag";
 
 export async function generateStaticParams() {
