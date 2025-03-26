@@ -722,6 +722,12 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "",
+        sample: `<P>content of the paragraph</P>`,
+      },
+    ],
   },
   {
     name: "Hn",
@@ -797,6 +803,20 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "In a single paragraph",
+        sample: `<H1>The Mothers [e.g. huge, bold typeface <Span>Fillmore East - June 1971</Span></H1>`,
+      },
+      {
+        description: "In two paragraphs",
+        sample: `<Document>
+  <H1>The Mothers</H1>
+  <P>Fillmore East - June 1971</P>
+</Document>
+        `,
+      },
+    ],
   },
   {
     name: "H",
@@ -1205,6 +1225,47 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "Bullet list",
+        sample: `<L>
+  <LI>
+      <Lbl>bullet</Lbl>
+      <LBody>content</LBody>
+  </LI>
+</L>`,
+      },
+      {
+        description: "Numbered list",
+        sample: `<L>
+  <LI>
+      <Lbl>list item number</Lbl>
+      <LBody>content</LBody>
+  </LI>
+</L>`,
+      },
+      {
+        description: "Table of Contents",
+        sample: `<TOC>
+  <TOCI>
+  <Lbl>chapter number</Lbl>
+  <P>content</P>
+  </TOCI>
+</TOC>`,
+      },
+      {
+        description: "Labels in notes",
+        sample: `<P>
+  <Reference>
+    <Lbl>bullet</Lbl>
+  </Reference>
+  <Note>
+    <Lbl>bullet</Lbl>
+    <P>content</P>
+  </Note>
+</P>`,
+      },
+    ],
   },
   {
     name: "Span",
@@ -2734,6 +2795,64 @@ const tags = [
         ["Artifact", "0..1"],
       ],
     },
+    useCases: [
+      {
+        description:
+          "<Caption> including substructure, i.e. a single caption including two paragraphs",
+        sample: `<Document>
+  <Figure>
+    <Caption>
+    <P>content</P>
+    <P>content</P>
+    </Caption>
+  </Figure>
+</Document>`,
+      },
+      {
+        description:
+          "<Caption> for a table where the <Caption> occurs logically prior to the table itself",
+        sample: `<Document>
+  <Table>
+    <Caption>
+      content
+    </Caption>
+    <TR>
+     <TH>
+      Header
+     </TH>
+    </TR>
+  </Table>
+</Document>`,
+      },
+      {
+        description:
+          "<Caption> for a table where the <Caption> occurs logically following the table itself",
+        sample: `<Document>
+  <Table>
+  <TR>
+  <TH>
+  Header
+  </TH>
+  </TR>
+    <Caption>
+      content
+    </Caption>
+  </Table>
+</Document>`,
+      },
+      {
+        description: "<Caption> for a list",
+        sample: `<Document>
+  <L>
+    <Caption>
+      content
+    </Caption>
+    <LI></LI>
+    <LI></LI>
+  </L>
+</Document>`,
+      },
+    ],
   },
   {
     name: "Figure",
@@ -3945,6 +4064,23 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description:
+          "Top-level structures usage of <TOC> & <TOCI> in a multilevel table of contents",
+        sample: ``,
+      },
+      {
+        description:
+          "Substructures in a <TOC> & <TOCI> context containing <Reference> without a link",
+        sample: ``,
+      },
+      {
+        description:
+          "Substructures in a <TOC> & <TOCI> context containing <Reference> & <Link>",
+        sample: ``,
+      },
+    ],
   },
   {
     name: "TOCI",
