@@ -1339,6 +1339,16 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "",
+        sample: `<P>
+  This is the 
+  <Span expanded="National Aeronautics and Space Administration">NASA</Span>
+  press release.
+</P>`,
+      },
+    ],
   },
   {
     name: "Em",
@@ -1613,6 +1623,12 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "",
+        sample: ``,
+      },
+    ],
   },
   {
     name: "Annot",
@@ -1719,6 +1735,12 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "",
+        sample: ``,
+      },
+    ],
   },
   {
     name: "Form",
@@ -2234,6 +2256,77 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "A simple list",
+        sample: `<L>
+  <Caption>text</Caption>
+  <LI>text</LI>
+  <LI>
+    <Lbl>bullet</Lbl>
+    <LBody>text</LBody>
+  </LI>
+</L>`,
+      },
+      {
+        description: "A canonical multilevel list)",
+        sample: `<L>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+  <L>
+    <LI>
+      <Lbl>text</Lbl>
+      <LBody>text</LBody>
+    </LI>
+    <LI>
+      <Lbl>text</Lbl>
+      <LBody>text</LBody>
+    </LI>
+    <LI>
+      <Lbl>text</Lbl>
+      <LBody>text</LBody>
+    </LI>
+  </L>
+</L>`,
+      },
+      {
+        description: "A list containing another, semantically unrelated list",
+        sample: `<L>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>
+      <P>text</P>
+      <P>text</P>
+      <L>
+        <LI>
+          <Lbl>text</Lbl>
+          <LBody>text</LBody>
+        </LI>
+        <LI>
+          <Lbl>text</Lbl>
+          <LBody>text</LBody>
+        </LI>
+      </L>
+      <P>text</P>
+    </LBody>
+  </LI>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+</L>`,
+      },
+    ],
   },
   {
     name: "LI",
@@ -2277,6 +2370,77 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "A simple list",
+        sample: `<L>
+  <Caption>text</Caption>
+  <LI>text</LI>
+  <LI>
+    <Lbl>bullet</Lbl>
+    <LBody>text</LBody>
+  </LI>
+</L>`,
+      },
+      {
+        description: "A canonical multilevel list)",
+        sample: `<L>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+  <L>
+    <LI>
+      <Lbl>text</Lbl>
+      <LBody>text</LBody>
+    </LI>
+    <LI>
+      <Lbl>text</Lbl>
+      <LBody>text</LBody>
+    </LI>
+    <LI>
+      <Lbl>text</Lbl>
+      <LBody>text</LBody>
+    </LI>
+  </L>
+</L>`,
+      },
+      {
+        description: "A list containing another, semantically unrelated list",
+        sample: `<L>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>
+      <P>text</P>
+      <P>text</P>
+      <L>
+        <LI>
+          <Lbl>text</Lbl>
+          <LBody>text</LBody>
+        </LI>
+        <LI>
+          <Lbl>text</Lbl>
+          <LBody>text</LBody>
+        </LI>
+      </L>
+      <P>text</P>
+    </LBody>
+  </LI>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+</L>`,
+      },
+    ],
   },
   {
     name: "LBody",
@@ -2347,6 +2511,77 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "A simple list",
+        sample: `<L>
+  <Caption>text</Caption>
+  <LI>text</LI>
+  <LI>
+    <Lbl>bullet</Lbl>
+    <LBody>text</LBody>
+  </LI>
+</L>`,
+      },
+      {
+        description: "A canonical multilevel list)",
+        sample: `<L>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+  <L>
+    <LI>
+      <Lbl>text</Lbl>
+      <LBody>text</LBody>
+    </LI>
+    <LI>
+      <Lbl>text</Lbl>
+      <LBody>text</LBody>
+    </LI>
+    <LI>
+      <Lbl>text</Lbl>
+      <LBody>text</LBody>
+    </LI>
+  </L>
+</L>`,
+      },
+      {
+        description: "A list containing another, semantically unrelated list",
+        sample: `<L>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>
+      <P>text</P>
+      <P>text</P>
+      <L>
+        <LI>
+          <Lbl>text</Lbl>
+          <LBody>text</LBody>
+        </LI>
+        <LI>
+          <Lbl>text</Lbl>
+          <LBody>text</LBody>
+        </LI>
+      </L>
+      <P>text</P>
+    </LBody>
+  </LI>
+  <LI>
+    <Lbl>text</Lbl>
+    <LBody>text</LBody>
+  </LI>
+</L>`,
+      },
+    ],
   },
   {
     name: "Table",
@@ -2411,6 +2646,48 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "Simple data table, without Headers and IDs",
+        sample: `<Table>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+</Table>`,
+      },
+      {
+        description:
+          "More complex table, with headers, additionally structured",
+        sample: `<Table>
+  <THead>
+    <TR>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C1_Table" Table:Scope="Column">text</TH>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C2_Table" Table:Scope="Column">text</TH>
+    </TR>
+  </THead>
+  <TBody>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+    <TR>
+      <TD xmlns:Table="http://iso.org/pdf/ssn/Table" Table:ColSpan="2">text</TD>
+    </TR>
+  </TBody>
+  <TFoot>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+  </TFoot>
+</Table>`,
+      },
+    ],
   },
   {
     name: "TR",
@@ -2455,6 +2732,48 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "Simple data table, without Headers and IDs",
+        sample: `<Table>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+</Table>`,
+      },
+      {
+        description:
+          "More complex table, with headers, additionally structured",
+        sample: `<Table>
+  <THead>
+    <TR>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C1_Table" Table:Scope="Column">text</TH>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C2_Table" Table:Scope="Column">text</TH>
+    </TR>
+  </THead>
+  <TBody>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+    <TR>
+      <TD xmlns:Table="http://iso.org/pdf/ssn/Table" Table:ColSpan="2">text</TD>
+    </TR>
+  </TBody>
+  <TFoot>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+  </TFoot>
+</Table>`,
+      },
+    ],
   },
   {
     name: "TH",
@@ -2521,6 +2840,48 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "Simple data table, without Headers and IDs",
+        sample: `<Table>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+</Table>`,
+      },
+      {
+        description:
+          "More complex table, with headers, additionally structured",
+        sample: `<Table>
+  <THead>
+    <TR>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C1_Table" Table:Scope="Column">text</TH>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C2_Table" Table:Scope="Column">text</TH>
+    </TR>
+  </THead>
+  <TBody>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+    <TR>
+      <TD xmlns:Table="http://iso.org/pdf/ssn/Table" Table:ColSpan="2">text</TD>
+    </TR>
+  </TBody>
+  <TFoot>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+  </TFoot>
+</Table>`,
+      },
+    ],
   },
   {
     name: "TD",
@@ -2587,6 +2948,48 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "Simple data table, without Headers and IDs",
+        sample: `<Table>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+</Table>`,
+      },
+      {
+        description:
+          "More complex table, with headers, additionally structured",
+        sample: `<Table>
+  <THead>
+    <TR>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C1_Table" Table:Scope="Column">text</TH>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C2_Table" Table:Scope="Column">text</TH>
+    </TR>
+  </THead>
+  <TBody>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+    <TR>
+      <TD xmlns:Table="http://iso.org/pdf/ssn/Table" Table:ColSpan="2">text</TD>
+    </TR>
+  </TBody>
+  <TFoot>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+  </TFoot>
+</Table>`,
+      },
+    ],
   },
   {
     name: "THead",
@@ -2627,6 +3030,48 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "Simple data table, without Headers and IDs",
+        sample: `<Table>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+</Table>`,
+      },
+      {
+        description:
+          "More complex table, with headers, additionally structured",
+        sample: `<Table>
+  <THead>
+    <TR>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C1_Table" Table:Scope="Column">text</TH>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C2_Table" Table:Scope="Column">text</TH>
+    </TR>
+  </THead>
+  <TBody>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+    <TR>
+      <TD xmlns:Table="http://iso.org/pdf/ssn/Table" Table:ColSpan="2">text</TD>
+    </TR>
+  </TBody>
+  <TFoot>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+  </TFoot>
+</Table>`,
+      },
+    ],
   },
   {
     name: "TBody",
@@ -2667,6 +3112,48 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "Simple data table, without Headers and IDs",
+        sample: `<Table>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+</Table>`,
+      },
+      {
+        description:
+          "More complex table, with headers, additionally structured",
+        sample: `<Table>
+  <THead>
+    <TR>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C1_Table" Table:Scope="Column">text</TH>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C2_Table" Table:Scope="Column">text</TH>
+    </TR>
+  </THead>
+  <TBody>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+    <TR>
+      <TD xmlns:Table="http://iso.org/pdf/ssn/Table" Table:ColSpan="2">text</TD>
+    </TR>
+  </TBody>
+  <TFoot>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+  </TFoot>
+</Table>`,
+      },
+    ],
   },
   {
     name: "TFoot",
@@ -2707,6 +3194,48 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "Simple data table, without Headers and IDs",
+        sample: `<Table>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+  <TR>
+    <TD>text</TD>
+    <TD>text</TD>
+  </TR>
+</Table>`,
+      },
+      {
+        description:
+          "More complex table, with headers, additionally structured",
+        sample: `<Table>
+  <THead>
+    <TR>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C1_Table" Table:Scope="Column">text</TH>
+      <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C2_Table" Table:Scope="Column">text</TH>
+    </TR>
+  </THead>
+  <TBody>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+    <TR>
+      <TD xmlns:Table="http://iso.org/pdf/ssn/Table" Table:ColSpan="2">text</TD>
+    </TR>
+  </TBody>
+  <TFoot>
+    <TR>
+      <TD>text</TD>
+      <TD>text</TD>
+    </TR>
+  </TFoot>
+</Table>`,
+      },
+    ],
   },
   {
     name: "Caption",
@@ -2980,6 +3509,30 @@ const tags = [
         source: "ISO-14289-2-2024-sponsored.pdf (PDF/UA-2) Section 8.2.5.28.1",
       },
     ],
+    useCases: [
+      {
+        description: "A <Figure> with a <Caption> following the <Figure>",
+        sample: `<Figure>
+  [A structure element enclosing an actual image]
+  {CONTENT} [The actual image or illustration]
+  <Caption>[The Figure’s caption]</Caption>
+</Figure>`,
+      },
+      {
+        description: "A <Figure> with a <Caption> preceding the <Figure>",
+        sample: ``,
+      },
+      {
+        description: "Multiple <Figure> elements with <Caption>elements",
+        sample: ``,
+      },
+      {
+        description: "<Figure> without <Caption>",
+        sample: `<Figure>
+{CONTENT} [The actual image or illustration]
+</Figure>`,
+      },
+    ],
   },
   {
     name: "Formula",
@@ -3077,6 +3630,16 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "Formula as Text",
+        sample: `<Formula> {2 + 2 = 4}</Formula>`,
+      },
+      {
+        description: "Formula as a Figure",
+        sample: ``,
+      },
+    ],
   },
   {
     name: "Artifact",
@@ -3714,6 +4277,20 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "Footnote tagged inline",
+        sample: `<P>
+  <Reference>
+    <Lbl>bullet</Lbl>
+  </Reference>
+  <Note>
+    <Lbl>bullet</Lbl>
+    <P>content</P>
+  </Note>
+</P>`,
+      },
+    ],
   },
   {
     name: "Private",
@@ -3931,6 +4508,16 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "A quote within a paragraph",
+        sample: `<P>
+  some text
+  <Quote>quoted text</Quote>
+  more text
+</P>`,
+      },
+    ],
   },
   {
     name: "Reference",
@@ -4013,6 +4600,24 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "Usage within a paragraph",
+        sample: `<P>
+  [content]
+  <Reference>[content of reference, e.g. "1"]</Reference>
+  possible more content
+</P>`,
+      },
+      {
+        description: "Usage within a <TOC>)",
+        sample: `<TOC>
+  <TOCI>
+    <Reference>The content of a headline</Reference>
+  </TOCI>
+</TOC>`,
+      },
+    ],
   },
   {
     name: "TOC",
