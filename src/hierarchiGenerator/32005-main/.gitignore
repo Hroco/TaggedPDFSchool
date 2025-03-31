@@ -1,8 +1,0 @@
-pnotes/
-relaton/*
-iev/*
-*.xml_tmp
-.DS_Store
-_site/documents/*.err.*
-.vscode/
-Gemfile.lock
