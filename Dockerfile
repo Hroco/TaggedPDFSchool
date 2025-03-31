@@ -31,6 +31,14 @@ COPY --from=deps /app/node_modules ./node_modules
 # Copy the rest of your project files
 COPY . .
 
+# Install Python and dependencies for mega-table.py
+RUN apk add --no-cache python3 py3-pip py3-pandas py3-openpyxl
+
+# Run mega-table.py to generate relationship files
+RUN cd /app/src/hierarchiGenerator/32005-main/scripts && \
+    python3 mega-table.py && \
+    echo "Generated relationship files"
+
 # Build the validator
 RUN cd /app/src/lib/rnv && \
     # Clean any pre-existing object files
