@@ -1,0 +1,5268 @@
+ISO/DTS 32005:202x(E)
+
+ISO TC 171/SC 2/WG 9
+
+Secretariat: ANSI
+
+Date: 2024-09
+
+Document management — Portable Document Format — PDF 1.7 and 2.0
+structure namespace inclusion in ISO 32000‑2
+
+© ISO 2024
+
+All rights reserved. Unless otherwise specified, or required in the
+context of its implementation, no part of this publication may be
+reproduced or utilized otherwise in any form or by any means, electronic
+or mechanical, including photocopying, or posting on the internet or an
+intranet, without prior written permission. Permission can be requested
+from either ISO at the address below or ISO's member body in the country
+of the requester.
+
+ISO Copyright Office
+
+CP 401 • CH-1214 Vernier, Geneva
+
+Phone: + 41 22 749 01 11
+
+Email: copyright@iso.org
+
+Website: https://www.iso.org/[www.iso.org]
+
+Published in Switzerland.
+
+Contents
+
+link:#_Toc140043898[Foreword iv]
+
+link:#_Toc140043899[Introduction v]
+
+link:#scope[1 Scope link:#scope[1]]
+
+link:#normative-references[2 Normative references
+link:#normative-references[1]]
+
+link:#terms-and-definitions[3 Terms and definitions
+link:#terms-and-definitions[1]]
+
+link:#declaration-of-conformance[4 Declaration of conformance
+link:#declaration-of-conformance[2]]
+
+link:#using-the-pdf-1.7-namespace-with-the-pdf-2.0-namespace[5 Using the
+PDF 1.7 namespace with the PDF 2.0 namespace
+link:#using-the-pdf-1.7-namespace-with-the-pdf-2.0-namespace[3]]
+
+link:#general[5.1 General link:#general[3]]
+
+link:#pdf-1.7-as-a-standalone-namespace[5.2 PDF 1.7 as a standalone
+namespace link:#pdf-1.7-as-a-standalone-namespace[3]]
+
+link:#elements-defined-in-both-the-pdf-1.7-and-pdf-2.0-namespace[<<commom-elements>>
+Elements defined in both the PDF 1.7 and PDF 2.0 namespace
+link:#elements-defined-in-both-the-pdf-1.7-and-pdf-2.0-namespace[3]]
+
+link:#elements-defined-solely-in-the-pdf-2.0-namespace[5.4 Elements
+defined solely in the PDF 2.0 namespace
+link:#elements-defined-solely-in-the-pdf-2.0-namespace[3]]
+
+link:#elements-defined-solely-in-the-pdf-1.7-namespace[5.5 Elements
+defined solely in the PDF 1.7 namespace
+link:#elements-defined-solely-in-the-pdf-1.7-namespace[3]]
+
+link:#general-1[5.5.1 General link:#general-1[3]]
+
+link:#permitted-pdf-1.7-element-types[5.5.2 Permitted PDF 1.7 element
+types link:#permitted-pdf-1.7-element-types[3]]
+
+link:#_Toc140043912[5.6 Role mapping link:#_Toc140043912[6]]
+
+link:#attributes[6 Attributes link:#attributes[6]]
+
+link:#general-3[6.1 General link:#general-3[6]]
+
+link:#attribute-owners[6.2 Attribute owners link:#attribute-owners[6]]
+
+link:#attribute-namespaces[6.3 Attribute namespaces
+link:#attribute-namespaces[7]]
+
+link:#parent-child-relationships-between-the-standard-structure-elements-in-the-standard-structure-namespace-for-pdf-2.0-and-pdf-1.7[7
+Parent-child relationships between the standard structure elements in
+the standard structure namespace for PDF 2.0 and PDF 1.7
+link:#parent-child-relationships-between-the-standard-structure-elements-in-the-standard-structure-namespace-for-pdf-2.0-and-pdf-1.7[7]]
+
+link:#general-4[7.1 General link:#general-4[7]]
+
+link:#hierarchical-inclusion-rules[7.2 Hierarchical inclusion rules
+link:#hierarchical-inclusion-rules[7]]
+
+link:#_Toc140043920[Bibliography link:#_Toc140043920[50]]
+
+[#_Toc140043898 .anchor]####Foreword
+
+ISO (the International Organization for Standardization) is a worldwide
+federation of national standards bodies (ISO member bodies). The work of
+preparing International Standards is normally carried out through ISO
+technical committees. Each member body interested in a subject for which
+a technical committee has been established has the right to be
+represented on that committee. International organizations, governmental
+and non-governmental, in liaison with ISO, also take part in the work.
+ISO collaborates closely with the International Electrotechnical
+Commission (IEC) on all matters of electrotechnical standardization.
+
+The procedures used to develop this document and those intended for its
+further maintenance are described in the ISO/IEC Directives, Part 1. In
+particular, the different approval criteria needed for the different
+types of ISO documents should be noted. This document was drafted in
+accordance with the editorial rules of the ISO/IEC Directives, Part 2
+(see
+https://www.iso.org/directives-and-policies.html[www.iso.org/directives]).
+
+Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. ISO shall not be held
+responsible for identifying any or all such patent rights. Details of
+any patent rights identified during the development of the document will
+be in the Introduction and/or on the ISO list of patent declarations
+received (see
+https://www.iso.org/iso-standards-and-patents.html[www.iso.org/patents]).
+
+Any trade name used in this document is information given for the
+convenience of users and does not constitute an endorsement.
+
+For an explanation of the voluntary nature of standards, the meaning of
+ISO specific terms and expressions related to conformity assessment, as
+well as information about ISO's adherence to the World Trade
+Organization (WTO) principles in the Technical Barriers to Trade (TBT),
+see
+https://www.iso.org/foreword-supplementary-information.html[www.iso.org/iso/foreword.html].
+
+This document was prepared by Technical Committee ISO/TC 171, _Document
+management applications_, Subcommittee SC 2, _Document file formats,
+EDMS systems and authenticity of information_.
+
+Any feedback or questions on this document should be directed to the
+user’s national standards body. A complete listing of these bodies can
+be found at https://www.iso.org/members.html[www.iso.org/members.html].
+
+[#_Toc140043899 .anchor]####Introduction
+
+ISO 32000-2 introduced the mechanism for defining namespaces within a
+logically structured PDF document; identified two recognized namespaces
+for tagged PDF documents; and provided strict hierarchical inclusion
+rules for the standard structure namespace for PDF 2.0. However, ISO
+32000-2 did not specify restrictions and inclusion rules for the
+standard structure namespace for PDF 1.7. This document extends the
+hierarchical inclusion rules to address both the standard structure
+namespace for PDF 2.0 and the standard structure namespace for PDF 1.7.
+
+The primary purpose of this document is to extend the rules already
+defined within ISO 32000-2 to resolve any ambiguity.
+
+Document management — Portable Document Format — PDF 1.7 and 2.0
+structure namespace inclusion in ISO 32000‑2
+
+== Scope
+
+This document specifies containment requirements for tagged PDF
+documents that use the PDF 1.7 namespace and the PDF 2.0 namespace.
+These containment requirements extend, and entirely comply with, the
+rules and provisions already specified for tagged PDF documents within
+ISO 32000-2.
+
+== Normative references
+
+The following documents are referred to in the text in such a way that
+some or all of their content constitutes requirements of this document.
+For dated references, only the edition cited applies. For undated
+references, the latest edition of the referenced document (including any
+amendments) applies.
+
+ISO 32000-1, _Document management — Portable Document Format — Part 1:
+PDF 1.7_
+
+ISO 32000-2:2020, _Document management — Portable document format — Part
+2: PDF 2.0_
+
+PDF Declarations, _PDF Association, September 5,_ _2019_,
+https://www.pdfa.org/resource/pdf-declarations/[_https://www.pdfa.org/resource/pdf-declarations/_]
+
+== Terms and definitions
+
+For the purposes of this document, the terms and definitions given in
+ISO 32000-2 and the following apply.
+
+ISO and IEC maintain terminology databases for use in standardization at
+the following addresses:
+
+— ISO Online browsing platform: available at
+https://www.iso.org/obp/ui[https://www.iso.org/obp]
+
+— IEC Electropedia: available at https://www.electropedia.org/
+
+3.1
+
+PDF 1.7 namespace
+
+standard structure namespace for PDF 1.7
+
+3.2
+
+PDF 2.0 namespace
+
+standard structure namespace for PDF 2.0
+
+3.3
+
+PDF 1.7 element
+
+standard structure element type defined in the namespace for PDF 1.7
+
+3.4
+
+PDF 2.0 element
+
+standard structure element type defined in the namespace for PDF 2.0
+
+3.5
+
+unique PDF 1.7 element
+
+standard structure element whose type is defined solely in the _PDF 1.7
+namespace_ (3.1)
+
+== Declaration of conformance
+
+This document defines additional requirements that are fully compliant
+with ISO 32000-2. As such, a PDF document can conform to all the
+requirements of ISO 32000-2 and the requirements defined in this
+document, retaining compliance with both standards. However, not all
+files which are compliant with ISO 32000-2 will be compliant with this
+document.
+
+To enable interchange and to identify that a given PDF document conforms
+to the requirements defined in this document, that PDF document may
+include a PDF declaration of conformance with this document. When such a
+PDF declaration is present, it shall conform to the requirements of the
+PDF Declarations specification. Such claim of conformance shall take the
+form described in Table 1.
+
+Table 1 — Declaration of conformance to this document
+
+[width="100%",cols="27%,73%",options="header",]
+|===
+|*Key* |*Type*
+|URI identifier |http://pdfa.org/declarations#iso32005
+|Mandatory field(s) |none
+|Standard |ISO/TS 32005
+|Version |1
+|URI |https://www.pdfa.org/resource/ISO-32005/
+|Level |N/A
+|Technology Reliance |ISO 32000-2
+|===
+
+EXAMPLE Conformance declaration for a PDF file conforming to this
+document:
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description rdf:about=""
+xmlns:pdfd="http://pdfa.org/declarations/">
+
+<pdfd:declarations>
+
+<rdf:Bag>
+
+<!-- Declaration for conformity with standard “ISO 32005” --> 
+
+<rdf:li rdf:parseType="Resource">
+
+<pdfd:conformsTo>http://pdfa.org/declarations#iso32005</pdfd:conformsTo>
+
+</rdf:li>
+
+</rdf:Bag>
+
+</pdfd:declarations>
+
+</rdf:Description>
+
+</rdf:RDF>
+
+== Using the PDF 1.7 namespace with the PDF 2.0 namespace
+
+=== General
+
+ISO 32000-2 permits the use of both the PDF 1.7 namespace and the
+PDF 2.0 namespace but does not indicate how they are to be used together
+in the same document. The following clauses clarify this usage.
+
+NOTE ISO 32000-2 does not restrict the interaction of the two
+namespaces.
+
+PDF documents conforming to this document shall be versioned as PDF 2.0
+using either the header or the value of the *Version* entry in the
+document’s catalog dictionary (see ISO 32000-2:2020, 7.7.2).
+
+=== PDF 1.7 as a standalone namespace
+
+If all structure elements used in a given document are PDF 1.7 elements,
+either explicitly, through the default standard structure namespace or
+role mapped to an element in the default standard structure namespace,
+then the requirements of ISO 32000-1 shall be used for their inclusion.
+In such cases, the use of namespaces shall not be required and those
+structure elements are exempt from the provisions specified in <<commom-elements>>, 5.4
+and 5.5.
+
+If any document has structure elements that use a namespace other than
+the PDF 1.7 namespace or the default standard structure namespace, then
+that document shall conform to the requirements specified in <<commom-elements>>, 5.4
+and 5.5.
+
+=== Elements defined in both the PDF 1.7 and PDF 2.0 namespace
+
+A subset of the PDF 1.7 elements and the PDF 2.0 elements are common
+between the two namespaces. All structure elements whose type is common
+to both the PDF 1.7 namespace and the PDF 2.0 namespace shall use the
+PDF 2.0 namespace and follow the inclusion rules defined in ISO
+32000-2:2020, Annex L, and in Clause 5 of this document (except as
+exempted by 5.2).
+
+=== Elements defined solely in the PDF 2.0 namespace
+
+PDF 2.0 elements shall explicitly declare their namespace using the
+PDF 2.0 namespace and may contain unique PDF 1.7 elements and PDF 2.0
+elements, as defined in Clause 5.
+
+NOTE ISO 32000-2:2020, Annex M identifies the new elements that are
+solely defined for the PDF 2.0 namespace.
+
+=== Elements defined solely in the PDF 1.7 namespace
+
+==== General
+
+Unique PDF 1.7 elements may be included in a document. When such
+structure elements are included (except as exempted in 5.2), those
+elements shall conform to the requirements defined in Clause 5 and may
+be children of PDF 2.0 elements and may include unique PDF 1.7 elements
+or PDF 2.0 elements.
+
+NOTE ISO 32000-2:2020, Annex M identifies the elements that are solely
+defined for the PDF 1.7 namespace.
+
+==== Permitted PDF 1.7 element types
+
+===== General
+
+ISO 32000-2 does not directly define the element types outside of the
+PDF 2.0 namespace. Instead, it refers to the definition of those
+elements in ISO 32000-1. To ensure consistency, unique PDF 1.7 elements
+(except as exempted by 5.2) shall match the descriptions and follow the
+inclusion rules specified in Clause 5.
+
+===== Grouping structure elements
+
+The unique PDF 1.7 elements that are a grouping element type are defined
+in Table 2 and shall be the only PDF 1.7 namespace grouping elements
+permissible in a document (except as exempted by 5.2).
+
+Table 2 — Standard structure types for unique PDF 1.7 grouping elements
+
+[width="100%",cols="19%,81%",options="header",]
+|===
+|*Structure type* |*Description*
+|Art |(Article) A relatively self-contained body of text constituting a
+single narrative or exposition. Articles should be disjoint; that is,
+they should not contain other articles as constituent elements.
+
+|BlockQuote a|
+(Block quotation) A portion of content quoted from another source other
+than the surrounding content.
+
+NOTE 1 The *BlockQuote* structure element groups larger units of quoted
+content, see Quote (4.5.2.3, “”) for inline quotation.
+
+NOTE 2 The *BlockQuote* structure element differs from the
+*DocumentFragment* structure element, in that *DocumentFragment* implies
+unchanged and contiguous portions of another document, whereas
+*BlockQuote* often include modification or contextualization.
+*BlockQuote* is permitted to both contain or be a child of
+*DocumentFragment* (see 7.2).
+
+NOTE 3 The source for a *BlockQuote* can include content from the same
+document.
+
+|TOC a|
+(Table of contents) A list made up of table of contents item entries
+(structure type *TOCI*) and/or other nested table of contents entries
+(*TOC*).
+
+A *TOC* entry that includes only *TOCI* entries represents a flat
+hierarchy. A *TOC* entry that includes other nested *TOC* entries (and
+possibly *TOCI* entries) represents a more complex hierarchy. Ideally,
+the hierarchy of a top-level *TOC* entry reflects the structure of the
+main body of the document.
+
+NOTE 4 Lists of figures and tables, as well as bibliographies, can be
+treated as tables of contents for purposes of the standard structure
+types.
+
+When parts of a *TOC* have descriptive text, that text shall use
+*Caption* to identify its purpose. When multiple parts of the *TOC* have
+descriptive text at the same level within that *TOC*, then *Part* shall
+be used to subdivide that *TOC* into the described (captioned)
+sub-parts, with each *Part* having its own *Caption*.
+
+|TOCI |(Table of contents item) An individual entry within a table of
+contents (*TOC*).
+
+|Index |(Index) A sequence of entries containing identifying text
+accompanied by reference elements (structure type *Reference*; see
+5.5.2.3) that point out occurrences of the specified text in the main
+body of a document.
+
+|Private |(Private element) A grouping element containing private
+content belonging to the application producing it. The structural
+significance of this element type is unspecified and shall be determined
+entirely by the writer. Neither the *Private* element nor any of its
+descendants (including content) have defined semantic significance and
+may be ignored by processors, both when consuming the content and when
+exporting to other document formats.
+
+|NOTE The definitions in this table are taken from ISO 32000-1, but have
+been updated for clarity. |
+|===
+
+===== Inline-level structure elements
+
+The unique PDF 1.7 elements that are an inline-level element type are
+defined in Table 3 and shall be the only PDF 1.7 namespace inline-level
+structure elements permissible in a document (except as exempted by
+Clause 5.2).
+
+Table 3 — Standard structure types for unique PDF 1.7 inline-level
+structure elements
+
+[width="100%",cols="19%,81%",options="header",]
+|===
+|*Structure type* |*Description*
+|Quote a|
+(Quotation) An inline portion of content quoted from another source
+other than the surrounding content.
+
+The quoted text should be contained inline within a single block-level
+unit of content. This differs from the block-level element *BlockQuote*
+(see 5.5.2.2), which consists of one or more complete paragraphs (or
+other elements presented as if they were complete paragraphs).
+
+|Note a|
+(Note) An item of explanatory text, such as a footnote or an endnote,
+that is referred to from within the body of the document. It may have a
+label (structure type *Lbl*; see ISO 32000-2:2020, Table 368) as a
+child.
+
+The note may be included as a child of the structure element in the body
+text that refers to it, or it may be included elsewhere (such as in an
+endnotes section) and accessed by means of a reference (structure type
+*Reference*).
+
+Tagged PDF does not prescribe the placement of footnotes in the page
+content order. They may be either inline or at the end of the page, at
+the discretion of the conforming writer.
+
+|Reference |(Reference) A citation to content elsewhere in the document.
+
+|BibEntry a|
+(Bibliography entry) A reference identifying the external source of some
+cited content. It may contain a label (structure type *Lbl*; see ISO
+32000-2:2020, Table 368) as a child.
+
+Although a bibliography entry is likely to include component parts
+identifying the cited content’s author, work, publisher, and so forth,
+no standard structure types are defined at this level of detail.
+
+|Code |(Code) A fragment of computer program text.
+
+|NOTE The definitions in this table are taken from ISO 32000-1, but have
+been updated for clarity. |
+|===
+
+[#_Toc140043912 .anchor]##
+
+=== Role mapping
+
+Custom element types may be present in a document and shall have an
+explicitly defined namespace except as exempted by 5.2.
+
+== Attributes
+
+=== General
+
+ISO 32000-2 defines a mechanism for applying structure attributes to
+structure elements (see ISO 32000-2:2020, 14.7.6). While both ISO
+32000-2 and ISO 32000-1 defined this mechanism, ISO 32000-2 extended it
+to additionally make use of namespaces (see ISO 32000-2:2020,
+Table 360). Clause 6 specifies the requirements for a file containing
+structure attributes.
+
+=== Attribute owners
+
+Attribute owners (see ISO 32000-2:2020, Table 376) identify sets of
+attributes that are available for use with structure elements. For each
+attribute, attribute owners also restrict the structure element type
+with which they may be used.
+
+The attributes defined within the various attribute owners in ISO
+32000-2 are a superset of those defined in ISO 32000-1. As such,
+regardless of whether a given structure element is a unique PDF 1.7
+element or a PDF 2.0 element, that structure element may use any
+structure attribute defined in ISO 32000-2, as restricted by those
+attributes’ definition.
+
+=== Attribute namespaces
+
+As an alternative to attribute owners, ISO 32000-2 defines a mechanism
+for identifying a namespace for a given set of attributes (see ISO
+32000-2:2020, Table 360). Attribute objects identifying their owner as a
+namespace may occur on any structure element regardless of that
+structure element’s namespace.
+
+== Parent-child relationships between the standard structure elements in the standard structure namespace for PDF 2.0 and PDF 1.7
+
+=== General
+
+ISO 32000-2 defines the standard structure element types within ISO
+32000-2:2020, 14.8.4 and identifies the PDF 1.7 namespace and the
+PDF 2.0 namespace in ISO 32000-2:2020, 14.8.6. ISO 32000-2:2020,
+Annex L, specifies the requirements for hierarchical inclusion of the
+PDF 2.0 elements.
+
+7.2 extends the rules for hierarchical inclusion^[1]^ of both the
+PDF 2.0 elements and PDF 1.7 elements.
+
+NOTE A compact representation of the hierarchical inclusion rules
+defined in 7.2 can be found in Reference [1].
+
+=== Hierarchical inclusion rules
+
+This subclause defines the acceptable children of the standard structure
+elements defined in the PDF 1.7 namespace and the PDF 2.0 namespace.
+PDF 1.7 elements and PDF 2.0 elements shall not have child or parent
+PDF 1.7 elements or PDF 2.0 elements that are not explicitly listed in
+Table 5.
+
+NOTE 1 The hierarchical rules defined in this clause describe the
+elements that are permissible as children of each structure type.
+However, further contextual restrictions are described in Clause 5 and
+ISO 32000-2:2020, 14.8 “Tagged PDF”.
+
+NOTE 2 The hierarchical rules included in this subclause extend those
+found in ISO 32000-2:2020, Annex L, and can be considered complete for
+all elements permitted by this document. These extensions pertain to
+unique PDF 1.7 elements and their interaction with other PDF 1.7
+elements and PDF 2.0 elements. These requirements fully conform to those
+found in ISO 32000-2 and associated errata for PDF 2.0 elements.
+
+These containment requirements shall also apply to structure elements
+that are role mapped into the PDF 2.0 namespace or PDF 1.7 namespace
+(except as exempted by Clause 5.2). Table 4 provides a legend for use in
+interpreting Table 5.
+
+Table 4 — Legend for valid usage of structure types
+
+[width="100%",cols="9%,91%",options="header",]
+|===
+|Value |Valid usage relative to other standard structure types
+|ø |shall not occur
+
+|ø* |shall not occur unless the parent element is used as a grouping
+level element
+
+|0..n |may be a child element with one or several occurrences, but is
+not required to be present
+
+|1..n |shall be present as a child element with one or several
+occurrences
+
+|0..1 |may occur, but not more than once
+
+|‡ |for containment rules, refer to the respective structure element
+type’s description
+
+|[a] |for specific provisions when and how these structure elements or
+content can be contained inside a *Ruby* structure element, see ISO
+32000-2:2020, 14.8.4.7.3
+
+|[b] |for specific provisions when and how these structure elements or
+content can be contained inside a *Warichu* structure element, see ISO
+32000-2:2020, 14.8.4.7.3
+|===
+
+Table 5 — Parent-child relationships between the PDF 1.7 elements and
+PDF 2.0 elements
+
+[width="100%",cols="23%,6%,33%,5%,33%",options="header",]
+|===
+|*Structure Type* |*Children* | |*Parents* |
+| |*Occ.* |*Structure Type* |*Occ.* |*Structure Type*
+
+|StructTreeRootfootnote:[StructTreeRoot refers to the structure tree
+root dictionary (see "ISO 32000-2:2020, Table 354 — Entries in the
+structure tree root") and is not the name of a structure element.] |1
+|Document |  | 
+
+|Document |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+TOC +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Link +
+Annot +
+Form +
+FENote +
+Index +
+L +
+Table +
+Figure +
+Formula +
+Artifact |1 +
+0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n |StructTreeRoot +
+Document +
+DocumentFragment +
+Part +
+Div +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Artifact
+
+|DocumentFragment |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+TOC +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Link +
+Annot +
+Form +
+FENote +
+Index +
+L +
+Table +
+Figure +
+Formula +
+Artifact |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+∅* +
+∅* +
+∅* +
+∅* +
+∅* +
+∅* +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Note +
+Code +
+Link +
+Annot +
+FENote +
+Caption +
+Artifact
+
+|Part |‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ |Document +
+DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+TOC +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Sub +
+Lbl +
+Link +
+Reference +
+Annot +
+Form +
+FENote +
+Index +
+L +
+BibEntry +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+TOC +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Note +
+Code +
+Link +
+Annot +
+Form +
+FENote +
+Index +
+LBody +
+BibEntry +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Div |‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ |Document +
+DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+TOC +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+RB +
+RT +
+RP +
+Warichu +
+WT +
+WP +
+FENote +
+Index +
+L +
+LI +
+LBody +
+BibEntry +
+Table +
+TR +
+TH +
+TD +
+THead +
+TBody +
+TFoot +
+Caption +
+Figure +
+Formula +
+Artifact |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Note +
+Code +
+Link +
+Annot +
+Form +
+FENote +
+Index +
+LI +
+LBody +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Art |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |DocumentFragment +
+Part +
+Div +
+Sect +
+TOC +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Lbl +
+Link +
+Annot +
+Form +
+FENote +
+Index +
+L +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+[line-through]#0..1# +
+[line-through]#0..1# +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Note +
+Code +
+[line-through]#Hn# +
+[line-through]#H# +
+Link +
+Annot +
+FENote +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Artifact
+
+|Sect |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+TOC +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Lbl +
+Link +
+Annot +
+Form +
+FENote +
+Index +
+L +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Note +
+Code +
+Hn +
+H +
+Link +
+Annot +
+FENote +
+Index +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Artifact
+
+|TOC |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n |Part +
+TOC +
+TOCI +
+NonStruct +
+Private +
+Caption +
+Artifact |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+TOC +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Artifact
+
+|TOCI |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Div +
+TOC +
+NonStruct +
+Private +
+P +
+Lbl +
+Reference +
+Artifact |‡ +
+‡ +
+0..n +
+‡ +
+0..n +
+0..n |Part +
+Div +
+TOC +
+NonStruct +
+Private +
+Artifact
+
+|Aside |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+TOC +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Link +
+Reference +
+Annot +
+Form +
+FENote +
+Index +
+L +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content itemfootnote:[A content item refers to page content (see ISO
+32000-2:2020, 14.8.2 “Tagged PDF and page content”) or PDF objects (see
+ISO 32000-2:2020, 14.7 “PDF objects as content items”) and does not
+refer to the name of a structure element type.] |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+NonStruct +
+Private +
+Title +
+Note +
+Code +
+Link +
+Annot +
+FENote +
+LBody +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|BlockQuote |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+TOC +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Lbl +
+Link +
+Reference +
+Annot +
+Form +
+FENote +
+Index +
+L +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n 0..n +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Note +
+Code +
+Link +
+Annot +
+FENote +
+LBody +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|NonStruct |‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ +
+‡ |Document +
+DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+TOC +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+RB +
+RT +
+RP +
+Warichu +
+WT +
+WP +
+FENote +
+Index +
+L +
+LI +
+LBody +
+BibEntry +
+Table +
+TR +
+TH +
+TD +
+THead +
+TBody +
+TFoot +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+TOC +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+RB +
+RT +
+RP +
+Warichu +
+WT +
+WP +
+FENote +
+Index +
+L +
+LI +
+LBody +
+BibEntry +
+Table +
+TR +
+TH +
+TD +
+THead +
+TBody +
+TFoot +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Private |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+TOC +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+RB +
+RT +
+RP +
+Warichu +
+WT +
+WP +
+FENote +
+Index +
+L +
+LI +
+LBody +
+BibEntry +
+Table +
+TR +
+TH +
+TD +
+THead +
+TBody +
+TFoot +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+TOC +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+RB +
+RT +
+RP +
+Warichu +
+WT +
+WP +
+FENote +
+Index +
+L +
+LI +
+LBody +
+BibEntry +
+Table +
+TR +
+TH +
+TD +
+THead +
+TBody +
+TFoot +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Title |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n |Part +
+Div +
+Aside +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+L +
+BibEntry +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+∅* +
+∅* +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+BlockQuote +
+NonStruct +
+Private +
+Link +
+Annot +
+Artifact
+
+|Sub |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+Note +
+Code +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+L +
+BibEntry +
+Figure +
+Formula +
+Artifact +
+content item |‡ +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+0..n +
+0..n |Part +
+Div +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Annot +
+RB +
+RT +
+RP +
+WT +
+WP +
+FENote +
+LBody +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|P |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+Note +
+Code +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+L +
+BibEntry +
+Table +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Note +
+Code +
+Link +
+Annot +
+FENote +
+Index +
+LBody +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Note |∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n |DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+Index +
+L +
+BibEntry +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+FENote +
+Index +
+LBody +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Code |∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n |DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+Index +
+L +
+BibEntry +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Annot +
+Form +
+FENote +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Hn |0..1 +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Art +
+Sect +
+NonStruct +
+Private +
+Note +
+Code +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+BibEntry +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Link +
+Annot +
+Index +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|H |0..1 +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Art +
+Sect +
+NonStruct +
+Private +
+Note +
+Code +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+BibEntry +
+Figure +
+Formula +
+Artifact +
+content item |0..1 +
+0..1 +
+‡ +
+‡ +
+0..1 +
+0..1 +
+0..1 +
+0..1 +
+‡ +
+0..n +
+∅* +
+∅* +
+0..n +
+0..1 +
+0..1 +
+0..1 +
+0..1 +
+0..1 +
+0..1 +
+0..1 |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Link +
+Annot +
+Index +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Lbl |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+Note +
+Code +
+Sub +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+BibEntry +
+Figure +
+Formula +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Part +
+Div +
+Art +
+Sect +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+FENote +
+LI +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Em |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+Note +
+Code +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+BibEntry +
+Figure +
+Formula +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+RB +
+RT +
+RP +
+WT +
+WP +
+FENote +
+LBody +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Strong |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+Note +
+Code +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+BibEntry +
+Figure +
+Formula +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+RB +
+RT +
+RP +
+WT +
+WP +
+FENote +
+LBody +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Span |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+Note +
+Code +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+BibEntry +
+Figure +
+Formula +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+RB +
+RT +
+RP +
+WT +
+WP +
+FENote +
+LBody +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Quote |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+Note +
+Code +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+BibEntry +
+Figure +
+Formula +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Annot +
+RB +
+RT +
+RP +
+WT +
+WP +
+FENote +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Link |∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+∅* +
+∅* +
+0..n +
+0..n +
+∅* +
+0..n +
+0..n +
+∅* +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+0..n +
+0..n +
+0..n +
+∅* +
+0..n +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n |DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+L +
+BibEntry +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Reference +
+Annot +
+RB +
+RT +
+RP +
+WT +
+WP +
+FENote +
+LBody +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Reference |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+Note +
+Lbl +
+Em +
+Strong +
+Span +
+Link +
+Annot +
+FENote +
+BibEntry +
+Figure +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Part +
+Div +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Annot +
+Form +
+RB +
+RT +
+RP +
+WT +
+WP +
+FENote +
+Index +
+LBody +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Annot |∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+∅* +
+∅* +
+0..n +
+0..n +
+∅* +
+0..n +
+0..n +
+∅* +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+0..n +
+∅* +
+0..n +
+0..n +
+0..n +
+∅* +
+0..n +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n |DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+L +
+BibEntry +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+RB +
+RT +
+RP +
+WT +
+WP +
+FENote +
+Index +
+LBody +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Form |∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+0..n +
+∅* +
+0..n +
+∅* +
+0..n +
+∅* +
+0..1 +
+∅* +
+∅* +
+0..n +
+0..n |Part +
+Div +
+NonStruct +
+Private +
+Note +
+Code +
+Lbl +
+Reference +
+FENote +
+L +
+BibEntry +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Annot +
+RB +
+RT +
+RP +
+WT +
+WP +
+FENote +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Ruby |0..n +
+0..n +
+[a] +
+[a] +
+[a] +
+0..n |NonStruct +
+Private +
+RB +
+RT +
+RP +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Annot +
+FENote +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|RB |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ |NonStruct +
+Private +
+Sub +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+[a] +
+0..n |Div +
+NonStruct +
+Private +
+Ruby +
+Artifact
+
+|RT |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ |NonStruct +
+Private +
+Sub +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+[a] +
+0..n |Div +
+NonStruct +
+Private +
+Ruby +
+Artifact
+
+|RP |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ |NonStruct +
+Private +
+Sub +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+[a] +
+0..n |Div +
+NonStruct +
+Private +
+Ruby +
+Artifact
+
+|Warichu |0..n +
+0..n +
+[b] +
+[b] +
+0..n |NonStruct +
+Private +
+WT +
+WP +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Annot +
+FENote +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|WT |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ |NonStruct +
+Private +
+Sub +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+[b] +
+0..n |Div +
+NonStruct +
+Private +
+Warichu +
+Artifact
+
+|WP |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ |NonStruct +
+Private +
+Sub +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+[b] +
+0..n |Div +
+NonStruct +
+Private +
+Warichu +
+Artifact
+
+|FENote |∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n |DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+L +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+FENote +
+Index +
+LBody +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Index |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Part +
+Div +
+Sect +
+NonStruct +
+Private +
+P +
+Note +
+Hn +
+H +
+Reference +
+Annot +
+FENote +
+L +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Note +
+Code +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|L |0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n |NonStruct +
+Private +
+L +
+LI +
+Caption +
+Artifact |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Link +
+Annot +
+Form +
+FENote +
+Index +
+L +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|LI |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+Lbl +
+LBody +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+L +
+Artifact
+
+|LBody |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n |Part +
+Art +
+Div +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Sub +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+Index +
+L +
+BibEntry +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+LI +
+Artifact
+
+|BibEntry |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Part +
+Div +
+NonStruct +
+Private +
+P +
+Note +
+Lbl +
+Em +
+Strong +
+Span +
+Link +
+Reference +
+Annot +
+FENote +
+Figure +
+Artifact +
+content item |‡ +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Part +
+Div +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Table |0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..1 +
+0..1 +
+0..n |NonStruct +
+Private +
+TR +
+THead +
+TBody +
+TFoot +
+Caption +
+Artifact |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+∅* +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+P +
+Note +
+Code +
+Link +
+Annot +
+Form +
+FENote +
+Index +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|TR |0..n +
+0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+TH +
+TD +
+Artifact |‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+Table +
+THead +
+TBody +
+TFoot +
+Artifact
+
+|TH |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Art +
+Div +
+Sect +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+Index +
+L +
+BibEntry +
+Table +
+Figure +
+Formula +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+TR +
+Artifact
+
+|TD |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Art +
+Div +
+Sect +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+Index +
+L +
+BibEntry +
+Table +
+Figure +
+Formula +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+TR +
+Artifact
+
+|THead |0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+TR +
+Artifact |‡ +
+‡ +
+0..n +
+0..1 +
+0..n |Div +
+NonStruct +
+Private +
+Table +
+Artifact
+
+|TBody |0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+TR +
+Artifact |‡ +
+‡ +
+0..n +
+0..n +
+0..n |Div +
+NonStruct +
+Private +
+Table +
+Artifact
+
+|TFoot |0..n +
+0..n +
+0..n +
+0..n |NonStruct +
+Private +
+TR +
+Artifact |‡ +
+‡ +
+0..n +
+0..1 +
+0..n |Div +
+NonStruct +
+Private +
+Table +
+Artifact
+
+|Caption |∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+Index +
+L +
+BibEntry +
+Table +
+Figure +
+Formula +
+Artifact +
+content item |‡ +
+‡ +
+0..n +
+0..n +
+0..1 +
+0..1 +
+0..1 +
+‡ +
+0..n +
+0..1 +
+∅* +
+∅* +
+∅* +
+0..1 +
+∅* +
+0..n +
+0..1 +
+0..1 +
+0..1 +
+0..1 +
+0..1 +
+0..1 |Part +
+Div +
+Art +
+Sect +
+TOC +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Note +
+Link +
+Annot +
+Form +
+FENote +
+Index +
+L +
+LBody +
+Table +
+Figure +
+Formula +
+Artifact
+
+|Figure |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n |Part +
+Art +
+Div +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+Index +
+L +
+BibEntry +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+c +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+WP +
+FENote +
+Index +
+LBody +
+BibEntry +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Formula |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n |Part +
+Div +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+Warichu +
+FENote +
+Index +
+L +
+BibEntry +
+Table +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+∅* +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Annot +
+Form +
+FENote +
+Index +
+LBody +
+TH +
+TD +
+Caption +
+Figure +
+Formula +
+Artifact
+
+|Artifact |0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..1 +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Art +
+Div +
+Sect +
+TOC +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+P +
+Note +
+Code +
+Hn +
+H +
+Title +
+Sub +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+Ruby +
+RB +
+RT +
+RP +
+Warichu +
+WT +
+WP +
+FENote +
+Index +
+L +
+LI +
+LBody +
+BibEntry +
+Table +
+TR +
+TH +
+TD +
+THead +
+TBody +
+TFoot +
+Caption +
+Figure +
+Formula +
+Artifact +
+content item |0..n +
+0..n +
+‡ +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+‡ +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n +
+0..n |Document +
+DocumentFragment +
+Part +
+Div +
+Art +
+Sect +
+TOC +
+TOCI +
+Aside +
+BlockQuote +
+NonStruct +
+Private +
+Title +
+Sub +
+P +
+Note +
+Code +
+Hn +
+H +
+Lbl +
+Em +
+Strong +
+Span +
+Quote +
+Link +
+Reference +
+Annot +
+Form +
+RB +
+RT +
+RP +
+WT +
+WP +
+FENote +
+Index +
+L +
+LI +
+LBody +
+BibEntry +
+Table +
+TR +
+TH +
+TD +
+THead +
+TBody +
+TFoot +
+Caption +
+Figure +
+Formula +
+Artifact
+|===
+
+[#_Toc140043920 .anchor]####Bibliography
+
+[1] Hierarchical inclusion rules, PDF Association, November 10, 2022,
+https://www.pdfa.org/resource/iso-ts-32005-hierarchical-inclusion-rules/
