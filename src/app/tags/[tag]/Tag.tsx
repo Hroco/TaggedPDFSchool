@@ -8,6 +8,7 @@ import { Card } from "~/components/ui/card";
 import { ChevronRight, ArrowUpCircle, ArrowDownCircle } from "lucide-react";
 import { notFound } from "next/navigation";
 import tags from "~/assets/taggsDB";
+import hierarchyData from "~/hierarchyGenerator/32005-main/sources/generated/structure-relationships.json";
 import CodeMirror from "@uiw/react-codemirror";
 import { xml } from "@codemirror/lang-xml";
 import React from "react";
@@ -32,6 +33,52 @@ export default function Tag({ currentTag }: { currentTag: string }) {
   const propertiesForTag = properties.filter((propertie) => {
     const relatedTags = propertie.relatedTags;
     return relatedTags.includes(tag.name);
+  });
+
+  const hierarchyForTag = hierarchyData.find((hierarchy) => {
+    return hierarchy.name === tag.name;
+  });
+
+  const parrentTags = hierarchyForTag?.hierarchy.parents.map((item) => {
+    const [tagName, occurrences] = item;
+
+    let newTagName: string;
+    let newOccurrences: string;
+
+    if (typeof tagName === "number") {
+      newTagName = tagName.toString();
+    } else {
+      newTagName = tagName ?? "";
+    }
+
+    if (typeof occurrences === "number") {
+      newOccurrences = occurrences.toString();
+    } else {
+      newOccurrences = occurrences ?? "";
+    }
+
+    return [newTagName, newOccurrences];
+  });
+
+  const childTags = hierarchyForTag?.hierarchy.children.map((item) => {
+    const [tagName, occurrences] = item;
+
+    let newTagName: string;
+    let newOccurrences: string;
+
+    if (typeof tagName === "number") {
+      newTagName = tagName.toString();
+    } else {
+      newTagName = tagName ?? "";
+    }
+
+    if (typeof occurrences === "number") {
+      newOccurrences = occurrences.toString();
+    } else {
+      newOccurrences = occurrences ?? "";
+    }
+
+    return [newTagName, newOccurrences];
   });
 
   return (
@@ -197,14 +244,14 @@ export default function Tag({ currentTag }: { currentTag: string }) {
             <div className="flex flex-col items-start gap-6 md:flex-row md:justify-between">
               <div className="mb-4 md:mb-0 md:w-1/2">
                 <TagRelationship
-                  tags={tag.hierarchy?.parentTags}
+                  tags={parrentTags}
                   type="parent"
                   icon={ArrowUpCircle}
                 />
               </div>
               <div className="md:w-1/2">
                 <TagRelationship
-                  tags={tag.hierarchy?.childTags}
+                  tags={childTags}
                   type="child"
                   icon={ArrowDownCircle}
                 />

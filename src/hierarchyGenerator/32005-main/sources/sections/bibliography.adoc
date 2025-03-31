@@ -1,0 +1,7 @@
+[bibliography]
+== Bibliography
+
+// * [[[EN319142-1, ETSI EN 319 142-1]]] _Electronic Signatures and Infrastructures (ESI); PAdES digital signatures; Part 1: Building blocks and PAdES baseline signatures_, https://www.etsi.org/deliver/etsi_en/319100_319199/31914201/01.02.01_60/en_31914201v010201p.pdf
+
+* [[[hir,Hierarchical inclusion rules]]], _PDF Association, November 10, 2022_, https://www.pdfa.org/resource/iso-ts-32005-hierarchical-inclusion-rules/
+

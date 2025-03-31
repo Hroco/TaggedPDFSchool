@@ -75,3 +75,6 @@ src/lib/rnv/xsd.o
 src/lib/rnv/xsd_tm.o
 src/lib/rnv/xsdck
 src/lib/rnv/xsdck.o
+src/hierarchiGenerator/32005-main/sources/generated/parent-list.adoc
+src/hierarchiGenerator/32005-main/sources/generated/structure-relationships.adoc
+src/hierarchiGenerator/32005-main/sources/generated/structure-relationships.json
