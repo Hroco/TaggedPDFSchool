@@ -1,9 +1,0 @@
----
-metanorma:
-  source:
-    files:
-      - sources/32005.adoc
-
-  collection:
-    organization: "ISO TC 171/SC 2/WG 9"
-    name: "Document management — Portable Document Format — PDF 1.7 and 2.0 structure namespace inclusion in ISO 32000-2"
