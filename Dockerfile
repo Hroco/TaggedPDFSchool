@@ -35,7 +35,7 @@ COPY . .
 RUN apk add --no-cache python3 py3-pip py3-pandas py3-openpyxl
 
 # Run mega-table.py to generate relationship files
-RUN cd /app/src/hierarchiGenerator/32005-main/scripts && \
+RUN cd /app/src/hierarchyGenerator/32005-main/scripts && \
     python3 mega-table.py && \
     echo "Generated relationship files"
 
