@@ -237,6 +237,25 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "",
+        sample: `<Part><!-- e.g. category of a magazine -->
+  <Art><!-- one article in a category -->
+    <H1>[main content of the article]</H1>
+    <P>text</P>
+      <Sect><!-- info box content -->
+        <P>text</P>
+        <Div lang="de-DE"><!-- passage of foreign language content, where a Lang attribute is assigned to &lt;Div&gt; -->
+          <P>text</P>
+          <P>text</P>
+        </Div>
+      </Sect>
+  </Art>
+  <!-- More <Art> elements can be added here -->
+</Part>`,
+      },
+    ],
   },
   {
     name: "Sect",
@@ -319,6 +338,25 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "",
+        sample: `<Part><!-- e.g. category of a magazine -->
+  <Art><!-- one article in a category -->
+    <H1>[main content of the article]</H1>
+    <P>text</P>
+      <Sect><!-- info box content -->
+        <P>text</P>
+        <Div lang="de-DE"><!-- passage of foreign language content, where a Lang attribute is assigned to &lt;Div&gt; -->
+          <P>text</P>
+          <P>text</P>
+        </Div>
+      </Sect>
+  </Art>
+  <!-- More <Art> elements can be added here -->
+</Part>`,
+      },
+    ],
   },
   {
     name: "Div",
@@ -429,6 +467,25 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "",
+        sample: `<Part><!-- e.g. category of a magazine -->
+  <Art><!-- one article in a category -->
+    <H1>[main content of the article]</H1>
+    <P>text</P>
+      <Sect><!-- info box content -->
+        <P>text</P>
+        <Div lang="de-DE"><!-- passage of foreign language content, where a Lang attribute is assigned to &lt;Div&gt; -->
+          <P>text</P>
+          <P>text</P>
+        </Div>
+      </Sect>
+  </Art>
+  <!-- More <Art> elements can be added here -->
+</Part>`,
+      },
+    ],
   },
   {
     name: "Aside",
@@ -3853,6 +3910,25 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description: "",
+        sample: `<Part><!-- e.g. category of a magazine -->
+  <Art><!-- one article in a category -->
+    <H1>[main content of the article]</H1>
+    <P>text</P>
+      <Sect><!-- info box content -->
+        <P>text</P>
+        <Div lang="de-DE"><!-- passage of foreign language content, where a Lang attribute is assigned to &lt;Div&gt; -->
+          <P>text</P>
+          <P>text</P>
+        </Div>
+      </Sect>
+  </Art>
+  <!-- More <Art> elements can be added here -->
+</Part>`,
+      },
+    ],
   },
   {
     name: "BlockQuote",
@@ -4176,6 +4252,85 @@ const tags = [
         ["Artifact", "0..n"],
       ],
     },
+    useCases: [
+      {
+        description:
+          "Index with a nested list as contents, giving more information about relationships",
+        sample: `<Index>
+  <L><!--index as a list-->
+    <LI><!--index topic-->
+      <Lbl>[section identifier, e.g. “B”]</Lbl>
+      <LBody>
+        <L><!--list containing entries relating the topic “B”-->
+          <LI>
+            <Lbl>[first entry, e.g. “Beer”]</Lbl>
+            <LBody>[containing all references]
+              <Reference>[first page number, e.g. 20]</Reference>
+              <Reference>[second page number, e.g. 22-24]</Reference>
+              <Reference>[see also Food]</Reference>
+            </LBody>
+          </LI>
+          <LI>
+            <Lbl>[numbering, if available, e.g. “Boy”]</Lbl>
+            <LBody>[containing all references]
+              <Reference>[first page number, e.g. 28]</Reference>
+              <Reference>[second page number, e.g. 29]</Reference>
+              <Reference>[see also Girl]</Reference>
+            </LBody>
+          </LI>
+          <LI>[index topic]
+            <Lbl>[section identifier, e.g. “C”]</Lbl>
+            <LBody>
+              <L><!--list containing entries relating the topic “C”-->
+                <LI>{…}</LI>
+              </L>
+            </LBody>
+          </LI>
+        </L>
+      </LBody>
+    </LI>
+  </L>
+</Index>`,
+      },
+      {
+        description: "Without alphabetical structure",
+        sample: `<Index>
+  <L><!--index as a list-->
+    <LI><!--index topic-->
+      <Lbl>[section identifier, e.g. “B”]</Lbl>
+      <LBody>
+        <L><!--list containing entries relating the topic “B”-->
+          <LI>
+            <Lbl>[first entry, e.g. “Beer”]</Lbl>
+            <LBody>[containing all references]
+              <Reference>[first page number, e.g. 20]</Reference>
+              <Reference>[second page number, e.g. 22-24]</Reference>
+              <Reference>[see also Food]</Reference>
+            </LBody>
+          </LI>
+          <LI>
+            <Lbl>[numbering, if available, e.g. “Boy”]</Lbl>
+            <LBody>[containing all references]
+              <Reference>[first page number, e.g. 28]</Reference>
+              <Reference>[second page number, e.g. 29]</Reference>
+              <Reference>[see also Girl]</Reference>
+            </LBody>
+          </LI>
+          <LI>[index topic]
+            <Lbl>[section identifier, e.g. “C”]</Lbl>
+            <LBody>
+              <L><!--list containing entries relating the topic “C”-->
+                <LI>{…}</LI>
+              </L>
+            </LBody>
+          </LI>
+        </L>
+      </LBody>
+    </LI>
+  </L>
+</Index>`,
+      },
+    ],
   },
   {
     name: "Note",
@@ -4673,12 +4828,28 @@ const tags = [
       {
         description:
           "Top-level structures usage of <TOC> & <TOCI> in a multilevel table of contents",
-        sample: ``,
+        sample: `<TOC>
+  <TOCI><P>Chapter 1</P></TOCI>
+  <TOCI><P>Chapter 2</P></TOCI>
+  <TOC>
+    <TOCI><P>Chapter 2.1</P></TOCI>
+    <TOCI><P>Chapter 2.2</P></TOCI>
+  </TOC>
+</TOC>`,
       },
       {
         description:
           "Substructures in a <TOC> & <TOCI> context containing <Reference> without a link",
-        sample: ``,
+        sample: `<TOC>
+  <TOCI>
+    <P>
+      <Reference>
+        <Lbl>[In cases where the TOCI is numbered] 1.</Lbl>
+        <Span>Introduction .................. page 5</Span>
+      </Reference>
+    </P>
+  </TOCI>
+</TOC>`,
       },
       {
         description:
