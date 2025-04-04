@@ -1,6 +1,7 @@
 "use client";
 import properties from "~/assets/propertiesDB.json";
 import { notFound } from "next/navigation";
+import Markdown from "~/components/MarkDown";
 
 export default function Tag({ currentProperty }: { currentProperty: string }) {
   const prop = properties.find((prop) => prop.name === currentProperty);
@@ -15,7 +16,7 @@ export default function Tag({ currentProperty }: { currentProperty: string }) {
 
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Description</h2>
-        <p className="text-gray-300">{prop.description}</p>
+        <p className="text-gray-300"><Markdown content={prop.description}/></p>
       </section>
     </div>
   );

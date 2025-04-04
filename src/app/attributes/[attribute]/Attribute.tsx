@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "~/components/ui/accordion";
+import Markdown from "~/components/MarkDown";
 
 interface AttributeValue {
   name?: string;
@@ -32,7 +33,7 @@ export default function Tag({
 
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Description</h2>
-        <p className="text-gray-300">{attr.description}</p>
+        <p className="text-gray-300"><Markdown content={attr.description}/></p>
       </section>
 
       <section className="mb-8">
@@ -82,7 +83,7 @@ function ValueContent({ value }: { value: AttributeValue }) {
       {value.name && (
         <h4 className="mb-1 text-lg font-semibold">{value.name}</h4>
       )}
-      <p className="text-sm text-gray-300">{value.description}</p>
+      <p className="text-sm text-gray-300"><Markdown content={value.description}/></p>
     </div>
   );
 }

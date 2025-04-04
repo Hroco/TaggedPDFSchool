@@ -12,6 +12,7 @@ import { AlertTriangle, Info, CheckCircle } from "lucide-react";
 import { Badge } from "~/components/ui/badge";
 import React, { Suspense, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import Markdown from "~/components/MarkDown";
 
 type Check = {
   index: string;
@@ -61,7 +62,7 @@ function List() {
           </div>
           <CardHeader>
             <CardTitle className="text-lg font-semibold leading-tight">
-              {check.failureCondition}
+            <Markdown content={check.failureCondition}/>
             </CardTitle>
             <CardDescription className="text-sm text-white">
               Section: {check.section}
