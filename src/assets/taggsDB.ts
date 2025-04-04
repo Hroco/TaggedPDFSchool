@@ -9,7 +9,7 @@ const tags = [
   {
     name: "Document",
     description:
-      "Represents the root element of a PDF's logical structure tree. It serves as the container for all content elements, defining the primary organizational hierarchy of the document.",
+      "Represents the root element of a PDF's logical structure tree. It serves as the [container](https://pdfa.org/glossary-of-accessibility-terminology-in-pdf/#container) for all content elements, defining the primary organizational hierarchy of the document.",
     source: "ISO 32000-2:2020, Section 14.8.4.3",
     namespace: ["1.7", "2.0"],
     type: ["document", "grouping"],
@@ -139,21 +139,21 @@ const tags = [
   {
     name: "Div",
     description:
-      "A generic container used to group content that shares common attributes or properties, without imparting any specific semantic meaning.",
+      "A generic [container](https://pdfa.org/glossary-of-accessibility-terminology-in-pdf/#container) used to group content that shares common attributes or properties, without imparting any specific semantic meaning.",
     source: "ISO 32000 Section 14.8.4.4",
     namespace: ["1.7", "2.0"],
     type: ["grouping"],
     difference: {
       wellTaggedPDF: {
         description:
-          "The 'Div' element in Well-Tagged PDF is a generic container used to group content when no more specific semantic element applies. It supports content reusability and logical grouping without imposing strict semantic meaning.",
+          "The 'Div' element in Well-Tagged PDF is a generic [container](https://pdfa.org/glossary-of-accessibility-terminology-in-pdf/#container) used to group content when no more specific semantic element applies. It supports content reusability and logical grouping without imposing strict semantic meaning.",
         requirements:
           "For Well-Tagged PDF, the 'Div' element should be used to enclose related content elements, ensuring that they are grouped logically in the structure tree. Consistent tagging and proper nesting are essential for enabling effective content extraction and reflow.",
         source: "Well-Tagged PDF (WTPDF) 1.0",
       },
       pdfUA: {
         description:
-          "In PDF/UA, the 'Div' element serves as a fallback container when no specific semantic role is applicable. It helps maintain the document’s structure and supports navigation by assistive technologies.",
+          "In PDF/UA, the 'Div' element serves as a fallback [container](https://pdfa.org/glossary-of-accessibility-terminology-in-pdf/#container) when no specific semantic role is applicable. It helps maintain the document’s structure and supports navigation by [assistive technologies](https://pdfa.org/glossary-of-accessibility-terminology-in-pdf/#assistive-technology).",
         requirements:
           "PDF/UA requires that when a 'Div' element is used, it is integrated within a fully tagged structure tree and, where possible, accompanied by appropriate alternate text or headings to clarify its purpose.",
         source: "PDF/UA-1 and PDF/UA-2 Standards",
@@ -459,14 +459,14 @@ const tags = [
   {
     name: "Span",
     description:
-      "A generic inline container that groups text or other inline elements without imparting any additional semantic meaning.",
+      "A generic inline [container](https://pdfa.org/glossary-of-accessibility-terminology-in-pdf/#container) that groups text or other inline elements without imparting any additional semantic meaning.",
     source: "ISO 32000 Section 14.8.4.7",
     namespace: ["1.7", "2.0"],
     type: ["inline"],
     difference: {
       wellTaggedPDF: {
         description:
-          "The 'Span' element serves as a generic inline container in Well-Tagged PDF for grouping text or other inline elements that do not have a more specific semantic role.",
+          "The 'Span' element serves as a generic inline [container](https://pdfa.org/glossary-of-accessibility-terminology-in-pdf/#container) in Well-Tagged PDF for grouping text or other inline elements that do not have a more specific semantic role.",
         requirements:
           "It should be used when no other specialized element is appropriate, ensuring that all inline content is properly encapsulated and logically structured.",
         source: "Well-Tagged PDF (WTPDF) 1.0",
@@ -800,7 +800,7 @@ const tags = [
     difference: {
       wellTaggedPDF: {
         description:
-          "The 'L' element in Well-Tagged PDF represents the container for a list. It groups together all list items, establishing the overall structure of a list.",
+          "The 'L' element in Well-Tagged PDF represents the [container](https://pdfa.org/glossary-of-accessibility-terminology-in-pdf/#container) for a list. It groups together all list items, establishing the overall structure of a list.",
         requirements:
           "It must enclose all 'LI' elements and be correctly nested within the document's structure tree to maintain the logical grouping and order of list content.",
         source: "Well-Tagged PDF (WTPDF) 1.0",
@@ -897,7 +897,7 @@ const tags = [
         description:
           "The 'LI' element in Well-Tagged PDF denotes an individual list item within a list. It encapsulates the content of each item.",
         requirements:
-          "Each 'LI' should be clearly tagged and maintain its sequential order within the list container to support correct content reflow and extraction.",
+          "Each 'LI' should be clearly tagged and maintain its sequential order within the list [container](https://pdfa.org/glossary-of-accessibility-terminology-in-pdf/#container) to support correct content reflow and extraction.",
         source: "Well-Tagged PDF (WTPDF) 1.0",
       },
       pdfUA: {
@@ -990,7 +990,7 @@ const tags = [
     difference: {
       wellTaggedPDF: {
         description:
-          "The 'LBody' element in Well-Tagged PDF serves as a container for the main content of a list, grouping all list items together.",
+          "The 'LBody' element in Well-Tagged PDF serves as a [container](https://pdfa.org/glossary-of-accessibility-terminology-in-pdf/#container) for the main content of a list, grouping all list items together.",
         requirements:
           "It should be used to enclose the 'LI' elements within a list, ensuring that the overall list structure is maintained for content extraction and reflow.",
         source: "Well-Tagged PDF (WTPDF) 1.0",
@@ -999,7 +999,7 @@ const tags = [
         description:
           "In PDF/UA, the 'LBody' element supports accessibility by organizing the body of a list, allowing assistive technologies to navigate the list as a coherent unit.",
         requirements:
-          "It must be properly tagged and associated with the list container to preserve the logical reading order of list items.",
+          "It must be properly tagged and associated with the list [container](https://pdfa.org/glossary-of-accessibility-terminology-in-pdf/#container) to preserve the logical reading order of list items.",
         source: "PDF/UA-1 and PDF/UA-2 Standards",
       },
     },

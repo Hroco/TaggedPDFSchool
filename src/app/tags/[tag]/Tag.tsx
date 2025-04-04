@@ -13,6 +13,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import { xml } from "@codemirror/lang-xml";
 import React from "react";
 import { buttonVariants } from "~/components/ui/button";
+import Markdown from "~/components/MarkDown";
 
 export default function Tag({ currentTag }: { currentTag: string }) {
   const tag = tags.find((tag) => tag.name === currentTag);
@@ -87,7 +88,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
 
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Description</h2>
-        <p className="text-gray-300">{tag.description}</p>
+        <p className="text-gray-300"><Markdown content={tag.description}/></p>
       </section>
 
       <section className="mb-8">
@@ -200,15 +201,19 @@ export default function Tag({ currentTag }: { currentTag: string }) {
         <h2 className="mb-3 text-2xl font-semibold">Differences</h2>
         <p className="text-gray-300">Well tagged PDF:</p>
         <p className="text-gray-300">
-          {tag.difference?.wellTaggedPDF.description}
+          <Markdown content={tag.difference?.wellTaggedPDF.description}/>
         </p>
         <p className="text-gray-300">
-          {tag.difference?.wellTaggedPDF.requirements}
+        <Markdown content={tag.difference?.wellTaggedPDF.requirements}/>
         </p>
         <br />
         <p className="text-gray-300">PDFUA:</p>
-        <p className="text-gray-300">{tag.difference?.pdfUA.description}</p>
-        <p className="text-gray-300">{tag.difference?.pdfUA.requirements}</p>
+        <p className="text-gray-300">
+          <Markdown content={tag.difference?.pdfUA.description}/>
+        </p>
+        <p className="text-gray-300">
+        <Markdown content={tag.difference?.pdfUA.requirements}/>
+        </p>
       </section>
 
       <section className="mb-8 space-y-2">
