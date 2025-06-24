@@ -19,7 +19,7 @@ export const validatorRouter = createTRPCRouter({
       const { tagStructure } = input;
 
       // Create temp directory path
-      const tmpDirPath = join(process.cwd(), "src/assets/tmp");
+      const tmpDirPath = join(os.tmpdir(), "taggedpdf");
       console.log("tmpDirPath", tmpDirPath);
 
       // Ensure temp directory exists
@@ -30,11 +30,7 @@ export const validatorRouter = createTRPCRouter({
       }
 
       // Create a temporary file for the XML content.
-      const tempFileName = join(
-        process.cwd(),
-        "src/assets/tmp",
-        `xml-${uuidv4()}.xml`,
-      );
+      const tempFileName = join(tmpDirPath, `xml-${uuidv4()}.xml`);
 
       console.log("tempFileName", tempFileName);
 
@@ -120,7 +116,7 @@ export const validatorRouter = createTRPCRouter({
       const { tagStructure } = input;
 
       // Create temp directory path
-      const tmpDirPath = join(process.cwd(), "src/assets/tmp");
+      const tmpDirPath = join(os.tmpdir(), "taggedpdf");
       console.log("tmpDirPath", tmpDirPath);
 
       // Ensure temp directory exists
@@ -131,17 +127,9 @@ export const validatorRouter = createTRPCRouter({
       }
 
       // Create a temporary file for the XML content.
-      const tempFileName = join(
-        process.cwd(),
-        "src/assets/tmp",
-        `xml-${uuidv4()}.xml`,
-      );
+      const tempFileName = join(tmpDirPath, `xml-${uuidv4()}.xml`);
 
-      const tempPDFFileName = join(
-        process.cwd(),
-        "src/assets/tmp",
-        `pdf-${uuidv4()}.pdf`,
-      );
+      const tempPDFFileName = join(tmpDirPath, `pdf-${uuidv4()}.pdf`);
 
       console.log("tempFileName", tempFileName);
 
@@ -210,14 +198,6 @@ export const validatorRouter = createTRPCRouter({
                     });
                   });
 
-                  // Clean up temporary file
-                  fs.unlink(tempPDFFileName).catch((unlinkErr) => {
-                    console.error("Error deleting temp PDF file:", {
-                      path: tempPDFFileName,
-                      error: unlinkErr,
-                    });
-                  });
-
                   if (error) {
                     // Return validation errors but don't reject the promise
                     resolve({
@@ -230,6 +210,15 @@ export const validatorRouter = createTRPCRouter({
                       const base64PDF = data.toString("base64");
 
                       console.log("base64PDF", base64PDF);
+
+                      // Clean up temporary PDF file
+                      fs.unlink(tempPDFFileName).catch((unlinkErr) => {
+                        console.error("Error deleting temp PDF file:", {
+                          path: tempPDFFileName,
+                          error: unlinkErr,
+                        });
+                      });
+
                       resolve({
                         output: base64PDF,
                         success: true,
