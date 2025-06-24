@@ -30,8 +30,8 @@ export default function Playground() {
 
 function XMLViewer() {
   const searchParams = useSearchParams();
-  const tagName = searchParams.get("tag");
-  const useCaseIndex = searchParams.get("useCase");
+  const tagName = searchParams?.get("tag");
+  const useCaseIndex = searchParams?.get("useCase");
   const tag = tagName ? tags.find((tag) => tag.name === tagName) : null;
   const useCase =
     useCaseIndex && tag?.useCases
@@ -47,6 +47,7 @@ function XMLViewer() {
   );
   const [validationOutput, setValidationOutput] = useState<string>("");
   const validateXML = api.validator.validate.useMutation();
+  const downloadPDF = api.validator.downloadPDF.useMutation();
   const onChange = React.useCallback((value: string) => {
     setXmlContent(value);
   }, []);
@@ -64,11 +65,50 @@ function XMLViewer() {
     setValidationOutput(response);
   }
 
+  async function download() {
+    console.log("download");
+    try {
+      const response = await downloadPDF.mutateAsync({
+        tagStructure: xmlContent,
+      });
+      console.log("response", response);
+
+      if (response.success && response.output) {
+        // Convert base64 to blob
+        const binaryString = atob(response.output);
+        const bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+          bytes[i] = binaryString.charCodeAt(i);
+        }
+
+        // Create blob and download
+        const blob = new Blob([bytes], { type: "application/pdf" });
+        const url = URL.createObjectURL(blob);
+
+        // Create download link
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "generated.pdf";
+        document.body.appendChild(a);
+        a.click();
+
+        // Cleanup
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+    } catch (error) {
+      console.error("Download failed:", error);
+    }
+  }
+
   return (
     <main className="container flex w-full flex-1 flex-col gap-2 pt-5">
       <section className="w-full flex-col items-center">
         <Button variant="default" onClick={run}>
           Run
+        </Button>
+        <Button variant="default" onClick={download} className="ml-2">
+          Download PDF
         </Button>
       </section>
       <section className="flex h-[500px] w-full flex-col items-center">
