@@ -87,6 +87,10 @@ RUN chmod +x /app/src/lib/rnv/rnv
 COPY --from=builder --chown=nextjs:nodejs /app/src/lib/rnv/rnv /app/src/lib/rnv/rnv
 COPY --from=builder --chown=nextjs:nodejs /app/src/lib/rnv/*.rnc /app/src/lib/rnv/
 
+# Copy xml2pdf converter binaries and set permissions
+COPY --from=builder --chown=nextjs:nodejs /app/src/lib/xml2pdf /app/src/lib/xml2pdf
+RUN chmod +x /app/src/lib/xml2pdf/linux/fxxml2pdf
+
 # Debug the validator
 RUN apk add --no-cache file
 RUN file /app/src/lib/rnv/rnv
