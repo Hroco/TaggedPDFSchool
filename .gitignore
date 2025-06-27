@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+webapp/node_modules
 /.pnp
 .pnp.js
 
@@ -14,12 +15,15 @@
 db.sqlite
 
 # next.js
+webapp/.next/
 /.next/
+webapp/out/
 /out/
 next-env.d.ts
 
 # production
 /build
+webapp/build
 
 # misc
 .DS_Store
@@ -35,6 +39,8 @@ yarn-error.log*
 # do not commit any .env files to git, except for the .env.example file. https://create.t3.gg/en/usage/env-variables#using-environment-variables
 .env
 .env*.local
+webapp/.env
+webapp/.env*.local
 
 # vercel
 .vercel
@@ -44,37 +50,37 @@ yarn-error.log*
 
 # idea files
 .idea
-src/lib/rnv/arx
-src/lib/rnv/arx.o
-src/lib/rnv/ary.o
-src/lib/rnv/drv.o
-src/lib/rnv/dsl.o
-src/lib/rnv/dxl.o
-src/lib/rnv/er.o
-src/lib/rnv/ht.o
-src/lib/rnv/librnv.a
-src/lib/rnv/m.o
-src/lib/rnv/rn.o
-src/lib/rnv/rnc.o
-src/lib/rnv/rnd.o
-src/lib/rnv/rnl.o
-src/lib/rnv/rnv
-src/lib/rnv/rnv.o
-src/lib/rnv/rnx.o
-src/lib/rnv/rvp
-src/lib/rnv/rvp.o
-src/lib/rnv/rx.o
-src/lib/rnv/s.o
-src/lib/rnv/sc.o
-src/lib/rnv/test
-src/lib/rnv/test.o
-src/lib/rnv/u.o
-src/lib/rnv/xcl.o
-src/lib/rnv/xmlc.o
-src/lib/rnv/xsd.o
-src/lib/rnv/xsd_tm.o
-src/lib/rnv/xsdck
-src/lib/rnv/xsdck.o
-src/hierarchyGenerator/32005-main/sources/generated/parent-list.adoc
-src/hierarchyGenerator/32005-main/sources/generated/structure-relationships.adoc
-src/hierarchyGenerator/32005-main/sources/generated/structure-relationships.json
+webapp/src/lib/rnv/arx
+webapp/src/lib/rnv/arx.o
+webapp/src/lib/rnv/ary.o
+webapp/src/lib/rnv/drv.o
+webapp/src/lib/rnv/dsl.o
+webapp/src/lib/rnv/dxl.o
+webapp/src/lib/rnv/er.o
+webapp/src/lib/rnv/ht.o
+webapp/src/lib/rnv/librnv.a
+webapp/src/lib/rnv/m.o
+webapp/src/lib/rnv/rn.o
+webapp/src/lib/rnv/rnc.o
+webapp/src/lib/rnv/rnd.o
+webapp/src/lib/rnv/rnl.o
+webapp/src/lib/rnv/rnv
+webapp/src/lib/rnv/rnv.o
+webapp/src/lib/rnv/rnx.o
+webapp/src/lib/rnv/rvp
+webapp/src/lib/rnv/rvp.o
+webapp/src/lib/rnv/rx.o
+webapp/src/lib/rnv/s.o
+webapp/src/lib/rnv/sc.o
+webapp/src/lib/rnv/test
+webapp/src/lib/rnv/test.o
+webapp/src/lib/rnv/u.o
+webapp/src/lib/rnv/xcl.o
+webapp/src/lib/rnv/xmlc.o
+webapp/src/lib/rnv/xsd.o
+webapp/src/lib/rnv/xsd_tm.o
+webapp/src/lib/rnv/xsdck
+webapp/src/lib/rnv/xsdck.o
+webapp/src/hierarchyGenerator/32005-main/sources/generated/parent-list.adoc
+webapp/src/hierarchyGenerator/32005-main/sources/generated/structure-relationships.adoc
+webapp/src/hierarchyGenerator/32005-main/sources/generated/structure-relationships.json

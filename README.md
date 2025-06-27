@@ -76,19 +76,24 @@ docker run -p 3000:3000 tagged-pdf-school
 ## Technologies Used
 
 ### Development Framework
+
 - The application is developed using the **Next.js** framework with **TypeScript**.
 
 ### User Interface
+
 - The UI leverages **shadcn components** and **Tailwind CSS** for styling and component design.
 
 ### PDF Validation
+
 - For PDF validation, the application uses a "C" code implementation of the **RNV validator**, which utilizes a schema developed by David Carlisle. The schema repository can be found here: [https://github.com/latex3/pdf_structure](https://github.com/latex3/pdf_structure).
 - This code is built in a Docker container during the production deployment process.
 
 ### Hierarchy Generator
+
 - A Python script named `mega-table.py` is used to generate JSON data containing each tag and its child and parent relationships from an Excel sheet.
 
 ### Deployment
+
 - The application is deployed on Google Cloud in a Docker container under the account `samuel.hrotik@gmail.com`.
 - When there is a push to the production branch, the application is automatically dockerized and deployed.
 
@@ -110,6 +115,7 @@ The `assets/` folder is a critical part of the Tagged PDF School project. It con
 ### JSON Files
 
 #### 1. `attributesDB.json`
+
 This file contains data related to attributes used in tagged PDFs. Each attribute is represented as an object with the following structure:
 
 ```json
@@ -136,10 +142,10 @@ This file contains data related to attributes used in tagged PDFs. Each attribut
 }
 ```
 
-
 This file is essential for defining the attributes and their possible values, which are used throughout the application for tagged PDF generation and validation.
 
 #### 2. `matterhornProtocol.json`
+
 This file defines the Matterhorn protocol used for PDF validation. Each record in the JSON file represents a validation rule and is structured as follows:
 
 ```json
@@ -157,6 +163,7 @@ This file defines the Matterhorn protocol used for PDF validation. Each record i
 This file is essential for defining the validation rules used to ensure compliance with accessibility standards. Each rule specifies the conditions under which a PDF element may fail validation, along with references to the relevant standards and associated tags.
 
 #### 3. `propertiesDB.json`
+
 This file contains data about properties used in tagged PDFs. Each property is represented as an object with the following structure:
 
 ```json
@@ -170,7 +177,8 @@ This file contains data about properties used in tagged PDFs. Each property is r
 
 This file is essential for defining the properties and their relationships to tags, which are used throughout the application for tagged PDF generation and validation.
 
-#### 4. `taggsDB.ts`
+#### 4. `tagsDB.ts`
+
 This file contains data about tags used in the application. Each tag is represented as an object with the following structure:
 
 ```typescript
@@ -231,7 +239,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contributors
 
 ### Main Developer
+
 - **Samuel Hrotik**: Lead developer and creator of the Tagged PDF School project. Responsible for the overall architecture, implementation, and deployment of the application.
 
 ### Main Contributor
+
 - **Roman Toda**: PDF Expert and primary contributor. Provided expertise in PDF standards, accessibility, and validation processes.
