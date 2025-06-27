@@ -1,0 +1,1917 @@
+[
+  {
+    "name": "Placement",
+    "description": "Specifies how the element is placed relative to surrounding content (e.g., block-level or inline flow).",
+    "source": "ISO 32000 Section 14.8.5.4.2",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": "Block for BLSEs, Inline for ILSEs",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Block",
+            "description": "Stacked in the block-progression direction within an enclosing reference area or parent BLSE."
+          },
+          {
+            "name": "Inline",
+            "description": "Packed in the inline-progression direction within an enclosing BLSE."
+          },
+          {
+            "name": "Before",
+            "description": "Placed so that the before edge of the element’s allocation rectangle (see 14.8.5.4.5, \"Content and Allocation Rectangles\") coincides with that of the nearest enclosing reference area. The element may float, if necessary, to achieve the specified placement. The element shall be treated as a block occupying the full extent of the enclosing reference area in the inline direction. Other content shall be stacked so as to begin at the after edge of the element’s allocation rectangle."
+          },
+          {
+            "name": "Start",
+            "description": "Placed so that the start edge of the element’s allocation rectangle (see 14.8.5.4.5, \"Content and Allocation Rectangles\") coincides with that of the nearest enclosing reference area. The element may float, if necessary, to achieve the specified placement. Other content that would intrude into the element’s allocation rectangle shall be laid out as a runaround."
+          },
+          {
+            "name": "End",
+            "description": "Placed so that the end edge of the element’s allocation rectangle (see 14.8.5.4.5, \"Content and Allocation Rectangles\") coincides with that of the nearest enclosing reference area. The element may float, if necessary, to achieve the specified placement. Other content that would intrude into the element’s allocation rectangle shall be laid out as a runaround."
+          }
+        ]
+      }
+    ],
+    "relatedTags": [
+      "Index",
+      "Reference",
+      "Art",
+      "TOC",
+      "TOCI",
+      "BlockQuote",
+      "BibEntry",
+      "Quote",
+      "Code",
+      "Note",
+      "Private",
+      "Document",
+      "DocumentFragment",
+      "Part",
+      "Div",
+      "Sect",
+      "Aside",
+      "NonStruct",
+      "Title",
+      "Sub",
+      "P",
+      "Hn",
+      "H",
+      "Lbl",
+      "Em",
+      "Strong",
+      "Span",
+      "Link",
+      "Annot",
+      "Form",
+      "Ruby",
+      "RB",
+      "RT",
+      "RP",
+      "Warichu",
+      "WT",
+      "WP",
+      "FENote",
+      "L",
+      "LI",
+      "LBody",
+      "Table",
+      "TR",
+      "TH",
+      "TD",
+      "THead",
+      "TBody",
+      "TFoot",
+      "Caption",
+      "Figure",
+      "Formula",
+      "Artifact"
+    ]
+  },
+  {
+    "name": "WritingMode",
+    "description": "Defines the direction of text flow (e.g., left-to-right, right-to-left, or vertical).",
+    "source": "ISO 32000 Section 14.8.5.4.2",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": null,
+    "defaultValue": "LrTb",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "LrTb",
+            "description": "Inline progression from left to right; block progression from top to bottom. This is the typical writing mode for Western writing systems."
+          },
+          {
+            "name": "RlTb",
+            "description": "Inline progression from right to left; block progression from top to bottom. This is the typical writing mode for Arabic and Hebrew writing systems."
+          },
+          {
+            "name": "TbRl",
+            "description": "Inline progression from top to bottom; block progression from right to left. This is the typical writing mode for Chinese and Japanese writing systems."
+          },
+          {
+            "name": "TbLr",
+            "description": "Inline progression from top to bottom; block progression from left to right. This is the typical writing mode for writing systems like classical Mongolian."
+          },
+          {
+            "name": "LrBt",
+            "description": "Inline progression from left to right; block progression from bottom to top. There is currently no known writing system to which this writing mode applies."
+          },
+          {
+            "name": "RlBt",
+            "description": "Inline progression from right to left; block progression from bottom to top. There is currently no known writing system to which this writing mode applies."
+          },
+          {
+            "name": "BtRl",
+            "description": "Inline progression from bottom to top; block progression from right to left. This is the typical writing mode for the Ancient Berber writing system."
+          },
+          {
+            "name": "BtLr",
+            "description": "Inline progression from bottom to top; block progression from left to right. This is the typical writing mode for the Batak writing system."
+          }
+        ]
+      }
+    ],
+    "relatedTags": [
+      "Index",
+      "Reference",
+      "Art",
+      "TOC",
+      "TOCI",
+      "BlockQuote",
+      "BibEntry",
+      "Quote",
+      "Code",
+      "Note",
+      "Private",
+      "Document",
+      "DocumentFragment",
+      "Part",
+      "Div",
+      "Sect",
+      "Aside",
+      "NonStruct",
+      "Title",
+      "Sub",
+      "P",
+      "Hn",
+      "H",
+      "Lbl",
+      "Em",
+      "Strong",
+      "Span",
+      "Link",
+      "Annot",
+      "Form",
+      "Ruby",
+      "RB",
+      "RT",
+      "RP",
+      "Warichu",
+      "WT",
+      "WP",
+      "FENote",
+      "L",
+      "LI",
+      "LBody",
+      "Table",
+      "TR",
+      "TH",
+      "TD",
+      "THead",
+      "TBody",
+      "TFoot",
+      "Caption",
+      "Figure",
+      "Formula",
+      "Artifact"
+    ]
+  },
+  {
+    "name": "BackgroundColor",
+    "description": "Sets the background color for the element’s content area.",
+    "source": "ISO 32000 Section 14.8.5.4.2",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": "If this attribute is not specified, the element shall be treated as if its background were transparent.",
+    "values": [
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "The value shall be an array of three numbers in the range 0.0 to 1.0, representing the red, green, and blue values, respectively, of an RGB colour space"
+          }
+        ]
+      }
+    ],
+    "relatedTags": [
+      "Index",
+      "Reference",
+      "Art",
+      "TOC",
+      "TOCI",
+      "BlockQuote",
+      "BibEntry",
+      "Quote",
+      "Code",
+      "Note",
+      "Private",
+      "Document",
+      "DocumentFragment",
+      "Part",
+      "Div",
+      "Sect",
+      "Aside",
+      "NonStruct",
+      "Title",
+      "Sub",
+      "P",
+      "Hn",
+      "H",
+      "Lbl",
+      "Em",
+      "Strong",
+      "Span",
+      "Link",
+      "Annot",
+      "Form",
+      "Ruby",
+      "RB",
+      "RT",
+      "RP",
+      "Warichu",
+      "WT",
+      "WP",
+      "FENote",
+      "L",
+      "LI",
+      "LBody",
+      "Table",
+      "TR",
+      "TH",
+      "TD",
+      "THead",
+      "TBody",
+      "TFoot",
+      "Caption",
+      "Figure",
+      "Formula",
+      "Artifact"
+    ]
+  },
+  {
+    "name": "BorderColor",
+    "description": "Specifies the color of the border around the element.",
+    "source": "ISO 32000 Section 14.8.5.4.2",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": null,
+    "defaultValue": "If this attribute is not specified, the border colour for this element shall be the current text fill colour in effect at the start of its associated content.",
+    "values": [
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "A single array of three numbers representing the RGB values to apply to all four edges."
+          },
+          {
+            "name": "",
+            "description": "An array of four arrays, each specifying the RGB values for one edge of the border, in the order of the before, after, start, and end edges. A value of null for any of the edges means that it shall not be drawn."
+          }
+        ]
+      }
+    ],
+    "relatedTags": [
+      "Index",
+      "Reference",
+      "Art",
+      "TOC",
+      "TOCI",
+      "BlockQuote",
+      "BibEntry",
+      "Quote",
+      "Code",
+      "Note",
+      "Private",
+      "Document",
+      "DocumentFragment",
+      "Part",
+      "Div",
+      "Sect",
+      "Aside",
+      "NonStruct",
+      "Title",
+      "Sub",
+      "P",
+      "Hn",
+      "H",
+      "Lbl",
+      "Em",
+      "Strong",
+      "Span",
+      "Link",
+      "Annot",
+      "Form",
+      "Ruby",
+      "RB",
+      "RT",
+      "RP",
+      "Warichu",
+      "WT",
+      "WP",
+      "FENote",
+      "L",
+      "LI",
+      "LBody",
+      "Table",
+      "TR",
+      "TH",
+      "TD",
+      "THead",
+      "TBody",
+      "TFoot",
+      "Caption",
+      "Figure",
+      "Formula",
+      "Artifact"
+    ]
+  },
+  {
+    "name": "BorderStyle",
+    "description": "Indicates the style of the border (e.g., solid, dashed, dotted).",
+    "source": "ISO 32000 Section 14.8.5.4.2",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": "None",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "None",
+            "description": "No border. Forces the computed value of BorderThickness to be 0."
+          },
+          {
+            "name": "Hidden",
+            "description": "Same as None, except in terms of border conflict resolution for table elements."
+          },
+          {
+            "name": "Dotted",
+            "description": "The border is a series of dots."
+          },
+          {
+            "name": "Dashed",
+            "description": "The border is a series of short line segments."
+          },
+          {
+            "name": "Solid",
+            "description": "The border is a single line segment."
+          },
+          {
+            "name": "Double",
+            "description": "The border is two solid lines. The sum of the two lines and the space between them equals the value of BorderThickness."
+          },
+          {
+            "name": "Groove",
+            "description": "The border looks as though it were carved into the canvas."
+          },
+          {
+            "name": "Ridge",
+            "description": "The border looks as though it were coming out of the canvas (the opposite of Groove)."
+          },
+          {
+            "name": "Inset",
+            "description": "The border makes the entire box look as though it were embedded in the canvas."
+          },
+          {
+            "name": "Outset",
+            "description": "The border makes the entire box look as though it were coming out of the canvas (the opposite of Inset)."
+          }
+        ]
+      },
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "An array of four entries, each entry specifying the style for one edge of the border in the order of the before, after, start, and end edges. A value of null for any of the edges means that it shall not be drawn."
+          },
+          {
+            "name": "",
+            "description": "A name from the list below representing the border style to apply to all four edges."
+          }
+        ]
+      }
+    ],
+    "relatedTags": [
+      "Index",
+      "Reference",
+      "Art",
+      "TOC",
+      "TOCI",
+      "BlockQuote",
+      "BibEntry",
+      "Quote",
+      "Code",
+      "Note",
+      "Private",
+      "Document",
+      "DocumentFragment",
+      "Part",
+      "Div",
+      "Sect",
+      "Aside",
+      "NonStruct",
+      "Title",
+      "Sub",
+      "P",
+      "Hn",
+      "H",
+      "Lbl",
+      "Em",
+      "Strong",
+      "Span",
+      "Link",
+      "Annot",
+      "Form",
+      "Ruby",
+      "RB",
+      "RT",
+      "RP",
+      "Warichu",
+      "WT",
+      "WP",
+      "FENote",
+      "L",
+      "LI",
+      "LBody",
+      "Table",
+      "TR",
+      "TH",
+      "TD",
+      "THead",
+      "TBody",
+      "TFoot",
+      "Caption",
+      "Figure",
+      "Formula",
+      "Artifact"
+    ]
+  },
+  {
+    "name": "BorderThickness",
+    "description": "Defines the thickness of the border line in user space units (such as points).",
+    "source": "ISO 32000 Section 14.8.5.4.2",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": null,
+    "defaultValue": "0",
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "A number representing the border thickness for all four edges"
+          }
+        ]
+      },
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "An array of four entries, each entry specifying the style for one edge of the border in the order of the before, after, start, and end edges. A value of null for any of the edges means that it shall not be drawn."
+          }
+        ]
+      }
+    ],
+    "relatedTags": [
+      "Index",
+      "Reference",
+      "Art",
+      "TOC",
+      "TOCI",
+      "BlockQuote",
+      "BibEntry",
+      "Quote",
+      "Code",
+      "Note",
+      "Private",
+      "Document",
+      "DocumentFragment",
+      "Part",
+      "Div",
+      "Sect",
+      "Aside",
+      "NonStruct",
+      "Title",
+      "Sub",
+      "P",
+      "Hn",
+      "H",
+      "Lbl",
+      "Em",
+      "Strong",
+      "Span",
+      "Link",
+      "Annot",
+      "Form",
+      "Ruby",
+      "RB",
+      "RT",
+      "RP",
+      "Warichu",
+      "WT",
+      "WP",
+      "FENote",
+      "L",
+      "LI",
+      "LBody",
+      "Table",
+      "TR",
+      "TH",
+      "TD",
+      "THead",
+      "TBody",
+      "TFoot",
+      "Caption",
+      "Figure",
+      "Formula",
+      "Artifact"
+    ]
+  },
+  {
+    "name": "Padding",
+    "description": "Determines the space between the element’s border (or boundary) and its inner content.",
+    "source": "ISO 32000 Section 14.8.5.4.2",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": "0",
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "A number representing the width of the padding for all four edges."
+          }
+        ]
+      },
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "An array of four entries, each entry specifying the width of the padding for one edge, in the order of the before, after, start and end edges."
+          }
+        ]
+      }
+    ],
+    "relatedTags": [
+      "Index",
+      "Reference",
+      "Art",
+      "TOC",
+      "TOCI",
+      "BlockQuote",
+      "BibEntry",
+      "Quote",
+      "Code",
+      "Note",
+      "Private",
+      "Document",
+      "DocumentFragment",
+      "Part",
+      "Div",
+      "Sect",
+      "Aside",
+      "NonStruct",
+      "Title",
+      "Sub",
+      "P",
+      "Hn",
+      "H",
+      "Lbl",
+      "Em",
+      "Strong",
+      "Span",
+      "Link",
+      "Annot",
+      "Form",
+      "Ruby",
+      "RB",
+      "RT",
+      "RP",
+      "Warichu",
+      "WT",
+      "WP",
+      "FENote",
+      "L",
+      "LI",
+      "LBody",
+      "Table",
+      "TR",
+      "TH",
+      "TD",
+      "THead",
+      "TBody",
+      "TFoot",
+      "Caption",
+      "Figure",
+      "Formula",
+      "Artifact"
+    ]
+  },
+  {
+    "name": "Color",
+    "description": "Applies the primary color (fill or stroke) for the text or graphic content.",
+    "source": "ISO 32000 Section 14.8.5.4.2",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": null,
+    "defaultValue": "If this attribute is not specified, the border colour for this element shall be the current text fill colour in effect at the start of its associated content",
+    "values": [
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "An array of three numbers in the range 0.0 to 1.0, representing the red, green, and blue values, respectively, of an RGB colour space"
+          }
+        ]
+      }
+    ],
+    "relatedTags": [
+      "Index",
+      "Reference",
+      "Art",
+      "TOC",
+      "TOCI",
+      "BlockQuote",
+      "BibEntry",
+      "Quote",
+      "Code",
+      "Note",
+      "Private",
+      "Document",
+      "DocumentFragment",
+      "Part",
+      "Div",
+      "Sect",
+      "Aside",
+      "NonStruct",
+      "Title",
+      "Sub",
+      "P",
+      "Hn",
+      "H",
+      "Lbl",
+      "Em",
+      "Strong",
+      "Span",
+      "Link",
+      "Annot",
+      "Form",
+      "Ruby",
+      "RB",
+      "RT",
+      "RP",
+      "Warichu",
+      "WT",
+      "WP",
+      "FENote",
+      "L",
+      "LI",
+      "LBody",
+      "Table",
+      "TR",
+      "TH",
+      "TD",
+      "THead",
+      "TBody",
+      "TFoot",
+      "Caption",
+      "Figure",
+      "Formula",
+      "Artifact"
+    ]
+  },
+  {
+    "name": "SpaceBefore",
+    "description": "Specifies the additional spacing before the element.",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": "BLSE",
+    "defaultValue": "0",
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "The amount of extra space preceding the before edge of the BLSE, measured in default user space units in the blockprogression direction"
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "SpaceAfter",
+    "description": "Specifies the additional spacing after the element.",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": "BLSE",
+    "defaultValue": "0",
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "The amount of extra space following the after edge of the BLSE, measured in default user space units in the blockprogression direction. "
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "StartIndent",
+    "description": "Defines the indentation at the start edge (left edge in LTR) of the element.",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "BLSE",
+    "defaultValue": "0",
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "The distance from the start edge of the reference area to that of the BLSE, measured in default user space units in the inlineprogression direction. "
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "EndIndent",
+    "description": "Defines the indentation at the end edge (right edge in LTR) of the element.",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "BLSE",
+    "defaultValue": "0",
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "The distance from the end edge of the BLSE to that of the reference area, measured in default user space units in the inlineprogression direction. "
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "TextIndent",
+    "description": "Specifies the indentation of the first line of text in a paragraph.",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "BLSE",
+    "defaultValue": "0",
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "A negative value shall indicate a hanging indent."
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "TextAlign",
+    "description": "Controls how text is aligned within the element (left, right, center, justify).",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "BLSE",
+    "defaultValue": "Start",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Start",
+            "description": "Aligned with the start edge."
+          },
+          {
+            "name": "Center",
+            "description": "Centred between the start and end edges."
+          },
+          {
+            "name": "End",
+            "description": "Aligned with the end edge."
+          },
+          {
+            "name": "Justify",
+            "description": "Aligned with both the start and end edges, with internal spacing within each line expanded, if necessary, to achieve such alignment. The last (or only) line shall be aligned with the start edge only."
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "BBox",
+    "description": "Indicates the bounding box of the element, specifying its position and size on the page.",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": "BLSE",
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": "rectangle",
+        "values": [
+          {
+            "name": "",
+            "description": "An array of four numbers in default user space units that shall give the coordinates of the left, bottom, right, and top edges, respectively, of the structure element’s bounding box (the rectangle that completely encloses its visible content)."
+          }
+        ]
+      }
+    ],
+    "relatedTags": [
+      "Form",
+      "Table",
+      "TR",
+      "TH",
+      "TD",
+      "THead",
+      "TBody",
+      "TFoot",
+      "Caption",
+      "Figure",
+      "Formula"
+    ]
+  },
+  {
+    "name": "Width",
+    "description": "Declares an explicit width for the element in user space units.",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": "BLSE",
+    "defaultValue": "Auto",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Auto",
+            "description": "The name Auto in place of a numeric value shall indicate that no specific width constraint is to be imposed; the element’s width is determined by the intrinsic width of its content."
+          }
+        ]
+      },
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "Measured in default user space units in the inline-progression direction."
+          }
+        ]
+      }
+    ],
+    "relatedTags": [
+      "Form",
+      "Table",
+      "TR",
+      "TH",
+      "TD",
+      "THead",
+      "TBody",
+      "TFoot",
+      "Caption",
+      "Figure",
+      "Formula"
+    ]
+  },
+  {
+    "name": "Height",
+    "description": "Declares an explicit height for the element in user space units.",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": "BLSE",
+    "defaultValue": "Auto",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Auto",
+            "description": "The name Auto in place of a numeric value shall indicate that no specific width constraint is to be imposed; the element’s width is determined by the intrinsic width of its content."
+          }
+        ]
+      },
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "Start",
+            "description": "Measured in default user space units in the inline-progression direction."
+          }
+        ]
+      }
+    ],
+    "relatedTags": [
+      "Form",
+      "Table",
+      "TR",
+      "TH",
+      "TD",
+      "THead",
+      "TBody",
+      "TFoot",
+      "Caption",
+      "Figure",
+      "Formula"
+    ]
+  },
+  {
+    "name": "BlockAlign",
+    "description": "Specifies vertical alignment of a block-level element (e.g., top, middle, bottom) within its container.",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "BLSE",
+    "defaultValue": "Before",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Before",
+            "description": "Before edge of the first child’s allocation rectangle aligned with that of the table cell’s content rectangle."
+          },
+          {
+            "name": "Middle",
+            "description": "Children centred within the table cell. The distance between the before edge of the first child’s allocation rectangle and that of the table cell’s content rectangle shall be the same as the distance between the after edge of the last child’s allocation rectangle and that of the table cell’s content rectangle."
+          },
+          {
+            "name": "After",
+            "description": "After edge of the last child’s allocation rectangle aligned with that of the table cell’s content rectangle."
+          },
+          {
+            "name": "Justify",
+            "description": "Children aligned with both the before and after edges of the table cell’s content rectangle. The first child shall be placed as described for Before and the last child as described for After, with equal spacing between the children. If there is only one child, it shall be aligned with the before edge only, as for Before."
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["TH", "TD"]
+  },
+  {
+    "name": "InlineAlign",
+    "description": "Specifies how inline content is aligned within the line box (e.g., baseline, center).",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "BLSE",
+    "defaultValue": "Start",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Start",
+            "description": "Start edge of each child’s allocation rectangle aligned with that of the table cell’s content rectangle."
+          },
+          {
+            "name": "Center",
+            "description": "Each child centred within the table cell. The distance between the start edges of the child’s allocation rectangle and the table cell’s content rectangle shall be the same as the distance between their end edges."
+          },
+          {
+            "name": "End",
+            "description": "End edge of each child’s allocation rectangle aligned with that of the table cell’s content rectangle."
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["TH", "TD"]
+  },
+  {
+    "name": "TBorderStyle",
+    "description": "Indicates the border style for table cells or similar tabular structures.",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "BLSE",
+    "defaultValue": "None",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "None",
+            "description": "No border. Forces the computed value of BorderThickness to be 0."
+          },
+          {
+            "name": "Hidden",
+            "description": "Same as None, except in terms of border conflict resolution for table elements."
+          },
+          {
+            "name": "Dotted",
+            "description": "The border is a series of dots."
+          },
+          {
+            "name": "Dashed",
+            "description": "The border is a series of short line segments."
+          },
+          {
+            "name": "Solid",
+            "description": "The border is a single line segment."
+          },
+          {
+            "name": "Double",
+            "description": "The border is two solid lines. The sum of the two lines and the space between them equals the value of BorderThickness."
+          },
+          {
+            "name": "Groove",
+            "description": "The border looks as though it were carved into the canvas."
+          },
+          {
+            "name": "Ridge",
+            "description": "The border looks as though it were coming out of the canvas (the opposite of Groove)."
+          },
+          {
+            "name": "Inset",
+            "description": "The border makes the entire box look as though it were embedded in the canvas."
+          },
+          {
+            "name": "Outset",
+            "description": "The border makes the entire box look as though it were coming out of the canvas (the opposite of Inset)."
+          }
+        ]
+      },
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "An array of four entries, each entry specifying the style for one edge of the border in the order of the before, after, start, and end edges. A value of null for any of the edges means that it shall not be drawn."
+          },
+          {
+            "name": "",
+            "description": "A name from the list below representing the border style to apply to all four edges."
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["TH", "TD"]
+  },
+  {
+    "name": "TPadding",
+    "description": "Specifies the padding inside table cells or table-like elements.",
+    "source": "ISO 32000 Section 14.8.5.4.3",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "BLSE",
+    "defaultValue": "0",
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "A positive value shall enlarge the background area; a negative value shall trim it, and the border may overlap the element’s text or graphic. A single number representing the width of the padding, in default user space units, that applies to all four edges of the table cell."
+          }
+        ]
+      },
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "A 4-entry array representing the padding width for the before edge, after edge, start edge, and end edge, respectively, of the content rectangle."
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["TH", "TD"]
+  },
+  {
+    "name": "BaselineShift",
+    "description": "Shifts the text baseline up or down (used for subscripts, superscripts, etc.).",
+    "source": "ISO 32000 Section 14.8.5.4.4",
+    "owner": "Layout",
+    "inheritable": "ILSE",
+    "defaultValue": "0",
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "The distance, in default user space units, by which the element’s baseline shall be shifted relative to that of its parent element. "
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["Figure"]
+  },
+  {
+    "name": "LineHeight",
+    "description": "Controls the spacing between lines of text (line spacing).",
+    "source": "ISO 32000 Section 14.8.5.4.4",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "ILSE",
+    "defaultValue": "Normal",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Normal",
+            "description": "Adjust the line height to include any non-zero value specified for BaselineShift."
+          },
+          {
+            "name": "Auto",
+            "description": "Adjustment for the value of BaselineShift shall not be made"
+          }
+        ]
+      },
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "Start",
+            "description": "The element’s preferred height, measured in default user space units in the block-progression direction. "
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "TextPosition",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.4.4",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "ILSE",
+    "defaultValue": "Normal",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Sup",
+            "description": "Position is elevated, like for superscript"
+          },
+          {
+            "name": "Sub",
+            "description": "Position is lowered, like for subscript"
+          },
+          {
+            "name": "Normal",
+            "description": "Position is neither elevated nor lowered"
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "TextDecorationColor",
+    "description": "Specifies the color used for text decorations (like underline or strike-through).",
+    "source": "ISO 32000 Section 14.8.5.4.4",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "ILSE",
+    "defaultValue": "If this attribute is not specified, the text decoration colour for this element shall be the current fill colour in effect at the start of its associated content",
+    "values": [
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "An array of three numbers in the range 0.0 to 1.0, representing the red, green, and blue values, respectively, of an RGB colour space. "
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "TextDecorationThickness",
+    "description": "Defines the thickness of any text decoration line.",
+    "source": "ISO 32000 Section 14.8.5.4.4",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "ILSE",
+    "defaultValue": "If this attribute is not specified, it shall be derived from the current stroke thickness in effect at the start of the element’s associated content, transformed into default user space units.",
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "The value shall be a non-negative number in default user space units representing the thickness (0 is interpreted as the thinnest possible line). "
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "TextDecorationType",
+    "description": "Indicates the type of text decoration (underline, overline, line-through).",
+    "source": "ISO 32000 Section 14.8.5.4.4",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "ILSE",
+    "defaultValue": "None",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "None",
+            "description": "No text decoration"
+          },
+          {
+            "name": "Underline",
+            "description": "A line below the text"
+          },
+          {
+            "name": "Overline",
+            "description": "A line above the text"
+          },
+          {
+            "name": "LineThrough",
+            "description": "A line through the middle of the text"
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "RubyAlign",
+    "description": "Controls how ruby text (primarily in East Asian typography) is aligned relative to its base text.",
+    "source": "ISO 32000 Section 14.8.5.4.4",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "ILSE",
+    "defaultValue": "Distribute",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Start",
+            "description": "The content shall be aligned on the start edge in the inline-progression direction"
+          },
+          {
+            "name": "Center",
+            "description": "The content shall be centred in the inline-progression direction."
+          },
+          {
+            "name": "End",
+            "description": "The content shall be aligned on the end edge in the inline-progression direction."
+          },
+          {
+            "name": "Justify",
+            "description": "The content shall be expanded to fill the available width in the inline-progression direction"
+          },
+          {
+            "name": "Distribute",
+            "description": "The content shall be expanded to fill the available width in the inline-progression direction. However, space shall also be inserted at the start edge and end edge of the text. The spacing shall be distributed using a 1:2:1 (start:infix:end) ratio. It shall be changed to a 0:1:1 ratio if the ruby appears at the start of a text line or to a 1:1:0 ratio if the ruby appears at the end of the text line."
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["RT"]
+  },
+  {
+    "name": "RubyPosition",
+    "description": "Specifies the placement of ruby text (above or below the base text).",
+    "source": "ISO 32000 Section 14.8.5.4.4",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "ILSE",
+    "defaultValue": "Before",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Before",
+            "description": "The RT content shall be aligned along the before edge of the element."
+          },
+          {
+            "name": "After",
+            "description": "The RT content shall be aligned along the after edge of the element."
+          },
+          {
+            "name": "Warichu",
+            "description": "The RT and associated RP elements shall be formatted as a warichu, following the RB element"
+          },
+          {
+            "name": "Inline",
+            "description": "The RT and associated RP elements shall be formatted as a parenthesis comment, following the RB element."
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["RT"]
+  },
+  {
+    "name": "GlyphOrientationVertical",
+    "description": "Determines the orientation of glyphs when text is written in a vertical writing mode.",
+    "source": "ISO 32000 Section 14.8.5.4.4",
+    "owner": "Layout",
+    "inheritable": true,
+    "type": "ILSE",
+    "defaultValue": "Auto",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Auto",
+            "description": "Specifies a default orientation for text, depending on whether it is fullwidth (as wide as it is high). Fullwidth Latin and fullwidth ideographic text (excluding ideographic punctuation) shall be set with an angle of 0. Ideographic punctuation and other ideographic characters having alternate horizontal and vertical forms shall use the vertical form of the glyph. Non-fullwidth text shall be set with an angle of 90"
+          }
+        ]
+      },
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "A number representing the clockwise rotation in degrees of the top of the glyphs relative to the top of the reference area. Shall be a multiple of 90 degrees between -180 and +360."
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "ColumnCount",
+    "description": "Specifies the number of columns for multi-column layouts.",
+    "source": "ISO 32000 Section 14.8.5.4.5",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": "1",
+    "values": [
+      {
+        "valueType": "integer",
+        "values": [
+          {
+            "name": "",
+            "description": "The number of columns in the content of the grouping element."
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["Part", "Sect", "Div", "Aside", "NonStruct"]
+  },
+  {
+    "name": "ColumnGap",
+    "description": "Indicates the spacing (gap) between columns in multi-column layouts.",
+    "source": "ISO 32000 Section 14.8.5.4.5",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "It specifies the space between all columns."
+          }
+        ]
+      },
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "It should contain numbers, the first element specifying the space between the first and second columns, the second specifying the space between the second and third columns, and so on. If there are fewer than ColumnCount - 1 numbers, the last element shall specify all remaining spaces; if there are more than ColumnCount - 1 numbers, the excess array elements shall be ignored."
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["Part", "Sect", "Div", "Aside", "NonStruct"]
+  },
+  {
+    "name": "ColumnWidths",
+    "description": "Specifies the width of each column in multi-column layouts.",
+    "source": "ISO 32000 Section 14.8.5.4.5",
+    "owner": "Layout",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": "number",
+        "values": [
+          {
+            "name": "",
+            "description": "It specifies the width of all columns"
+          }
+        ]
+      },
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "It shall contain numbers, representing the width of each column, in order. If there are fewer than ColumnCount numbers, the last element shall specify all remaining widths; if there are more than ColumnCount numbers, the excess array elements shall be ignored"
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["Part", "Sect", "Div", "Aside", "NonStruct"]
+  },
+  {
+    "name": "ListNumbering",
+    "description": "Controls the numbering style used in lists (e.g., decimal, Roman, bullet).",
+    "source": "ISO 32000 Section 14.8.5.5",
+    "owner": "List",
+    "inheritable": true,
+    "type": null,
+    "defaultValue": "None",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "None",
+            "description": "No numbering system; Lbl elements (if present) contain arbitrary text not subject to any numbering scheme"
+          },
+          {
+            "name": "Unordered",
+            "description": "(PDF 2.0) Unordered list with unspecified bullets"
+          },
+          {
+            "name": "Description",
+            "description": "(PDF 2.0) A list of terms for corresponding definitions"
+          },
+          {
+            "name": "Disc",
+            "description": "Solid circular bullet"
+          },
+          {
+            "name": "Circle",
+            "description": "Open circular bullet"
+          },
+          {
+            "name": "Square",
+            "description": "Solid square"
+          },
+          {
+            "name": "Ordered",
+            "description": "(PDF 2.0) Ordered lists with unspecified numbering"
+          },
+          {
+            "name": "Decimal",
+            "description": "Decimal Arabic numerals (1–9, 10–99, … )"
+          },
+          {
+            "name": "UpperRoman",
+            "description": "Uppercase Roman numerals (I, II, III, IV, … )"
+          },
+          {
+            "name": "LowerRoman",
+            "description": "Lowercase Roman numerals (i, ii, iii, iv, … )"
+          },
+          {
+            "name": "UpperAlpha",
+            "description": "Uppercase letters (A, B, C, .. )"
+          },
+          {
+            "name": "LowerAlpha",
+            "description": "Lowercase letters (a, b, c, … )"
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["L"]
+  },
+  {
+    "name": "ContinuedList",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.5",
+    "owner": "List",
+    "inheritable": null,
+    "type": null,
+    "defaultValue": "false",
+    "values": [
+      {
+        "valueType": "boolean",
+        "values": [
+          {
+            "name": "",
+            "description": " A flag specifying whether the list is a continuation of a previous list in the structure tree (true), or not (false)"
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["L"]
+  },
+  {
+    "name": "ContinuedFrom",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.5",
+    "owner": "List",
+    "inheritable": null,
+    "type": null,
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": " ID (byte string)",
+        "values": [
+          {
+            "name": "",
+            "description": "The ID of the list for which this list is a continuation"
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["L"]
+  },
+  {
+    "name": "Role",
+    "description": "Assigns a semantic role to the element for accessibility or structure mapping.",
+    "source": "ISO 32000 Section 14.8.5.6",
+    "owner": "PrintField",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": "None specified",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "rb",
+            "description": "Radio button"
+          },
+          {
+            "name": "cp",
+            "description": "Check box"
+          },
+          {
+            "name": "pb",
+            "description": " Push button"
+          },
+          {
+            "name": "tv",
+            "description": "Text-value field"
+          },
+          {
+            "name": "lb",
+            "description": "Listbox field"
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "Checked, checked",
+    "description": "Indicates whether a form field (like a checkbox) is in a checked state.",
+    "source": "ISO 32000 Section 14.8.5.6",
+    "owner": "PrintField",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": "off",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "on",
+            "description": "The state of a radio button or check box field"
+          },
+          {
+            "name": "off",
+            "description": "The state of a radio button or check box field"
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "Desc",
+    "description": "Provides a descriptive text for the element, often used for accessibility or annotations.",
+    "source": "ISO 32000 Section 14.8.5.6",
+    "owner": "PrintField",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": "text string",
+        "values": [
+          {
+            "name": "",
+            "description": "The alternate name of the field."
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "RowSpan",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.7",
+    "owner": "Table",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": "1",
+    "values": [
+      {
+        "valueType": "integer",
+        "values": [
+          {
+            "name": "",
+            "description": "The number of rows in the enclosing table that shall be spanned by the cell."
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["TH", "TD"]
+  },
+  {
+    "name": "ColSpan",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.7",
+    "owner": "Table",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": "1",
+    "values": [
+      {
+        "valueType": "integer",
+        "values": [
+          {
+            "name": "",
+            "description": "The number of columns in the enclosing table that shall be spanned by the cell"
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["TH", "TD"]
+  },
+  {
+    "name": "Headers",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.7",
+    "owner": "Table",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": "array",
+        "values": [
+          {
+            "name": "",
+            "description": "An array of byte strings, where each string shall be the element identifier for a TH structure element that shall be used as a header associated with this cell"
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["TH"]
+  },
+  {
+    "name": "Scope",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.7",
+    "owner": "Table",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Both",
+            "description": ""
+          },
+          {
+            "name": "Column",
+            "description": ""
+          },
+          {
+            "name": "Row",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["TH"]
+  },
+  {
+    "name": "Summary",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.7",
+    "owner": "Table",
+    "inheritable": null,
+    "type": null,
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": "text string",
+        "values": [
+          {
+            "name": "",
+            "description": "A summary of the table’s purpose and structure. "
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "Short",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.7",
+    "owner": "Table",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": "text string",
+        "values": [
+          {
+            "name": "",
+            "description": "Contains a short form of the content of a TH structure element’s content."
+          }
+        ]
+      }
+    ],
+    "relatedTags": ["TH"]
+  },
+  {
+    "name": "Type",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.8",
+    "owner": "Artifact",
+    "inheritable": null,
+    "type": null,
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Pagination",
+            "description": "Pagination artifacts are ancillary page features such as running heads or folios (page numbers)"
+          },
+          {
+            "name": "Layout",
+            "description": "Layout artifacts are purely cosmetic typographical or design elements such as footnote rules or decorative ornaments"
+          },
+          {
+            "name": "Page",
+            "description": "Page artifacts are production aids extraneous to the document itself, such as cut marks and print control patches"
+          },
+          {
+            "name": "Inline",
+            "description": "Inline artifacts enclose artifact content that has context in the document’s logical structure, typically, artifacts of subtype LineNum or Redaction"
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "BBox",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.8",
+    "owner": "Artifact",
+    "inheritable": null,
+    "type": null,
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": "rectangle",
+        "values": [
+          {
+            "name": "",
+            "description": "An array of four numbers in default user space units giving the coordinates of the left, bottom, right, and top edges, respectively, of the artifact’s bounding box (the rectangle that completely encloses its visible extent)."
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "Subtype",
+    "description": "",
+    "source": "ISO 32000 Section 14.8.5.8",
+    "owner": "Artifact",
+    "inheritable": null,
+    "type": null,
+    "defaultValue": null,
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Header",
+            "description": ""
+          },
+          {
+            "name": "Footer",
+            "description": ""
+          },
+          {
+            "name": "Watermark",
+            "description": ""
+          },
+          {
+            "name": "PageNum",
+            "description": ""
+          },
+          {
+            "name": "Bates",
+            "description": ""
+          },
+          {
+            "name": "LineNum",
+            "description": ""
+          },
+          {
+            "name": "Redaction",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "NoteType",
+    "description": "The type of the FENote indicating a more specific semantic definition for the FENote",
+    "source": "ISO-14289-2-2024-sponsored.pdf (PDF/UA-2) Section 8.2.5.14.2",
+    "owner": "FENote",
+    "inheritable": null,
+    "type": null,
+    "defaultValue": "None",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "Footnote",
+            "description": " A subtype indicating a footnote"
+          },
+          {
+            "name": "Endnote",
+            "description": "A subtype indicating an endnote"
+          },
+          {
+            "name": "None",
+            "description": "A subtype indicating that the type is not specified"
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  }
+]

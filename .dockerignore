@@ -1,0 +1,15 @@
+# Ignore everything by default
+*
+
+# But include what we need
+!assets/
+!webapp/
+
+# Ignore specific items within webapp
+webapp/node_modules/
+webapp/.next/
+webapp/.git/
+webapp/.DS_Store
+webapp/npm-debug.log*
+webapp/yarn-debug.log*
+webapp/yarn-error.log*
