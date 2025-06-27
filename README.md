@@ -32,7 +32,7 @@ To get started with Tagged PDF School, clone the repository and install the nece
 
 ```bash
 git clone https://github.com/yourusername/tagged-pdf-school.git
-cd tagged-pdf-school
+cd tagged-pdf-school/webapp
 npm install
 ```
 

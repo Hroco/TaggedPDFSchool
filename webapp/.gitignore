@@ -1,0 +1,80 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# database
+/prisma/db.sqlite
+/prisma/db.sqlite-journal
+db.sqlite
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+# do not commit any .env files to git, except for the .env.example file. https://create.t3.gg/en/usage/env-variables#using-environment-variables
+.env
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+
+# idea files
+.idea
+src/lib/rnv/arx
+src/lib/rnv/arx.o
+src/lib/rnv/ary.o
+src/lib/rnv/drv.o
+src/lib/rnv/dsl.o
+src/lib/rnv/dxl.o
+src/lib/rnv/er.o
+src/lib/rnv/ht.o
+src/lib/rnv/librnv.a
+src/lib/rnv/m.o
+src/lib/rnv/rn.o
+src/lib/rnv/rnc.o
+src/lib/rnv/rnd.o
+src/lib/rnv/rnl.o
+src/lib/rnv/rnv
+src/lib/rnv/rnv.o
+src/lib/rnv/rnx.o
+src/lib/rnv/rvp
+src/lib/rnv/rvp.o
+src/lib/rnv/rx.o
+src/lib/rnv/s.o
+src/lib/rnv/sc.o
+src/lib/rnv/test
+src/lib/rnv/test.o
+src/lib/rnv/u.o
+src/lib/rnv/xcl.o
+src/lib/rnv/xmlc.o
+src/lib/rnv/xsd.o
+src/lib/rnv/xsd_tm.o
+src/lib/rnv/xsdck
+src/lib/rnv/xsdck.o
+src/hierarchyGenerator/32005-main/sources/generated/parent-list.adoc
+src/hierarchyGenerator/32005-main/sources/generated/structure-relationships.adoc
+src/hierarchyGenerator/32005-main/sources/generated/structure-relationships.json
