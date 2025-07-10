@@ -46,9 +46,14 @@ export const validatorRouter = createTRPCRouter({
 
       console.log("process.cwd()", process.cwd());
 
-      const schemaPath = join(
+      const schemaPathold = join(
         process.cwd(),
         "src/lib/rnv/latex-document-switch.rnc",
+      );
+
+      const schemaPath = join(
+        process.cwd(),
+        "src/lib/rnv/generated-schema.rnc",
       );
 
       console.log("schemaPath", schemaPath);
