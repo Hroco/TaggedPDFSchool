@@ -1607,7 +1607,32 @@
     "relatedTags": []
   },
   {
-    "name": "Checked, checked",
+    "name": "checked",
+    "description": "Indicates whether a form field (like a checkbox) is in a checked state.",
+    "source": "ISO 32000 Section 14.8.5.6",
+    "owner": "PrintField",
+    "inheritable": false,
+    "type": null,
+    "defaultValue": "off",
+    "values": [
+      {
+        "valueType": "name",
+        "values": [
+          {
+            "name": "on",
+            "description": "The state of a radio button or check box field"
+          },
+          {
+            "name": "off",
+            "description": "The state of a radio button or check box field"
+          }
+        ]
+      }
+    ],
+    "relatedTags": []
+  },
+  {
+    "name": "Checked",
     "description": "Indicates whether a form field (like a checkbox) is in a checked state.",
     "source": "ISO 32000 Section 14.8.5.6",
     "owner": "PrintField",

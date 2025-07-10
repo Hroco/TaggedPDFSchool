@@ -12,6 +12,7 @@
     "preview": "next build && next start",
     "start": "next start",
     "typecheck": "tsc --noEmit",
+    "generateSchema": "tsx -r tsconfig-paths/register src/lib/schemaGenerator/rncGenerator.ts",
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache"
   },
@@ -40,6 +41,7 @@
     "superjson": "^2.2.1",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
+    "ts-node": "^10.9.2",
     "usehooks-ts": "^3.1.1",
     "uuid": "^11.1.0",
     "zod": "^3.23.3"
@@ -57,6 +59,8 @@
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.3",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^3.14.0",
     "typescript": "^5.5.3"
   },
   "ct3aMetadata": {
