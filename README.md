@@ -101,12 +101,13 @@ docker run -p 3000:3000 tagged-pdf-school
 
 The project is organized as follows:
 
-- **src/**: Contains the main application code, including pages, components, and API routes.
-- **assets/**: Includes static assets such as JSON databases and temporary files.
-- **lib/**: Contains utility functions and the RNV validator implementation.
-- **styles/**: Global CSS styles.
-- **hierarchyGenerator/**: Scripts and resources for generating tag hierarchies.
-- **public/**: Publicly accessible static files.
+- **webapp/**: Contains the main application code.
+- **assets/**: Includes static assets such as JSON databases.
+- **webapp/src/**: Contains the main application code, including pages, components, and API routes.
+- **webapp/lib/**: Contains utility functions and the RNV validator implementation.
+- **webapp/styles/**: Global CSS styles.
+- **webapp/hierarchyGenerator/**: Scripts and resources for generating tag hierarchies.
+- **webapp/public/**: Publicly accessible static files.
 
 ## Assets Folder
 
@@ -234,7 +235,7 @@ We welcome contributions from the community! If you have any ideas, suggestions,
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the APACHE License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contributors
 
