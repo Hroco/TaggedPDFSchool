@@ -132,7 +132,7 @@ export default function About() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="rounded-l-md bg-gray-700 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+            className="rounded-l-md bg-gray-700 px-4 py-2 text-white focus:outline-hidden focus:ring-2 focus:ring-primary"
           />
           <Button className="rounded-l-none bg-primary text-white hover:bg-orange-600">
             Subscribe

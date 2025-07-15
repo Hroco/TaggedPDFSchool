@@ -122,7 +122,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 mx-auto flex flex-col-reverse items-center justify-between space-y-2 border-b border-gray-800 bg-gray-900/95 px-4 py-3 pl-5 backdrop-blur supports-[backdrop-filter]:bg-gray-900/75 md:flex-row md:space-y-0">
+    <header className="sticky top-0 z-50 mx-auto flex flex-col-reverse items-center justify-between space-y-2 border-b border-gray-800 bg-gray-900/95 px-4 py-3 pl-5 backdrop-blur-sm supports-backdrop-filter:bg-gray-900/75 md:flex-row md:space-y-0">
       <h1 className="hidden text-2xl font-bold text-primary sm:block">
         Tagged PDF School
       </h1>
@@ -135,14 +135,14 @@ export const Navbar = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="w-full rounded-md bg-gray-800 px-4 py-2 pr-10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full rounded-md bg-gray-800 px-4 py-2 pr-10 text-white placeholder-gray-400 focus:outline-hidden focus:ring-2 focus:ring-primary"
           />
           <Search className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
         </div>
         {isDropdownVisible && searchResults.length > 0 && (
           <div className="absolute w-full">
             <ScrollArea className="mt-1 w-full rounded-md bg-gray-800 shadow-lg">
-              <ul className="max-h-60 w-full py-1 text-base leading-6 focus:outline-none sm:text-sm sm:leading-5">
+              <ul className="max-h-60 w-full py-1 text-base leading-6 focus:outline-hidden sm:text-sm sm:leading-5">
                 {searchResults.map((result, index) => {
                   let url = "/";
                   let badgeValue = "";

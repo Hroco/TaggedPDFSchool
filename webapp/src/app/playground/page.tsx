@@ -13,6 +13,13 @@ import { api } from "~/trpc/react";
 import { useSearchParams } from "next/navigation";
 import { useIsClient } from "usehooks-ts";
 import tags from "@assets/tagsDB";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "~/components/ui/select";
 
 export default function Playground() {
   const isClient = useIsClient();
@@ -42,7 +49,7 @@ function XMLViewer() {
   const [xmlContent, setXmlContent] = useState<string>(
     useCase
       ? useCase.sample
-      : `<Document>
+      : `<Document xmlns="http://iso.org/pdf2/ssn">
  
 </Document>`,
   );
@@ -64,7 +71,7 @@ function XMLViewer() {
   async function run() {
     const response = await validateXML.mutateAsync({
       tagStructure: xmlContent,
-      namespace: "2.0",
+      namespace: selectedNamespace,
     });
     console.log("response", response);
 
@@ -109,18 +116,30 @@ function XMLViewer() {
 
   return (
     <main className="container flex w-full flex-1 flex-col gap-2 pt-5">
-      <section className="">
+      <section className="flex gap-2">
         <Button variant="default" onClick={run}>
           Run
         </Button>
-        <Button variant="default" onClick={download} className="ml-2">
+        <Button variant="default" onClick={download} className="">
           Download PDF
         </Button>
+        <Select onValueChange={setSelectedNamespace} value={selectedNamespace}>
+          <SelectTrigger
+            className="!bg-primary h-10 w-[180px] text-black"
+            size="default"
+          >
+            <SelectValue placeholder="Namespace" />
+          </SelectTrigger>
+          <SelectContent className="w-[180px]">
+            <SelectItem value="1.7">1.7</SelectItem>
+            <SelectItem value="2.0">2.0</SelectItem>
+          </SelectContent>
+        </Select>
       </section>
       <section className="flex h-[500px] w-full flex-col items-center">
         <ResizablePanelGroup
           direction="horizontal"
-          className="w-full rounded-lg border border-primary md:min-w-[450px]"
+          className="border-primary w-full rounded-lg border md:min-w-[450px]"
         >
           <ResizablePanel>
             <CodeMirror

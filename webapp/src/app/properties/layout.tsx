@@ -6,7 +6,7 @@ export default function Layout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className="container flex max-w-screen-2xl">
+    <div className="container flex max-w-(--breakpoint-2xl)">
       <aside className="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-72 border-r border-gray-800 lg:block">
         <ScrollArea className="h-full py-6 pl-8 pr-6">
           <nav className="relative">
