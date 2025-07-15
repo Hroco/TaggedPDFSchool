@@ -30,6 +30,7 @@ export default function Playground() {
 
 function XMLViewer() {
   const searchParams = useSearchParams();
+  const [selectedNamespace, setSelectedNamespace] = useState("2.0");
   const tagName = searchParams?.get("tag");
   const useCaseIndex = searchParams?.get("useCase");
   const tag = tagName ? tags.find((tag) => tag.name === tagName) : null;
@@ -56,9 +57,14 @@ function XMLViewer() {
     void run();
   }, []);
 
+  useEffect(() => {
+    console.log("selectedNamespace", selectedNamespace);
+  }, [selectedNamespace]);
+
   async function run() {
     const response = await validateXML.mutateAsync({
       tagStructure: xmlContent,
+      namespace: "2.0",
     });
     console.log("response", response);
 
@@ -103,7 +109,7 @@ function XMLViewer() {
 
   return (
     <main className="container flex w-full flex-1 flex-col gap-2 pt-5">
-      <section className="w-full flex-col items-center">
+      <section className="">
         <Button variant="default" onClick={run}>
           Run
         </Button>

@@ -1,0 +1,471 @@
+
+namespace NoNS = ""
+namespace pdf1 = "http://iso.org/pdf/ssn"
+namespace pdf2 = "http://iso.org/pdf2/ssn"
+namespace mml = "http://www.w3.org/1998/Math/MathML"
+
+# Attribute namespaces
+namespace Layout = "http://iso.org/pdf/ssn/Layout"
+namespace PrintField = "http://iso.org/pdf/ssn/PrintField"
+namespace Table = "http://iso.org/pdf/ssn/Table"
+namespace List = "http://iso.org/pdf/ssn/List"
+namespace Artifact = "http://iso.org/pdf/ssn/Artifact"
+namespace FENote = "http://iso.org/pdf/ssn/FENote"
+
+# XHTML Namespace (if needed)
+namespace h = "http://www.w3.org/1999/xhtml"
+
+# PDF/UA-1 Schema
+start = Document
+
+# Attribute Definitions
+
+# Layout Attributes
+
+Placement_attribute = attribute Layout:Placement { "Block" | "Inline" | "Before" | "Start" | "End" }?
+
+WritingMode_attribute = attribute Layout:WritingMode { "LrTb" | "RlTb" | "TbRl" | "TbLr" | "LrBt" | "RlBt" | "BtRl" | "BtLr" }?
+
+BackgroundColor_attribute = attribute Layout:BackgroundColor { list { xsd:string* } }?
+
+BorderColor_attribute = attribute Layout:BorderColor { list { xsd:string* } }?
+
+BorderStyle_attribute = attribute Layout:BorderStyle { "None" | "Hidden" | "Dotted" | "Dashed" | "Solid" | "Double" | "Groove" | "Ridge" | "Inset" | "Outset" | list { xsd:string* } }?
+
+BorderThickness_attribute = attribute Layout:BorderThickness { xsd:decimal | list { xsd:string* } }?
+
+Padding_attribute = attribute Layout:Padding { xsd:decimal | list { xsd:string* } }?
+
+Color_attribute = attribute Layout:Color { list { xsd:string* } }?
+
+SpaceBefore_attribute = attribute Layout:SpaceBefore { xsd:decimal }?
+
+SpaceAfter_attribute = attribute Layout:SpaceAfter { xsd:decimal }?
+
+StartIndent_attribute = attribute Layout:StartIndent { xsd:decimal }?
+
+EndIndent_attribute = attribute Layout:EndIndent { xsd:decimal }?
+
+TextIndent_attribute = attribute Layout:TextIndent { xsd:decimal }?
+
+TextAlign_attribute = attribute Layout:TextAlign { "Start" | "Center" | "End" | "Justify" }?
+
+BBox_attribute = attribute Layout:BBox { list { xsd:decimal, xsd:decimal, xsd:decimal, xsd:decimal } }?
+
+Width_attribute = attribute Layout:Width { "Auto" | xsd:decimal }?
+
+Height_attribute = attribute Layout:Height { "Auto" | xsd:decimal }?
+
+BlockAlign_attribute = attribute Layout:BlockAlign { "Before" | "Middle" | "After" | "Justify" }?
+
+InlineAlign_attribute = attribute Layout:InlineAlign { "Start" | "Center" | "End" }?
+
+TBorderStyle_attribute = attribute Layout:TBorderStyle { "None" | "Hidden" | "Dotted" | "Dashed" | "Solid" | "Double" | "Groove" | "Ridge" | "Inset" | "Outset" | list { xsd:string* } }?
+
+TPadding_attribute = attribute Layout:TPadding { xsd:decimal | list { xsd:string* } }?
+
+BaselineShift_attribute = attribute Layout:BaselineShift { xsd:decimal }?
+
+LineHeight_attribute = attribute Layout:LineHeight { "Normal" | "Auto" | xsd:decimal }?
+
+TextPosition_attribute = attribute Layout:TextPosition { "Sup" | "Sub" | "Normal" }?
+
+TextDecorationColor_attribute = attribute Layout:TextDecorationColor { list { xsd:string* } }?
+
+TextDecorationThickness_attribute = attribute Layout:TextDecorationThickness { xsd:decimal }?
+
+TextDecorationType_attribute = attribute Layout:TextDecorationType { "None" | "Underline" | "Overline" | "LineThrough" }?
+
+RubyAlign_attribute = attribute Layout:RubyAlign { "Start" | "Center" | "End" | "Justify" | "Distribute" }?
+
+RubyPosition_attribute = attribute Layout:RubyPosition { "Before" | "After" | "Warichu" | "Inline" }?
+
+GlyphOrientationVertical_attribute = attribute Layout:GlyphOrientationVertical { "Auto" | xsd:decimal }?
+
+ColumnCount_attribute = attribute Layout:ColumnCount { xsd:integer }?
+
+ColumnGap_attribute = attribute Layout:ColumnGap { xsd:decimal | list { xsd:string* } }?
+
+ColumnWidths_attribute = attribute Layout:ColumnWidths { xsd:decimal | list { xsd:string* } }?
+
+Layout_attributes = 
+    Placement_attribute,
+    WritingMode_attribute,
+    BackgroundColor_attribute,
+    BorderColor_attribute,
+    BorderStyle_attribute,
+    BorderThickness_attribute,
+    Padding_attribute,
+    Color_attribute,
+    SpaceBefore_attribute,
+    SpaceAfter_attribute,
+    StartIndent_attribute,
+    EndIndent_attribute,
+    TextIndent_attribute,
+    TextAlign_attribute,
+    BBox_attribute,
+    Width_attribute,
+    Height_attribute,
+    BlockAlign_attribute,
+    InlineAlign_attribute,
+    TBorderStyle_attribute,
+    TPadding_attribute,
+    BaselineShift_attribute,
+    LineHeight_attribute,
+    TextPosition_attribute,
+    TextDecorationColor_attribute,
+    TextDecorationThickness_attribute,
+    TextDecorationType_attribute,
+    RubyAlign_attribute,
+    RubyPosition_attribute,
+    GlyphOrientationVertical_attribute,
+    ColumnCount_attribute,
+    ColumnGap_attribute,
+    ColumnWidths_attribute
+
+# List Attributes
+
+ListNumbering_attribute = attribute List:ListNumbering { "None" | "Unordered" | "Description" | "Disc" | "Circle" | "Square" | "Ordered" | "Decimal" | "UpperRoman" | "LowerRoman" | "UpperAlpha" | "LowerAlpha" }?
+
+ContinuedList_attribute = attribute List:ContinuedList { "true" | "false" }?
+
+ContinuedFrom_attribute = attribute List:ContinuedFrom { xsd:string }?
+
+List_attributes = 
+    ListNumbering_attribute,
+    ContinuedList_attribute,
+    ContinuedFrom_attribute
+
+# PrintField Attributes
+
+Role_attribute = attribute PrintField:Role { "rb" | "cp" | "pb" | "tv" | "lb" }?
+
+Checked__checked_attribute = attribute PrintField:Checked__checked { "on" | "off" }?
+
+Desc_attribute = attribute PrintField:Desc { xsd:string }?
+
+PrintField_attributes = 
+    Role_attribute,
+    Checked__checked_attribute,
+    Desc_attribute
+
+# Table Attributes
+
+RowSpan_attribute = attribute Table:RowSpan { xsd:integer }?
+
+ColSpan_attribute = attribute Table:ColSpan { xsd:integer }?
+
+Headers_attribute = attribute Table:Headers { list { xsd:string* } }?
+
+Scope_attribute = attribute Table:Scope { "Both" | "Column" | "Row" }?
+
+Summary_attribute = attribute Table:Summary { xsd:string }?
+
+Short_attribute = attribute Table:Short { xsd:string }?
+
+Table_attributes = 
+    RowSpan_attribute,
+    ColSpan_attribute,
+    Headers_attribute,
+    Scope_attribute,
+    Summary_attribute,
+    Short_attribute
+
+# Artifact Attributes
+
+Type_attribute = attribute Artifact:Type { "Pagination" | "Layout" | "Page" | "Inline" }?
+
+BBox_attribute = attribute Artifact:BBox { list { xsd:decimal, xsd:decimal, xsd:decimal, xsd:decimal } }?
+
+Subtype_attribute = attribute Artifact:Subtype { "Header" | "Footer" | "Watermark" | "PageNum" | "Bates" | "LineNum" | "Redaction" }?
+
+Artifact_attributes = 
+    Type_attribute,
+    BBox_attribute,
+    Subtype_attribute
+
+# FENote Attributes
+
+NoteType_attribute = attribute FENote:NoteType { "Footnote" | "Endnote" | "None" }?
+
+FENote_attributes = 
+    NoteType_attribute
+
+# Structure Element Definitions
+
+# Common attribute patterns
+structure_properties = 
+    attribute xml:lang { xsd:language }?,
+    attribute id { xsd:ID }?,
+    Layout_attributes?,
+    Table_attributes?,
+    List_attributes?,
+    PrintField_attributes?,
+    Artifact_attributes?,
+    FENote_attributes?
+
+pdf2_attributes = structure_properties
+
+# Text content pattern
+textorHTML = text
+
+Document = element pdf1:Document {
+    pdf2_attributes,
+    (Document* | DocumentFragment* | Part* | Art* | Div* | Sect* | TOC* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Title* | Link* | Annot* | Form* | FENote* | Index* | L* | Table* | Figure* | Formula* | Artifact*)*
+}
+
+DocumentFragment = element pdf1:DocumentFragment {
+    pdf2_attributes,
+    (Document* | DocumentFragment* | Part* | Art* | Div* | Sect* | TOC* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Title* | Link* | Annot* | Form* | FENote* | Index* | L* | Table* | Figure* | Formula* | Artifact*)*
+}
+
+Part = element pdf1:Part {
+    pdf2_attributes,
+    (Document* | DocumentFragment* | Part* | Art* | Div* | Sect* | TOC* | TOCI* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H* | Title* | Sub* | Lbl* | Link* | Reference* | Annot* | Form* | FENote* | Index* | L* | BibEntry* | Table* | Caption* | Figure* | Formula* | Artifact*)*
+}
+
+Div = element pdf1:Div {
+    pdf2_attributes,
+    (Document* | DocumentFragment* | Part* | Art* | Div* | Sect* | TOC* | TOCI* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H* | Title* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | RB* | RT* | RP* | Warichu* | WT* | WP* | FENote* | Index* | L* | LI* | LBody* | BibEntry* | Table* | TR* | TH* | TD* | THead* | TBody* | TFoot* | Caption* | Figure* | Formula* | Artifact*)*
+}
+
+Art = element pdf1:Art {
+    pdf2_attributes,
+    (DocumentFragment* | Part* | Div* | Sect* | TOC* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Title* | Lbl* | Link* | Annot* | Form* | FENote* | Index* | L* | Table* | Caption? | Figure* | Formula* | Artifact*)*
+}
+
+Sect = element pdf1:Sect {
+    pdf2_attributes,
+    (DocumentFragment* | Part* | Art* | Div* | Sect* | TOC* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Title* | Lbl* | Link* | Annot* | Form* | FENote* | Index* | L* | Table* | Caption* | Figure* | Formula* | Artifact*)*
+}
+
+TOC = element pdf1:TOC {
+    pdf2_attributes,
+    (Part* | TOC* | TOCI* | NonStruct* | Private* | Caption? | Artifact*)*
+}
+
+TOCI = element pdf1:TOCI {
+    pdf2_attributes,
+    (Div* | TOC* | NonStruct* | Private* | P* | Lbl* | Reference* | Artifact*)*
+}
+
+Aside = element pdf1:Aside {
+    pdf2_attributes,
+    (Document* | DocumentFragment* | Part* | Art* | Div* | Sect* | TOC* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Lbl* | Link* | Reference* | Annot* | Form* | FENote* | Index* | L* | Table* | Caption? | Figure* | Formula* | Artifact* | content item*)*
+}
+
+BlockQuote = element pdf1:BlockQuote {
+    pdf2_attributes,
+    (Document* | DocumentFragment* | Part* | Art* | Div* | Sect* | TOC* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Lbl* | Link* | Reference* | Annot* | Form* | FENote* | Index* | L* | Table* | Caption? | Figure* | Formula* | Artifact* | content item*)*
+}
+
+NonStruct = element pdf1:NonStruct {
+    pdf2_attributes,
+    (Document* | DocumentFragment* | Part* | Art* | Div* | Sect* | TOC* | TOCI* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H* | Title* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | RB* | RT* | RP* | Warichu* | WT* | WP* | FENote* | Index* | L* | LI* | LBody* | BibEntry* | Table* | TR* | TH* | TD* | THead* | TBody* | TFoot* | Caption* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Private = element pdf1:Private {
+    pdf2_attributes,
+    (Document* | DocumentFragment* | Part* | Art* | Div* | Sect* | TOC* | TOCI* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H* | Title* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | RB* | RT* | RP* | Warichu* | WT* | WP* | FENote* | Index* | L* | LI* | LBody* | BibEntry* | Table* | TR* | TH* | TD* | THead* | TBody* | TFoot* | Caption* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Title = element pdf1:Title {
+    pdf2_attributes,
+    (Part* | Div* | Aside* | NonStruct* | Private* | P* | Note* | Code* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | L* | BibEntry* | Table* | Caption? | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Sub = element pdf1:Sub {
+    pdf2_attributes,
+    (NonStruct* | Private* | Note* | Code* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | L* | BibEntry* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+P = element pdf1:P {
+    pdf2_attributes,
+    (NonStruct* | Private* | Note* | Code* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | L* | BibEntry* | Table* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Note = element pdf1:Note {
+    pdf2_attributes,
+    (DocumentFragment* | Part* | Art* | Div* | Sect* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | Index* | L* | BibEntry* | Table* | Caption? | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Code = element pdf1:Code {
+    pdf2_attributes,
+    (DocumentFragment* | Part* | Art* | Div* | Sect* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | Index* | L* | BibEntry* | Table* | Caption? | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Hn = element pdf1:Hn {
+    pdf2_attributes,
+    (Sect? | NonStruct* | Private* | Note* | Code* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | BibEntry* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+H = element pdf1:H {
+    pdf2_attributes,
+    (Sect? | NonStruct* | Private* | Note* | Code* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | BibEntry* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Lbl = element pdf1:Lbl {
+    pdf2_attributes,
+    (NonStruct* | Private* | Note* | Code* | Sub* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | BibEntry* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Em = element pdf1:Em {
+    pdf2_attributes,
+    (NonStruct* | Private* | Note* | Code* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | BibEntry* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Strong = element pdf1:Strong {
+    pdf2_attributes,
+    (NonStruct* | Private* | Note* | Code* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | BibEntry* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Span = element pdf1:Span {
+    pdf2_attributes,
+    (NonStruct* | Private* | Note* | Code* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | BibEntry* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Quote = element pdf1:Quote {
+    pdf2_attributes,
+    (NonStruct* | Private* | Note* | Code* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | BibEntry* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Link = element pdf1:Link {
+    pdf2_attributes,
+    (DocumentFragment* | Part* | Art* | Div* | Sect* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H* | Title* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | L* | BibEntry* | Table* | Caption* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Reference = element pdf1:Reference {
+    pdf2_attributes,
+    (NonStruct* | Private* | Note* | Lbl* | Em* | Strong* | Span* | Link* | Annot* | FENote* | BibEntry* | Figure* | Artifact* | content item*)*
+}
+
+Annot = element pdf1:Annot {
+    pdf2_attributes,
+    (DocumentFragment* | Part* | Art* | Div* | Sect* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H* | Title* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | L* | BibEntry* | Table* | Caption* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Form = element pdf1:Form {
+    pdf2_attributes,
+    (Part* | Div* | NonStruct* | Private* | Note* | Code* | Lbl* | Reference* | FENote* | L* | BibEntry* | Table* | Caption? | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Ruby = element pdf1:Ruby {
+    pdf2_attributes,
+    (NonStruct* | Private* | RB* | RT* | RP* | content item*)*
+}
+
+RB = element pdf1:RB {
+    pdf2_attributes,
+    (NonStruct* | Private* | Sub* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Artifact* | content item*)*
+}
+
+RT = element pdf1:RT {
+    pdf2_attributes,
+    (NonStruct* | Private* | Sub* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Artifact* | content item*)*
+}
+
+RP = element pdf1:RP {
+    pdf2_attributes,
+    (NonStruct* | Private* | Sub* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Artifact* | content item*)*
+}
+
+Warichu = element pdf1:Warichu {
+    pdf2_attributes,
+    (NonStruct* | Private* | WT* | WP* | content item*)*
+}
+
+WT = element pdf1:WT {
+    pdf2_attributes,
+    (NonStruct* | Private* | Sub* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Artifact* | content item*)*
+}
+
+WP = element pdf1:WP {
+    pdf2_attributes,
+    (NonStruct* | Private* | Sub* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Artifact* | content item*)*
+}
+
+FENote = element pdf1:FENote {
+    pdf2_attributes,
+    (DocumentFragment* | Part* | Art* | Div* | Sect* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | Index* | L* | BibEntry* | Table* | Caption* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Index = element pdf1:Index {
+    pdf2_attributes,
+    (Part* | Div* | Sect* | NonStruct* | Private* | P* | Note* | Hn* | H* | Reference* | Annot* | FENote* | L* | Table* | Caption? | Figure* | Formula* | Artifact*)*
+}
+
+L = element pdf1:L {
+    pdf2_attributes,
+    (NonStruct* | Private* | L* | LI* | Caption? | Artifact*)*
+}
+
+LI = element pdf1:LI {
+    pdf2_attributes,
+    (Div* | NonStruct* | Private* | Lbl* | LBody* | Artifact* | content item*)*
+}
+
+LBody = element pdf1:LBody {
+    pdf2_attributes,
+    (Part* | Art* | Div* | Sect* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Sub* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | Index* | L* | BibEntry* | Table* | Caption? | Figure* | Formula* | Artifact* | content item*)*
+}
+
+BibEntry = element pdf1:BibEntry {
+    pdf2_attributes,
+    (Part* | Div* | NonStruct* | Private* | P* | Note* | Lbl* | Em* | Strong* | Span* | Link* | Reference* | Annot* | FENote* | Figure* | Artifact* | content item*)*
+}
+
+Table = element pdf1:Table {
+    pdf2_attributes,
+    (NonStruct* | Private* | TR* | THead? | TBody* | TFoot? | Caption? | Artifact*)*
+}
+
+TR = element pdf1:TR {
+    pdf2_attributes,
+    (NonStruct* | Private* | TH* | TD* | Artifact*)*
+}
+
+TH = element pdf1:TH {
+    pdf2_attributes,
+    (Art* | Div* | Sect* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | Index* | L* | BibEntry* | Table* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+TD = element pdf1:TD {
+    pdf2_attributes,
+    (Art* | Div* | Sect* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | Index* | L* | BibEntry* | Table* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+THead = element pdf1:THead {
+    pdf2_attributes,
+    (NonStruct* | Private* | TR* | Artifact*)*
+}
+
+TBody = element pdf1:TBody {
+    pdf2_attributes,
+    (NonStruct* | Private* | TR* | Artifact*)*
+}
+
+TFoot = element pdf1:TFoot {
+    pdf2_attributes,
+    (NonStruct* | Private* | TR* | Artifact*)*
+}
+
+Caption = element pdf1:Caption {
+    pdf2_attributes,
+    (DocumentFragment* | Part* | Art* | Div* | Sect* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | Index* | L* | BibEntry* | Table* | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Figure = element pdf1:Figure {
+    pdf2_attributes,
+    (Part* | Art* | Div* | Sect* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | Index* | L* | BibEntry* | Table* | Caption? | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Formula = element pdf1:Formula {
+    pdf2_attributes,
+    (Part* | Div* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | Warichu* | FENote* | Index* | L* | BibEntry* | Table* | Caption? | Figure* | Formula* | Artifact* | content item*)*
+}
+
+Artifact = element pdf1:Artifact {
+    pdf2_attributes,
+    (Document* | DocumentFragment* | Part* | Art* | Div* | Sect* | TOC* | TOCI* | Aside* | BlockQuote* | NonStruct* | Private* | P* | Note* | Code* | Hn* | H? | Title* | Sub* | Lbl* | Em* | Strong* | Span* | Quote* | Link* | Reference* | Annot* | Form* | Ruby* | RB* | RT* | RP* | Warichu* | WT* | WP* | FENote* | Index* | L* | LI* | LBody* | BibEntry* | Table* | TR* | TH* | TD* | THead* | TBody* | TFoot* | Caption? | Figure* | Formula* | Artifact* | content item*)*
+}
+

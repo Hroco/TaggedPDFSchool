@@ -53,7 +53,8 @@ interface RNCGeneratorConfig {
   attributesFile: string;
   propertiesFile: string;
   structureFile: string;
-  outputFile: string;
+  outputFile17: string;
+  outputFile2: string;
   namespaces: Record<string, string>;
   includeFiles?: string[];
 }
@@ -297,7 +298,12 @@ pdf1rolemap-Note = notAllowed?
 `;
   }
 
-  private generateElementDefinitions(): string {
+  private doesElementExistIn17(elementName: string): boolean {
+    const tagData = tags.find((tag) => tag.name === elementName);
+    return tagData?.namespace.includes("1.7") ?? false;
+  }
+
+  private generateElementDefinitions(type: "PDF20" | "PDF17"): string {
     let output = "### Element Definitions\n\n";
 
     // Generate start definition
@@ -312,13 +318,20 @@ pdf1rolemap-Note = notAllowed?
         continue;
       }
 
-      output += this.generateElementDefinition(element);
+      if (type === "PDF17" && !this.doesElementExistIn17(element.name)) {
+        continue;
+      }
+
+      output += this.generateElementDefinition(element, type);
     }
 
     return output;
   }
 
-  private generateElementDefinition(structure: StructureElement): string {
+  private generateElementDefinition(
+    structure: StructureElement,
+    type: "PDF20" | "PDF17",
+  ): string {
     const elementName = structure.name;
     const tagData = tags.find((tag) => tag.name === elementName);
 
@@ -331,7 +344,7 @@ pdf1rolemap-Note = notAllowed?
       tagData.namespace.length === 1 && tagData.namespace[0] === "1.7";
 
     let output = `${elementName} = element ${
-      isPDF1Element ? "pdf1" : "pdf2"
+      type === "PDF20" && !isPDF1Element ? "pdf2" : "pdf1"
     }:${elementName} {\n`;
 
     // Add role mapping if needed
@@ -351,7 +364,7 @@ pdf1rolemap-Note = notAllowed?
     output += ",\n";
 
     // Add content model
-    const contentModel = this.generateContentModel(structure);
+    const contentModel = this.generateContentModel(structure, type);
     output += contentModel;
 
     output += "\n}\n\n";
@@ -418,7 +431,10 @@ pdf1rolemap-Note = notAllowed?
     return attributes;
   }
 
-  private generateContentModel(structure: StructureElement): string {
+  private generateContentModel(
+    structure: StructureElement,
+    type: "PDF20" | "PDF17",
+  ): string {
     if (structure.hierarchy.children.length === 0) {
       return "(text)*";
     }
@@ -426,13 +442,21 @@ pdf1rolemap-Note = notAllowed?
     let output = "";
 
     const elementName = structure.name;
-    const children = structure.hierarchy.children.map((child) => {
+    let children = structure.hierarchy.children.map((child) => {
       if (child[0] === "content item") {
         return ["text", child[1]];
       }
       return [child[0], child[1]];
     });
+
+    if (type === "PDF17") {
+      children = children.filter((child) => {
+        return this.doesElementExistIn17(child[0] ?? "");
+      });
+    }
+
     const tagData = tags.find((tag) => tag.name === elementName);
+
     const isGroupingAndBlockElement =
       (tagData?.type.includes("grouping") && tagData?.type.includes("block")) ??
       false;
@@ -639,7 +663,7 @@ textorHTML &= (Link|Lbl)*
 `;
   }
 
-  public generateSchema(): string {
+  public generateSchema(type: "PDF20" | "PDF17"): string {
     let schema = "";
 
     // Add header comment
@@ -665,7 +689,7 @@ textorHTML &= (Link|Lbl)*
     schema += this.generateSpecialDefinitions();
 
     // Add element definitions
-    schema += this.generateElementDefinitions();
+    schema += this.generateElementDefinitions(type);
 
     return schema;
   }
@@ -683,10 +707,12 @@ mpadded-length-percentage |= xsd:string {
 `;
   }
 
-  public writeToFile(): void {
-    const schema = this.generateSchema();
-    writeFileSync(this.config.outputFile, schema, "utf8");
-    console.log(`RNC schema generated successfully: ${this.config.outputFile}`);
+  public writeToFile(out: "PDF20" | "PDF17", schema: string): void {
+    const outputFile =
+      out === "PDF20" ? this.config.outputFile2 : this.config.outputFile17;
+
+    writeFileSync(outputFile, schema, "utf8");
+    console.log(`RNC schema generated successfully: ${outputFile}`);
   }
 }
 
@@ -700,7 +726,8 @@ function main() {
       currentDir,
       "./src/hierarchyGenerator/32005-main/sources/generated/structure-relationships.json",
     ),
-    outputFile: join(currentDir, "./src/lib/rnv/generated-schema.rnc"),
+    outputFile17: join(currentDir, "./src/lib/rnv/generated-schema-PDF17.rnc"),
+    outputFile2: join(currentDir, "./src/lib/rnv/generated-schema-PDF20.rnc"),
     namespaces: {
       NoNS: "",
       pdf1: "http://iso.org/pdf/ssn",
@@ -715,9 +742,13 @@ function main() {
     },
     includeFiles: ["latex-mathml.rnc"],
   };
-
   const generator = new RNCSchemaGenerator(config);
-  generator.writeToFile();
+
+  const schema20 = generator.generateSchema("PDF20");
+  const schema17 = generator.generateSchema("PDF17");
+
+  generator.writeToFile("PDF20", schema20);
+  generator.writeToFile("PDF17", schema17);
 }
 
 // Execute main when this script is run directly

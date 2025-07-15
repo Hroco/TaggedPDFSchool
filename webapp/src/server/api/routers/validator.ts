@@ -12,7 +12,12 @@ import os from "os";
 
 export const validatorRouter = createTRPCRouter({
   validate: publicProcedure
-    .input(z.object({ tagStructure: z.string().min(1) }))
+    .input(
+      z.object({
+        tagStructure: z.string().min(1),
+        namespace: z.string().min(1),
+      }),
+    )
     .mutation(async ({ input }) => {
       console.log("validate", input.tagStructure);
 
@@ -51,10 +56,18 @@ export const validatorRouter = createTRPCRouter({
         "src/lib/rnv/latex-document-switch.rnc",
       );
 
-      const schemaPath = join(
+      const schemaPath20 = join(
         process.cwd(),
-        "src/lib/rnv/generated-schema.rnc",
+        "src/lib/rnv/generated-schema-PDF20.rnc",
       );
+
+      const schemaPath17 = join(
+        process.cwd(),
+        "src/lib/rnv/generated-schema-PDF17.rnc",
+      );
+
+      const schemaPath =
+        input.namespace === "2.0" ? schemaPath20 : schemaPath17;
 
       console.log("schemaPath", schemaPath);
 

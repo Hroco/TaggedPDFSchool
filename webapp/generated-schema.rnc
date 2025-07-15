@@ -1,0 +1,462 @@
+# Generated RNC Schema for PDF Structure Elements
+# Generated on: 2025-07-10T13:11:01.145Z
+
+namespace NoNS = ""
+namespace pdf1 = "http://iso.org/pdf/ssn"
+namespace pdf2 = "http://iso.org/pdf2/ssn"
+namespace mml = "http://www.w3.org/1998/Math/MathML"
+namespace Layout = "http://iso.org/pdf/ssn/Layout"
+namespace PrintField = "http://iso.org/pdf/ssn/PrintField"
+namespace Table = "http://iso.org/pdf/ssn/Table"
+namespace List = "http://iso.org/pdf/ssn/List"
+namespace Artifact = "http://iso.org/pdf/ssn/Artifact"
+namespace h = "http://www.w3.org/1999/xhtml"
+
+include "latex-mathml.rnc" {start |= notAllowed}
+
+# Extensions
+
+## MathML Namespace extensions
+mo.attributes &= attribute actualtext {text}?
+
+mpadded-length-percentage |= xsd:string {
+  pattern = '\s*(([\-+]?[0-9]*([0-9]\.?|\.[0-9])[0-9]*(r?em|ex|in|cm|mm|p[xtc]|Q|v[hw]|vmin|vmax|%))|0)\s*'
+}
+
+### Attribute Definitions
+
+layout-attributes =
+  # Layout attributes - PDF 2.0 Section 14.8.5.4
+  attribute Layout:Placement {"Block" | "Inline" | "Before" | "Start" | "End"}?, # Specifies how the element is placed relative to surrounding content (e
+  attribute Layout:WritingMode {"LrTb" | "RlTb" | "TbRl" | "TbLr" | "LrBt" | "RlBt" | "BtRl" | "BtLr"}?, # Defines the direction of text flow (e
+  attribute Layout:BackgroundColor {text}?, # Sets the background color for the element’s content area
+  attribute Layout:BorderColor {text}?, # Specifies the color of the border around the element
+  attribute Layout:BorderStyle {"None" | "Hidden" | "Dotted" | "Dashed" | "Solid" | "Double" | "Groove" | "Ridge" | "Inset" | "Outset"}?, # Indicates the style of the border (e
+  attribute Layout:BorderThickness {text}?, # Defines the thickness of the border line in user space units (such as points)
+  attribute Layout:Padding {text}?, # Determines the space between the element’s border (or boundary) and its inner content
+  attribute Layout:Color {text}?, # Applies the primary color (fill or stroke) for the text or graphic content
+  attribute Layout:SpaceBefore {text}?, # Specifies the additional spacing before the element
+  attribute Layout:SpaceAfter {text}?, # Specifies the additional spacing after the element
+  attribute Layout:StartIndent {text}?, # Defines the indentation at the start edge (left edge in LTR) of the element
+  attribute Layout:EndIndent {text}?, # Defines the indentation at the end edge (right edge in LTR) of the element
+  attribute Layout:TextIndent {text}?, # Specifies the indentation of the first line of text in a paragraph
+  attribute Layout:TextAlign {"Start" | "Center" | "End" | "Justify"}?, # Controls how text is aligned within the element (left, right, center, justify)
+  attribute Layout:BBox {text}?, # Indicates the bounding box of the element, specifying its position and size on the page
+  attribute Layout:Width {"Auto"}?, # Declares an explicit width for the element in user space units
+  attribute Layout:Height {"Auto" | "Start"}?, # Declares an explicit height for the element in user space units
+  attribute Layout:BlockAlign {"Before" | "Middle" | "After" | "Justify"}?, # Specifies vertical alignment of a block-level element (e
+  attribute Layout:InlineAlign {"Start" | "Center" | "End"}?, # Specifies how inline content is aligned within the line box (e
+  attribute Layout:TBorderStyle {"None" | "Hidden" | "Dotted" | "Dashed" | "Solid" | "Double" | "Groove" | "Ridge" | "Inset" | "Outset"}?, # Indicates the border style for table cells or similar tabular structures
+  attribute Layout:TPadding {text}?, # Specifies the padding inside table cells or table-like elements
+  attribute Layout:BaselineShift {text}?, # Shifts the text baseline up or down (used for subscripts, superscripts, etc
+  attribute Layout:LineHeight {"Normal" | "Auto" | "Start"}?, # Controls the spacing between lines of text (line spacing)
+  attribute Layout:TextPosition {"Sup" | "Sub" | "Normal"}?,
+  attribute Layout:TextDecorationColor {text}?, # Specifies the color used for text decorations (like underline or strike-through)
+  attribute Layout:TextDecorationThickness {text}?, # Defines the thickness of any text decoration line
+  attribute Layout:TextDecorationType {"None" | "Underline" | "Overline" | "LineThrough"}?, # Indicates the type of text decoration (underline, overline, line-through)
+  attribute Layout:RubyAlign {"Start" | "Center" | "End" | "Justify" | "Distribute"}?, # Controls how ruby text (primarily in East Asian typography) is aligned relative to its base text
+  attribute Layout:RubyPosition {"Before" | "After" | "Warichu" | "Inline"}?, # Specifies the placement of ruby text (above or below the base text)
+  attribute Layout:GlyphOrientationVertical {"Auto"}?, # Determines the orientation of glyphs when text is written in a vertical writing mode
+  attribute Layout:ColumnCount {text}?, # Specifies the number of columns for multi-column layouts
+  attribute Layout:ColumnGap {text}?, # Indicates the spacing (gap) between columns in multi-column layouts
+  attribute Layout:ColumnWidths {text}? # Specifies the width of each column in multi-column layouts
+
+list-attributes =
+  attribute List:ListNumbering {"None" | "Unordered" | "Description" | "Disc" | "Circle" | "Square" | "Ordered" | "Decimal" | "UpperRoman" | "LowerRoman" | "UpperAlpha" | "LowerAlpha"}?, # Controls the numbering style used in lists (e
+  attribute List:ContinuedList {text}?,
+  attribute List:ContinuedFrom {text}?
+
+table-attributes =
+  attribute Table:RowSpan {text}?,
+  attribute Table:ColSpan {text}?,
+  attribute Table:Headers {text}?,
+  attribute Table:Scope {"Both" | "Column" | "Row"}?,
+  attribute Table:Summary {text}?,
+  attribute Table:Short {text}?
+
+printfield-attributes =
+  attribute PrintField:Role {"rb" | "cp" | "pb" | "tv" | "lb"}?, # Assigns a semantic role to the element for accessibility or structure mapping
+  attribute PrintField:checked {"on" | "off"}?, # Indicates whether a form field (like a checkbox) is in a checked state
+  attribute PrintField:Checked {"on" | "off"}?, # Indicates whether a form field (like a checkbox) is in a checked state
+  attribute PrintField:Desc {text}? # Provides a descriptive text for the element, often used for accessibility or annotations
+
+artifact-attributes =
+  attribute Artifact:Type {"Pagination" | "Layout" | "Page" | "Inline"}?,
+  attribute Artifact:BBox {text}?,
+  attribute Artifact:Subtype {"Header" | "Footer" | "Watermark" | "PageNum" | "Bates" | "LineNum" | "Redaction"}?
+
+structure-properties =
+  attribute id {text}?, # A unique identifier for this structure element, used for referencing it from other elements or external sources
+  attribute ref {text}?, # Defines or references the lower-level PDF objects (content items) that represent the actual text or graphic content of this element
+  attribute a {text}?, # An attribute dictionary providing additional layout or semantic attributes for this element
+  attribute c {text}?, # An array of class names associated with this element, which can link to further style or attribute definitions in a class map
+  attribute title {text}?, # An optional text label or title for this structure element—can serve as a short descriptor (e
+  attribute lang {text}?, # Identifies the primary language for the text in this element (e
+  attribute alt {text}?, # Provides alternative text describing the element’s content, primarily for accessibility (screen readers)
+  attribute expanded {text}?, # Contains expansion text used to clarify abbreviations, acronyms, or symbolic content within the element
+  attribute actualtext {text}?, # Gives an exact text equivalent for non-textual or symbolic content, allowing screen readers to read it as plain text
+  attribute af {text}?, # An array of associated files or file specifications that relate to this structure element (e
+  attribute ns {text}?, # Specifies a namespace identifier for custom attributes, enabling extensibility without conflicting with standard keys
+  attribute phonetic-alphabet {text}?, # Indicates the phonetic alphabet used for any phonetic text within the element (e
+  attribute phoneme {text}? # Contains the phonemic representation of text for pronunciation guidance or linguistic analysis
+
+
+# Common attribute patterns
+pdf2-attributes =
+  structure-properties,
+  layout-attributes,
+  otherns-attributes,
+  showtags-attributes
+
+showtags-attributes =
+  attribute af {text}?,
+  attribute rolemapped-from {text}?,
+  attribute referenced-as {text}?
+
+# Standard Attribute Owner Namespaces apart from the ones listed here
+otherns-attributes =
+  attribute (* - (NoNS:*|Layout:*|PrintField:*|Table:*|List:*|Artifact:*)) {text}*
+
+# Role mapping attributes for PDF1 compatibility
+pdf1rolemap-Any = notAllowed?
+pdf1rolemap-P = notAllowed?
+pdf1rolemap-Span = notAllowed?
+pdf1rolemap-Note = notAllowed?
+
+
+# Special definitions
+fenote-attributes = notAllowed?
+
+figure-attributes =
+  attribute actualtext {text}?&   # ActualText
+  attribute alt {text}?           # Alt
+
+sechead.content =
+  pdf2-attributes,
+  (Art?&Sect?&(text|NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact)*)
+
+# Text or HTML content helper
+textorHTML &= (Link|Lbl)*
+
+### Element Definitions
+
+# UA-2 Single Document element root.
+start = Document | DocumentFragment
+
+# Share with pdf1.7 version
+textorHTML &= (Link|Lbl)*
+
+Document = element pdf2:Document {
+pdf2-attributes,
+(H?& (Document|DocumentFragment|Part|Art|Div|Sect|TOC|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|Title|Link|Annot|Form|FENote|Index|L|Table|Figure|Formula|Artifact)*)
+}
+
+DocumentFragment = element pdf2:DocumentFragment {
+pdf1rolemap-Any,
+pdf2-attributes,
+(H?& (Document|DocumentFragment|Part|Art|Div|Sect|TOC|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|Title|Link|Annot|Form|FENote|Index|L|Table|Figure|Formula|Artifact)*)
+}
+
+Part = element pdf2:Part {
+pdf2-attributes,
+(Document|DocumentFragment|Part|Art|Div|Sect|TOC|TOCI|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|H|Title|Sub|Lbl|Link|Reference|Annot|Form|FENote|Index|L|BibEntry|Table|Caption|Figure|Formula|Artifact)*
+}
+
+Div = element pdf2:Div {
+pdf2-attributes,
+(Document|DocumentFragment|Part|Art|Div|Sect|TOC|TOCI|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|H|Title|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|RB|RT|RP|Warichu|WT|WP|FENote|Index|L|LI|LBody|BibEntry|Table|TR|TH|TD|THead|TBody|TFoot|Caption|Figure|Formula|Artifact)*
+}
+
+Art = element pdf1:Art {
+pdf2-attributes,
+(H?&Caption?& (DocumentFragment|Part|Div|Sect|TOC|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|Title|Lbl|Link|Annot|Form|FENote|Index|L|Table|Figure|Formula|Artifact)*)
+}
+
+Sect = element pdf2:Sect {
+pdf2-attributes,
+(H?& (DocumentFragment|Part|Art|Div|Sect|TOC|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|Title|Lbl|Link|Annot|Form|FENote|Index|L|Table|Caption|Figure|Formula|Artifact)*)
+}
+
+TOC = element pdf1:TOC {
+pdf2-attributes,
+(Caption?& (Part|TOC|TOCI|NonStruct|Private|Artifact)*)
+}
+
+TOCI = element pdf1:TOCI {
+pdf2-attributes,
+(Div|TOC|NonStruct|Private|P|Lbl|Reference|Artifact)*
+}
+
+Aside = element pdf2:Aside {
+pdf1rolemap-Any,
+pdf2-attributes,
+(H?&Caption?& (Document|DocumentFragment|Part|Art|Div|Sect|TOC|BlockQuote|NonStruct|Private|P|Note|Code|Hn|Lbl|Link|Reference|Annot|Form|FENote|Index|L|Table|Figure|Formula|Artifact|text)*)
+}
+
+BlockQuote = element pdf1:BlockQuote {
+pdf2-attributes,
+(H?&Caption?& (Document|DocumentFragment|Part|Art|Div|Sect|TOC|BlockQuote|NonStruct|Private|P|Note|Code|Hn|Lbl|Link|Reference|Annot|Form|FENote|Index|L|Table|Figure|Formula|Artifact|text)*)
+}
+
+NonStruct = element pdf2:NonStruct {
+pdf2-attributes,
+(Document|DocumentFragment|Part|Art|Div|Sect|TOC|TOCI|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|H|Title|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|RB|RT|RP|Warichu|WT|WP|FENote|Index|L|LI|LBody|BibEntry|Table|TR|TH|TD|THead|TBody|TFoot|Caption|Figure|Formula|Artifact|text)*
+}
+
+Private = element pdf1:Private {
+pdf2-attributes,
+(Document|DocumentFragment|Part|Art|Div|Sect|TOC|TOCI|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|H|Title|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|RB|RT|RP|Warichu|WT|WP|FENote|Index|L|LI|LBody|BibEntry|Table|TR|TH|TD|THead|TBody|TFoot|Caption|Figure|Formula|Artifact|text)*
+}
+
+Title = element pdf2:Title {
+pdf1rolemap-P,
+pdf2-attributes,
+(
+(Caption?& (Part|Div|Aside|NonStruct|Private|P|Link|Annot|Form|FENote|L|Table|Figure|Formula|Artifact)*) # Grouping
+|
+(Caption?& (Part|Div|Aside|NonStruct|Private|P|Note|Code|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|L|BibEntry|Table|Figure|Formula|Artifact|text)*) # Block
+)
+}
+
+Sub = element pdf2:Sub {
+pdf2-attributes,
+(NonStruct|Private|Note|Code|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|L|BibEntry|Figure|Formula|Artifact|text)*
+}
+
+P = element pdf2:P {
+pdf2-attributes,
+(NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|L|BibEntry|Table|Figure|Formula|Artifact|text)*
+}
+
+Note = element pdf1:Note {
+pdf2-attributes,
+(Caption?& (Part|Art|Div|Sect|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|Index|L|BibEntry|Table|Figure|Formula|Artifact|text)*)
+}
+
+Code = element pdf1:Code {
+pdf2-attributes,
+(Caption?& (Part|Art|Div|Sect|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|Index|L|BibEntry|Table|Figure|Formula|Artifact|text)*)
+}
+
+Hn = element pdf2:Hn {
+pdf2-attributes,
+(Sect?& (NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact|text)*)
+}
+
+H = element pdf2:H {
+pdf2-attributes,
+(Sect?& (NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact|text)*)
+}
+
+Lbl = element pdf2:Lbl {
+pdf2-attributes,
+(NonStruct|Private|Note|Code|Sub|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact|text)*
+}
+
+Em = element pdf2:Em {
+pdf1rolemap-Span,
+pdf2-attributes,
+(NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact|text)*
+}
+
+Strong = element pdf2:Strong {
+pdf1rolemap-Span,
+pdf2-attributes,
+(NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact|text)*
+}
+
+Span = element pdf2:Span {
+pdf2-attributes,
+(NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact|text)*
+}
+
+Quote = element pdf1:Quote {
+pdf2-attributes,
+(NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact|text)*
+}
+
+Link = element pdf2:Link {
+pdf2-attributes,
+(
+(Art|Div|Sect|NonStruct|Private|Annot|FENote|Figure|Formula|Artifact|DocumentFragment|Part|Aside|BlockQuote|P|Hn|H|Title|Form|L|Table|Caption)* # Grouping
+|
+(Art|Div|Sect|NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Reference|Annot|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact|text)* # Block
+)
+}
+
+Reference = element pdf1:Reference {
+pdf2-attributes,
+(NonStruct|Private|Note|Lbl|Em|Strong|Span|Link|Annot|FENote|BibEntry|Figure|Artifact|text)*
+}
+
+Annot = element pdf2:Annot {
+pdf2-attributes,
+(
+(Art|Div|Sect|NonStruct|Private|Link|Annot|FENote|Figure|Formula|Artifact|DocumentFragment|Part|Aside|BlockQuote|P|Hn|H|Title|Reference|Form|L|Table|Caption)* # Grouping
+|
+(Art|Div|Sect|NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Annot|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact|text)* # Block
+)
+}
+
+Form = element pdf2:Form {
+pdf2-attributes,
+printfield-attributes,
+(
+(Caption?& (Div|NonStruct|Private|FENote|Artifact|Part|Code|Reference|L|Table|Figure|Formula)*) # Grouping
+|
+(Caption?& (Div|NonStruct|Private|Note|Lbl|FENote|BibEntry|Artifact|text)*) # Block
+)
+}
+
+Ruby = element pdf2:Ruby {
+pdf2-attributes,
+((NonStruct|Private|text)* & (RB,(RT|(RB,RT,RP))))
+}
+
+RB = element pdf2:RB {
+pdf2-attributes,
+(text|NonStruct|Private|Sub|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Artifact)*
+}
+
+RT = element pdf2:RT {
+pdf2-attributes,
+(text|NonStruct|Private|Sub|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Artifact)*
+}
+
+RP = element pdf2:RP {
+pdf2-attributes,
+(text|NonStruct|Private|Sub|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Artifact)*
+}
+
+Warichu = element pdf2:Warichu {
+pdf2-attributes,
+((NonStruct|Private|text)* & (WP,WT,WP))
+}
+
+WT = element pdf2:WT {
+pdf2-attributes,
+(text|NonStruct|Private|Sub|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Artifact)*
+}
+
+WP = element pdf2:WP {
+pdf2-attributes,
+(text|NonStruct|Private|Sub|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Artifact)*
+}
+
+FENote = element pdf2:FENote {
+pdf1rolemap-Note,
+pdf2-attributes,
+fenote-attributes,
+(
+(Part|Art|Div|Sect|Aside|BlockQuote|NonStruct|Private|P|Link|Annot|Form|FENote|Index|L|Table|Figure|Formula|Artifact|DocumentFragment|Caption)* # Grouping
+|
+(Part|Art|Div|Sect|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|Index|L|BibEntry|Table|Figure|Formula|Artifact|text)* # Block
+)
+}
+
+Index = element pdf1:Index {
+pdf2-attributes,
+(Caption?& (Part|Div|Sect|NonStruct|Private|P|Note|Hn|H|Reference|Annot|FENote|L|Table|Figure|Formula|Artifact)*)
+}
+
+L = element pdf2:L {
+pdf2-attributes,
+list-attributes,
+(Caption?& (NonStruct|Private|L|LI|Artifact)*)
+}
+
+LI = element pdf2:LI {
+pdf2-attributes,
+list-attributes,
+(Div|NonStruct|Private|Lbl|LBody|Artifact|text)*
+}
+
+LBody = element pdf2:LBody {
+pdf2-attributes,
+(H?&Caption?& (Part|Art|Div|Sect|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|Sub|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|Index|L|BibEntry|Table|Figure|Formula|Artifact|text)*)
+}
+
+BibEntry = element pdf1:BibEntry {
+pdf2-attributes,
+(Part|Div|NonStruct|Private|P|Note|Lbl|Em|Strong|Span|Link|Reference|Annot|FENote|Figure|Artifact|text)*
+}
+
+Table = element pdf2:Table {
+pdf2-attributes,
+table-attributes,
+(THead?&TFoot?&Caption?& (NonStruct|Private|TR|TBody|Artifact)*)
+}
+
+TR = element pdf2:TR {
+pdf2-attributes,
+table-attributes,
+(NonStruct|Private|TH|TD|Artifact)*
+}
+
+TH = element pdf2:TH {
+pdf2-attributes,
+table-attributes,
+(H?& (Art|Div|Sect|NonStruct|Private|P|Note|Code|Hn|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|Index|L|BibEntry|Table|Figure|Formula|Artifact|text)*)
+}
+
+TD = element pdf2:TD {
+pdf2-attributes,
+table-attributes,
+(H?& (Art|Div|Sect|NonStruct|Private|P|Note|Code|Hn|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|Index|L|BibEntry|Table|Figure|Formula|Artifact|text)*)
+}
+
+THead = element pdf2:THead {
+pdf2-attributes,
+table-attributes,
+(NonStruct|Private|TR|Artifact)*
+}
+
+TBody = element pdf2:TBody {
+pdf2-attributes,
+table-attributes,
+(NonStruct|Private|TR|Artifact)*
+}
+
+TFoot = element pdf2:TFoot {
+pdf2-attributes,
+table-attributes,
+(NonStruct|Private|TR|Artifact)*
+}
+
+Caption = element pdf2:Caption {
+pdf2-attributes,
+(
+(H?& (Part|Art|Div|Sect|Aside|BlockQuote|NonStruct|Private|P|Hn|Link|Annot|Form|FENote|Index|L|Table|Figure|Formula|Artifact|DocumentFragment)*) # Grouping
+|
+(H?& (Part|Art|Div|Sect|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|Index|L|BibEntry|Table|Figure|Formula|Artifact|text)*) # Block
+)
+}
+
+Figure = element pdf2:Figure {
+pdf2-attributes,
+(
+(H?&Caption?& (Part|Art|Div|Sect|Aside|BlockQuote|NonStruct|Private|P|Hn|Link|Annot|Form|FENote|Index|L|Table|Figure|Formula|Artifact|Sub)*) # Grouping
+|
+(H?&Caption?& (Part|Art|Div|Sect|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|Index|L|BibEntry|Table|Figure|Formula|Artifact|text)*) # Block
+)
+}
+
+Formula = element pdf2:Formula {
+pdf2-attributes,
+(
+(H?&Caption?& (Part|Div|Aside|BlockQuote|NonStruct|Private|P|Hn|Link|Annot|Form|FENote|Index|L|Table|Figure|Formula|Artifact)*) # Grouping
+|
+(H?&Caption?& (Part|Div|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|Index|L|BibEntry|Table|Figure|Formula|Artifact|text)*) # Block
+)
+}
+
+Artifact = element pdf2:Artifact {
+pdf2-attributes,
+artifact-attributes,
+(
+(H?&Caption?& (Document|DocumentFragment|Part|Art|Div|Sect|TOC|TOCI|Aside|BlockQuote|NonStruct|Private|P|Hn|Title|Link|Annot|Form|FENote|Index|L|LI|LBody|Table|TR|TH|TD|THead|TBody|TFoot|Figure|Formula|Artifact)*) # Grouping
+|
+(H?&Caption?& (Document|DocumentFragment|Part|Art|Div|Sect|TOC|TOCI|Aside|BlockQuote|NonStruct|Private|P|Note|Code|Hn|Title|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|RB|RT|RP|Warichu|WT|WP|FENote|Index|L|LI|LBody|BibEntry|Table|TR|TH|TD|THead|TBody|TFoot|Figure|Formula|Artifact|text)*) # Block
+)
+}
+
