@@ -10,6 +10,16 @@ import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { TRPCError } from "@trpc/server";
 import os from "os";
 
+function formatErrorOutput(text: string, xmlPath: string): string {
+  //Remove first line of the text
+  text = text.replace(/^.*\n/, "");
+
+  //Replace in text all occurences of xmlPath with 'Your XML'
+  text = text.replaceAll(xmlPath, "Output");
+
+  return text;
+}
+
 export const validatorRouter = createTRPCRouter({
   validate: publicProcedure
     .input(
@@ -19,13 +29,10 @@ export const validatorRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ input }) => {
-      console.log("validate", input.tagStructure);
-
       const { tagStructure } = input;
 
       // Create temp directory path
       const tmpDirPath = join(os.tmpdir(), "taggedpdf");
-      console.log("tmpDirPath", tmpDirPath);
 
       // Ensure temp directory exists
       try {
@@ -37,8 +44,6 @@ export const validatorRouter = createTRPCRouter({
       // Create a temporary file for the XML content.
       const tempFileName = join(tmpDirPath, `xml-${uuidv4()}.xml`);
 
-      console.log("tempFileName", tempFileName);
-
       try {
         await fs.writeFile(tempFileName, tagStructure, "utf8");
       } catch (err) {
@@ -49,12 +54,10 @@ export const validatorRouter = createTRPCRouter({
         });
       }
 
-      console.log("process.cwd()", process.cwd());
-
-      const schemaPathold = join(
+      /*const schemaPathold = join(
         process.cwd(),
         "src/lib/rnv/latex-document-switch.rnc",
-      );
+      );*/
 
       const schemaPath20 = join(
         process.cwd(),
@@ -69,8 +72,6 @@ export const validatorRouter = createTRPCRouter({
       const schemaPath =
         input.namespace === "2.0" ? schemaPath20 : schemaPath17;
 
-      console.log("schemaPath", schemaPath);
-
       const args = [schemaPath, tempFileName];
 
       const rnvLocation = join(process.cwd(), "src/lib/rnv/rnv");
@@ -82,9 +83,9 @@ export const validatorRouter = createTRPCRouter({
             .then(() => {
               // Executable exists and is executable
               execFile(rnvLocation, args, (error, stdout, stderr) => {
-                console.log("stdout", stdout);
-                console.log("stderr", stderr);
-                console.log("error", error);
+                //console.log("stdout", stdout);
+                //console.log("stderr", stderr);
+                //console.log("error", error);
 
                 // Clean up temporary file
                 fs.unlink(tempFileName).catch((unlinkErr) => {
@@ -96,7 +97,11 @@ export const validatorRouter = createTRPCRouter({
 
                 if (error) {
                   // Return validation errors but don't reject the promise
-                  resolve(stderr || stdout);
+                  const errorOut = formatErrorOutput(
+                    stderr || stdout,
+                    tempFileName,
+                  );
+                  resolve(errorOut);
                 } else {
                   resolve("PDF should be valid");
                 }
@@ -129,13 +134,10 @@ export const validatorRouter = createTRPCRouter({
   downloadPDF: publicProcedure
     .input(z.object({ tagStructure: z.string().min(1) }))
     .mutation(async ({ input }) => {
-      console.log("validate", input.tagStructure);
-
       const { tagStructure } = input;
 
       // Create temp directory path
       const tmpDirPath = join(os.tmpdir(), "taggedpdf");
-      console.log("tmpDirPath", tmpDirPath);
 
       // Ensure temp directory exists
       try {
@@ -149,8 +151,6 @@ export const validatorRouter = createTRPCRouter({
 
       const tempPDFFileName = join(tmpDirPath, `pdf-${uuidv4()}.pdf`);
 
-      console.log("tempFileName", tempFileName);
-
       try {
         await fs.writeFile(tempFileName, tagStructure, "utf8");
       } catch (err) {
@@ -160,8 +160,6 @@ export const validatorRouter = createTRPCRouter({
           message: "Error writing temp file",
         });
       }
-
-      console.log("process.cwd()", process.cwd());
 
       const args = [`--in-xml=${tempFileName}`, `--out-pdf=${tempPDFFileName}`];
 
@@ -192,9 +190,9 @@ export const validatorRouter = createTRPCRouter({
           throw new Error(`Unsupported platform: ${platform}`);
       }
 
-      console.log("platform", platform);
-      console.log("xml2pdfLocation", xml2pdfLocation);
-      console.log("args", args);
+      //console.log("platform", platform);
+      //console.log("xml2pdfLocation", xml2pdfLocation);
+      //console.log("args", args);
 
       return new Promise<{ output: string; success: boolean }>(
         (resolve, reject) => {
@@ -204,9 +202,9 @@ export const validatorRouter = createTRPCRouter({
               .then(() => {
                 // Executable exists and is executable
                 execFile(xml2pdfLocation, args, (error, stdout, stderr) => {
-                  console.log("stdout", stdout);
-                  console.log("stderr", stderr);
-                  console.log("error", error);
+                  //console.log("stdout", stdout);
+                  //console.log("stderr", stderr);
+                  //console.log("error", error);
 
                   // Clean up temporary file
                   fs.unlink(tempFileName).catch((unlinkErr) => {
@@ -227,7 +225,7 @@ export const validatorRouter = createTRPCRouter({
                     void fs.readFile(tempPDFFileName).then((data) => {
                       const base64PDF = data.toString("base64");
 
-                      console.log("base64PDF", base64PDF);
+                      //console.log("base64PDF", base64PDF);
 
                       // Clean up temporary PDF file
                       fs.unlink(tempPDFFileName).catch((unlinkErr) => {

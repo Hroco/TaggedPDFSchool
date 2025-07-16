@@ -1,5 +1,5 @@
 # Generated RNC Schema for PDF Structure Elements
-# Generated on: 2025-07-15T10:03:57.414Z
+# Generated on: 2025-07-16T07:20:58.432Z
 
 namespace NoNS = ""
 namespace pdf1 = "http://iso.org/pdf/ssn"
@@ -130,10 +130,6 @@ fenote-attributes = notAllowed?
 figure-attributes =
   attribute actualtext {text}?&   # ActualText
   attribute alt {text}?           # Alt
-
-sechead.content =
-  pdf2-attributes,
-  (Art?&Sect?&(text|NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact)*)
 
 # Text or HTML content helper
 textorHTML &= (Link|Lbl)*

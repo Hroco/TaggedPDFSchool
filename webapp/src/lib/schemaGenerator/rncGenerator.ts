@@ -307,7 +307,11 @@ pdf1rolemap-Note = notAllowed?
     let output = "### Element Definitions\n\n";
 
     // Generate start definition
-    output += `# UA-2 Single Document element root.\nstart = Document | DocumentFragment\n\n`;
+    if (type === "PDF20") {
+      output += `# UA-2 Single Document element root.\nstart = Document | DocumentFragment\n\n`;
+    } else {
+      output += `# UA-2 Single Document element root.\nstart = Document\n\n`;
+    }
 
     // Generate helper patterns first
     output += `# Share with pdf1.7 version\ntextorHTML &= (Link|Lbl)*\n\n`;
@@ -451,6 +455,9 @@ pdf1rolemap-Note = notAllowed?
 
     if (type === "PDF17") {
       children = children.filter((child) => {
+        if (child[0] === "text") {
+          return true;
+        }
         return this.doesElementExistIn17(child[0] ?? "");
       });
     }
@@ -652,10 +659,6 @@ fenote-attributes = notAllowed?
 figure-attributes =
   attribute actualtext {text}?&   # ActualText
   attribute alt {text}?           # Alt
-
-sechead.content =
-  pdf2-attributes,
-  (Art?&Sect?&(text|NonStruct|Private|Note|Code|Sub|Lbl|Em|Strong|Span|Quote|Link|Reference|Annot|Form|Ruby|Warichu|FENote|BibEntry|Figure|Formula|Artifact)*)
 
 # Text or HTML content helper
 textorHTML &= (Link|Lbl)*

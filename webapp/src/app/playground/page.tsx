@@ -56,9 +56,6 @@ function XMLViewer() {
   const [validationOutput, setValidationOutput] = useState<string>("");
   const validateXML = api.validator.validate.useMutation();
   const downloadPDF = api.validator.downloadPDF.useMutation();
-  const onChange = React.useCallback((value: string) => {
-    setXmlContent(value);
-  }, []);
 
   useEffect(() => {
     void run();
@@ -66,6 +63,20 @@ function XMLViewer() {
 
   useEffect(() => {
     console.log("selectedNamespace", selectedNamespace);
+
+    if (selectedNamespace === "1.7") {
+      const newText = xmlContent.replaceAll(
+        "http://iso.org/pdf2/ssn",
+        "http://iso.org/pdf/ssn",
+      );
+      setXmlContent(newText);
+    } else {
+      const newText = xmlContent.replaceAll(
+        "http://iso.org/pdf/ssn",
+        "http://iso.org/pdf2/ssn",
+      );
+      setXmlContent(newText);
+    }
   }, [selectedNamespace]);
 
   async function run() {
@@ -146,7 +157,9 @@ function XMLViewer() {
               value={xmlContent}
               height="calc(100%)"
               extensions={[xml()]}
-              onChange={onChange}
+              onChange={(value: string) => {
+                setXmlContent(value);
+              }}
               theme="dark"
               className="h-full"
             />
@@ -159,6 +172,7 @@ function XMLViewer() {
               onChange={(e) => {
                 setValidationOutput(e.target.value);
               }}
+              readOnly
             />
           </ResizablePanel>
         </ResizablePanelGroup>
