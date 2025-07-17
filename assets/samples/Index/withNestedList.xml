@@ -1,0 +1,37 @@
+<Document xmlns="http://iso.org/pdf2/ssn">
+  <Index>
+    <L><!--index as a list-->
+      <LI><!--index topic-->
+        <Lbl>[section identifier, e.g. “B”]</Lbl>
+        <LBody>
+          <L><!--list containing entries relating the topic “B”-->
+            <LI>
+              <Lbl>[first entry, e.g. “Beer”]</Lbl>
+              <LBody>[containing all references]
+                <Reference>[first page number, e.g. 20]</Reference>
+                <Reference>[second page number, e.g. 22-24]</Reference>
+                <Reference>[see also Food]</Reference>
+              </LBody>
+            </LI>
+            <LI>
+              <Lbl>[numbering, if available, e.g. “Boy”]</Lbl>
+              <LBody>[containing all references]
+                <Reference>[first page number, e.g. 28]</Reference>
+                <Reference>[second page number, e.g. 29]</Reference>
+                <Reference>[see also Girl]</Reference>
+              </LBody>
+            </LI>
+            <LI>[index topic]
+              <Lbl>[section identifier, e.g. “C”]</Lbl>
+              <LBody>
+                <L><!--list containing entries relating the topic “C”-->
+                  <LI>{…}</LI>
+                </L>
+              </LBody>
+            </LI>
+          </L>
+        </LBody>
+      </LI>
+    </L>
+  </Index>
+</Document>

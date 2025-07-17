@@ -1,0 +1,12 @@
+<Document xmlns="http://iso.org/pdf2/ssn">
+  <Table>
+    <Caption>
+      content
+    </Caption>
+    <TR>
+     <TH>
+      Header
+     </TH>
+    </TR>
+  </Table>
+</Document>

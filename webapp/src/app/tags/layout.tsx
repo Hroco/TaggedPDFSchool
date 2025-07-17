@@ -1,4 +1,4 @@
-import tags from "@assets/tagsDB";
+import tags from "@assets/tagsDB.json";
 import Link from "next/link";
 import { ScrollArea } from "~/components/ui/scroll-area";
 
@@ -8,22 +8,24 @@ export default function Layout({
   return (
     <div className="container flex max-w-(--breakpoint-2xl)">
       <aside className="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-72 border-r border-gray-800 lg:block">
-        <ScrollArea className="h-full py-6 pl-8 pr-6">
+        <ScrollArea className="h-full py-6 pr-6 pl-8">
           <nav className="relative">
-            <div className="mb-4 text-lg font-bold text-primary">
+            <div className="text-primary mb-4 text-lg font-bold">
               PDF Tags Reference
             </div>
             <ul className="space-y-2">
-              {tags.map((tag) => (
-                <li key={tag.name}>
-                  <Link
-                    href={`/tags/${tag.name}`}
-                    className="block py-1 text-sm text-gray-400 transition-colors hover:text-primary"
-                  >
-                    {tag.name}
-                  </Link>
-                </li>
-              ))}
+              {tags
+                .sort((a, b) => a.name.localeCompare(b.name))
+                .map((tag) => (
+                  <li key={tag.name}>
+                    <Link
+                      href={`/tags/${tag.name}`}
+                      className="hover:text-primary block py-1 text-sm text-gray-400 transition-colors"
+                    >
+                      {tag.name}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </nav>
         </ScrollArea>

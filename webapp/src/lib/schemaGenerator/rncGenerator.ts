@@ -1,46 +1,10 @@
-import tagsCJS from "@assets/tagsDB";
-// Define Tag interface for type safety
-interface Tag {
-  name: string;
-  namespace: string[];
-  type: string[];
-}
-// Unwrap CommonJS or ESM default to retrieve the tags array using unknown for safe casting
-const rawTags =
-  (tagsCJS as unknown as { default?: Tag[] }).default ??
-  (tagsCJS as unknown as Tag[]);
-const tags: Tag[] = Array.isArray(rawTags) ? rawTags : [];
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
+import attributes from "@assets/attributesDB.json";
+import properties from "@assets/propertiesDB.json";
+import tags from "@assets/tagsDB.json";
 
 // Type definitions for the JSON data structures
-interface AttributeValue {
-  valueType: string;
-  values: Array<{
-    name: string;
-    description: string;
-  }>;
-}
-
-interface Attribute {
-  name: string;
-  description: string;
-  source: string;
-  owner: string;
-  inheritable: boolean;
-  type: string | null;
-  defaultValue: string | null;
-  values: AttributeValue[];
-  relatedTags: string[];
-}
-
-interface Property {
-  name: string;
-  description: string;
-  source: string;
-  relatedTags: string[];
-}
-
 interface StructureElement {
   name: string;
   hierarchy: {
@@ -50,8 +14,6 @@ interface StructureElement {
 }
 
 interface RNCGeneratorConfig {
-  attributesFile: string;
-  propertiesFile: string;
   structureFile: string;
   outputFile17: string;
   outputFile2: string;
@@ -60,8 +22,6 @@ interface RNCGeneratorConfig {
 }
 
 class RNCSchemaGenerator {
-  private attributes: Attribute[] = [];
-  private properties: Property[] = [];
   private structures: StructureElement[] = [];
   private config: RNCGeneratorConfig;
 
@@ -71,18 +31,6 @@ class RNCSchemaGenerator {
   }
 
   private loadData(): void {
-    // Load attributes
-    if (existsSync(this.config.attributesFile)) {
-      const attributesData = readFileSync(this.config.attributesFile, "utf8");
-      this.attributes = JSON.parse(attributesData) as Attribute[];
-    }
-
-    // Load properties
-    if (existsSync(this.config.propertiesFile)) {
-      const propertiesData = readFileSync(this.config.propertiesFile, "utf8");
-      this.properties = JSON.parse(propertiesData) as Property[];
-    }
-
     // Load structure relationships
     if (existsSync(this.config.structureFile)) {
       const structureData = readFileSync(this.config.structureFile, "utf8");
@@ -118,7 +66,7 @@ class RNCSchemaGenerator {
     let output = "### Attribute Definitions\n\n";
 
     // Generate layout attributes
-    const layoutAttributes = this.attributes.filter(
+    const layoutAttributes = attributes.filter(
       (attr) => attr.owner === "Layout",
     );
     if (layoutAttributes.length > 0) {
@@ -134,9 +82,7 @@ class RNCSchemaGenerator {
     }
 
     // Generate list attributes
-    const listAttributes = this.attributes.filter(
-      (attr) => attr.owner === "List",
-    );
+    const listAttributes = attributes.filter((attr) => attr.owner === "List");
     if (listAttributes.length > 0) {
       output += "list-attributes =\n";
       for (const attr of listAttributes) {
@@ -148,9 +94,7 @@ class RNCSchemaGenerator {
     }
 
     // Generate table attributes
-    const tableAttributes = this.attributes.filter(
-      (attr) => attr.owner === "Table",
-    );
+    const tableAttributes = attributes.filter((attr) => attr.owner === "Table");
     if (tableAttributes.length > 0) {
       output += "table-attributes =\n";
       for (const attr of tableAttributes) {
@@ -162,7 +106,7 @@ class RNCSchemaGenerator {
     }
 
     // Generate print field attributes
-    const printFieldAttributes = this.attributes.filter(
+    const printFieldAttributes = attributes.filter(
       (attr) => attr.owner === "PrintField",
     );
     if (printFieldAttributes.length > 0) {
@@ -177,7 +121,7 @@ class RNCSchemaGenerator {
     }
 
     // Generate artifact attributes
-    const artifactAttributes = this.attributes.filter(
+    const artifactAttributes = attributes.filter(
       (attr) => attr.owner === "Artifact",
     );
     if (artifactAttributes.length > 0) {
@@ -193,8 +137,8 @@ class RNCSchemaGenerator {
 
     // Generate structure properties (no namespace)
     output += "structure-properties =\n";
-    for (const prop of this.properties) {
-      const isLastItem = prop === this.properties[this.properties.length - 1];
+    for (const prop of properties) {
+      const isLastItem = prop === properties[properties.length - 1];
       const attrName = this.getAttributeName(prop.name);
       output += `  attribute ${attrName} {text}?`;
 
@@ -213,7 +157,7 @@ class RNCSchemaGenerator {
   }
 
   private generateAttributeLine(
-    attr: Attribute,
+    attr: (typeof attributes)[0],
     namespace: string,
     isLastItem: boolean,
   ): string {
@@ -723,8 +667,6 @@ mpadded-length-percentage |= xsd:string {
 function main() {
   const currentDir = process.cwd();
   const config: RNCGeneratorConfig = {
-    attributesFile: join(currentDir, "../assets/attributesDB.json"),
-    propertiesFile: join(currentDir, "../assets/propertiesDB.json"),
     structureFile: join(
       currentDir,
       "./src/hierarchyGenerator/32005-main/sources/generated/structure-relationships.json",

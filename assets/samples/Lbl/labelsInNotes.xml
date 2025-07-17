@@ -1,0 +1,11 @@
+<Document xmlns="http://iso.org/pdf2/ssn">
+  <P>
+    <Reference>
+      <Lbl>bullet</Lbl>
+    </Reference>
+    <Note>
+      <Lbl>bullet</Lbl>
+      <P>content</P>
+    </Note>
+  </P>
+</Document>

@@ -1,5 +1,6 @@
 import { validatorRouter } from "~/server/api/routers/validator";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
+import { sampleRouter } from "./routers/sample";
 
 /**
  * This is the primary router for your server.
@@ -8,6 +9,7 @@ import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
  */
 export const appRouter = createTRPCRouter({
   validator: validatorRouter,
+  sample: sampleRouter,
 });
 
 // export type definition of API

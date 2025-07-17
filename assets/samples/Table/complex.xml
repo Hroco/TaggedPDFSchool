@@ -1,0 +1,25 @@
+<Document xmlns="http://iso.org/pdf2/ssn">
+    <Table>
+        <THead>
+            <TR>
+                <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C1_Table" Table:Scope="Column">text</TH>
+                <TH xmlns:Table="http://iso.org/pdf/ssn/Table" id="R1C2_Table" Table:Scope="Column">text</TH>
+            </TR>
+        </THead>
+        <TBody>
+            <TR>
+                <TD>text</TD>
+                <TD>text</TD>
+            </TR>
+            <TR>
+                <TD xmlns:Table="http://iso.org/pdf/ssn/Table" Table:ColSpan="2">text</TD>
+            </TR>
+        </TBody>
+        <TFoot>
+            <TR>
+                <TD>text</TD>
+                <TD>text</TD>
+            </TR>
+        </TFoot>
+    </Table>
+</Document>

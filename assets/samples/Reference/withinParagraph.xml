@@ -1,0 +1,7 @@
+<Document xmlns="http://iso.org/pdf2/ssn">
+  <P>
+    [content]
+    <Reference>[content of reference, e.g. "1"]</Reference>
+    possible more content
+  </P>
+</Document>

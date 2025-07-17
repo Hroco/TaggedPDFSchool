@@ -10,7 +10,7 @@ import properties from "@assets/propertiesDB.json";
 import { useRouter } from "next/navigation";
 import { Badge } from "./ui/badge";
 import { ScrollArea } from "./ui/scroll-area";
-import tags from "@assets/tagsDB";
+import tags from "@assets/tagsDB.json";
 
 const searchAttr = attributes.map((attr) => attr.name);
 const searchTags = tags.map((tag) => tag.name);
@@ -123,7 +123,7 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 mx-auto flex flex-col-reverse items-center justify-between space-y-2 border-b border-gray-800 bg-gray-900/95 px-4 py-3 pl-5 backdrop-blur-sm supports-backdrop-filter:bg-gray-900/75 md:flex-row md:space-y-0">
-      <h1 className="hidden text-2xl font-bold text-primary sm:block">
+      <h1 className="text-primary hidden text-2xl font-bold sm:block">
         Tagged PDF School
       </h1>
       <div className="relative mt-2 w-full sm:mt-0 sm:w-64" ref={searchRef}>
@@ -135,9 +135,9 @@ export const Navbar = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="w-full rounded-md bg-gray-800 px-4 py-2 pr-10 text-white placeholder-gray-400 focus:outline-hidden focus:ring-2 focus:ring-primary"
+            className="focus:ring-primary w-full rounded-md bg-gray-800 px-4 py-2 pr-10 text-white placeholder-gray-400 focus:ring-2 focus:outline-hidden"
           />
-          <Search className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
+          <Search className="absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
         </div>
         {isDropdownVisible && searchResults.length > 0 && (
           <div className="absolute w-full">
@@ -197,37 +197,37 @@ export const Navbar = () => {
         )}
       </div>
       <nav className="flex items-center space-x-4">
-        <Link href="/" className="transition-colors hover:text-primary">
+        <Link href="/" className="hover:text-primary transition-colors">
           Home
         </Link>
-        <Link href="/tags" className="transition-colors hover:text-primary">
+        <Link href="/tags" className="hover:text-primary transition-colors">
           Tags
         </Link>
         <Link
           href="/properties"
-          className="transition-colors hover:text-primary"
+          className="hover:text-primary transition-colors"
         >
           Properties
         </Link>
         <Link
           href="/attributes"
-          className="transition-colors hover:text-primary"
+          className="hover:text-primary transition-colors"
         >
           Attributes
         </Link>
         <Link
           href="/matterhorn"
-          className="transition-colors hover:text-primary"
+          className="hover:text-primary transition-colors"
         >
           Matterhorn
         </Link>
         <Link
           href="/playground"
-          className="transition-colors hover:text-primary"
+          className="hover:text-primary transition-colors"
         >
           Playground
         </Link>
-        <Link href="/about" className="transition-colors hover:text-primary">
+        <Link href="/about" className="hover:text-primary transition-colors">
           About
         </Link>
       </nav>

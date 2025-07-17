@@ -1,90 +1,42 @@
 "use client";
 import Link from "next/link";
-import attributes from "@assets/attributesDB.json";
-import properties from "@assets/propertiesDB.json";
-import checks from "@assets/matterhornProtocol.json";
 import { Badge } from "~/components/ui/badge";
 import { Card } from "~/components/ui/card";
 import { ChevronRight, ArrowUpCircle, ArrowDownCircle } from "lucide-react";
-import { notFound } from "next/navigation";
-import hierarchyData from "~/hierarchyGenerator/32005-main/sources/generated/structure-relationships.json";
 import CodeMirror from "@uiw/react-codemirror";
 import { xml } from "@codemirror/lang-xml";
 import React from "react";
 import { buttonVariants } from "~/components/ui/button";
 import Markdown from "~/components/MarkDown";
-import tags from "@assets/tagsDB";
+import type {
+  attributesType,
+  checksType,
+  propertiesType,
+  tagType,
+} from "./page";
 
-export default function Tag({ currentTag }: { currentTag: string }) {
-  const tag = tags.find((tag) => tag.name === currentTag);
+type TagProps = {
+  tag: tagType;
+  samples: string[];
+  checksForTag: checksType;
+  attributesForTag: attributesType;
+  propertiesForTag: propertiesType;
+  parrentTags: string[][] | undefined;
+  childTags: string[][] | undefined;
+};
 
-  if (!tag) {
-    notFound();
-  }
-
-  const checksForTag = checks.filter((check) => {
-    return check.relatedTags.includes(tag.name);
-  });
-
-  const attributesForTag = attributes.filter((attribute) => {
-    const relatedTags = attribute.relatedTags;
-    return relatedTags.includes(tag.name);
-  });
-
-  const propertiesForTag = properties.filter((propertie) => {
-    const relatedTags = propertie.relatedTags;
-    return relatedTags.includes(tag.name);
-  });
-
-  const hierarchyForTag = hierarchyData.find((hierarchy) => {
-    return hierarchy.name === tag.name;
-  });
-
-  const parrentTags = hierarchyForTag?.hierarchy.parents.map((item) => {
-    const [tagName, occurrences] = item;
-
-    let newTagName: string;
-    let newOccurrences: string;
-
-    if (typeof tagName === "number") {
-      newTagName = tagName.toString();
-    } else {
-      newTagName = tagName ?? "";
-    }
-
-    if (typeof occurrences === "number") {
-      newOccurrences = occurrences.toString();
-    } else {
-      newOccurrences = occurrences ?? "";
-    }
-
-    return [newTagName, newOccurrences];
-  });
-
-  const childTags = hierarchyForTag?.hierarchy.children.map((item) => {
-    const [tagName, occurrences] = item;
-
-    let newTagName: string;
-    let newOccurrences: string;
-
-    if (typeof tagName === "number") {
-      newTagName = tagName.toString();
-    } else {
-      newTagName = tagName ?? "";
-    }
-
-    if (typeof occurrences === "number") {
-      newOccurrences = occurrences.toString();
-    } else {
-      newOccurrences = occurrences ?? "";
-    }
-
-    return [newTagName, newOccurrences];
-  });
-
+export default function Tag({
+  tag,
+  samples,
+  checksForTag,
+  attributesForTag,
+  propertiesForTag,
+  parrentTags,
+  childTags,
+}: TagProps) {
   return (
     <div className="mx-auto max-w-3xl text-gray-100">
-      <h1 className="mb-6 text-4xl font-bold text-primary">{tag.name}</h1>
+      <h1 className="text-primary mb-6 text-4xl font-bold">{tag.name}</h1>
 
       <section className="mb-8">
         <h2 className="mb-3 text-2xl font-semibold">Description</h2>
@@ -136,7 +88,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
                     <div className="group rounded-lg p-3 transition-colors hover:bg-gray-700">
                       <div className="mb-1 flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <span className="font-semibold text-primary">
+                          <span className="text-primary font-semibold">
                             {attr.name}
                           </span>
                           <Badge variant="secondary" className="text-xs">
@@ -170,7 +122,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
                     <div className="group rounded-lg p-3 transition-colors hover:bg-gray-700">
                       <div className="mb-1 flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <span className="font-semibold text-primary">
+                          <span className="text-primary font-semibold">
                             {prop.name}
                           </span>
                           <Badge variant="secondary" className="text-xs">
@@ -224,7 +176,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
           <React.Fragment key={index}>
             <p className="text-gray-300">{useCase.description}</p>
             <CodeMirror
-              value={useCase.sample}
+              value={samples[index]}
               height="calc(100%)"
               extensions={[xml()]}
               theme="dark"
@@ -283,7 +235,7 @@ export default function Tag({ currentTag }: { currentTag: string }) {
               <li key={tip.index}>
                 <Link
                   href={`/matterhorn?check=${tip.index}`}
-                  className="inline py-1 text-sm transition-colors hover:text-primary"
+                  className="hover:text-primary inline py-1 text-sm transition-colors"
                 >
                   {tip.failureCondition}
                 </Link>
@@ -321,7 +273,7 @@ function TagRelationship({
   }
   return (
     <div className="space-y-2">
-      <h3 className="mb-2 flex items-center text-lg font-semibold text-primary">
+      <h3 className="text-primary mb-2 flex items-center text-lg font-semibold">
         <Icon className="mr-2" />
         {type === "parent" ? "Parent" : "Child"} Tags
       </h3>
@@ -355,7 +307,7 @@ function TagRelationship({
           })}
         </div>
       ) : (
-        <p className="italic text-gray-400">
+        <p className="text-gray-400 italic">
           {type === "parent"
             ? "This is a root-level tag and has no parents."
             : "This tag cannot contain any child tags."}

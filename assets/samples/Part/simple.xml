@@ -1,0 +1,16 @@
+<Document xmlns="http://iso.org/pdf2/ssn">
+  <Part><!-- e.g. category of a magazine -->
+    <Art><!-- one article in a category -->
+      <H1>[main content of the article]</H1>
+      <P>text</P>
+        <Sect><!-- info box content -->
+          <P>text</P>
+          <Div lang="de-DE"><!-- passage of foreign language content, where a Lang attribute is assigned to &lt;Div&gt; -->
+            <P>text</P>
+            <P>text</P>
+          </Div>
+        </Sect>
+    </Art>
+    <!-- More <Art> elements can be added here -->
+  </Part>
+</Document>
