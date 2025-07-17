@@ -28,8 +28,8 @@ FROM base AS builder
 # Copy installed dependencies from deps stage
 COPY --from=deps /app/node_modules ./node_modules
 
-# Copy the assets folder from parent directory
-COPY assets ./assets
+# Copy the assets folder from parent directory to the location the app expects
+COPY assets ../assets
 
 # Copy the webapp content
 COPY webapp ./
@@ -77,7 +77,7 @@ RUN adduser --system --uid 1001 nextjs
 RUN mkdir .next && chown nextjs:nodejs .next
 
 # Copy the final build artifacts from the builder
-COPY --from=builder --chown=nextjs:nodejs /app/assets ./assets
+COPY --from=builder --chown=nextjs:nodejs /app/../assets ../assets
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
