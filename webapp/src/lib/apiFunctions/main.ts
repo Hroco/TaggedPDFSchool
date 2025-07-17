@@ -36,13 +36,20 @@ export function getSample({
       useCasePath,
     );
 
+    console.log("samplePath", samplePath);
+
     if (!fs.existsSync(samplePath)) {
+      console.log("Sample not found");
       return { status: "error", error: "Sample not found" };
     }
 
     const content = fs.readFileSync(samplePath, "utf-8");
+
+    console.log("content", content);
+
     return { status: "success", "Content-Type": "text/xml", content };
   } catch (error) {
+    console.log("Failed to load sample");
     return { status: "error", error: "Failed to load sample" };
   }
 }
