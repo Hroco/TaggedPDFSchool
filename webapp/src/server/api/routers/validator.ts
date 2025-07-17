@@ -190,9 +190,9 @@ export const validatorRouter = createTRPCRouter({
           throw new Error(`Unsupported platform: ${platform}`);
       }
 
-      //console.log("platform", platform);
-      //console.log("xml2pdfLocation", xml2pdfLocation);
-      //console.log("args", args);
+      console.log("platform", platform);
+      console.log("xml2pdfLocation", xml2pdfLocation);
+      console.log("args", args);
 
       return new Promise<{ output: string; success: boolean }>(
         (resolve, reject) => {
@@ -202,9 +202,9 @@ export const validatorRouter = createTRPCRouter({
               .then(() => {
                 // Executable exists and is executable
                 execFile(xml2pdfLocation, args, (error, stdout, stderr) => {
-                  //console.log("stdout", stdout);
-                  //console.log("stderr", stderr);
-                  //console.log("error", error);
+                  console.log("stdout", stdout);
+                  console.log("stderr", stderr);
+                  console.log("error", error);
 
                   // Clean up temporary file
                   fs.unlink(tempFileName).catch((unlinkErr) => {
