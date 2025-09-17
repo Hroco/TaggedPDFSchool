@@ -270,7 +270,15 @@ pdf1rolemap-Note = notAllowed?
         continue;
       }
 
-      output += this.generateElementDefinition(element, type);
+      if (element.name === "Hn") {
+        output += `Hn=H1|H2|H3|H4|H5|H6|H7|H8|H9|H10\n`;
+
+        for (let i = 1; i <= 10; i++) {
+          output += this.generateElementDefinition(element, type, `H${i}`);
+        }
+      } else {
+        output += this.generateElementDefinition(element, type);
+      }
     }
 
     return output;
@@ -279,6 +287,7 @@ pdf1rolemap-Note = notAllowed?
   private generateElementDefinition(
     structure: StructureElement,
     type: "PDF20" | "PDF17",
+    nameOverride?: string,
   ): string {
     const elementName = structure.name;
     const tagData = tags.find((tag) => tag.name === elementName);
@@ -291,9 +300,11 @@ pdf1rolemap-Note = notAllowed?
     const isPDF1Element =
       tagData.namespace.length === 1 && tagData.namespace[0] === "1.7";
 
-    let output = `${elementName} = element ${
+    const schemaElementName = nameOverride ?? elementName;
+
+    let output = `${schemaElementName} = element ${
       type === "PDF20" && !isPDF1Element ? "pdf2" : "pdf1"
-    }:${elementName} {\n`;
+    }:${schemaElementName} {\n`;
 
     // Add role mapping if needed
     if (this.needsRoleMapping(elementName)) {

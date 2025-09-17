@@ -1,3 +1,5 @@
 <Document>
+  <DocumentFragment>
     <P>content of the paragraph</P>
+  </DocumentFragment>
 </Document>

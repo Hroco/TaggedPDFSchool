@@ -17,44 +17,76 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
+import tags from "@assets/tagsDB.json";
 
 type XMLViewerProps = {
   input: string;
   output: string;
 };
 
+function postProcessXML(
+  text: string,
+  selectedNamespace: "2.0" | "1.7",
+): string {
+  let output = text.replaceAll(
+    "<Document>",
+    '<Document xmlns="http://iso.org/pdf2/ssn">',
+  );
+
+  if (selectedNamespace === "1.7") {
+    output = output.replaceAll(
+      "http://iso.org/pdf2/ssn",
+      "http://iso.org/pdf/ssn",
+    );
+  }
+
+  if (selectedNamespace === "2.0") {
+    const listOfAll17Tags: string[] = tags
+      .filter((tag) => tag.namespace.length === 1 && tag.namespace[0] === "1.7")
+      .map((tag) => tag.name);
+
+    console.log("listOfAll17Tags", listOfAll17Tags);
+
+    //check if we have some elements from the 1.7 namespace
+    const has17Tags = listOfAll17Tags.some((tag) => output.includes(tag));
+
+    if (has17Tags) {
+      if (!output.includes('xmlns:pdf1="http://iso.org/pdf/ssn"')) {
+        output = output.replaceAll(
+          "<Document",
+          '<Document xmlns:pdf1="http://iso.org/pdf/ssn"',
+        );
+      }
+
+      for (const tag of listOfAll17Tags) {
+        output = output.replaceAll(`<${tag}>`, `<pdf1:${tag}>`);
+        output = output.replaceAll(`</${tag}>`, `</pdf1:${tag}>`);
+        output = output.replaceAll(`pdf1:pdf1:${tag}`, `pdf1:${tag}`);
+      }
+    }
+  }
+
+  console.log("output", output);
+
+  return output;
+}
+
 export default function XMLViewer({ input, output }: XMLViewerProps) {
-  const [selectedNamespace, setSelectedNamespace] = useState("2.0");
+  const [selectedNamespace, setSelectedNamespace] = useState<"2.0" | "1.7">(
+    "2.0",
+  );
   const [xmlContent, setXmlContent] = useState<string>(input);
   const [validationOutput, setValidationOutput] = useState<string>(output);
   const validateXML = api.validator.validate.useMutation();
   const downloadPDF = api.validator.downloadPDF.useMutation();
 
-  // useEffect(() => {
-  //   void run();
-  // }, []);
-
-  useEffect(() => {
-    console.log("selectedNamespace", selectedNamespace);
-
-    if (selectedNamespace === "1.7") {
-      const newText = xmlContent.replaceAll(
-        "http://iso.org/pdf2/ssn",
-        "http://iso.org/pdf/ssn",
-      );
-      setXmlContent(newText);
-    } else {
-      const newText = xmlContent.replaceAll(
-        "http://iso.org/pdf/ssn",
-        "http://iso.org/pdf2/ssn",
-      );
-      setXmlContent(newText);
-    }
-  }, [selectedNamespace]);
-
   async function run() {
+    console.log("run");
+
+    const processedXML = postProcessXML(xmlContent, selectedNamespace);
+    //setXmlContent(processedXML);
     const response = await validateXML.mutateAsync({
-      tagStructure: xmlContent,
+      tagStructure: processedXML,
       namespace: selectedNamespace,
     });
     console.log("response", response);
@@ -107,7 +139,12 @@ export default function XMLViewer({ input, output }: XMLViewerProps) {
         <Button variant="default" onClick={download} className="">
           Download PDF
         </Button>
-        <Select onValueChange={setSelectedNamespace} value={selectedNamespace}>
+        <Select
+          onValueChange={(value: string) => {
+            setSelectedNamespace(value as "1.7" | "2.0");
+          }}
+          value={selectedNamespace}
+        >
           <SelectTrigger
             className="!bg-primary h-10 w-[180px] text-black"
             size="default"
